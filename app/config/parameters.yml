@@ -1,15 +1,16 @@
 parameters:
     database_driver:   pdo_mysql
     database_host:     localhost
-    database_port:     ~
-    database_name:     symfony
-    database_user:     root
-    database_password: ~
+    database_port:     null
+    database_name:     wn2
+    database_user:     wn2
+    database_password: AdvCPrCEELYDbuhp
+    database_path: null
 
     mailer_transport:  smtp
     mailer_host:       localhost
-    mailer_user:       ~
-    mailer_password:   ~
+    mailer_user:       null
+    mailer_password:   null
 
     locale:            en
-    secret:            ThisTokenIsNotSoSecretChangeIt
+    secret:            bdc4a410f7735591d9a22b306fc62a7d8
