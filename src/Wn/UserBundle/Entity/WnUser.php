@@ -14,13 +14,11 @@ namespace Wn\UserBundle\Entity;
 use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
-use Sylius\Sandbox\Bundle\UserBundle\Entity\User as SyliusUser
-
 /**
  * @ORM\Entity
  * @ORM\Table(name="fos_user")
  */
-class WnUser extends SyliusUser
+class WnUser extends \Sylius\Sandbox\Bundle\UserBundle\Entity\User
 {
     /**
      * @ORM\Id
