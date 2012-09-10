@@ -2,14 +2,26 @@
     "name": "symfony/framework-standard-edition",
     "description": "The \"Symfony Standard Edition\" distribution",
     "autoload": {
-        "psr-0": { "": "src/" }
+        "psr-0": { "": "src/",
+            "Sylius\\Sandbox": "src/" }
     },
     "require": {
         "php": ">=5.3.3",
-        "symfony/symfony": "2.1.*",
+
         "doctrine/orm": ">=2.2.3,<2.4-dev",
-        "doctrine/doctrine-bundle": "1.0.*",
+        "fzaninotto/faker": "dev-master",
+        "symfony/symfony": "2.1.*",
         "twig/extensions": "1.0.*",
+
+        "avalanche123/imagine-bundle":         "dev-master",
+        "behat/mink-browserkit-driver":        "dev-master",
+        "behat/mink-extension":                "dev-master",
+        "behat/mink-goutte-driver":            "dev-master",
+        "behat/symfony2-extension":            "dev-master",
+        "doctrine/doctrine-bundle": "1.0.*",
+        "doctrine/doctrine-fixtures-bundle":   "dev-master",
+        "doctrine/doctrine-migrations-bundle": "dev-master",
+
         "symfony/assetic-bundle": "2.1.*",
         "symfony/swiftmailer-bundle": "2.1.*",
         "symfony/monolog-bundle": "2.1.*",
@@ -18,7 +30,25 @@
         "sensio/generator-bundle": "2.1.*",
         "jms/security-extra-bundle": "1.2.*",
         "jms/di-extra-bundle": "1.1.*",
-        "friendsofsymfony/user-bundle": "*"
+        "stof/doctrine-extensions-bundle":     "dev-master",
+
+        "friendsofsymfony/rest-bundle":        "dev-master",
+        "friendsofsymfony/user-bundle": "*",
+        "friendsofsymfony/comment-bundle":     "dev-master",
+        "knplabs/knp-markdown-bundle":         "dev-master",
+        "knplabs/knp-menu-bundle":             "dev-master",
+
+        "sylius/addressing-bundle":            "dev-master",
+        "sylius/assortment-bundle":            "dev-master",
+        "sylius/blogger-bundle":               "dev-master",
+        "sylius/cart-bundle":                  "dev-master",
+        "sylius/categorizer-bundle":           "dev-master",
+        "sylius/flow-bundle":                  "dev-master",
+        "sylius/inventory-bundle":             "dev-master",
+        "sylius/sales-bundle":                 "dev-master",
+        "symfony/assetic-bundle":              "dev-master",
+        "symfony/monolog-bundle":              "dev-master",
+        "symfony/swiftmailer-bundle":          "dev-master"
     },
     "scripts": {
         "post-install-cmd": [

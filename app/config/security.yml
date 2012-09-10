@@ -20,7 +20,8 @@ security:
 #                    user:  { password: userpass, roles: [ 'ROLE_USER' ] }
 #                    admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
         fos_userbundle:
-              id: fos_user.user_provider.username
+#            id: fos_user.user_provider.username
+            id: fos_user.user_manager
 
     firewalls:
 #        dev:
@@ -47,6 +48,15 @@ security:
             form_login:
                 provider: fos_userbundle
                 csrf_provider: form.csrf_provider
+                login_path: /login
+                check_path: /login
+                use_referer: true
+            remember_me:
+                key: eUodAjYEzDza72
+                name: APP_REMEMBER_ME
+                lifetime: 31536000
+                always_remember_me: true
+                remember_me_parameter: _remember_me
             logout:       true
             anonymous:    true
 
@@ -57,4 +67,4 @@ security:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: "/administration.*", role: ROLE_SYLIUS_ADMIN }

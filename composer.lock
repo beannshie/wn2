@@ -1,11 +1,59 @@
 {
-    "hash": "f976a60642a6123a1ee6a4a3131e1e07",
+    "hash": "867b2fff263e8978081bc951e136a1ff",
     "packages": [
+        {
+            "package": "avalanche123/imagine-bundle",
+            "version": "dev-master",
+            "source-reference": "a1248483cdd532780928f0ac23f06596d198a3f0",
+            "commit-date": "1344289113"
+        },
+        {
+            "package": "behat/behat",
+            "version": "v2.4.4"
+        },
+        {
+            "package": "behat/gherkin",
+            "version": "v2.2.4"
+        },
+        {
+            "package": "behat/mink",
+            "version": "v1.4.0"
+        },
+        {
+            "package": "behat/mink-browserkit-driver",
+            "version": "dev-master",
+            "source-reference": "97fa7d67ab5afb13d74515c15ef5c0cab12c0bc0",
+            "commit-date": "1341477260"
+        },
+        {
+            "package": "behat/mink-extension",
+            "version": "dev-master",
+            "source-reference": "2a0913a19c145d7e0cb0aba592635dfceb8808a1",
+            "commit-date": "1347305071"
+        },
+        {
+            "package": "behat/mink-goutte-driver",
+            "version": "dev-master",
+            "source-reference": "703a365a0f6c15f91f35c1cc30531b9de7f23a6d",
+            "commit-date": "1345633817"
+        },
+        {
+            "package": "behat/symfony2-extension",
+            "version": "dev-master",
+            "source-reference": "3955aea7932b69aa35893c594ae76da9ce7e1e42",
+            "commit-date": "1343142072"
+        },
         {
             "package": "doctrine/common",
             "version": "2.3.x-dev",
             "source-reference": "605b1b8b5a7bc8daf9111fb35483e5708e30de35",
             "commit-date": "1346249247"
+        },
+        {
+            "package": "doctrine/data-fixtures",
+            "version": "dev-master",
+            "source-reference": "779c3dfe446b6da893be87b908d6be28345d1e01",
+            "commit-date": "1341780535"
         },
         {
             "package": "doctrine/dbal",
@@ -22,8 +70,26 @@
         {
             "package": "doctrine/doctrine-bundle",
             "version": "dev-master",
-            "source-reference": "v1.0.0",
-            "commit-date": "1347052701"
+            "source-reference": "d3c930599723c8343472a5791b0f5909a4111a73",
+            "commit-date": "1347289964"
+        },
+        {
+            "package": "doctrine/doctrine-fixtures-bundle",
+            "version": "dev-master",
+            "source-reference": "186d605aa6b592bd577e07e0e9a2c420b02b2492",
+            "commit-date": "1345465418"
+        },
+        {
+            "package": "doctrine/doctrine-migrations-bundle",
+            "version": "dev-master",
+            "source-reference": "3792aa78445773387754c6853bbd7f4dcb31f486",
+            "commit-date": "1341472972"
+        },
+        {
+            "package": "doctrine/migrations",
+            "version": "dev-master",
+            "source-reference": "17f4b56bf0af0274cabdf3ae9b644059246d66b7",
+            "commit-date": "1347005884"
         },
         {
             "package": "doctrine/orm",
@@ -32,10 +98,62 @@
             "commit-date": "1346869007"
         },
         {
+            "package": "fabpot/goutte",
+            "version": "dev-master",
+            "source-reference": "1d72f22b21b37a8d38ea48e17b34c3afc73dfc46",
+            "commit-date": "1346234818"
+        },
+        {
+            "package": "friendsofsymfony/comment-bundle",
+            "version": "dev-master",
+            "source-reference": "v2.0.1",
+            "commit-date": "1347062933"
+        },
+        {
+            "package": "friendsofsymfony/rest",
+            "version": "0.7.0"
+        },
+        {
+            "package": "friendsofsymfony/rest-bundle",
+            "version": "dev-master",
+            "source-reference": "34b3d2ce2216bdac78224315ab30ea9dbcd3848e",
+            "commit-date": "1347205731"
+        },
+        {
             "package": "friendsofsymfony/user-bundle",
             "version": "dev-master",
             "source-reference": "878b7c8320159fb09e8e94d446c498b00142b206",
             "commit-date": "1347102006"
+        },
+        {
+            "package": "fzaninotto/faker",
+            "version": "dev-master",
+            "source-reference": "e288d3ca6c163bfb1c9202e0985ea81257150ee8",
+            "commit-date": "1346694314"
+        },
+        {
+            "package": "gedmo/doctrine-extensions",
+            "version": "dev-master",
+            "source-reference": "4e8a3a920eedaba4e76c26a92347e9b47bb7ffdf",
+            "commit-date": "1346486653"
+        },
+        {
+            "package": "guzzle/common",
+            "version": "v2.8.6"
+        },
+        {
+            "package": "guzzle/http",
+            "version": "v2.8.6"
+        },
+        {
+            "package": "guzzle/parser",
+            "version": "v2.8.6"
+        },
+        {
+            "package": "imagine/Imagine",
+            "version": "dev-master",
+            "source-reference": "v0.3.0",
+            "commit-date": "1343522118"
         },
         {
             "package": "jms/aop-bundle",
@@ -62,6 +180,42 @@
             "commit-date": "1346947943"
         },
         {
+            "package": "jms/serializer-bundle",
+            "version": "dev-master",
+            "alias-pretty-version": "0.9.x-dev",
+            "alias-version": "0.9.9999999.9999999-dev"
+        },
+        {
+            "package": "jms/serializer-bundle",
+            "version": "dev-master",
+            "source-reference": "5a9b7e6b62143950726f642da23d7eebf850e389",
+            "commit-date": "1346073949"
+        },
+        {
+            "package": "knplabs/knp-markdown-bundle",
+            "version": "dev-master",
+            "source-reference": "d0fac3f6d2ac502386ee73def9cf900029e1d353",
+            "commit-date": "1339679093"
+        },
+        {
+            "package": "knplabs/knp-menu",
+            "version": "dev-master",
+            "alias-pretty-version": "2.0.x-dev",
+            "alias-version": "2.0.9999999.9999999-dev"
+        },
+        {
+            "package": "knplabs/knp-menu",
+            "version": "dev-master",
+            "source-reference": "78f78d593117ac50ba3ab13664a7c99904f694d1",
+            "commit-date": "1345991530"
+        },
+        {
+            "package": "knplabs/knp-menu-bundle",
+            "version": "dev-master",
+            "source-reference": "dcbbf95363d2e36d507b481ac2124a0ae0ce6e67",
+            "commit-date": "1346242383"
+        },
+        {
             "package": "kriswallsmith/assetic",
             "version": "dev-master",
             "alias-pretty-version": "1.1.x-dev",
@@ -84,6 +238,12 @@
             "version": "dev-master",
             "source-reference": "e5bf7ba5d1df622b68d004b3c0277bc94286e1b7",
             "commit-date": "1347105894"
+        },
+        {
+            "package": "pagerfanta/pagerfanta",
+            "version": "dev-master",
+            "source-reference": "12f71d99457b018fb80746f84514dd5b495c5789",
+            "commit-date": "1345672591"
         },
         {
             "package": "sensio/distribution-bundle",
@@ -122,6 +282,12 @@
             "commit-date": "1346138171"
         },
         {
+            "package": "stof/doctrine-extensions-bundle",
+            "version": "dev-master",
+            "source-reference": "0247e6f1658d76292c8ffe2c5106090bd36bd799",
+            "commit-date": "1346283670"
+        },
+        {
             "package": "swiftmailer/swiftmailer",
             "version": "dev-master",
             "alias-pretty-version": "4.2.x-dev",
@@ -134,10 +300,52 @@
             "commit-date": "1347083952"
         },
         {
-            "package": "symfony/assetic-bundle",
+            "package": "sylius/addressing-bundle",
             "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
+            "source-reference": "142eea7882567a82ee0c0d9ff6c754e153e774c8",
+            "commit-date": "1346502602"
+        },
+        {
+            "package": "sylius/assortment-bundle",
+            "version": "dev-master",
+            "source-reference": "67a155997725cd6c04916dcbba3dcd2ff19ede07",
+            "commit-date": "1346142037"
+        },
+        {
+            "package": "sylius/blogger-bundle",
+            "version": "dev-master",
+            "source-reference": "1de0af198bdf467bd54d743b8ea44d6cfd68f9cc",
+            "commit-date": "1339793218"
+        },
+        {
+            "package": "sylius/cart-bundle",
+            "version": "dev-master",
+            "source-reference": "8b07e296edd42a517b1e83547073d591d93b6ff4",
+            "commit-date": "1340633689"
+        },
+        {
+            "package": "sylius/categorizer-bundle",
+            "version": "dev-master",
+            "source-reference": "3569aa02906f26bbc34f8cf30a67b710a557b87c",
+            "commit-date": "1340398640"
+        },
+        {
+            "package": "sylius/flow-bundle",
+            "version": "dev-master",
+            "source-reference": "e3fae9b3e71e4c745a1eff416356e128da6adaf8",
+            "commit-date": "1341130992"
+        },
+        {
+            "package": "sylius/inventory-bundle",
+            "version": "dev-master",
+            "source-reference": "8f60094168a3ad361d3a848af4a825f55fbd86e7",
+            "commit-date": "1339060156"
+        },
+        {
+            "package": "sylius/sales-bundle",
+            "version": "dev-master",
+            "source-reference": "ff40e33f8ce3e4c0fcad202ca96521badc4c86fb",
+            "commit-date": "1339203299"
         },
         {
             "package": "symfony/assetic-bundle",
@@ -148,20 +356,8 @@
         {
             "package": "symfony/monolog-bundle",
             "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
-        },
-        {
-            "package": "symfony/monolog-bundle",
-            "version": "dev-master",
-            "source-reference": "v2.1.0-RC2",
-            "commit-date": "1345557954"
-        },
-        {
-            "package": "symfony/swiftmailer-bundle",
-            "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
+            "source-reference": "b7318480e6f8bf5579d6b3cd856850302e7ba8d8",
+            "commit-date": "1347283885"
         },
         {
             "package": "symfony/swiftmailer-bundle",
@@ -172,8 +368,8 @@
         {
             "package": "symfony/symfony",
             "version": "2.1.x-dev",
-            "source-reference": "e7059b44c78ca8e1e892adb4d93b5a482f4eb9b3",
-            "commit-date": "1346926323"
+            "source-reference": "597819eff13e2df3671cf3f838f9c1e2664b426e",
+            "commit-date": "1347286221"
         },
         {
             "package": "twig/extensions",
@@ -198,6 +394,12 @@
             "version": "dev-master",
             "source-reference": "68b8c4619c5bbe82bd345fe56070dec8c356610a",
             "commit-date": "1347025342"
+        },
+        {
+            "package": "white-october/pagerfanta-bundle",
+            "version": "dev-master",
+            "source-reference": "38e317a3ecd5a68e2322024ea8fe57632d4ddd68",
+            "commit-date": "1343134121"
         }
     ],
     "packages-dev": null,
@@ -205,7 +407,30 @@
 
     ],
     "minimum-stability": "dev",
-    "stability-flags": [
-
-    ]
+    "stability-flags": {
+        "fzaninotto/faker": 20,
+        "avalanche123/imagine-bundle": 20,
+        "behat/mink-browserkit-driver": 20,
+        "behat/mink-extension": 20,
+        "behat/mink-goutte-driver": 20,
+        "behat/symfony2-extension": 20,
+        "doctrine/doctrine-fixtures-bundle": 20,
+        "doctrine/doctrine-migrations-bundle": 20,
+        "symfony/assetic-bundle": 20,
+        "symfony/swiftmailer-bundle": 20,
+        "symfony/monolog-bundle": 20,
+        "stof/doctrine-extensions-bundle": 20,
+        "friendsofsymfony/rest-bundle": 20,
+        "friendsofsymfony/comment-bundle": 20,
+        "knplabs/knp-markdown-bundle": 20,
+        "knplabs/knp-menu-bundle": 20,
+        "sylius/addressing-bundle": 20,
+        "sylius/assortment-bundle": 20,
+        "sylius/blogger-bundle": 20,
+        "sylius/cart-bundle": 20,
+        "sylius/categorizer-bundle": 20,
+        "sylius/flow-bundle": 20,
+        "sylius/inventory-bundle": 20,
+        "sylius/sales-bundle": 20
+    }
 }

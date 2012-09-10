@@ -7,18 +7,20 @@
  * To change this template use File | Settings | File Templates.
  */
 
-// src/Wn/UserBundle/Entity/User.php
+// src/Wn/UserBundle/Entity/WnUser.php
 
 namespace Wn\UserBundle\Entity;
 
 use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
+use Sylius\Sandbox\Bundle\UserBundle\Entity\User as SyliusUser
+
 /**
  * @ORM\Entity
  * @ORM\Table(name="fos_user")
  */
-class User extends BaseUser
+class WnUser extends SyliusUser
 {
     /**
      * @ORM\Id

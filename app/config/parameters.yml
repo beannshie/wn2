@@ -1,7 +1,7 @@
 parameters:
     database_driver:   pdo_mysql
     database_host:     localhost
-    database_port:     null
+    database_port:     ~
     database_name:     wn2
     database_user:     wn2
     database_password: AdvCPrCEELYDbuhp
@@ -9,8 +9,8 @@ parameters:
 
     mailer_transport:  smtp
     mailer_host:       localhost
-    mailer_user:       null
-    mailer_password:   null
+    mailer_user:       ~
+    mailer_password:   ~
 
     locale:            en
     secret:            bdc4a410f7735591d9a22b306fc62a7d8

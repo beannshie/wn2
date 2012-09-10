@@ -1,27 +1,72 @@
 wn_user:
     resource: "@WnUserBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /wn
 
 # Internal routing configuration to handle ESI
 #_internal:
 #    resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
 #    prefix:   /_internal
 
-fos_user_security:
-    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 
-fos_user_profile:
-    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
-    prefix: /profile
+#User
+#fos_user_security:
+#    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+#
+#fos_user_profile:
+#    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+#    prefix: /profile
+#
+#fos_user_register:
+#    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+#    prefix: /register
+#
+#fos_user_resetting:
+#    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+#    prefix: /resetting
+#
+#fos_user_change_password:
+#    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+#    prefix: /profile
 
-fos_user_register:
-    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
-    prefix: /register
 
-fos_user_resetting:
-    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
-    prefix: /resetting
+#Sylius
 
-fos_user_change_password:
-    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
-    prefix: /profile
+sylius_sandbox_core:
+    resource: @SandboxCoreBundle/Resources/config/routing.yml
+
+sylius_sandbox_assortment:
+    resource: @SandboxAssortmentBundle/Resources/config/routing.yml
+
+sylius_sandbox_cart:
+    resource: @SandboxCartBundle/Resources/config/routing.yml
+
+sylius_sandbox_blogger:
+    resource: @SandboxBloggerBundle/Resources/config/routing.yml
+
+sylius_sandbox_sales:
+    resource: @SandboxSalesBundle/Resources/config/routing.yml
+
+sylius_sandbox_addressing:
+    resource: @SandboxAddressingBundle/Resources/config/routing.yml
+
+sylius_sandbox_user:
+    resource: @SandboxUserBundle/Resources/config/routing.yml
+
+sylius_categorizer_category:
+    resource: @SyliusCategorizerBundle/Resources/config/routing/frontend/category.yml
+
+sylius_categorizer_backend_category:
+    resource: @SyliusCategorizerBundle/Resources/config/routing/backend/category.yml
+    prefix: /administration
+
+sylius_flow:
+    resource: @SyliusFlowBundle/Resources/config/routing.yml
+
+fos_comment_api:
+    type: rest
+    resource: "@FOSCommentBundle/Resources/config/routing.yml"
+    prefix: /api
+
+_imagine:
+    resource: .
+    type: imagine

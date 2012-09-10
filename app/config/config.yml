@@ -4,22 +4,31 @@ imports:
 
 framework:
     #esi:             ~
-    #translator:      { fallback: %locale% }
-    translator:      ~
+    translator:      { fallback: %locale% }
     secret:          %secret%
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
         strict_requirements: %kernel.debug%
-    form:            true
-    csrf_protection: true
-    validation:      { enable_annotations: true }
-    templating:      { engines: ['twig'] } #assets_version: SomeVersionScheme
+    form: ~
+    csrf_protection:
+        enabled: true
+    validation:      { enabled: true, enable_annotations: true }
+    templating:      { engines: ['twig', 'php'] } #assets_version: SomeVersionScheme
     default_locale:  %locale%
     trust_proxy_headers: false # Whether or not the Request object should trust proxy headers (X_FORWARDED_FOR/HTTP_CLIENT_IP)
-    session:         ~
+    session:
+        name: WN_SESSION
+        lifetime: 72000
+
+sensio_framework_extra:
+    view:
+        annotations: false
 
 # Twig Configuration
 twig:
+    form:
+        resources:
+            - 'SandboxCoreBundle::forms.html.twig'
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
 
@@ -27,6 +36,7 @@ twig:
 assetic:
     debug:          %kernel.debug%
     use_controller: false
+    read_from:      %kernel.root_dir%/../web
     bundles:        [ ]
     #java: /usr/bin/java
     filters:
@@ -49,18 +59,178 @@ doctrine:
 
     orm:
         auto_generate_proxy_classes: %kernel.debug%
-        auto_mapping: true
+        #auto_mapping: true
+        entity_managers:
+            default:
+                mappings:
+                    FOSUserBundle: ~
+                    FOSCommentBundle: ~
+                    SandboxAddressingBundle: ~
+                    SandboxAssortmentBundle: ~
+                    SandboxBloggerBundle: ~
+                    SandboxCartBundle: ~
+                    SandboxSalesBundle: ~
+                    SandboxUserBundle: ~
+                    SandboxCommentBundle: ~
+                    SyliusAddressingBundle: ~
+                    SyliusAssortmentBundle: ~
+                    SyliusBloggerBundle: ~
+                    SyliusCartBundle: ~
+                    SyliusCategorizerBundle: ~
+                    SyliusInventoryBundle: ~
+                    SyliusSalesBundle: ~
+                filters:
+                    softdeleteable:
+                        class: Gedmo\SoftDeleteable\Filter\SoftDeleteableFilter
+                        enabled: true
 
 # Swiftmailer Configuration
 swiftmailer:
+    disable_delivery: %kernel.debug%
     transport: %mailer_transport%
     host:      %mailer_host%
     username:  %mailer_user%
     password:  %mailer_password%
     spool:     { type: memory }
 
+
+
+stof_doctrine_extensions:
+    default_locale: %locale%
+    orm:
+        default:
+            tree: true
+            sluggable: true
+            timestampable: true
+            softdeleteable: true
+
+avalanche_imagine:
+    source_root:  %kernel.root_dir%/../public
+    web_root: %kernel.root_dir%/../public
+    cache_prefix: media/cache
+    filters:
+        frontend_medium:
+            type: thumbnail
+            options: { size: [220, 180], mode: outbound }
+        backend_mini:
+            type: thumbnail
+            options: { size: [90, 60], mode: outbound }
+
 # User bundle
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
-    user_class: Wn\UserBundle\Entity\User
+    user_class: Wn\UserBundle\Entity\WnUser
+
+fos_comment:
+    db_driver: orm
+    class:
+        model:
+            comment: Sylius\Sandbox\Bundle\CommentBundle\Entity\Comment
+            thread: Sylius\Sandbox\Bundle\CommentBundle\Entity\Thread
+    acl: true
+    service:
+        acl:
+            thread: fos_comment.acl.thread.roles
+            comment: fos_comment.acl.comment.roles
+            vote: fos_comment.acl.vote.roles
+    acl_roles:
+        comment:
+            create: IS_AUTHENTICATED_ANONYMOUSLY
+            view: IS_AUTHENTICATED_ANONYMOUSLY
+            edit: ROLE_SYLIUS_ADMIN
+            delete: ROLE_SYLIUS_ADMIN
+        thread:
+            create: IS_AUTHENTICATED_ANONYMOUSLY
+            view: IS_AUTHENTICATED_ANONYMOUSLY
+            edit: ROLE_SYLIUS_ADMIN
+            delete: ROLE_SYLIUS_ADMIN
+        vote:
+            create: IS_AUTHENTICATED_ANONYMOUSLY
+            view: IS_AUTHENTICATED_ANONYMOUSLY
+            edit: ROLE_SYLIUS_ADMIN
+            delete: ROLE_SYLIUS_ADMIN
+
+sylius_assortment:
+    driver: doctrine/orm
+    api: true
+    classes:
+        model:
+            product: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Product
+            variant: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Variant\Variant
+            property: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Property\Property
+            product_property: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Property\ProductProperty
+            prototype: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Prototype\Prototype
+            option: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Option\Option
+            option_value: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Option\OptionValue
+        form:
+            type:
+                product: Sylius\Sandbox\Bundle\AssortmentBundle\Form\Type\ProductType
+                variant: Sylius\Sandbox\Bundle\AssortmentBundle\Form\Type\VariantType
+
+sylius_categorizer:
+    driver: doctrine/orm
+    catalogs:
+        assortment:
+            property: "products"
+            model: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Category
+            form: sylius_sandbox_assortment_category
+            templates:
+                backend: SandboxAssortmentBundle:Backend/Category:%s.html.twig
+                frontend: SandboxAssortmentBundle:Frontend/Category:%s.html.twig
+        blog:
+            property: "posts"
+            model: Sylius\Sandbox\Bundle\BloggerBundle\Entity\Category
+            templates:
+                backend: SandboxBloggerBundle:Backend/Category:%s.html.twig
+                frontend: SandboxBloggerBundle:Frontend/Category:%s.html.twig
+
+sylius_cart:
+    driver: doctrine/orm
+    operator: sylius_sandbox_cart.operator
+    resolver: sylius_sandbox_cart.resolver
+    classes:
+        model:
+            cart: Sylius\Sandbox\Bundle\CartBundle\Entity\Cart
+            item: Sylius\Sandbox\Bundle\CartBundle\Entity\Item
+        manager:
+            cart: Sylius\Sandbox\Bundle\CartBundle\Entity\CartManager
+        form:
+            type:
+                item: Sylius\Sandbox\Bundle\CartBundle\Form\Type\ItemType
+
+sylius_blogger:
+    driver: doctrine/orm
+    classes:
+        model:
+            post: Sylius\Sandbox\Bundle\BloggerBundle\Entity\Post
+        form:
+            type:
+                post: Sylius\Sandbox\Bundle\BloggerBundle\Form\Type\PostType
+
+sylius_sales:
+    driver: doctrine/orm
+    classes:
+        model:
+            order: Sylius\Sandbox\Bundle\SalesBundle\Entity\Order
+            item: Sylius\Sandbox\Bundle\SalesBundle\Entity\Item
+            status: Sylius\Bundle\SalesBundle\Entity\Status
+        form:
+            type:
+                order: Sylius\Sandbox\Bundle\SalesBundle\Form\Type\OrderType
+                item: Sylius\Sandbox\Bundle\SalesBundle\Form\Type\ItemType
+
+sylius_addressing:
+    driver: doctrine/orm
+    classes:
+        model:
+            address: Sylius\Sandbox\Bundle\AddressingBundle\Entity\Address
+        form:
+            type:
+                address: Sylius\Bundle\AddressingBundle\Form\Type\CommonAddressType
+
+sylius_inventory:
+    driver: doctrine/orm
+    classes:
+        model:
+            iu: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\InventoryUnit
