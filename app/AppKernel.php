@@ -62,6 +62,8 @@ class AppKernel extends Kernel
             * Wn bundles.
             */
             new Wn\UserBundle\WnUserBundle(),
+            new Wn\CoreBundle\WnCoreBundle(),
+            new Wn\AssortmentBundle\WnAssortmentBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

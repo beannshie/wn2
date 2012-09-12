@@ -2,7 +2,7 @@
     "name": "symfony/framework-standard-edition",
     "description": "The \"Symfony Standard Edition\" distribution",
     "autoload": {
-        "psr-0": { "": "src/",
+        "psr-0": {
             "Sylius\\Sandbox": "src/" }
     },
     "require": {
@@ -48,20 +48,42 @@
         "sylius/sales-bundle":                 "dev-master",
         "symfony/assetic-bundle":              "dev-master",
         "symfony/monolog-bundle":              "dev-master",
-        "symfony/swiftmailer-bundle":          "dev-master"
+        "symfony/swiftmailer-bundle":          "dev-master",
+
+        "twitter/bootstrap":                   "v2.0.4"
     },
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "version": "v2.0.4",
+                "name": "twitter/bootstrap",
+                "source": {
+                    "url": "https://github.com/twitter/bootstrap.git",
+                    "type": "git",
+                    "reference": "v2.0.4"
+                },
+                "dist": {
+                    "url": "https://github.com/twitter/bootstrap/zipball/v2.0.4",
+                    "type": "zip"
+                }
+            }
+        }
+    ],
     "scripts": {
         "post-install-cmd": [
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "Sylius\\Sandbox\\Bundle\\CoreBundle\\Composer\\ScriptHandler::symlinkTwitterBootstrap"
         ],
         "post-update-cmd": [
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "Sylius\\Sandbox\\Bundle\\CoreBundle\\Composer\\ScriptHandler::symlinkTwitterBootstrap"
         ]
     },
     "config": {

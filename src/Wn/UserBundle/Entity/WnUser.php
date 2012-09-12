@@ -16,7 +16,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="fos_user")
+ * @ORM\Table(name="wn_user")
  */
 class WnUser extends \Sylius\Sandbox\Bundle\UserBundle\Entity\User
 {

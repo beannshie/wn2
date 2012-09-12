@@ -1,0 +1,11 @@
+#wn_core_homepage:
+#    pattern:  /hello/{name}
+#    defaults: { _controller: WnCoreBundle:Default:index }
+
+sylius_sandbox_core_frontend:
+    pattern: /
+    defaults: { _controller: sylius_sandbox_core.controller.frontend.main:indexAction }
+
+sylius_sandbox_core_backend:
+    pattern: /administration
+    defaults: { _controller: sylius_sandbox_core.controller.backend.main:indexAction }

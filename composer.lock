@@ -1,5 +1,5 @@
 {
-    "hash": "867b2fff263e8978081bc951e136a1ff",
+    "hash": "b2ffe13499a630c947756c352ffa9cb3",
     "packages": [
         {
             "package": "avalanche123/imagine-bundle",
@@ -111,13 +111,21 @@
         },
         {
             "package": "friendsofsymfony/rest",
-            "version": "0.7.0"
+            "version": "dev-master",
+            "alias-pretty-version": "0.8.x-dev",
+            "alias-version": "0.8.9999999.9999999-dev"
+        },
+        {
+            "package": "friendsofsymfony/rest",
+            "version": "dev-master",
+            "source-reference": "b48857315c39715245303fb5bbc1bab98026209e",
+            "commit-date": "1347135166"
         },
         {
             "package": "friendsofsymfony/rest-bundle",
             "version": "dev-master",
-            "source-reference": "34b3d2ce2216bdac78224315ab30ea9dbcd3848e",
-            "commit-date": "1347205731"
+            "source-reference": "741379ec2c3821664416a50c9274c1005f74160d",
+            "commit-date": "1347345361"
         },
         {
             "package": "friendsofsymfony/user-bundle",
@@ -128,14 +136,14 @@
         {
             "package": "fzaninotto/faker",
             "version": "dev-master",
-            "source-reference": "e288d3ca6c163bfb1c9202e0985ea81257150ee8",
-            "commit-date": "1346694314"
+            "source-reference": "5a88a2ecd0d61c0f8690f5a2c6552e2569284b81",
+            "commit-date": "1347357809"
         },
         {
             "package": "gedmo/doctrine-extensions",
             "version": "dev-master",
-            "source-reference": "4e8a3a920eedaba4e76c26a92347e9b47bb7ffdf",
-            "commit-date": "1346486653"
+            "source-reference": "8690cabf9c750fe44a257a8c7e905cdc36931674",
+            "commit-date": "1347372790"
         },
         {
             "package": "guzzle/common",
@@ -236,8 +244,8 @@
         {
             "package": "monolog/monolog",
             "version": "dev-master",
-            "source-reference": "e5bf7ba5d1df622b68d004b3c0277bc94286e1b7",
-            "commit-date": "1347105894"
+            "source-reference": "0f3dc95c4a0ed7d17bec237d07af3da6c0c1071a",
+            "commit-date": "1347363321"
         },
         {
             "package": "pagerfanta/pagerfanta",
@@ -247,25 +255,13 @@
         },
         {
             "package": "sensio/distribution-bundle",
-            "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
-        },
-        {
-            "package": "sensio/distribution-bundle",
-            "version": "dev-master",
-            "source-reference": "98921298951598e8707258cba2b6180b96faa91c",
-            "commit-date": "1347023757"
+            "version": "2.1.x-dev",
+            "source-reference": "2eee3cb4cd761c851f0d766649fb9ff6f4c97002",
+            "commit-date": "1347340208"
         },
         {
             "package": "sensio/framework-extra-bundle",
-            "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
-        },
-        {
-            "package": "sensio/framework-extra-bundle",
-            "version": "dev-master",
+            "version": "2.1.x-dev",
             "source-reference": "v2.1.0",
             "commit-date": "1346234539"
         },
@@ -368,8 +364,8 @@
         {
             "package": "symfony/symfony",
             "version": "2.1.x-dev",
-            "source-reference": "597819eff13e2df3671cf3f838f9c1e2664b426e",
-            "commit-date": "1347286221"
+            "source-reference": "f23fd03732e115fd15ec675c0ada4cba20a035d1",
+            "commit-date": "1347354770"
         },
         {
             "package": "twig/extensions",
@@ -394,6 +390,10 @@
             "version": "dev-master",
             "source-reference": "68b8c4619c5bbe82bd345fe56070dec8c356610a",
             "commit-date": "1347025342"
+        },
+        {
+            "package": "twitter/bootstrap",
+            "version": "v2.0.4"
         },
         {
             "package": "white-october/pagerfanta-bundle",

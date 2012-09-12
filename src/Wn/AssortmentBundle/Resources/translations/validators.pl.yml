@@ -1,0 +1,43 @@
+# This file is part of the Sylius package.
+# (c) Paweł Jędrzejewski
+
+sylius_assortment:
+    product:
+        sku:
+            not_blank: "Proszę wpisać SKU produktu"
+            unique: "SKU produktu musi być unikalny"
+        name:
+            not_blank: "Proszę wpisać nazwę produktu"
+            min_length: "Nazwa produktu musi mieć min 2 znaki"
+            max_length: "Nazwa produktu nie może przekraczać 255 znaków"
+        description:
+            not_blank: "Proszę wpisać opis produktu"
+            min_length: "Opis produktu musi mieć min 2 znaki"
+    variant:
+        sku:
+            not_blank: "Proszę wpisać SKU wariantu"
+            unique: "SKU wariantu musi być unikalny"
+    option:
+        name:
+            not_blank: "Proszę wpisać nazwę opcji"
+            min_length: "Nazwa opcji musi mieć min 2 znaki"
+            max_length: "Nazwa opcji nie może przekraczać 255 znaków"
+        presentation:
+            not_blank: "Proszę wpisać wygląd opcji"
+            min_length: "Wygląd opcji musi mieć min 2 znaki"
+            max_length: "Wygląd opcji nie może przekraczać 255 znaków"
+    property:
+        name:
+            not_blank: "Proszę wpisać nazwę właściwości"
+            min_length: "Nazwa właściwości musi mieć min 2 znaki"
+            max_length: "Nazwa właściwości nie może przekraczać 255 znaków"
+        presentation:
+            not_blank: "Proszę wpisać wygląd właściwości"
+            min_length: "Wygląd właściwości musi mieć min 2 znaki"
+            max_length: "Wygląd właściwości nie może przekraczać 255 znaków"
+    prototype:
+        name:
+            not_blank: "Proszę wpisać nazwę prototypu"
+            min_length: "Nazwa prototypu musi mieć min 2 znaki"
+            max_length: "Nazwa prototypu nie może przekraczać 255 znaków"
+

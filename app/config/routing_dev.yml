@@ -25,6 +25,6 @@ _profiler:
 _configurator:
     resource: "@SensioDistributionBundle/Resources/config/routing/webconfigurator.xml"
     prefix:   /_configurator
-
-_main:
-    resource: routing.yml
+#
+#_main:
+#    resource: routing.yml

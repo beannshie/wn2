@@ -1,0 +1,17 @@
+{% extends 'SandboxCoreBundle:Frontend:layout.html.twig' %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Rejestracja <small>Utwórz konto klienta w sklepie</small></h1>
+</div>
+
+<form action="{{ path('fos_user_registration_register') }}" method="post" novalidate>
+<fieldset class="well">
+    {{ form_widget(form) }}
+</fieldset>
+<div class="form-actions">
+    <input type="submit" class="btn btn-success btn-large span3" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}" />
+</div>
+</form>
+{% endblock %}
+
