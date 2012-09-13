@@ -1,0 +1,83 @@
+{% extends 'SandboxCoreBundle:Frontend:layout.html.twig' %}
+
+{% block content %}
+<div class="page-header">
+<h1>Koszyk</h1>
+</div>
+
+{% if not cart.empty %}
+<div class="alert alert-info">
+<strong>{{ sylius_cart_get().totalItems }}</strong> sztuk, <strong>{{ sylius_cart_get().value }}</strong> zł
+</div>
+
+{{ form_errors(form) }}
+
+<form method="post" action="{{ path('sylius_cart_save') }}">
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th></th>
+            <th>produkt</th>
+            <th>ilość</th>
+            <th></th>
+            <th>cena</th>
+            <th style="text-align: right;">suma</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in cart.items %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>
+                <a href="{{ path('sylius_assortment_product_show', {'slug': item.variant.product.slug}) }}" class="thumbnail" style="width: 90px;">
+                    <img src="{{ item.variant.product.imageWebPath is empty ? 'http://placehold.it/90x60' : item.variant.product.imageWebPath|apply_filter('frontend_medium') }}" alt="product photo" />
+                </a>
+            </td>
+            <td>
+                <p>{{ item.variant.product.name }}</p>
+                <ul class="unstyled">
+                    {% for option in item.variant.options %}
+                    <li><strong>{{ option.presentation }}</strong>: {{ option.value }}</li>
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>
+                {{ form_widget(form.items[loop.index0].quantity, {'attr': {'class': 'center-text'}}) }}
+            </td>
+            <td>
+                <a href="{{ path('sylius_cart_item_remove', {'id': item.id}) }}" class="btn btn-danger"><i class="icon-trash icon-white"></i></a>
+            </td>
+            <td>
+                {{ item.variant.price }} zł
+            </td>
+            <td style="text-align: right">
+                {{ item.quantity * item.variant.price }} zł
+            </td>
+        </tr>
+    {% endfor %}
+        <tr>
+            <td colspan="6"></td>
+            <td style="text-align: right;">
+                <strong>Suma całkowita</strong>: {{ cart.value }} zł
+            </td>
+        </tr>
+    </tbody>
+</table>
+{{ form_rest(form) }}
+<div class="well">
+    <input type="submit" class="btn btn-primary btn-large" value="zapisz">
+    <div class="pull-right">
+    <a href="{{ path('sylius_sandbox_checkout_start') }}" class="btn btn-success btn-large"><i class="icon-shopping-cart icon-white"></i> zamawiam</a>
+    <a href="{{ path('sylius_cart_clear') }}" class="btn btn-danger btn-large">wyczyść koszyk</a>
+    </div>
+</div>
+</form>
+{% else %}
+<hr />
+<div class="alert alert-info">
+    <h4 class="alert-heading">{{ 'alert.heading.info'|trans({}, 'SandboxCoreBundle') }}.</h4>
+    Twój koszyk jest pusty.
+</div>
+{% endif %}
+{% endblock %}

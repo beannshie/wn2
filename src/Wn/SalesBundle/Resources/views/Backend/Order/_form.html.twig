@@ -1,0 +1,54 @@
+<fieldset>
+<div class="row-fluid">
+    <hr />
+    <div class="span5 well">
+    <h3>Adres dostawy</h3>
+    <hr />
+    {{ form_row(form.deliveryAddress.firstname, {'attr': {'class': 'input-xlarge'}}) }}
+    {{ form_row(form.deliveryAddress.lastname, {'attr': {'class': 'input-xlarge'}}) }}
+    {{ form_row(form.deliveryAddress.street, {'attr': {'class': 'input-medium'}}) }}
+    {{ form_row(form.deliveryAddress.city, {'attr': {'class': 'input-medium'}}) }}
+    {{ form_row(form.deliveryAddress.postcode, {'attr': {'class': 'input-small'}}) }}
+    </div>
+
+    <div class="span5 well">
+    <h3>Adres na rachunku</h3>
+    <hr />
+    {{ form_row(form.billingAddress.firstname, {'attr': {'class': 'input-xlarge'}}) }}
+    {{ form_row(form.billingAddress.lastname, {'attr': {'class': 'input-xlarge'}}) }}
+    {{ form_row(form.billingAddress.street, {'attr': {'class': 'input-medium'}}) }}
+    {{ form_row(form.billingAddress.city, {'attr': {'class': 'input-medium'}}) }}
+    {{ form_row(form.billingAddress.postcode, {'attr': {'class': 'input-small'}}) }}
+    </div>
+</div>
+
+    <hr />
+    <table id="sylius-sales-order-items" data-prototype="{{ form_row(form.items.vars.prototype)|e }}" class="table table-striped">
+        <thead>
+            <tr>
+                <th></th>
+                <th>SKU</th>
+                <th>ilość</th>
+                <th>produkt</th>
+                <th><span class="pull-right">cena jednostkowa</span></th>
+                <th><span class="pull-right">suma</span></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for itemForm in form.items %}
+                {{ form_row(itemForm) }}
+            {% endfor %}
+            <tr>
+                <td colspan="5">
+                    <a id="sylius-sales-order-items-adder" class="btn btn-success">nowy produkt</a>
+                </td>
+                <td>
+                    <div class="input-append pull-right">
+                    <input type="text" id="sylius-sales-order-total" class="disabled input-small" disabled="disabled" value="0.00"/><span class="add-on">zł</span>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</fieldset>
+{{ form_widget(form._token) }}

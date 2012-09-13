@@ -1,0 +1,25 @@
+# This file is part of the Sylius package.
+# (c) Paweł Jędrzejewski
+
+sylius_addressing:
+    address:
+        firstname:
+            not_blank: "Proszę wpisać imię"
+            min_length: "Imię musi mieć min 2 znaki"
+            max_length: "Imię nie może przekraczać 255 znaków"
+        lastname:
+            not_blank: "Proszę wpisać nazwisko"
+            min_length: "Nazwisko musi mieć min 2 znaki"
+            max_length: "Nazwisko nie może przekraczać 255 znaków"
+        street:
+            not_blank: "Proszę wpisać ulicę"
+            min_length: "Ulica musi mieć min 2 znaki"
+            max_length: "Ulica nie może przekraczać 255 znaków"
+        city:
+            not_blank: "Proszę wpisać miasto"
+            min_length: "Miasto musi mieć min 2 znaki"
+            max_length: "Miasto nie może przekraczać 255 znaków"
+        postcode:
+            not_blank: "Proszę wpisać kod pocztowy"
+            min_length: "Kod pocztowy musi mieć min 2 znaki"
+            max_length: "Kod pocztowy nie może przekraczać 255 znaków"

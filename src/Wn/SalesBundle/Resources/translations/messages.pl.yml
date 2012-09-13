@@ -1,0 +1,23 @@
+# This file is part of the Sylius package.
+# (c) Paweł Jędrzejewski
+
+sylius_sales:
+    flash:
+        order:
+            created: "Zamówienie zostało stworzone"
+            updated: "Zamówienie zostało zapisane"
+            deleted: "Zamówienie zostało usunięte"
+            confirmed: "Zamówienie zostało potwierdzone"
+            opened: "Zamówienie zostało otwarte"
+            closed: "Zamówienie zostało zamknięte"
+        status:
+            created: "Status został stworzony"
+            updated: "Status został zaktualizowany"
+            deleted: "Status został usunięty"
+            moved: "Status został przesunięty"
+
+            changed: "Status zamówienie został zaktualizowany"
+            invalid: "Niepoprawny status zamówienia"
+    label:
+        status:
+            name: "Nazwa statusu"

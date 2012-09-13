@@ -1,14 +1,14 @@
 {% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
 
 {% block header %}
-    <h1>Creating property<small> Use the form below to create a new property</small></h1>
+    <h1>Daodawanie właściwości</h1>
 {% endblock %}
 
 {% block content %}
 <form action="{{ path('sylius_assortment_backend_property_create') }}" method="post" class="form-horizontal" novalidate>
     {% include 'SandboxAssortmentBundle:Backend/Property:_form.html.twig' %}
     <div class="form-actions">
-       <input type="submit" value="create property" class="btn btn-primary btn-large" />
+       <input type="submit" value="dodaj" class="btn btn-primary btn-large" />
     </div>
 </form>
 {% endblock %}

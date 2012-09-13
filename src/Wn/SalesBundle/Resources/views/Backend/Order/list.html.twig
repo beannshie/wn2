@@ -1,0 +1,98 @@
+{% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
+
+{% block header %}
+    <h1>Szczegóły zamówienia</h1>
+{% endblock %}
+
+{% block content %}
+<div class="well">
+<a href="{{ path('sylius_sales_backend_order_create') }}" class="btn btn-success">
+    <i class="icon-plus-sign icon-white"></i> dodaj nowe zamówienie
+</a>
+<a href="{{ path('sylius_sales_backend_status_list') }}" class="btn btn-primary">
+    <i class="icon-th-large icon-white"></i> zarządzaj statusami zamówienia
+</a>
+</div>
+
+{% if paginator.haveToPaginate() %}
+{{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
+{% endif %}
+
+<ul class="nav nav-tabs">
+    <li><a href="{{ path('sylius_sales_backend_order_list') }}">pokaż wszystkie zamówienia</a></li>
+    <li><a href="{{ path('sylius_sales_backend_order_list', {'filters': {'closed': [false, '=']}}) }}">tylko otwarte</a></li>
+    <li><a href="{{ path('sylius_sales_backend_order_list', {'filters': {'closed': [true, '=']}}) }}">tylko zamknięte</a></li>
+    <li><a href="{{ path('sylius_sales_backend_order_list', {'filters': {'status': [0, '='], 'closed': [false, '=']}}) }}"><span class="label label-important">&nbsp;!&nbsp;</span> zamówienia 'w trakcie'</a></li>
+    <li><a href="{{ path('sylius_sales_backend_order_list', {'filters': {'total': [500, '>']}}) }}">ponad <strong>500</strong> zł</a></li>
+    <li><a href="{{ path('sylius_sales_backend_order_list', {'filters': {'total': [500, '<']}}) }}">poniżej <strong>500</strong> zł</a></li>
+</ul>
+
+{% if orders|length > 0 %}
+<table class="table">
+    <thead>
+        <tr>
+            <th><a href="{{ path('sylius_sales_backend_order_list', {'sort': 'id', 'order': sorter.order, 'filters': filter.current}) }}">#id</a></th>
+            <th><a href="{{ path('sylius_sales_backend_order_list', {'sort': 'total', 'order': sorter.order, 'filters': filter.current}) }}">suma</a></th>
+            <th><a href="{{ path('sylius_sales_backend_order_list', {'sort': 'createdAt', 'order': sorter.order, 'filters': filter.current}) }}">utworzone</a></th>
+            <th><a href="{{ path('sylius_sales_backend_order_list', {'sort': 'status', 'order': sorter.order, 'filters': filter.current}) }}">status</a></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for order in orders %}
+        <tr{% if order.closed %} class="inactive"{% endif %}>
+            <td>{{ order.id }}</td>
+            <td>{{ order.total }} &euro;</td>
+            <td>{{ order.createdAt|date }}</td>
+            <td>
+                {% render 'sylius_sales.controller.backend.order:changeStatusAction' with {'id': order.id} %}
+            </td>
+            <td>
+                <div class="btn-group pull-right">
+                    <a href="{{ path('sylius_sales_backend_order_show', {'id': order.id}) }}" class="btn">
+                        <i class="icon-book"></i> szczegóły
+                    </a>
+                    <a href="#" data-toggle="dropdown" class="btn dropdown-toggle"><span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        {% if order.closed %}
+                        <li>
+                            <a href="{{ path('sylius_sales_backend_order_open', {'id': order.id}) }}">
+                                <i class="icon-share"></i> otwórz
+                            </a>
+                        </li>
+                        {% else %}
+                        <li>
+                            <a href="{{ path('sylius_sales_backend_order_close', {'id': order.id}) }}">
+                                <i class="icon-lock"></i> zamknij
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('sylius_sales_backend_order_update', {'id': order.id}) }}">
+                                 <i class="icon-pencil"></i> aktualizuj
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('sylius_sales_backend_order_delete', {'id': order.id}) }}">
+                                 <i class="icon-trash"></i> usuń
+                            </a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div class="alert alert-info">
+    <h4 class="alert-heading">{{ 'alert.heading.info'|trans({}, 'SandboxCoreBundle') }}.</h4>
+    Brak zamówień do wyświetlenia.
+</div>
+{% endif %}
+
+{% if paginator.haveToPaginate() %}
+{{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
+{% endif %}
+
+{% endblock %}

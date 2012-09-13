@@ -1,19 +1,19 @@
 {% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
 
 {% block header %}
-    <h1>Variant details</h1>
+    <h1>Szczegóły wariantu</h1>
 {% endblock %}
 
 {% block content %}
 <div class="well">
     <a href="{{ path('sylius_assortment_backend_variant_create', {'productId': variant.product.id}) }}" class="btn btn-primary">
-        <i class="icon-plus icon-white"></i> add another variant
+        <i class="icon-plus icon-white"></i> dodaj inny wariant
     </a>
     <a href="{{ path('sylius_assortment_product_show', {'id': variant.product.id, 'slug': variant.product.slug}) }}" class="btn">
-        <i class="icon-book"></i> show product in the store
+        <i class="icon-book"></i> pokaż produkt w sklepie
     </a>
     <a href="{{ path('sylius_assortment_backend_product_show', {'id': variant.product.id}) }}" class="btn">
-        <i class="icon-info-sign"></i> show product
+        <i class="icon-info-sign"></i> pokaż produkt
     </a>
     <a href="{{ path('sylius_assortment_backend_variant_update', {'id': variant.id}) }}" class="btn">
         <i class="icon-pencil"></i> {{ 'update'|trans({}, 'SandboxCoreBundle') }}
@@ -30,11 +30,11 @@
         <tr>
             <th>#id</th>
             <th>SKU</th>
-            <th>created at</th>
-            <th>updated at</th>
-            <th>stock "on hand"</th>
-            <th>option set</th>
-            <th>price</th>
+            <th>utworzony</th>
+            <th>edytowany</th>
+            <th>ilość na magazynie</th>
+            <th>lista opcji</th>
+            <th>cena</th>
         </tr>
     </thead>
     <tbody>
@@ -53,7 +53,7 @@
                 {% endfor %}
                 </ul>
             </td>
-            <td>{{ variant.price }} &euro;</td>
+            <td>{{ variant.price }} zł</td>
         </tr>
     </tbody>
 </table>

@@ -1,0 +1,11 @@
+#wn_blogger_homepage:
+#    pattern:  /hello/{name}
+#    defaults: { _controller: WnBloggerBundle:Default:index }
+
+sylius_blogger_backend_post:
+    prefix: /administration/blog/posts
+    resource: @SyliusBloggerBundle/Resources/config/routing/backend/post.yml
+
+sylius_blogger_post:
+    resource: @SyliusBloggerBundle/Resources/config/routing/frontend/post.yml
+    prefix: /blog/posts

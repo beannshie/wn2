@@ -1,0 +1,13 @@
+# This file is part of the Sylius package.
+# (c) Paweł Jędrzejewski
+
+sylius_cart:
+    flashes:
+        saved: "Twoj koszyk został zapisany"
+        cleared: "Twój koszyk został opróżniony"
+        add:
+            success: "Produkt został poprawnie dodany do koszyka"
+            error: "Wystąpił błąd podczas dodawania produktu do koszyka"
+        remove:
+            success: "Produkt został poprawnie usunięty z koszyka"
+            error: "Wystąpił błąd podczas usuwania produktu z koszyka"

@@ -1,0 +1,43 @@
+{% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
+
+{% block header %}
+    <h1>Szczegóły wpisu</h1>
+{% endblock %}
+
+{% block content %}
+<div class="well">
+<a href="{{ path('sylius_blogger_backend_post_update', {'id': post.id}) }}" class="btn">
+    <i class="icon-pencil"></i> edytuj
+</a>
+<a href="{{ path('sylius_blogger_backend_post_delete', {'id': post.id}) }}" class="btn btn-danger confirmer"
+    data-toggle="modal"
+    data-target="confirmer-modal"
+    data-confirmer-question="Jesteś pewny/a, że chcesz usunąć ten wpis?"
+>
+    <i class="icon-remove icon-white"></i> usuń
+</a>
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>#id</th>
+            <th>tytuł</th>
+            <th>autor</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ post.id }}</td>
+            <td>{{ post.title }}</td>
+            <td>{{ post.author }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="well">
+<h2>Treść</h2>
+{{ post.content|markdown }}
+</div>
+
+{% endblock %}

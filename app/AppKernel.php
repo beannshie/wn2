@@ -64,6 +64,11 @@ class AppKernel extends Kernel
             new Wn\UserBundle\WnUserBundle(),
             new Wn\CoreBundle\WnCoreBundle(),
             new Wn\AssortmentBundle\WnAssortmentBundle(),
+            new Wn\AddressingBundle\WnAddressingBundle(),
+            new Wn\BloggerBundle\WnBloggerBundle(),
+            new Wn\CartBundle\WnCartBundle(),
+            new Wn\CommentBundle\WnCommentBundle(),
+            new Wn\SalesBundle\WnSalesBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -1,0 +1,14 @@
+{% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
+
+{% block header %}
+    <h1>Dodawanie zamówienia</h1>
+{% endblock %}
+
+{% block content %}
+<form action="{{ path('sylius_sales_backend_order_create') }}" method="post" novalidate>
+    {% include 'SandboxSalesBundle:Backend/Order:_form.html.twig' %}
+    <div class="form-actions">
+       <input type="submit" value="dodaj" class="btn btn-primary btn-large" />
+    </div>
+</form>
+{% endblock %}

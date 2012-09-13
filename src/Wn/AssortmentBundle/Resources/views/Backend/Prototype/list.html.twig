@@ -1,13 +1,13 @@
 {% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
 
 {% block header %}
-    <h1>Product prototypes<small> List of all created prototype types</small></h1>
+    <h1>Prototypy produktów</h1>
 {% endblock %}
 
 {% block content %}
 <div class="well">
 <a href="{{ path('sylius_assortment_backend_prototype_create') }}" class="btn btn-primary">
-    <i class="icon-plus icon-white"></i> create prototype
+    <i class="icon-plus icon-white"></i> dodaj prototyp
 </a>
 </div>
 
@@ -16,8 +16,8 @@
     <thead>
         <tr>
             <th>#id</th>
-            <th>name</th>
-            <th>creation time</th>
+            <th>nazwa</th>
+            <th>utworzony</th>
             <th></th>
         </tr>
     </thead>
@@ -49,7 +49,7 @@
 {% else %}
 <div class="alert alert-info">
     <h4 class="alert-heading">{{ 'alert.heading.info'|trans({}, 'SandboxCoreBundle') }}.</h4>
-    There are no prototypes to display.
+    Brak prototypów do wyświetlenia.
 </div>
 {% endif %}
 {% endblock %}

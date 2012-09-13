@@ -1,7 +1,7 @@
 {% extends 'SandboxCoreBundle:Backend:layout.html.twig' %}
 
 {% block header %}
-    <h1>Building {% filter lower %}{{ prototype.name }}{% endfilter %}<small> Use the form below to build a new {% filter lower %}{{ prototype.name }}{% endfilter %}</small></h1>
+    <h1>Tworzenie produktu z prototypu {% filter lower %}{{ prototype.name }}{% endfilter %}</h1>
 {% endblock %}
 
 {% block content %}
@@ -9,7 +9,7 @@
     {% include 'SandboxAssortmentBundle:Backend/Product:_form.html.twig' %}
     {{ form_widget(form._token) }}
     <div class="form-actions">
-       <input type="submit" value="create {% filter lower %}{{ prototype.name }}{% endfilter %}" class="btn btn-primary btn-large" />
+       <input type="submit" value="utwórz {% filter lower %}{{ prototype.name }}{% endfilter %}" class="btn btn-primary btn-large" />
     </div>
 </form>
 {% endblock %}
