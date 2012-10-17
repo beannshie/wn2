@@ -2,10 +2,6 @@ wn_sales:
     resource: "@WnSalesBundle/Resources/config/routing.yml"
     prefix:   /
 
-#wn_comment:
-#    resource: "@WnCommentBundle/Resources/config/routing.yml"
-#    prefix:   /
-
 wn_cart:
     resource: "@WnCartBundle/Resources/config/routing.yml"
     prefix:   /

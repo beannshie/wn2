@@ -20,6 +20,10 @@ sylius_assortment:
             created: "Prototyp został dodany"
             updated: "Zmiany zostały zapisane"
             deleted: "Prototyp został usunięty"
+        variant:
+            created: "Wariant został dodany"
+            updated: "Zmiany zostały zapisane"
+            deleted: "Wariant został usunięty"
     label:
         product:
             sku: "SKU"
@@ -30,6 +34,7 @@ sylius_assortment:
         variant:
             sku: "SKU"
             presentation: "Opis"
+            price: "Cena"
             available_on: "Dostępny od"
         option:
             name: "Nazwa"

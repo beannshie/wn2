@@ -2,3 +2,15 @@
   538  php composer.phar update
   539  php app/console assetic:dump
   540  sudo chmod -R 777 app/cache/
+
+
+inne:
+  472  php app/console generate:bundle --namespace=Wn/SalesBundle --format=yml
+
+  366  php app/console doctrine:schema:update --force
+
+
+
+katalogi:
+web/uploads na 777
+web/media na 777

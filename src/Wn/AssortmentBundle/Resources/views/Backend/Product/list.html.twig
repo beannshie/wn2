@@ -13,7 +13,7 @@
     </a>
     {% if not app.request.query.get('deleted') %}
     <a href="{{ path('sylius_assortment_backend_product_list', {'deleted': true}) }}" class="btn">
-        <i class="icon-trash"></i> pokażuj usunięte produkty
+        <i class="icon-trash"></i> pokazuj usunięte produkty
     </a>
     {% else %}
     <a href="{{ path('sylius_assortment_backend_product_list', {'deleted': false}) }}" class="btn">
