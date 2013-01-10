@@ -1,0 +1,57 @@
+# This file is part of the Sylius sandbox application.
+# (c) Paweł Jędrzejewski
+
+sylius_sandbox_backend_product_list:
+    pattern: /
+    defaults:
+        _controller: sylius_assortment.controller.product:indexAction
+        _template: SyliusSandboxBundle:Backend/Product:list.html.twig
+        _sortable: true
+        _sorting:
+            updatedAt: desc
+
+sylius_sandbox_backend_product_list_by_taxon:
+    pattern: /t/{permalink}
+    defaults:
+        _controller: sylius_assortment.controller.product:listByTaxonAction
+        _template: SyliusSandboxBundle:Backend/Product:listByTaxon.html.twig
+
+sylius_sandbox_backend_product_create:
+    pattern: /create
+    defaults:
+        _controller: sylius_assortment.controller.product:createAction
+        _template: SyliusSandboxBundle:Backend/Product:create.html.twig
+        _redirect: sylius_sandbox_backend_product_show
+
+sylius_sandbox_backend_product_update:
+    pattern: /{id}/update
+    defaults:
+        _controller: sylius_assortment.controller.product:updateAction
+        _template: SyliusSandboxBundle:Backend/Product:update.html.twig
+        _redirect: sylius_sandbox_backend_product_show
+
+sylius_sandbox_backend_product_update_variants:
+    pattern: /{id}/update-variants
+    defaults:
+        _controller: sylius_assortment.controller.product:updateAction
+        _form: sylius_sandbox_product_variants_grid
+        _template: SyliusSandboxBundle:Backend/Product:updateVariants.html.twig
+        _redirect: sylius_sandbox_backend_product_show
+
+sylius_sandbox_backend_product_delete:
+    pattern: /{id}/delete
+    defaults:
+        _controller: sylius_assortment.controller.product:deleteAction
+        _redirect: sylius_sandbox_backend_product_list
+
+sylius_sandbox_backend_product_duplicate:
+    pattern: /{id}/duplicate
+    defaults:
+        _controller: sylius_assortment.controller.product:duplicateAction
+
+sylius_sandbox_backend_product_show:
+    pattern: /{id}
+    defaults:
+        _controller: sylius_assortment.controller.product:showAction
+        _template: SyliusSandboxBundle:Backend/Product:show.html.twig
+

@@ -1,89 +1,65 @@
 {
-    "name": "symfony/framework-standard-edition",
-    "description": "The \"Symfony Standard Edition\" distribution",
     "autoload": {
         "psr-0": {
-            "Sylius\\Sandbox": "src/" }
+            "Sylius\\Bundle\\SandboxBundle": "src/",
+            "Sylius\\Behat":   "features/",
+            "Wn": "src/" }
     },
     "require": {
-        "php": ">=5.3.3",
+        "php":                                 ">=5.3.3",
 
-        "doctrine/orm": ">=2.2.3,<2.4-dev",
-        "fzaninotto/faker": "dev-master",
-        "symfony/symfony": "2.1.*",
-        "twig/extensions": "1.0.*",
+        "doctrine/orm":                        ">=2.2.3,<2.4-dev",
+        "fzaninotto/faker":                    "1.1.*@dev",
+        "symfony/symfony":                     "2.1.x-dev",
+        "twig/extensions":                     "1.0.*@dev",
 
         "avalanche123/imagine-bundle":         "dev-master",
-        "behat/mink-browserkit-driver":        "dev-master",
-        "behat/mink-extension":                "dev-master",
-        "behat/mink-goutte-driver":            "dev-master",
-        "behat/symfony2-extension":            "dev-master",
-        "doctrine/doctrine-bundle": "1.0.*",
+        "doctrine/doctrine-bundle":            "1.0.*@dev",
         "doctrine/doctrine-fixtures-bundle":   "dev-master",
         "doctrine/doctrine-migrations-bundle": "dev-master",
+        "stof/doctrine-extensions-bundle":     "1.1.*@dev",
 
-        "symfony/assetic-bundle": "2.1.*",
-        "symfony/swiftmailer-bundle": "2.1.*",
-        "symfony/monolog-bundle": "2.1.*",
-        "sensio/distribution-bundle": "2.1.*",
-        "sensio/framework-extra-bundle": "2.1.*",
-        "sensio/generator-bundle": "2.1.*",
-        "jms/security-extra-bundle": "1.2.*",
-        "jms/di-extra-bundle": "1.1.*",
-        "stof/doctrine-extensions-bundle":     "dev-master",
+        "symfony/assetic-bundle":              "2.1.*@dev",
+        "symfony/swiftmailer-bundle":          "2.2.*@dev",
+        "symfony/monolog-bundle":              "2.2.*@dev",
+        "sensio/distribution-bundle":          "2.1.x-dev",
 
-        "friendsofsymfony/rest-bundle":        "dev-master",
-        "friendsofsymfony/user-bundle": "*",
-        "friendsofsymfony/comment-bundle":     "dev-master",
-        "knplabs/knp-markdown-bundle":         "dev-master",
-        "knplabs/knp-menu-bundle":             "dev-master",
+        "friendsofsymfony/rest-bundle":        "0.11.*@dev",
+        "friendsofsymfony/user-bundle":        "2.0.*@dev",
+        "friendsofsymfony/comment-bundle":     "2.0.*@dev",
+        "jms/serializer-bundle":               "1.0.*@dev",
+        "knplabs/knp-markdown-bundle":         "1.2.*@dev",
+        "knplabs/knp-menu-bundle":             "2.0.*@dev",
+        "mopa/bootstrap-bundle":               "2.1.*@dev",
+        "liip/doctrine-cache-bundle":          "dev-master",
 
         "sylius/addressing-bundle":            "dev-master",
         "sylius/assortment-bundle":            "dev-master",
-        "sylius/blogger-bundle":               "dev-master",
         "sylius/cart-bundle":                  "dev-master",
         "sylius/categorizer-bundle":           "dev-master",
+        "sylius/taxonomies-bundle":            "dev-master",
+        "sylius/taxation-bundle":              "dev-master",
+        "sylius/shipping-bundle":              "dev-master",
         "sylius/flow-bundle":                  "dev-master",
         "sylius/inventory-bundle":             "dev-master",
         "sylius/sales-bundle":                 "dev-master",
-        "symfony/assetic-bundle":              "dev-master",
-        "symfony/monolog-bundle":              "dev-master",
-        "symfony/swiftmailer-bundle":          "dev-master",
-
-        "twitter/bootstrap":                   "v2.0.4"
+        "sylius/blogger-bundle":               "dev-master",
+        "sylius/settings-bundle":              "dev-master"
     },
-    "repositories": [
-        {
-            "type": "package",
-            "package": {
-                "version": "v2.0.4",
-                "name": "twitter/bootstrap",
-                "source": {
-                    "url": "https://github.com/twitter/bootstrap.git",
-                    "type": "git",
-                    "reference": "v2.0.4"
-                },
-                "dist": {
-                    "url": "https://github.com/twitter/bootstrap/zipball/v2.0.4",
-                    "type": "zip"
-                }
-            }
-        }
-    ],
+    "require-dev": {
+        "behat/mink-extension":                "dev-master",
+        "behat/mink-goutte-driver":            "dev-master",
+        "behat/symfony2-extension":            "dev-master",
+        "phpspec/phpspec2":                    "1.0.*@dev"
+    },
     "scripts": {
         "post-install-cmd": [
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "Sylius\\Sandbox\\Bundle\\CoreBundle\\Composer\\ScriptHandler::symlinkTwitterBootstrap"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets"
         ],
         "post-update-cmd": [
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "Sylius\\Sandbox\\Bundle\\CoreBundle\\Composer\\ScriptHandler::symlinkTwitterBootstrap"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets"
         ]
     },
     "config": {

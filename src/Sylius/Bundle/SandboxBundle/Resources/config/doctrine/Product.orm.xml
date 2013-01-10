@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                                      http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd"
+>
+
+    <entity name="Sylius\Bundle\SandboxBundle\Entity\Product" table="sylius_sandbox_assortment_product">
+        <id name="id" column="id" type="integer">
+            <generator strategy="AUTO" />
+        </id>
+        <field name="variantPickingMode" column="variant_picking_mode" type="integer" />
+        <field name="imagePath" column="image_path" nullable="true" />
+        <many-to-one field="taxCategory" target-entity="Sylius\Bundle\TaxationBundle\Model\TaxCategoryInterface" on-delete="SET NULL">
+            <join-column name="tax_category_id" referenced-column-name="id" />
+        </many-to-one>
+        <many-to-many field="taxons" target-entity="Sylius\Bundle\SandboxBundle\Entity\Taxon">
+            <join-table name="sylius_sandbox_product_taxon">
+                <join-columns>
+                    <join-column name="product_id" referenced-column-name="id" nullable="false" />
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column name="taxon_id" referenced-column-name="id" nullable="false" unique="false" on-delete="CASCADE" />
+                </inverse-join-columns>
+            </join-table>
+        </many-to-many>
+        <one-to-many field="variants" target-entity="Sylius\Bundle\AssortmentBundle\Model\Variant\VariantInterface" mapped-by="product">
+            <cascade>
+                <cascade-all />
+            </cascade>
+        </one-to-many>
+        <one-to-many field="properties" target-entity="Sylius\Bundle\AssortmentBundle\Model\Property\ProductPropertyInterface" mapped-by="product">
+            <cascade>
+                <cascade-all />
+            </cascade>
+        </one-to-many>
+        <lifecycle-callbacks>
+            <lifecycle-callback type="prePersist" method="saveImage"/>
+            <lifecycle-callback type="postRemove" method="deleteImage"/>
+        </lifecycle-callbacks>
+    </entity>
+
+</doctrine-mapping>

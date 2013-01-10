@@ -1,0 +1,85 @@
+{% macro list(products, sorting = true) %}
+{% if products|length > 0 %}
+    <table class="table">
+    <thead>
+        <tr>
+            {% if sorting %}
+            <th>{{ sylius_resource_sort('id', '#id') }}</th>
+            <th>photo</th>
+            <th>{{ sylius_resource_sort('sku', 'SKU') }}</th>
+            <th>{{ sylius_resource_sort('name') }}</th>
+            <th>{{ sylius_resource_sort('updatedAt', 'last updated') }}</th>
+            <th></th>
+            {% else %}
+            <th>#id</th>
+            <th>photo</th>
+            <th>SKU</th>
+            <th>name</th>
+            <th>last updated</th>
+            <th></th>
+            {% endif %}
+        </tr>
+    </thead>
+    <tbody>
+    {% for product in products %}
+        <tr>
+            <td>{{ product.id }}</td>
+            <td>
+                <a href="{{ path('sylius_sandbox_backend_product_show', {'id': product.id}) }}" class="thumbnail" style="width: 90px; height: 60px;">
+                    <img src="{{ product.imageWebPath is empty ? 'http://placehold.it/90x60' : product.imageWebPath|apply_filter('backend_mini') }}" alt="product photo" />
+                </a>
+            </td>
+            <td>
+                {{ product.sku }}
+                {% if not product.hasOptions and not product.isInStock %}
+                <br />
+                <span class="label label-important">out of stock</span>
+                {% endif %}
+            </td>
+            <td>
+                {{ product.name }}
+            </td>
+            <td>{{ product.updatedAt|date }}</td>
+            <td>
+                {% if not product.deleted %}
+                <div class="btn-toolbar pull-right">
+                    <div class="btn-group">
+                        <a href="{{ path('sylius_sandbox_backend_product_show', {'id': product.id}) }}" class="btn">
+                           <i class="icon-book"></i> details
+                        </a>
+                        <a href="#" data-toggle="dropdown" class="btn dropdown-toggle"><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                            <a href="{{ path('sylius_sandbox_backend_product_update', {'id': product.id}) }}">
+                               <i class="icon-pencil"></i> edit
+                            </a>
+                            </li>
+                            <li>
+                            <a href="{{ path('sylius_sandbox_backend_product_delete', {'id': product.id}) }}" class="confirmer"
+                                data-confirmer-question="{{ 'confirmer.q.product.delete'|trans({}, 'SyliusSandboxBundle') }}"
+                            >
+                                <i class="icon-remove icon-trash"></i> delete
+                            </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                {% else %}
+                <div class="pull-right">
+                    <span class="label label-important label-padded">
+                        <i class="icon-trash icon-white"></i> deleted
+                    </span>
+                </div>
+                {% endif %}
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div class="alert alert-info">
+    <h4 class="alert-heading">Information</h4>
+    There are no products to display.
+</div>
+{% endif %}
+{% endmacro %}

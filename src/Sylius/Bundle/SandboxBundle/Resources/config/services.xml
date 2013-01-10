@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services
+                               http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="sylius_sandbox_core.controller.frontend.main.class">Sylius\Bundle\SandboxBundle\Controller\Frontend\MainController</parameter>
+        <parameter key="sylius_sandbox_core.controller.frontend.security.class">Sylius\Bundle\SandboxBundle\Controller\Frontend\SecurityController</parameter>
+        <parameter key="sylius_sandbox_core.controller.backend.main.class">Sylius\Bundle\SandboxBundle\Controller\Backend\MainController</parameter>
+
+        <parameter key="sylius_sandbox_cart.resolver.class">Sylius\Bundle\SandboxBundle\Resolver\ItemResolver</parameter>
+
+        <parameter key="sylius_sandbox.scenario.checkout.class">Sylius\Bundle\SandboxBundle\Process\Scenario\CheckoutProcessScenario</parameter>
+
+        <parameter key="sylius_sandbox.builder.order.class">Sylius\Bundle\SandboxBundle\Builder\OrderBuilder</parameter>
+
+        <parameter key="sylius_sandbox.form.type.product_category.class">Sylius\Bundle\SandboxBundle\Form\Type\ProductCategoryType</parameter>
+
+        <parameter key="sylius_sandbox.form.type.product_variants_grid.class">Sylius\Bundle\SandboxBundle\Form\Type\ProductVariantsGridType</parameter>
+        <parameter key="sylius_sandbox.form.type.product_variants_grid_line.class">Sylius\Bundle\SandboxBundle\Form\Type\ProductVariantsGridLineType</parameter>
+
+        <parameter key="sylius_sandbox.settings.general.class">Sylius\Bundle\SandboxBundle\Settings\GeneralSettingsSchema</parameter>
+        <parameter key="sylius_sandbox.settings.taxation.class">Sylius\Bundle\SandboxBundle\Settings\TaxationSettingsSchema</parameter>
+
+        <parameter key="sylius_sandbox.listener.order_taxation.class">Sylius\Bundle\SandboxBundle\EventListener\OrderTaxationListener</parameter>
+        <parameter key="sylius_sandbox.listener.order_inventory.class">Sylius\Bundle\SandboxBundle\EventListener\OrderInventoryListener</parameter>
+
+        <parameter key="sylius_sandbox.tax_rate_resolver.class">Sylius\Bundle\SandboxBundle\Taxation\TaxRateResolver</parameter>
+    </parameters>
+
+    <services>
+        <service id="sylius_sandbox_core.controller.frontend.main" class="%sylius_sandbox_core.controller.frontend.main.class%">
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+        </service>
+        <service id="sylius_sandbox_core.controller.frontend.security" class="%sylius_sandbox_core.controller.frontend.security.class%">
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+        </service>
+        <service id="sylius_sandbox_core.controller.backend.main" class="%sylius_sandbox_core.controller.backend.main.class%">
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+        </service>
+
+        <service id="sylius_sandbox_cart.resolver" class="%sylius_sandbox_cart.resolver.class%">
+            <argument type="service" id="sylius_assortment.repository.product" />
+            <argument type="service" id="form.factory" />
+            <argument type="service" id="sylius_inventory.checker" />
+        </service>
+
+        <service id="sylius_sandbox.scenario.checkout" class="%sylius_sandbox.scenario.checkout.class%">
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+            <tag name="sylius_flow.scenario" alias="sylius_sandbox_checkout" />
+        </service>
+
+        <service id="sylius_sandbox.builder.order" class="%sylius_sandbox.builder.order.class%">
+            <argument type="service" id="sylius_sales.repository.item" />
+            <argument type="service" id="sylius_cart.provider" />
+            <argument type="service" id="security.context" />
+        </service>
+
+        <service id="sylius_sandbox.form.type.product_category" class="%sylius_sandbox.form.type.product_category.class%">
+            <tag name="form.type" alias="sylius_sandbox_product_category" />
+        </service>
+
+        <service id="sylius_sandbox.form.type.product_variants_grid" class="%sylius_sandbox.form.type.product_variants_grid.class%">
+            <argument>%sylius_assortment.model.product.class%</argument>
+            <tag name="form.type" alias="sylius_sandbox_product_variants_grid" />
+        </service>
+        <service id="sylius_sandbox.form.type.product_variants_grid_line" class="%sylius_sandbox.form.type.product_variants_grid_line.class%">
+            <argument>%sylius_assortment.model.variant.class%</argument>
+            <tag name="form.type" alias="sylius_sandbox_product_variants_grid_line" />
+        </service>
+
+        <service id="sylius_sandbox.settings.general" class="%sylius_sandbox.settings.general.class%">
+            <tag name="sylius_settings.schema" namespace="general" />
+        </service>
+
+        <service id="sylius_sandbox.settings.taxation" class="%sylius_sandbox.settings.taxation.class%">
+            <argument type="service" id="sylius_addressing.repository.zone" />
+            <tag name="sylius_settings.schema" namespace="taxation" />
+        </service>
+
+        <service id="sylius_sandbox.listener.order_taxation" class="%sylius_sandbox.listener.order_taxation.class%">
+            <argument type="service" id="sylius_addressing.zone_matcher" />
+            <argument type="service" id="sylius_taxation.rate_resolver" />
+            <argument type="service" id="sylius_taxation.calculator" />
+            <argument type="service" id="sylius_sales.repository.adjustment" />
+            <argument type="service" id="sylius_settings.manager" />
+            <tag name="kernel.event_listener" event="sylius_sales.order.pre_create" method="determineTaxes" />
+            <tag name="kernel.event_listener" event="sylius_sales.order.pre_update" method="determineTaxes" />
+        </service>
+
+        <service id="sylius_sandbox.listener.order_inventory" class="%sylius_sandbox.listener.order_inventory.class%">
+            <argument type="service" id="sylius_assortment.manager.variant" />
+            <argument type="service" id="sylius_inventory.operator" />
+            <tag name="kernel.event_listener" event="sylius_sales.order.pre_create" method="processInventory" />
+        </service>
+
+        <service id="sylius_sandbox.tax_rate_resolver" class="%sylius_sandbox.tax_rate_resolver.class%">
+            <argument type="service" id="sylius_taxation.repository.rate" />
+        </service>
+    </services>
+
+</container>

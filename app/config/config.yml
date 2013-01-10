@@ -3,32 +3,26 @@ imports:
     - { resource: security.yml }
 
 framework:
-    #esi:             ~
-    translator:      { fallback: %locale% }
-    secret:          %secret%
-    router:
-        resource: "%kernel.root_dir%/config/routing.yml"
-        strict_requirements: %kernel.debug%
+    default_locale:  %locale%
     form: ~
+    secret:          %secret%
     csrf_protection:
         enabled: true
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
     validation:      { enabled: true, enable_annotations: true }
+    translator:      { fallback: %locale% }
     templating:      { engines: ['twig', 'php'] } #assets_version: SomeVersionScheme
-    default_locale:  %locale%
-    trust_proxy_headers: false # Whether or not the Request object should trust proxy headers (X_FORWARDED_FOR/HTTP_CLIENT_IP)
     session:
         name: WN_SESSION
         lifetime: 72000
 
-sensio_framework_extra:
-    view:
-        annotations: false
 
 # Twig Configuration
 twig:
     form:
         resources:
-            - 'SandboxCoreBundle::forms.html.twig'
+            - 'SyliusSandboxBundle::forms.html.twig'
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
 
@@ -37,14 +31,6 @@ assetic:
     debug:          %kernel.debug%
     use_controller: false
     read_from:      %kernel.root_dir%/../web
-#    bundles:        [ ]
-    #java: /usr/bin/java
-#    filters:
-#        cssrewrite: ~
-        #closure:
-        #    jar: %kernel.root_dir%/Resources/java/compiler.jar
-        #yui_css:
-        #    jar: %kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar
 
 # Doctrine Configuration
 doctrine:
@@ -59,19 +45,11 @@ doctrine:
 
     orm:
         auto_generate_proxy_classes: %kernel.debug%
-        #auto_mapping: true
         entity_managers:
             default:
                 mappings:
                     FOSUserBundle: ~
                     FOSCommentBundle: ~
-                    SandboxAddressingBundle: ~
-                    SandboxAssortmentBundle: ~
-                    SandboxBloggerBundle: ~
-                    SandboxCartBundle: ~
-                    SandboxSalesBundle: ~
-                    SandboxUserBundle: ~
-                    SandboxCommentBundle: ~
                     SyliusAddressingBundle: ~
                     SyliusAssortmentBundle: ~
                     SyliusBloggerBundle: ~
@@ -79,7 +57,12 @@ doctrine:
                     SyliusCategorizerBundle: ~
                     SyliusInventoryBundle: ~
                     SyliusSalesBundle: ~
-                    WnUserBundle: ~
+                    SyliusSettingsBundle: ~
+                    SyliusShippingBundle: ~
+                    SyliusTaxationBundle: ~
+                    SyliusTaxonomiesBundle: ~
+                    SyliusSandboxBundle: ~
+#                    WnBundle: ~
                 filters:
                     softdeleteable:
                         class: Gedmo\SoftDeleteable\Filter\SoftDeleteableFilter
@@ -92,9 +75,6 @@ swiftmailer:
     host:      %mailer_host%
     username:  %mailer_user%
     password:  %mailer_password%
-    spool:     { type: memory }
-
-
 
 stof_doctrine_extensions:
     default_locale: %locale%
@@ -113,23 +93,29 @@ avalanche_imagine:
         frontend_medium:
             type: thumbnail
             options: { size: [220, 180], mode: outbound }
+        frontend_box:
+            type: thumbnail
+            options: { size: [130, 75], mode: outbound }
         backend_mini:
             type: thumbnail
             options: { size: [90, 60], mode: outbound }
+        backend_medium:
+            type: thumbnail
+            options: { size: [250, 150], mode: outbound }
 
 # User bundle
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
-    user_class: Sylius\Sandbox\Bundle\UserBundle\Entity\User
-#    user_class: Wn\UserBundle\Entity\WnUser
+    user_class: Sylius\Bundle\SandboxBundle\Entity\User
+#    user_class: Wn\WnBundle\Entity\WnUser
 
 fos_comment:
     db_driver: orm
     class:
         model:
-            comment: Sylius\Sandbox\Bundle\CommentBundle\Entity\Comment
-            thread: Sylius\Sandbox\Bundle\CommentBundle\Entity\Thread
+            comment: Sylius\Bundle\SandboxBundle\Entity\Comment
+            thread: Sylius\Bundle\SandboxBundle\Entity\Thread
     acl: true
     service:
         acl:
@@ -153,86 +139,112 @@ fos_comment:
             edit: ROLE_SYLIUS_ADMIN
             delete: ROLE_SYLIUS_ADMIN
 
+mopa_bootstrap:
+    navbar: ~
+
 sylius_assortment:
     driver: doctrine/orm
-    api: true
     classes:
-        model:
-            product: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Product
-            variant: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Variant\Variant
-            property: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Property\Property
-            product_property: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Property\ProductProperty
-            prototype: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Prototype\Prototype
-            option: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Option\Option
-            option_value: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Option\OptionValue
-        form:
-            type:
-                product: Sylius\Sandbox\Bundle\AssortmentBundle\Form\Type\ProductType
-                variant: Sylius\Sandbox\Bundle\AssortmentBundle\Form\Type\VariantType
+        product:
+            model: Sylius\Bundle\SandboxBundle\Entity\Product
+            controller: Sylius\Bundle\SandboxBundle\Controller\ProductController
+            repository: Sylius\Bundle\SandboxBundle\Repository\ProductRepository
+            form: Sylius\Bundle\SandboxBundle\Form\Type\ProductType
+        variant:
+            model: Sylius\Bundle\SandboxBundle\Entity\Variant
+            form: Sylius\Bundle\SandboxBundle\Form\Type\VariantType
 
 sylius_categorizer:
     driver: doctrine/orm
     catalogs:
-        assortment:
-            property: "products"
-            model: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\Category
-            form: sylius_sandbox_assortment_category
-            templates:
-                backend: SandboxAssortmentBundle:Backend/Category:%s.html.twig
-                frontend: SandboxAssortmentBundle:Frontend/Category:%s.html.twig
         blog:
             property: "posts"
-            model: Sylius\Sandbox\Bundle\BloggerBundle\Entity\Category
+            model: Sylius\Bundle\SandboxBundle\Entity\PostCategory
             templates:
-                backend: SandboxBloggerBundle:Backend/Category:%s.html.twig
-                frontend: SandboxBloggerBundle:Frontend/Category:%s.html.twig
+                backend: SyliusSandboxBundle:Backend/PostCategory:%s.html.twig
+                frontend: SyliusSandboxBundle:Frontend/PostCategory:%s.html.twig
 
 sylius_cart:
     driver: doctrine/orm
-    operator: sylius_sandbox_cart.operator
     resolver: sylius_sandbox_cart.resolver
     classes:
-        model:
-            cart: Sylius\Sandbox\Bundle\CartBundle\Entity\Cart
-            item: Sylius\Sandbox\Bundle\CartBundle\Entity\Item
-        manager:
-            cart: Sylius\Sandbox\Bundle\CartBundle\Entity\CartManager
-        form:
-            type:
-                item: Sylius\Sandbox\Bundle\CartBundle\Form\Type\ItemType
+        cart:
+            repository: Sylius\Bundle\SandboxBundle\Repository\CartRepository
+        item:
+            model: Sylius\Bundle\SandboxBundle\Entity\CartItem
+            form: Sylius\Bundle\SandboxBundle\Form\Type\CartItemType
 
 sylius_blogger:
     driver: doctrine/orm
     classes:
-        model:
-            post: Sylius\Sandbox\Bundle\BloggerBundle\Entity\Post
-        form:
-            type:
-                post: Sylius\Sandbox\Bundle\BloggerBundle\Form\Type\PostType
+        post:
+            model: Sylius\Bundle\SandboxBundle\Entity\Post
+            form: Sylius\Bundle\SandboxBundle\Form\Type\PostType
 
 sylius_sales:
     driver: doctrine/orm
+    builder: sylius_sandbox.builder.order
     classes:
-        model:
-            order: Sylius\Sandbox\Bundle\SalesBundle\Entity\Order
-            item: Sylius\Sandbox\Bundle\SalesBundle\Entity\Item
-            status: Sylius\Bundle\SalesBundle\Entity\Status
-        form:
-            type:
-                order: Sylius\Sandbox\Bundle\SalesBundle\Form\Type\OrderType
-                item: Sylius\Sandbox\Bundle\SalesBundle\Form\Type\ItemType
+        order:
+            model: Sylius\Bundle\SandboxBundle\Entity\Order
+            form: Sylius\Bundle\SandboxBundle\Form\Type\OrderType
+        item:
+            model: Sylius\Bundle\SandboxBundle\Entity\OrderItem
+            form: Sylius\Bundle\SandboxBundle\Form\Type\OrderItemType
 
 sylius_addressing:
     driver: doctrine/orm
-    classes:
-        model:
-            address: Sylius\Sandbox\Bundle\AddressingBundle\Entity\Address
-        form:
-            type:
-                address: Sylius\Bundle\AddressingBundle\Form\Type\CommonAddressType
 
 sylius_inventory:
     driver: doctrine/orm
+    backorders: true
     classes:
-        model:
-            iu: Sylius\Sandbox\Bundle\AssortmentBundle\Entity\InventoryUnit
+        unit:
+            model: Sylius\Bundle\SandboxBundle\Entity\InventoryUnit
+        stockable:
+            model: Sylius\Bundle\SandboxBundle\Entity\Variant
+    events:
+        - sylius_assortment.product.pre_update
+        - sylius_assortment.variant.pre_update
+
+sylius_taxonomies:
+    driver: doctrine/orm
+    classes:
+        taxonomy:
+            model: Sylius\Bundle\SandboxBundle\Entity\Taxonomy
+        taxon:
+            model: Sylius\Bundle\SandboxBundle\Entity\Taxon
+
+sylius_taxation:
+    driver: doctrine/orm
+    rate_resolver: sylius_sandbox.tax_rate_resolver
+    classes:
+        rate:
+            model: Sylius\Bundle\SandboxBundle\Entity\TaxRate
+            form: Sylius\Bundle\SandboxBundle\Form\Type\TaxRateType
+
+sylius_shipping:
+    driver: doctrine/orm
+    classes:
+        method:
+            model: Sylius\Bundle\SandboxBundle\Entity\ShippingMethod
+            form: Sylius\Bundle\SandboxBundle\Form\Type\ShippingMethodType
+        shipment:
+            model: Sylius\Bundle\SandboxBundle\Entity\Shipment
+        shipment_item:
+            model: Sylius\Bundle\SandboxBundle\Entity\ShipmentItem
+
+sylius_settings:
+    driver: doctrine/orm
+
+liip_doctrine_cache:
+    namespaces:
+        sylius_settings:
+            type: %cache%
+
+sylius_resource:
+    resources:
+        sylius_user.user:
+            driver: doctrine/orm
+            classes:
+                model: Sylius\Bundle\SandboxBundle\Entity\User

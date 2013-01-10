@@ -1,0 +1,33 @@
+{% block sylius_sales_item_row %}
+{% spaceless %}
+<tr>
+    <td>
+        <a class="btn btn-danger"><i class="icon-trash icon-white"></i></a>
+    </td>
+    <td>{{ form_widget(form.variant, {'attr': {'class': 'input-xlarge'}}) }}</td>
+    <td>{{ form_widget(form.quantity, {'attr': {'class': 'input-small'} ,'empty_value': '1'}) }}</td>
+    <td>
+        {% if value is not empty and value.product|default(false) %}
+        {{ value.variant.product.name }}
+        {% endif %}
+    </td>
+    <td>
+        <div class="input-append pull-right">
+        <input type="text" id="{{ id }}-unitPrice" class="disabled input-small" disabled="disabled" value="{{ value is not empty ? value.unitPrice : '0.00' }}"/><span class="add-on">&euro;</span>
+        </div>
+    </td>
+    <td>
+        <div class="input-append pull-right">
+        <input type="text" id="{{ id }}-total" class="disabled input-small" disabled="disabled" value="{{ value is not empty ? value.unitPrice * value.quantity : '0.00' }}"/><span class="add-on">&euro;</span>
+        </div>
+    </td>
+</tr>
+{% endspaceless %}
+{% endblock %}
+
+{% block checkbox_widget %}
+    {% spaceless %}
+        <input type="checkbox" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %}> {{ help_inline|trans({}, translation_domain)|raw }}
+        {{ block('form_message') }}
+    {% endspaceless %}
+{% endblock checkbox_widget %}
