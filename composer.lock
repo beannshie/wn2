@@ -1,5 +1,5 @@
 {
-    "hash": "9b1b94a899464a910cf034811af4f6d8",
+    "hash": "bbdb099291a583cb8a74806cfea4bd47",
     "packages": [
         {
             "name": "avalanche123/imagine-bundle",
@@ -604,36 +604,37 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSCommentBundle.git",
-                "reference": "73b912dda0a3d8b8a956af6a8a2bdea33a09fa48"
+                "reference": "43648974a8e85ef3472f69dea268f1d9975e4fcf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/FriendsOfSymfony/FOSCommentBundle/archive/73b912dda0a3d8b8a956af6a8a2bdea33a09fa48.zip",
-                "reference": "73b912dda0a3d8b8a956af6a8a2bdea33a09fa48",
+                "url": "https://github.com/FriendsOfSymfony/FOSCommentBundle/archive/43648974a8e85ef3472f69dea268f1d9975e4fcf.zip",
+                "reference": "43648974a8e85ef3472f69dea268f1d9975e4fcf",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2",
-                "friendsofsymfony/rest-bundle": "*",
-                "sensio/framework-extra-bundle": ">=2.0,<2.3-dev",
-                "symfony/symfony": "2.1.*@stable",
-                "jms/serializer-bundle": "*"
+                "friendsofsymfony/rest": "0.8.*@dev",
+                "friendsofsymfony/rest-bundle": "0.11.*@dev",
+                "jms/serializer": "1.0.*@dev",
+                "jms/serializer-bundle": "1.0.*@dev",
+                "sensio/framework-extra-bundle": ">=2.1,<3.0",
+                "symfony/symfony": ">=2.1.6,<2.2",
+                "jms/di-extra-bundle": "1.3.*@dev"
             },
             "require-dev": {
-                "doctrine/doctrine-bundle": "*",
-                "symfony/assetic-bundle": "*",
-                "friendsofsymfony/user-bundle": "*",
-                "ornicar/akismet-bundle": "*",
-                "doctrine/orm": "*",
-                "behat/behat-bundle": "*",
-                "behat/mink-bundle": "*",
-                "behat/sahi-client": "*"
+                "doctrine/orm": "2.3.*",
+                "doctrine/doctrine-bundle": "1.0.*@dev",
+                "symfony/assetic-bundle": "2.1.*@dev",
+                "friendsofsymfony/user-bundle": "1.*",
+                "ornicar/akismet-bundle": "dev-master",
+                "kriswallsmith/assetic": "1.1.*@dev"
             },
             "suggest": {
                 "friendsofsymfony/user-bundle": "Allows for user integration.",
                 "ornicar/akismet-bundle": "Integrate Akismet for spamdetection."
             },
-            "time": "2013-01-09 23:16:27",
+            "time": "2013-01-11 14:42:55",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -651,17 +652,16 @@
             ],
             "authors": [
                 {
-                    "name": "Thibault Duplessis",
-                    "email": "thibault.duplessis@gmail.com",
-                    "homepage": "http://ornicar.github.com"
-                },
-                {
                     "name": "Tim Nagel",
                     "email": "tim@nagel.com.au"
                 },
                 {
                     "name": "FriendsOfSymfony Community",
                     "homepage": "https://github.com/friendsofsymfony/FOSCommentBundle/contributors"
+                },
+                {
+                    "name": "Alexander Mols",
+                    "email": "iam.asm89@gmail.com"
                 }
             ],
             "description": "This Bundle provides threaded comment functionality for Symfony2 applications",
@@ -730,12 +730,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSRestBundle",
-                "reference": "bbbd81c9b99fcdb02ac8f46ae4474a970d6aefa1"
+                "reference": "7e77748ba88f748dcd628a86fdeaf116542d44a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/FriendsOfSymfony/FOSRestBundle/archive/bbbd81c9b99fcdb02ac8f46ae4474a970d6aefa1.zip",
-                "reference": "bbbd81c9b99fcdb02ac8f46ae4474a970d6aefa1",
+                "url": "https://github.com/FriendsOfSymfony/FOSRestBundle/archive/7e77748ba88f748dcd628a86fdeaf116542d44a5.zip",
+                "reference": "7e77748ba88f748dcd628a86fdeaf116542d44a5",
                 "shasum": ""
             },
             "require": {
@@ -758,7 +758,7 @@
                 "sensio/framework-extra-bundle": "Add support for route annotations and the view response listener",
                 "jms/serializer-bundle": "Add support for advanced serialization capabilities, recommended, requires 1.0.*"
             },
-            "time": "2013-01-10 22:05:38",
+            "time": "2013-01-11 07:17:39",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -802,12 +802,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle",
-                "reference": "ea5a8ea76ac1ac8d568b1715c47aaae175276f99"
+                "reference": "844a5adce872a010d6d1081731b75bb46307b16e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/FriendsOfSymfony/FOSUserBundle/archive/ea5a8ea76ac1ac8d568b1715c47aaae175276f99.zip",
-                "reference": "ea5a8ea76ac1ac8d568b1715c47aaae175276f99",
+                "url": "https://github.com/FriendsOfSymfony/FOSUserBundle/archive/844a5adce872a010d6d1081731b75bb46307b16e.zip",
+                "reference": "844a5adce872a010d6d1081731b75bb46307b16e",
                 "shasum": ""
             },
             "require": {
@@ -828,7 +828,7 @@
                 "doctrine/doctrine-bundle": "*",
                 "doctrine/mongodb-odm-bundle": "*"
             },
-            "time": "2013-01-10 01:24:56",
+            "time": "2013-01-11 13:40:20",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -916,12 +916,12 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/l3pp4rd/DoctrineExtensions.git",
-                "reference": "8e004cf25a68f0812efbce9b7c349fe0c750c691"
+                "reference": "0d4393d25a0ff6074b5163311e058d7f3cbccf35"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/l3pp4rd/DoctrineExtensions/archive/8e004cf25a68f0812efbce9b7c349fe0c750c691.zip",
-                "reference": "8e004cf25a68f0812efbce9b7c349fe0c750c691",
+                "url": "https://github.com/l3pp4rd/DoctrineExtensions/archive/0d4393d25a0ff6074b5163311e058d7f3cbccf35.zip",
+                "reference": "0d4393d25a0ff6074b5163311e058d7f3cbccf35",
                 "shasum": ""
             },
             "require": {
@@ -941,7 +941,7 @@
                 "doctrine/mongodb": ">=1.0.0",
                 "doctrine/mongodb-odm": ">=1.0.0-BETA7"
             },
-            "time": "2013-01-09 08:33:47",
+            "time": "2013-01-11 05:15:19",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1643,12 +1643,12 @@
             "source": {
                 "type": "git",
                 "url": "http://github.com/kriswallsmith/assetic.git",
-                "reference": "7ce61fb305d4f9128ab671f095123c5db5cffe7d"
+                "reference": "1677147ed595899a024636194ffe6f0c0d7800b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/kriswallsmith/assetic/archive/7ce61fb305d4f9128ab671f095123c5db5cffe7d.zip",
-                "reference": "7ce61fb305d4f9128ab671f095123c5db5cffe7d",
+                "url": "https://github.com/kriswallsmith/assetic/archive/1677147ed595899a024636194ffe6f0c0d7800b5.zip",
+                "reference": "1677147ed595899a024636194ffe6f0c0d7800b5",
                 "shasum": ""
             },
             "require": {
@@ -1669,7 +1669,7 @@
                 "ptachoire/cssembed": "Assetic provides the integration with phpcssembed to embed data uris",
                 "leafo/scssphp-compass": "Assetic provides the integration with the SCSS compass plugin"
             },
-            "time": "2013-01-10 18:55:59",
+            "time": "2013-01-11 14:41:50",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -2216,18 +2216,18 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/swiftmailer/swiftmailer.git",
-                "reference": "46bdf83f21cd1a9d5d5d265f5d989d509ffe820b"
+                "reference": "393b446c8c2e81710040e7457ee7378686d3a35a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/swiftmailer/swiftmailer/archive/46bdf83f21cd1a9d5d5d265f5d989d509ffe820b.zip",
-                "reference": "46bdf83f21cd1a9d5d5d265f5d989d509ffe820b",
+                "url": "https://github.com/swiftmailer/swiftmailer/archive/393b446c8c2e81710040e7457ee7378686d3a35a.zip",
+                "reference": "393b446c8c2e81710040e7457ee7378686d3a35a",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4"
             },
-            "time": "2013-01-08 15:56:09",
+            "time": "2013-01-11 07:18:43",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -2610,12 +2610,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusInventoryBundle.git",
-                "reference": "1c370809e8c6cbe7a8c686a39ceb61e4d316fddc"
+                "reference": "66be4656be7a71cbaab6d2303c18e0ad642f9524"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Sylius/SyliusInventoryBundle/archive/1c370809e8c6cbe7a8c686a39ceb61e4d316fddc.zip",
-                "reference": "1c370809e8c6cbe7a8c686a39ceb61e4d316fddc",
+                "url": "https://github.com/Sylius/SyliusInventoryBundle/archive/66be4656be7a71cbaab6d2303c18e0ad642f9524.zip",
+                "reference": "66be4656be7a71cbaab6d2303c18e0ad642f9524",
                 "shasum": ""
             },
             "require": {
@@ -2630,7 +2630,7 @@
             "suggest": {
                 "friendsofsymfony/rest-bundle": "*"
             },
-            "time": "2013-01-10 13:41:14",
+            "time": "2013-01-11 15:05:52",
             "type": "symfony-bundle",
             "autoload": {
                 "psr-0": {
@@ -2668,12 +2668,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusResourceBundle.git",
-                "reference": "4ab9c854e55154735ac26bde685b247799dec471"
+                "reference": "3e431061d84efa9b0286367b314fe9dd42691627"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Sylius/SyliusResourceBundle/archive/4ab9c854e55154735ac26bde685b247799dec471.zip",
-                "reference": "4ab9c854e55154735ac26bde685b247799dec471",
+                "url": "https://github.com/Sylius/SyliusResourceBundle/archive/3e431061d84efa9b0286367b314fe9dd42691627.zip",
+                "reference": "3e431061d84efa9b0286367b314fe9dd42691627",
                 "shasum": ""
             },
             "require": {
@@ -2694,7 +2694,7 @@
                 "doctrine/mongodb-odm": "*",
                 "fsc/hateoas-bundle": "0.3.x-dev"
             },
-            "time": "2013-01-10 19:46:18",
+            "time": "2013-01-11 13:13:58",
             "type": "symfony-bundle",
             "autoload": {
                 "psr-0": {
@@ -3201,12 +3201,12 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/symfony/symfony.git",
-                "reference": "b33d5bc352f7a97b6771e61fa1a0d8b087a7145d"
+                "reference": "92f951fd7a3088089669febe85ff809f97a70df7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/symfony/archive/b33d5bc352f7a97b6771e61fa1a0d8b087a7145d.zip",
-                "reference": "b33d5bc352f7a97b6771e61fa1a0d8b087a7145d",
+                "url": "https://github.com/symfony/symfony/archive/92f951fd7a3088089669febe85ff809f97a70df7.zip",
+                "reference": "92f951fd7a3088089669febe85ff809f97a70df7",
                 "shasum": ""
             },
             "require": {
@@ -3255,7 +3255,7 @@
                 "propel/propel1": "dev-master",
                 "monolog/monolog": ">=1.0,<1.3-dev"
             },
-            "time": "2013-01-09 08:51:07",
+            "time": "2013-01-11 13:37:17",
             "type": "library",
             "autoload": {
                 "psr-0": {

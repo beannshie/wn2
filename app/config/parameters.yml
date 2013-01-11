@@ -2,8 +2,8 @@ parameters:
     database_driver:   pdo_mysql
     database_host:     localhost
     database_port:     ~
-    database_name:     wn2
-    database_user:     wn2
+    database_name:     wn3
+    database_user:     wn3
     database_password: AdvCPrCEELYDbuhp
     database_path: null
 
