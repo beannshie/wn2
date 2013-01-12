@@ -230,9 +230,9 @@ sylius_shipping:
             model: Sylius\Bundle\SandboxBundle\Entity\ShippingMethod
             form: Sylius\Bundle\SandboxBundle\Form\Type\ShippingMethodType
         shipment:
-            model: Sylius\Bundle\SandboxBundle\Entity\Shipment
+            model: Sylius\Bundle\ShippingBundle\Entity\Shipment
         shipment_item:
-            model: Sylius\Bundle\SandboxBundle\Entity\ShipmentItem
+            model: Sylius\Bundle\ShippingBundle\Entity\ShipmentItem
 
 sylius_settings:
     driver: doctrine/orm

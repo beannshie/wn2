@@ -1,5 +1,5 @@
   537  sudo rm -Rf app/cache/*
-  538  php composer.phar update
+  538  php composer.phar update --prefer-dist
   539  php app/console assetic:dump
   540  sudo chmod -R 777 app/cache/
 

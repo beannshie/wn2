@@ -224,7 +224,7 @@ class Product extends BaseProduct implements StockableInterface, TaxableInterfac
 
     protected function getImageUploadRootDir()
     {
-        return __DIR__.'/../../../../../public/'.$this->getImageUploadDir();
+        return __DIR__.'/../../../../../web/'.$this->getImageUploadDir();
     }
 
     public static function getVariantPickingModeChoices()
@@ -256,5 +256,17 @@ class Product extends BaseProduct implements StockableInterface, TaxableInterfac
             ->getMasterVariant()
             ->isAvailableOnDemand()
         ;
+    }
+
+    /**
+     * Get stock keeping unit.
+     *
+     * @return mixed
+     */
+    public function getSku()
+    {
+        return $this
+            ->getMasterVariant()
+            ->getSku();
     }
 }

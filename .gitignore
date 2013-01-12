@@ -9,6 +9,7 @@ web/uploads/*
 web/bundles/*
 web/assets/compiled/*
 web/js/*
+web/media/cache/*
 
 # Configuration files
 app/config/parameters.yml
