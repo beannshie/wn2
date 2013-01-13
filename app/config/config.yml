@@ -62,7 +62,7 @@ doctrine:
                     SyliusTaxationBundle: ~
                     SyliusTaxonomiesBundle: ~
                     SyliusSandboxBundle: ~
-#                    WnBundle: ~
+                    WnWnBundle: ~
                 filters:
                     softdeleteable:
                         class: Gedmo\SoftDeleteable\Filter\SoftDeleteableFilter
@@ -157,8 +157,26 @@ sylius_assortment:
 sylius_categorizer:
     driver: doctrine/orm
     catalogs:
-        blog:
+        articles:
             property: "posts"
+            model: Sylius\Bundle\SandboxBundle\Entity\PostCategory
+            templates:
+                backend: SyliusSandboxBundle:Backend/PostCategory:%s.html.twig
+                frontend: SyliusSandboxBundle:Frontend/PostCategory:%s.html.twig
+        news:
+            property: "news"
+            model: Sylius\Bundle\SandboxBundle\Entity\PostCategory
+            templates:
+                backend: SyliusSandboxBundle:Backend/PostCategory:%s.html.twig
+                frontend: SyliusSandboxBundle:Frontend/PostCategory:%s.html.twig
+        events:
+            property: "event"
+            model: Sylius\Bundle\SandboxBundle\Entity\PostCategory
+            templates:
+                backend: SyliusSandboxBundle:Backend/PostCategory:%s.html.twig
+                frontend: SyliusSandboxBundle:Frontend/PostCategory:%s.html.twig
+        advertisements:
+            property: "advertisement"
             model: Sylius\Bundle\SandboxBundle\Entity\PostCategory
             templates:
                 backend: SyliusSandboxBundle:Backend/PostCategory:%s.html.twig

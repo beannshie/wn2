@@ -1,0 +1,35 @@
+yes:    tak
+no:     nie
+cancel: anuluj
+update: edycja
+delete: usuń
+show: pokaż
+duplicate: duplikat
+build: utwórz
+
+title:
+    backend:  Wolna Nuta - administracja
+    frontend: Wolna Nuta
+
+confirmer:
+    header: Potwierdź akcję
+    question: Czy jesteś pewny/a, że chcesz wykonać akcję?
+    q:
+        address:
+            delete: Czy napewno chcesz usunąć ten adres?
+        category:
+            delete: Czy napewno chcesz usunąć tę kategorię?
+        option:
+            delete: Czy napewno chcesz usunąć tę opcję?
+        product:
+            delete: Czy napewno chcesz usunąć ten produkt?
+        property:
+            delete: Czy napewno chcesz usunąć tę właściwość?
+        prototype:
+            delete: Czy napewno chcesz usunąć ten prototyp?
+        variant:
+            delete: Czy napewno chcesz usunąć ten wariant?
+
+alert:
+    heading:
+        info: Informacje
