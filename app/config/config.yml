@@ -1,6 +1,7 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
+    - { resource: database.yml }
 
 framework:
     default_locale:  %locale%
@@ -31,42 +32,6 @@ assetic:
     debug:          %kernel.debug%
     use_controller: false
     read_from:      %kernel.root_dir%/../web
-
-# Doctrine Configuration
-doctrine:
-    dbal:
-        driver:   %database_driver%
-        host:     %database_host%
-        port:     %database_port%
-        dbname:   %database_name%
-        user:     %database_user%
-        password: %database_password%
-        charset:  UTF8
-
-    orm:
-        auto_generate_proxy_classes: %kernel.debug%
-        entity_managers:
-            default:
-                mappings:
-                    FOSUserBundle: ~
-                    FOSCommentBundle: ~
-                    SyliusAddressingBundle: ~
-                    SyliusAssortmentBundle: ~
-                    SyliusBloggerBundle: ~
-                    SyliusCartBundle: ~
-                    SyliusCategorizerBundle: ~
-                    SyliusInventoryBundle: ~
-                    SyliusSalesBundle: ~
-                    SyliusSettingsBundle: ~
-                    SyliusShippingBundle: ~
-                    SyliusTaxationBundle: ~
-                    SyliusTaxonomiesBundle: ~
-                    SyliusSandboxBundle: ~
-                    WnWnBundle: ~
-                filters:
-                    softdeleteable:
-                        class: Gedmo\SoftDeleteable\Filter\SoftDeleteableFilter
-                        enabled: true
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -158,7 +123,7 @@ sylius_categorizer:
     driver: doctrine/orm
     catalogs:
         articles:
-            property: "posts"
+            property: "articles"
             model: Sylius\Bundle\SandboxBundle\Entity\PostCategory
             templates:
                 backend: SyliusSandboxBundle:Backend/PostCategory:%s.html.twig
@@ -170,13 +135,13 @@ sylius_categorizer:
                 backend: SyliusSandboxBundle:Backend/PostCategory:%s.html.twig
                 frontend: SyliusSandboxBundle:Frontend/PostCategory:%s.html.twig
         events:
-            property: "event"
+            property: "events"
             model: Sylius\Bundle\SandboxBundle\Entity\PostCategory
             templates:
                 backend: SyliusSandboxBundle:Backend/PostCategory:%s.html.twig
                 frontend: SyliusSandboxBundle:Frontend/PostCategory:%s.html.twig
         advertisements:
-            property: "advertisement"
+            property: "advertisements"
             model: Sylius\Bundle\SandboxBundle\Entity\PostCategory
             templates:
                 backend: SyliusSandboxBundle:Backend/PostCategory:%s.html.twig
@@ -187,6 +152,7 @@ sylius_cart:
     resolver: sylius_sandbox_cart.resolver
     classes:
         cart:
+            model: Sylius\Bundle\SandboxBundle\Entity\Cart
             repository: Sylius\Bundle\SandboxBundle\Repository\CartRepository
         item:
             model: Sylius\Bundle\SandboxBundle\Entity\CartItem
@@ -220,7 +186,7 @@ sylius_inventory:
         unit:
             model: Sylius\Bundle\SandboxBundle\Entity\InventoryUnit
         stockable:
-            model: Sylius\Bundle\SandboxBundle\Entity\Variant
+            model: %sylius_assortment.model.variant.class%
     events:
         - sylius_assortment.product.pre_update
         - sylius_assortment.variant.pre_update
@@ -235,7 +201,6 @@ sylius_taxonomies:
 
 sylius_taxation:
     driver: doctrine/orm
-    rate_resolver: sylius_sandbox.tax_rate_resolver
     classes:
         rate:
             model: Sylius\Bundle\SandboxBundle\Entity\TaxRate
@@ -244,13 +209,13 @@ sylius_taxation:
 sylius_shipping:
     driver: doctrine/orm
     classes:
+        shipment:
+            model: Sylius\Bundle\SandboxBundle\Entity\Shipment
+        shipment_item:
+            model: Sylius\Bundle\SandboxBundle\Entity\InventoryUnit
         method:
             model: Sylius\Bundle\SandboxBundle\Entity\ShippingMethod
             form: Sylius\Bundle\SandboxBundle\Form\Type\ShippingMethodType
-        shipment:
-            model: Sylius\Bundle\ShippingBundle\Entity\Shipment
-        shipment_item:
-            model: Sylius\Bundle\ShippingBundle\Entity\ShipmentItem
 
 sylius_settings:
     driver: doctrine/orm

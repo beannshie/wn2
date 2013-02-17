@@ -13,6 +13,7 @@ namespace Sylius\Bundle\SandboxBundle\DataFixtures\ORM;
 
 use Doctrine\Common\Persistence\ObjectManager;
 use Sylius\Bundle\AddressingBundle\Model\ZoneInterface;
+use Symfony\Component\Locale\Locale;
 
 /**
  * Default zone fixtures.
@@ -26,12 +27,19 @@ class LoadZonesData extends DataFixture
      */
     public function load(ObjectManager $manager)
     {
-        $this->createZone('EU', ZoneInterface::TYPE_COUNTRY, array(
+        $euCountries = array(
             'BE', 'BG', 'CZ', 'DK', 'DE', 'EE', 'IE', 'GR', 'ES',
             'FR', 'IT', 'CY', 'LV', 'LV', 'LT', 'LU', 'HU', 'MT',
             'NL', 'AT', 'PL', 'PT', 'RO', 'SI', 'SK', 'FI', 'SE',
             'GB'
-        ));
+        );
+
+        $this->createZone('EU', ZoneInterface::TYPE_COUNTRY, $euCountries);
+
+        $restOfWorldCountries = array_diff(Locale::getCountries(), $euCountries);
+
+        $this->createZone('Rest of world', ZoneInterface::TYPE_COUNTRY, $restOfWorldCountries);
+
         $this->createZone('USA GMT-8', ZoneInterface::TYPE_PROVINCE, array('WA', 'OR', 'NV', 'ID', 'CA'));
         $this->createZone('EU + USA GMT-8', ZoneInterface::TYPE_ZONE, array('EU', 'USA GMT-8'));
 
@@ -45,7 +53,7 @@ class LoadZonesData extends DataFixture
         $zone->setType($type);
 
         foreach ($members as $id) {
-            $zoneMember = $this->get('sylius_addressing.repository.zone_member_'.$type)->createNew();
+            $zoneMember = $this->get('sylius.repository.zone_member_'.$type)->createNew();
             call_user_func(array(
                 $zoneMember, 'set'.ucfirst($type)),
                 $this->getReference(ucfirst($type).'-'.$id)
@@ -61,12 +69,12 @@ class LoadZonesData extends DataFixture
 
     private function getZoneRepository()
     {
-        return $this->get('sylius_addressing.repository.zone');
+        return $this->get('sylius.repository.zone');
     }
 
     private function getZoneManager()
     {
-        return $this->get('sylius_addressing.manager.zone');
+        return $this->get('sylius.manager.zone');
     }
 
     /**

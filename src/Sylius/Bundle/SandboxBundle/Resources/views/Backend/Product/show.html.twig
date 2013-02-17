@@ -42,6 +42,7 @@
             <th>options</th>
             <th>taxons</th>
             <th>tax category</th>
+            <th>shipping category</th>
             <th>{% if product.hasOptions %}master {% endif %}price</th>
         </tr>
     </thead>
@@ -77,7 +78,8 @@
                 {% endif %}
             </td>
             <td>{{ product.taxCategory|default('Undefined') }}</td>
-            <td>{{ product.price }} &euro;</td>
+            <td>{{ product.masterVariant.shippingCategory|default('Undefined') }}</td>
+            <td>{{ product.price }} {{ currency|raw }}</td>
         </tr>
     </tbody>
 </table>

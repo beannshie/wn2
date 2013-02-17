@@ -5,7 +5,6 @@ parameters:
     database_name:     wn3
     database_user:     wn3
     database_password: AdvCPrCEELYDbuhp
-    database_path: null
 
     mailer_transport:  smtp
     mailer_host:       localhost
@@ -16,3 +15,5 @@ parameters:
     secret:            bdc4a410f7735591d9a22b306fc62a7d8
 
     cache:             apc
+
+    currency:          'zł'

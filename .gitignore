@@ -1,10 +1,10 @@
 # Bootstrap
-#app/bootstrap*
+app/bootstrap*
 
 # Symfony directories
 vendor/*
-*/logs/*
-*/cache/*
+app/logs/*
+app/cache/*
 web/uploads/*
 web/bundles/*
 web/assets/compiled/*

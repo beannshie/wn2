@@ -32,12 +32,20 @@ class LoadPostCategoriesData extends DataFixture
     {
         $this->manager = $this->get('sylius_categorizer.manager.category');
         $this->manipulator = $this->get('sylius_categorizer.manipulator.category');
-        $this->catalog = $this->get('sylius_categorizer.registry')->getCatalog('blog');
+        $this->catalog = $this->get('sylius_categorizer.registry')->getCatalog('articles');
 
         $this->createCategory('Symfony2');
         $this->createCategory('Doctrine');
         $this->createCategory('Sylius');
         $this->createCategory('Composer');
+
+
+        $this->catalog = $this->get('sylius_categorizer.registry')->getCatalog('news');
+
+        $this->createCategory('newsSymfony2');
+        $this->createCategory('newsDoctrine');
+        $this->createCategory('newsSylius');
+        $this->createCategory('newsComposer');
     }
 
     /**

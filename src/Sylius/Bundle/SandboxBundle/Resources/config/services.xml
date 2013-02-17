@@ -21,13 +21,15 @@
         <parameter key="sylius_sandbox.form.type.product_variants_grid.class">Sylius\Bundle\SandboxBundle\Form\Type\ProductVariantsGridType</parameter>
         <parameter key="sylius_sandbox.form.type.product_variants_grid_line.class">Sylius\Bundle\SandboxBundle\Form\Type\ProductVariantsGridLineType</parameter>
 
+        <parameter key="sylius_sandbox.form.type.checkout_addressing.class">Sylius\Bundle\SandboxBundle\Form\Type\CheckoutAddressingType</parameter>
+        <parameter key="sylius_sandbox.form.type.checkout_shipping.class">Sylius\Bundle\SandboxBundle\Form\Type\CheckoutShippingType</parameter>
+
         <parameter key="sylius_sandbox.settings.general.class">Sylius\Bundle\SandboxBundle\Settings\GeneralSettingsSchema</parameter>
         <parameter key="sylius_sandbox.settings.taxation.class">Sylius\Bundle\SandboxBundle\Settings\TaxationSettingsSchema</parameter>
 
         <parameter key="sylius_sandbox.listener.order_taxation.class">Sylius\Bundle\SandboxBundle\EventListener\OrderTaxationListener</parameter>
         <parameter key="sylius_sandbox.listener.order_inventory.class">Sylius\Bundle\SandboxBundle\EventListener\OrderInventoryListener</parameter>
-
-        <parameter key="sylius_sandbox.tax_rate_resolver.class">Sylius\Bundle\SandboxBundle\Taxation\TaxRateResolver</parameter>
+        <parameter key="sylius_sandbox.listener.order_shipping.class">Sylius\Bundle\SandboxBundle\EventListener\OrderShippingListener</parameter>
     </parameters>
 
     <services>
@@ -79,33 +81,42 @@
             <tag name="form.type" alias="sylius_sandbox_product_variants_grid_line" />
         </service>
 
+        <service id="sylius_sandbox.form.type.checkout_addressing" class="%sylius_sandbox.form.type.checkout_addressing.class%">
+            <tag name="form.type" alias="sylius_sandbox_checkout_addressing" />
+        </service>
+        <service id="sylius_sandbox.form.type.checkout_shipping" class="%sylius_sandbox.form.type.checkout_shipping.class%">
+            <tag name="form.type" alias="sylius_sandbox_checkout_shipping" />
+        </service>
+
         <service id="sylius_sandbox.settings.general" class="%sylius_sandbox.settings.general.class%">
             <tag name="sylius_settings.schema" namespace="general" />
         </service>
 
         <service id="sylius_sandbox.settings.taxation" class="%sylius_sandbox.settings.taxation.class%">
-            <argument type="service" id="sylius_addressing.repository.zone" />
+            <argument type="service" id="sylius.repository.zone" />
             <tag name="sylius_settings.schema" namespace="taxation" />
         </service>
 
         <service id="sylius_sandbox.listener.order_taxation" class="%sylius_sandbox.listener.order_taxation.class%">
-            <argument type="service" id="sylius_addressing.zone_matcher" />
+            <argument type="service" id="sylius.zone_matcher" />
             <argument type="service" id="sylius_taxation.rate_resolver" />
             <argument type="service" id="sylius_taxation.calculator" />
             <argument type="service" id="sylius_sales.repository.adjustment" />
             <argument type="service" id="sylius_settings.manager" />
-            <tag name="kernel.event_listener" event="sylius_sales.order.pre_create" method="determineTaxes" />
-            <tag name="kernel.event_listener" event="sylius_sales.order.pre_update" method="determineTaxes" />
+            <tag name="kernel.event_listener" event="sylius_sales.order.pre_create" method="processTaxes" />
+            <tag name="kernel.event_listener" event="sylius_sales.order.pre_update" method="processTaxes" />
         </service>
 
         <service id="sylius_sandbox.listener.order_inventory" class="%sylius_sandbox.listener.order_inventory.class%">
             <argument type="service" id="sylius_assortment.manager.variant" />
             <argument type="service" id="sylius_inventory.operator" />
-            <tag name="kernel.event_listener" event="sylius_sales.order.pre_create" method="processInventory" />
+            <tag name="kernel.event_listener" event="sylius_sales.order.pre_create" method="processInventory" priority="10" />
         </service>
 
-        <service id="sylius_sandbox.tax_rate_resolver" class="%sylius_sandbox.tax_rate_resolver.class%">
-            <argument type="service" id="sylius_taxation.repository.rate" />
+        <service id="sylius_sandbox.listener.order_shipping" class="%sylius_sandbox.listener.order_shipping.class%">
+            <argument type="service" id="sylius_sales.repository.adjustment" />
+            <argument type="service" id="sylius_shipping.calculator" />
+            <tag name="kernel.event_listener" event="sylius_sales.order.pre_create" method="processShippingCharges" />
         </service>
     </services>
 

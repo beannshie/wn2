@@ -39,6 +39,7 @@
             <th>stock "on hand"</th>
             <th>available on demand</th>
             <th>option set</th>
+            <th>shipping category</th>
             <th>price</th>
         </tr>
     </thead>
@@ -65,7 +66,8 @@
                 {% endfor %}
                 </ul>
             </td>
-            <td>{{ variant.price }} &euro;</td>
+            <td>{{ variant.shippingCategory|default('Undefined') }}</td>
+            <td>{{ variant.price }} {{ currency|raw }}</td>
         </tr>
     </tbody>
 </table>

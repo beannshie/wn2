@@ -14,9 +14,9 @@ namespace Sylius\Bundle\SandboxBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Sylius\Bundle\AssortmentBundle\Entity\CustomizableProduct as BaseProduct;
-use Sylius\Bundle\InventoryBundle\Model\StockableInterface;
 use Sylius\Bundle\TaxationBundle\Model\TaxCategoryInterface;
 use Sylius\Bundle\TaxationBundle\Model\TaxableInterface;
+use Sylius\Bundle\InventoryBundle\Model\StockableInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class Product extends BaseProduct implements StockableInterface, TaxableInterface
@@ -120,15 +120,41 @@ class Product extends BaseProduct implements StockableInterface, TaxableInterfac
 
     /**
      * Implementation of stockable interface.
+     *
+     * {@inheritdoc}
+     */
+    public function getSku()
+    {
+        return $this
+            ->getMasterVariant()
+            ->getSku()
+        ;
+    }
+
+    /**
+     * Implementation of stockable interface.
      * Proxy to use master variant for managing inventory status.
      *
      * {@inheritdoc}
      */
-    public function getStockableId()
+    public function getInventoryName()
     {
         return $this
             ->getMasterVariant()
-            ->getStockableId()
+            ->getInventoryName()
+        ;
+    }
+
+    /**
+     * Implementation of stockable interface.
+     *
+     * {@inheritdoc}
+     */
+    public function isAvailableOnDemand()
+    {
+        return $this
+            ->getMasterVariant()
+            ->getIsAvailableOnDemand()
         ;
     }
 
@@ -224,7 +250,7 @@ class Product extends BaseProduct implements StockableInterface, TaxableInterfac
 
     protected function getImageUploadRootDir()
     {
-        return __DIR__.'/../../../../../web/'.$this->getImageUploadDir();
+        return __DIR__.'/../../../../../public/'.$this->getImageUploadDir();
     }
 
     public static function getVariantPickingModeChoices()
@@ -243,30 +269,5 @@ class Product extends BaseProduct implements StockableInterface, TaxableInterfac
     public function getCommentThreadId()
     {
         return 'assortment_product_'.$this->getId();
-    }
-
-    public function getInventoryName()
-    {
-        return $this->getName();
-    }
-
-    public function isAvailableOnDemand()
-    {
-        $this
-            ->getMasterVariant()
-            ->isAvailableOnDemand()
-        ;
-    }
-
-    /**
-     * Get stock keeping unit.
-     *
-     * @return mixed
-     */
-    public function getSku()
-    {
-        return $this
-            ->getMasterVariant()
-            ->getSku();
     }
 }

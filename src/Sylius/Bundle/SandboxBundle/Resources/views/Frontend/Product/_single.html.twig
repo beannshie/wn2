@@ -6,14 +6,14 @@
     </div>
     <div class="span9">
         {% if not product.hasOptions %}
-            <span class="label label-price label-success pull-right"><strong>Price</strong>: {{ product.price }} &euro;</span>
+            <span class="label label-price label-success pull-right"><strong>Price</strong>: {{ product.price }} {{ currency|raw }}</span>
         {% endif %}
         <h3>{{ product.name }}</h3>
         <p>
             {{ product.description|markdown }}
         </p>
         {% if not product.hasOptions %}
-            {% if not sylius_inventory_in_stock(product.masterVariant) %}
+            {% if not sylius_inventory_is_available(product.masterVariant) %}
                 <br />
                 <span class="label label-important center-text out-of-stock">out of stock</span>
             {% else %}

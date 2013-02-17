@@ -19,19 +19,24 @@
                 <cascade-all/>
             </cascade>
         </one-to-many>
-        <many-to-one field="deliveryAddress" target-entity="Sylius\Bundle\AddressingBundle\Entity\Address" on-delete="SET NULL">
+        <many-to-one field="deliveryAddress" target-entity="Sylius\Bundle\AddressingBundle\Model\AddressInterface" on-delete="SET NULL">
             <cascade>
                 <cascade-persist/>
             </cascade>
             <join-column name="delivery_address_id" referenced-column-name="id" />
         </many-to-one>
-        <many-to-one field="billingAddress" target-entity="Sylius\Bundle\AddressingBundle\Entity\Address" on-delete="SET NULL">
+        <many-to-one field="billingAddress" target-entity="Sylius\Bundle\AddressingBundle\Model\AddressInterface" on-delete="SET NULL">
             <cascade>
                 <cascade-all/>
             </cascade>
             <join-column name="billing_address_id" referenced-column-name="id" />
         </many-to-one>
         <one-to-many field="inventoryUnits" target-entity="Sylius\Bundle\SandboxBundle\Entity\InventoryUnit" mapped-by="order">
+            <cascade>
+                <cascade-all/>
+            </cascade>
+        </one-to-many>
+        <one-to-many field="shipments" target-entity="Sylius\Bundle\ShippingBundle\Model\ShipmentInterface" mapped-by="order">
             <cascade>
                 <cascade-all/>
             </cascade>

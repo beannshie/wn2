@@ -5,7 +5,7 @@
 
   php composer.phar update jms/security-extra-bundle
 
-  updaty sciagaja wersje, install instaluje chyba tylko to co jest w locku - na 99% tak wlasnie :)
+  updaty sciagaja wersje, install instaluje tylko to co jest w locku
 
 sudo setfacl -R -m u:www-data:rwx -m u:`whoami`:rwx app/cache app/logs
 sudo setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx app/cache app/logs

@@ -1,0 +1,11 @@
+# This file is part of the Sylius sandbox application.
+# (c) Paweł Jędrzejewski
+
+sylius_sandbox_backend_stockable_list:
+    pattern: /list
+    defaults:
+        _controller: sylius_inventory.controller.stockable:indexAction
+        _template: SyliusSandboxBundle:Backend/Stockable:list.html.twig
+        _sortable: true
+        _sorting:
+            updatedAt: asc
