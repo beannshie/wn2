@@ -167,14 +167,15 @@ sylius_blogger:
 
 sylius_sales:
     driver: doctrine/orm
-    builder: sylius_sandbox.builder.order
     classes:
         order:
             model: Sylius\Bundle\SandboxBundle\Entity\Order
             form: Sylius\Bundle\SandboxBundle\Form\Type\OrderType
-        item:
+        order_item:
             model: Sylius\Bundle\SandboxBundle\Entity\OrderItem
             form: Sylius\Bundle\SandboxBundle\Form\Type\OrderItemType
+        sellable:
+            model: %sylius.model.variant.class%
 
 sylius_addressing:
     driver: doctrine/orm
@@ -186,7 +187,7 @@ sylius_inventory:
         unit:
             model: Sylius\Bundle\SandboxBundle\Entity\InventoryUnit
         stockable:
-            model: %sylius_assortment.model.variant.class%
+            model: %sylius.model.variant.class%
     events:
         - sylius_assortment.product.pre_update
         - sylius_assortment.variant.pre_update
@@ -202,7 +203,7 @@ sylius_taxonomies:
 sylius_taxation:
     driver: doctrine/orm
     classes:
-        rate:
+        tax_rate:
             model: Sylius\Bundle\SandboxBundle\Entity\TaxRate
             form: Sylius\Bundle\SandboxBundle\Form\Type\TaxRateType
 
@@ -213,7 +214,7 @@ sylius_shipping:
             model: Sylius\Bundle\SandboxBundle\Entity\Shipment
         shipment_item:
             model: Sylius\Bundle\SandboxBundle\Entity\InventoryUnit
-        method:
+        shipping_method:
             model: Sylius\Bundle\SandboxBundle\Entity\ShippingMethod
             form: Sylius\Bundle\SandboxBundle\Form\Type\ShippingMethodType
 
@@ -227,7 +228,7 @@ liip_doctrine_cache:
 
 sylius_resource:
     resources:
-        sylius_user.user:
+        sylius.user:
             driver: doctrine/orm
             classes:
                 model: Sylius\Bundle\SandboxBundle\Entity\User

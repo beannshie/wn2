@@ -100,22 +100,22 @@ class LoadShippingData extends DataFixture
 
     private function getShippingCategoryManager()
     {
-        return $this->get('sylius_shipping.manager.category');
+        return $this->get('sylius.manager.shipping_category');
     }
 
 
     private function getShippingCategoryRepository()
     {
-        return $this->get('sylius_shipping.repository.category');
+        return $this->get('sylius.repository.shipping_category');
     }
 
     private function getShippingMethodManager()
     {
-        return $this->get('sylius_shipping.manager.method');
+        return $this->get('sylius.manager.shipping_method');
     }
 
     private function getShippingMethodRepository()
     {
-        return $this->get('sylius_shipping.repository.method');
+        return $this->get('sylius.repository.shipping_method');
     }
 }

@@ -39,7 +39,7 @@ class FinalizeCheckoutStep extends ControllerStep
         $this->save($order);
 
         $this->container->get('session')->setFlash('success', 'Your order has been saved, thank you!');
-        $this->container->get('sylius_cart.provider')->abandonCart();
+        $this->container->get('sylius.cart_provider')->abandonCart();
 
         return $this->complete();
     }

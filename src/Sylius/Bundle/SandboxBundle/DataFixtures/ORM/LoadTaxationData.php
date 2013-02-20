@@ -100,22 +100,22 @@ class LoadTaxationData extends DataFixture
 
     private function getTaxCategoryManager()
     {
-        return $this->get('sylius_taxation.manager.category');
+        return $this->get('sylius.manager.tax_category');
     }
 
 
     private function getTaxCategoryRepository()
     {
-        return $this->get('sylius_taxation.repository.category');
+        return $this->get('sylius.repository.tax_category');
     }
 
     private function getTaxRateManager()
     {
-        return $this->get('sylius_taxation.manager.rate');
+        return $this->get('sylius.manager.tax_rate');
     }
 
     private function getTaxRateRepository()
     {
-        return $this->get('sylius_taxation.repository.rate');
+        return $this->get('sylius.repository.tax_rate');
     }
 }

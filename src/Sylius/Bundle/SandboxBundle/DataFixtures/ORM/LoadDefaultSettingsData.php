@@ -12,6 +12,7 @@
 namespace Sylius\Bundle\SandboxBundle\DataFixtures\ORM;
 
 use Doctrine\Common\Persistence\ObjectManager;
+use Sylius\Bundle\SettingsBundle\Model\Settings;
 
 /**
  * Store default settings.
@@ -35,7 +36,7 @@ class LoadDefaultSettingsData extends DataFixture
             'defaultMetaKeywords'    => 'symfony2, webshop, ecommerce, e-commerce, sylius, shopping cart'
         );
 
-        $manager->saveSettings('general', $general);
+        $manager->saveSettings('general', new Settings($general));
 
         $taxation = array(
             'defaultTaxZone' => $this->getReference('Zone-EU')
@@ -51,6 +52,6 @@ class LoadDefaultSettingsData extends DataFixture
 
     private function getSettingsManager()
     {
-        return $this->get('sylius_settings.manager');
+        return $this->get('sylius.settings.manager');
     }
 }

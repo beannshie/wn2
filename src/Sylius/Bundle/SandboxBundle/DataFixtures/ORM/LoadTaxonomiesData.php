@@ -80,16 +80,16 @@ class LoadTaxonomiesData extends DataFixture
 
     private function getTaxonomyManager()
     {
-        return $this->get('sylius_taxonomies.manager.taxonomy');
+        return $this->get('sylius.manager.taxonomy');
     }
 
     private function getTaxonomyRepository()
     {
-        return $this->get('sylius_taxonomies.repository.taxonomy');
+        return $this->get('sylius.repository.taxonomy');
     }
 
     private function getTaxonRepository()
     {
-        return $this->get('sylius_taxonomies.repository.taxon');
+        return $this->get('sylius.repository.taxon');
     }
 }

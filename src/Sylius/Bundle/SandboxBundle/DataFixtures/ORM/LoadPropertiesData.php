@@ -71,11 +71,11 @@ class LoadPropertiesData extends DataFixture
 
     private function getPropertyManager()
     {
-        return $this->get('sylius_assortment.manager.property');
+        return $this->get('sylius.manager.property');
     }
 
     private function getPropertyRepository()
     {
-        return $this->get('sylius_assortment.repository.property');
+        return $this->get('sylius.repository.property');
     }
 }

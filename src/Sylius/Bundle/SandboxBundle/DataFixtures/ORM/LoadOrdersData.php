@@ -94,26 +94,26 @@ class LoadOrdersData extends DataFixture
 
     private function getOrderManager()
     {
-        return $this->get('sylius_sales.manager.order');
+        return $this->get('sylius.manager.order');
     }
 
     private function getOrderRepository()
     {
-        return $this->get('sylius_sales.repository.order');
+        return $this->get('sylius.repository.order');
     }
 
     private function getOrderItemManager()
     {
-        return $this->get('sylius_sales.manager.item');
+        return $this->get('sylius.manager.order_item');
     }
 
     private function getOrderItemRepository()
     {
-        return $this->get('sylius_sales.repository.item');
+        return $this->get('sylius.repository.order_item');
     }
 
     private function createNewShipment()
     {
-        return $this->get('sylius_shipping.repository.shipment')->createNew();
+        return $this->get('sylius.repository.shipment')->createNew();
     }
 }

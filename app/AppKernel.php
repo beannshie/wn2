@@ -53,6 +53,8 @@ class AppKernel extends Kernel
             new Symfony\Bundle\TwigBundle\TwigBundle(),
             new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
 
+            new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle(),
+
             /*
              * Sandbox specific bundles.
              */

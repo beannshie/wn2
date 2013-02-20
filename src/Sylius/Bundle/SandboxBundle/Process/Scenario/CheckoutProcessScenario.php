@@ -19,7 +19,7 @@ class CheckoutProcessScenario extends ContainerAware implements ProcessScenarioI
      */
     public function build(ProcessBuilderInterface $builder)
     {
-        $cart = $this->container->get('sylius_cart.provider')->getCart();
+        $cart = $this->container->get('sylius.cart_provider')->getCart();
 
         $builder
             ->add('security', new Step\SecurityCheckoutStep())

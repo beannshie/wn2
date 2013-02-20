@@ -44,6 +44,6 @@ class MainController extends Controller
 
     private function getProductRepository()
     {
-        return $this->get('sylius_assortment.repository.product');
+        return $this->get('sylius.repository.product');
     }
 }

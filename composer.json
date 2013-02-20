@@ -9,42 +9,43 @@
         "php":                                 ">=5.3.3",
 
         "doctrine/orm":                        ">=2.2.3,<2.4-dev",
-        "fzaninotto/faker":                    "1.1.*@dev",
-        "symfony/symfony":                     "2.1.x-dev",
-        "twig/extensions":                     "1.0.*@dev",
+        "fzaninotto/faker":                    "1.1.*",
+        "symfony/symfony":                     ">=2.2,<2.3-dev",
+        "twig/extensions":                     "1.0.*",
 
         "avalanche123/imagine-bundle":         "dev-master",
-        "doctrine/doctrine-bundle":            "1.0.*@dev",
-        "doctrine/doctrine-fixtures-bundle":   "dev-master",
+        "doctrine/doctrine-bundle":            "1.2.*",
+        "doctrine/doctrine-fixtures-bundle":   "2.1.*",
         "doctrine/doctrine-migrations-bundle": "dev-master",
-        "stof/doctrine-extensions-bundle":     "1.1.*@dev",
+        "stof/doctrine-extensions-bundle":     "1.1.*",
 
-        "symfony/assetic-bundle":              "2.1.*@dev",
-        "symfony/swiftmailer-bundle":          "2.2.*@dev",
-        "symfony/monolog-bundle":              "2.2.*@dev",
-        "sensio/distribution-bundle":          "2.1.x-dev",
+        "symfony/assetic-bundle":              "2.1.*",
+        "symfony/swiftmailer-bundle":          "2.2.*",
+        "symfony/monolog-bundle":              "2.2.*",
+        "sensio/distribution-bundle":          "2.2.*",
+        "sensio/generator-bundle":             "2.2.*",
 
-        "friendsofsymfony/rest-bundle":        "0.11.*@dev",
-        "friendsofsymfony/user-bundle":        "2.0.*@dev",
-        "friendsofsymfony/comment-bundle":     "2.0.*@dev",
-        "jms/serializer-bundle":               "1.0.*@dev",
-        "knplabs/knp-markdown-bundle":         "1.2.*@dev",
-        "knplabs/knp-menu-bundle":             "2.0.*@dev",
-        "mopa/bootstrap-bundle":               "2.1.*@dev",
+        "friendsofsymfony/rest-bundle":        "0.11.*",
+        "friendsofsymfony/user-bundle":        "1.3.1",
+        "friendsofsymfony/comment-bundle":     "2.0.*",
+        "jms/serializer-bundle":               "1.0.*",
+        "knplabs/knp-markdown-bundle":         "1.2.*",
+        "knplabs/knp-menu-bundle":             "2.0.*",
+        "mopa/bootstrap-bundle":               "2.1.*",
         "liip/doctrine-cache-bundle":          "dev-master",
 
-        "sylius/addressing-bundle":            "dev-master",
-        "sylius/assortment-bundle":            "dev-master",
-        "sylius/cart-bundle":                  "dev-master",
+        "sylius/addressing-bundle":            "0.1.*",
+        "sylius/assortment-bundle":            "0.1.*",
+        "sylius/cart-bundle":                  "0.3.*",
         "sylius/categorizer-bundle":           "dev-master",
-        "sylius/taxonomies-bundle":            "dev-master",
-        "sylius/taxation-bundle":              "dev-master",
-        "sylius/shipping-bundle":              "dev-master",
-        "sylius/flow-bundle":                  "dev-master",
-        "sylius/inventory-bundle":             "dev-master",
-        "sylius/sales-bundle":                 "dev-master",
+        "sylius/taxonomies-bundle":            "0.1.*",
+        "sylius/taxation-bundle":              "0.1.*",
+        "sylius/shipping-bundle":              "0.1.*",
+        "sylius/flow-bundle":                  "0.1.*",
+        "sylius/inventory-bundle":             "0.1.*",
+        "sylius/sales-bundle":                 "0.1.*",
         "sylius/blogger-bundle":               "dev-master",
-        "sylius/settings-bundle":              "dev-master"
+        "sylius/settings-bundle":              "0.1.*"
     },
     "require-dev": {
         "behat/mink-extension":                "dev-master",
@@ -54,12 +55,16 @@
     },
     "scripts": {
         "post-install-cmd": [
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
         ],
         "post-update-cmd": [
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
         ]
     },
     "config": {

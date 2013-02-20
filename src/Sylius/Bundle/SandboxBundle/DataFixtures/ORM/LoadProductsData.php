@@ -56,7 +56,7 @@ class LoadProductsData extends DataFixture
      */
     public function load(ObjectManager $manager)
     {
-        $this->productPropertyClass = $this->container->getParameter('sylius_assortment.model.product_property.class');
+        $this->productPropertyClass = $this->container->getParameter('sylius.model.product_property.class');
 
         // T-Shirts...
         for ($i = 1; $i <= 120; $i++) {
@@ -354,26 +354,26 @@ class LoadProductsData extends DataFixture
 
     private function getProductManager()
     {
-        return $this->get('sylius_assortment.manager.product');
+        return $this->get('sylius.manager.product');
     }
 
     private function getProductRepository()
     {
-        return $this->get('sylius_assortment.repository.product');
+        return $this->get('sylius.repository.product');
     }
 
     private function getVariantManager()
     {
-        return $this->get('sylius_assortment.manager.variant');
+        return $this->get('sylius.manager.variant');
     }
 
     private function getVariantRepository()
     {
-        return $this->get('sylius_assortment.repository.variant');
+        return $this->get('sylius.repository.variant');
     }
 
     private function getVariantGenerator()
     {
-        return $this->get('sylius_assortment.generator.variant');
+        return $this->get('sylius.variant_generator');
     }
 }

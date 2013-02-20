@@ -66,7 +66,7 @@ class ShippingCheckoutStep extends ControllerStep
 
     private function getCurrentCart()
     {
-        return $this->get('sylius_cart.provider')->getCart();
+        return $this->get('sylius.cart_provider')->getCart();
     }
 
     private function getAddress($id)

@@ -108,11 +108,11 @@ class LoadPrototypesData extends DataFixture
 
     private function getPrototypeManager()
     {
-        return $this->get('sylius_assortment.manager.prototype');
+        return $this->get('sylius.manager.prototype');
     }
 
     private function getPrototypeRepository()
     {
-        return $this->get('sylius_assortment.repository.prototype');
+        return $this->get('sylius.repository.prototype');
     }
 }

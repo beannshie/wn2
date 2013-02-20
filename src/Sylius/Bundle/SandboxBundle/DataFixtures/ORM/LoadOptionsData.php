@@ -25,7 +25,7 @@ class LoadOptionsData extends DataFixture
      */
     public function load(ObjectManager $manager)
     {
-        $this->optionValueClass = $this->container->getParameter('sylius_assortment.model.option_value.class');
+        $this->optionValueClass = $this->container->getParameter('sylius.model.option_value.class');
 
         // T-Shirt size option.
         $this->createOption(
@@ -123,11 +123,11 @@ class LoadOptionsData extends DataFixture
 
     private function getOptionManager()
     {
-        return $this->get('sylius_assortment.manager.option');
+        return $this->get('sylius.manager.option');
     }
 
     private function getOptionRepository()
     {
-        return $this->get('sylius_assortment.repository.option');
+        return $this->get('sylius.repository.option');
     }
 }
