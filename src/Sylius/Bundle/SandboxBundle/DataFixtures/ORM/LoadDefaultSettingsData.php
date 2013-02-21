@@ -42,7 +42,7 @@ class LoadDefaultSettingsData extends DataFixture
             'defaultTaxZone' => $this->getReference('Zone-EU')
         );
 
-        $manager->saveSettings('taxation', $taxation);
+        $manager->saveSettings('taxation', new Settings($taxation));
     }
 
     public function getOrder()

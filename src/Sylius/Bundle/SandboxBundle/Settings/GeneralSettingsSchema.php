@@ -2,20 +2,22 @@
 
 namespace Sylius\Bundle\SandboxBundle\Settings;
 
-use Sylius\Bundle\SettingsBundle\Schema\Schema;
+use Sylius\Bundle\SettingsBundle\Schema\SchemaInterface;
+use Sylius\Bundle\SettingsBundle\Transformer\ObjectToIdentifierTransformer;
 use Symfony\Component\Form\FormBuilderInterface;
+use Sylius\Bundle\SettingsBundle\Schema\SettingsBuilderInterface;
 
 /**
  * Example sandbox checkout process.
  *
  * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
-class GeneralSettingsSchema extends Schema
+class GeneralSettingsSchema implements SchemaInterface
 {
     /**
      * {@inheritdoc}
      */
-    public function build(FormBuilderInterface $builder)
+    public function buildForm(FormBuilderInterface $builder)
     {
         $builder
             ->add('siteName', 'text', array(
@@ -34,5 +36,16 @@ class GeneralSettingsSchema extends Schema
                 'label' => 'Default meta description'
             ))
         ;
+    }
+
+    public function buildSettings(SettingsBuilderInterface $builder)
+    {
+        $builder->setDefaults(array(
+            'siteName' => '',
+            'siteUrl' => '',
+            'defaultMetaTitle' => '',
+            'defaultMetaKeywords' => '',
+            'defaultMetaDescription' => '',
+        ));
     }
 }

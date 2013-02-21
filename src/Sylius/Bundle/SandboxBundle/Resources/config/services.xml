@@ -89,12 +89,12 @@
         </service>
 
         <service id="sylius_sandbox.settings.general" class="%sylius_sandbox.settings.general.class%">
-            <tag name="sylius_settings.schema" namespace="general" />
+            <tag name="sylius.settings_schema" namespace="general" />
         </service>
 
         <service id="sylius_sandbox.settings.taxation" class="%sylius_sandbox.settings.taxation.class%">
             <argument type="service" id="sylius.repository.zone" />
-            <tag name="sylius_settings.schema" namespace="taxation" />
+            <tag name="sylius.settings_schema" namespace="taxation" />
         </service>
 
         <service id="sylius_sandbox.listener.order_taxation" class="%sylius_sandbox.listener.order_taxation.class%">
