@@ -1,7 +1,0 @@
-#wn_cart_homepage:
-#    pattern:  /hello/{name}
-#    defaults: { _controller: WnCartBundle:Default:index }
-
-cart:
-    resource: @SyliusCartBundle/Resources/config/routing/frontend/cart.yml
-    prefix: /cart

@@ -7,7 +7,7 @@ use Symfony\Component\HttpKernel\Debug\ExceptionHandler;
 use Symfony\Component\HttpKernel\Kernel;
 
 // Require autoload.
-require_once __DIR__.'/autoload.php';
+//require_once __DIR__.'/autoload.php';
 
 class AppKernel extends Kernel
 {
@@ -56,14 +56,9 @@ class AppKernel extends Kernel
             new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle(),
 
             /*
-             * Sandbox specific bundles.
-             */
-            new Sylius\Bundle\SandboxBundle\SyliusSandboxBundle(),
-
-            /*
             * Wn bundles.
             */
-            new \Wn\WnBundle\WnWnBundle(),
+            new \FreeNote\FreeNoteBundle\FreeNoteBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

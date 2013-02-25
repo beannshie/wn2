@@ -1,0 +1,28 @@
+<?php
+
+namespace FreeNote\FreeNoteBundle\Form\Type;
+
+use Sylius\Bundle\BloggerBundle\Form\Type\PostType as BasePostType;
+use Symfony\Component\Form\FormBuilderInterface;
+
+/**
+ * Sandbox blog post form type.
+ * Adds category choice field.
+ */
+class PostType extends BasePostType
+{
+    /**
+     * {@inheritdoc}
+     */
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        parent::buildForm($builder, $options);
+
+        $builder
+            ->add('categories', 'sylius_categorizer_category_choice', array(
+                'multiple' => true,
+                'catalog'  => 'blog'
+            ))
+        ;
+    }
+}

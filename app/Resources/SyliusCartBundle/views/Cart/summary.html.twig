@@ -1,4 +1,4 @@
-{% extends 'SyliusSandboxBundle:Frontend:layout.html.twig' %}
+{% extends 'FreeNoteBundle:Frontend:layout.html.twig' %}
 
 {% form_theme form _self %}
 
@@ -32,7 +32,7 @@
         <tr>
             <td>{{ loop.index }}</td>
             <td>
-                <a href="{{ path('sylius_sandbox_product_show', {'slug': item.variant.product.slug}) }}" class="thumbnail" style="width: 90px;">
+                <a href="{{ path('free_note_product_show', {'slug': item.variant.product.slug}) }}" class="thumbnail" style="width: 90px;">
                     <img src="{{ item.variant.product.imageWebPath is empty ? 'http://placehold.it/90x60' : item.variant.product.imageWebPath|apply_filter('frontend_medium') }}" alt="product photo" />
                 </a>
             </td>
@@ -70,7 +70,7 @@
 <div class="well">
     <button type="submit" class="btn btn-primary btn-large"><i class="icon-save icon-white"></i> save</button>
     <div class="pull-right">
-    <a href="{{ path('sylius_sandbox_checkout_start') }}" class="btn btn-success btn-large"><i class="icon-shopping-cart"></i> checkout</a>
+    <a href="{{ path('free_note_checkout_start') }}" class="btn btn-success btn-large"><i class="icon-shopping-cart"></i> checkout</a>
     <a href="{{ path('sylius_cart_clear') }}" class="btn btn-danger btn-large"><i class="icon-remove"></i> clear cart</a>
     </div>
 </div>

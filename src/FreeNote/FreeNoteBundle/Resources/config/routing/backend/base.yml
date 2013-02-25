@@ -1,0 +1,91 @@
+free_note_core_backend:
+    pattern: /
+    defaults: { _controller: free_note_core.controller.backend.main:indexAction }
+
+free_note_backend_address:
+    prefix: /addresses
+    resource: @FreeNoteBundle/Resources/config/routing/backend/address.yml
+
+free_note_backend_country:
+    prefix: /countries
+    resource: @FreeNoteBundle/Resources/config/routing/backend/country.yml
+
+free_note_backend_province:
+    prefix: /countries/{countryId}/provinces
+    resource: @FreeNoteBundle/Resources/config/routing/backend/province.yml
+
+free_note_backend_zone:
+    prefix: /zones
+    resource: @FreeNoteBundle/Resources/config/routing/backend/zone.yml
+
+free_note_backend_zone_member:
+    prefix: /zones/{zoneId}/members
+    resource: @FreeNoteBundle/Resources/config/routing/backend/zone_member.yml
+
+free_note_backend_order:
+    prefix: /orders
+    resource: @FreeNoteBundle/Resources/config/routing/backend/order.yml
+
+free_note_backend_shipment:
+    prefix: /shipments
+    resource: @FreeNoteBundle/Resources/config/routing/backend/shipment.yml
+
+free_note_backend_stockable:
+    prefix: /inventory
+    resource: @FreeNoteBundle/Resources/config/routing/backend/stockable.yml
+
+free_note_backend_product:
+    prefix: /products
+    resource: @FreeNoteBundle/Resources/config/routing/backend/product.yml
+
+free_note_backend_option:
+    prefix: /option
+    resource: @FreeNoteBundle/Resources/config/routing/backend/option.yml
+
+free_note_backend_variant:
+    prefix: /products/{productId}/variants
+    resource: @FreeNoteBundle/Resources/config/routing/backend/variant.yml
+
+free_note_backend_property:
+    prefix: /properties
+    resource: @FreeNoteBundle/Resources/config/routing/backend/property.yml
+
+free_note_backend_prototype:
+    prefix: /prototypes
+    resource: @FreeNoteBundle/Resources/config/routing/backend/prototype.yml
+
+free_note_backend_post:
+    resource: @FreeNoteBundle/Resources/config/routing/backend/post.yml
+    prefix: /posts
+
+free_note_backend_taxonomy:
+    prefix: /taxonomies
+    resource: @FreeNoteBundle/Resources/config/routing/backend/taxonomy.yml
+
+free_note_backend_taxon:
+    prefix: /taxonomies/{taxonomyId}/taxons
+    resource: @FreeNoteBundle/Resources/config/routing/backend/taxon.yml
+
+free_note_backend_tax_category:
+    prefix: /tax-categories
+    resource: @FreeNoteBundle/Resources/config/routing/backend/tax_category.yml
+
+free_note_backend_tax_rate:
+    prefix: /tax-rates
+    resource: @FreeNoteBundle/Resources/config/routing/backend/tax_rate.yml
+
+free_note_backend_shipping_category:
+    prefix: /shipping-categories
+    resource: @FreeNoteBundle/Resources/config/routing/backend/shipping_category.yml
+
+free_note_backend_shipping_method:
+    prefix: /shipping-methods
+    resource: @FreeNoteBundle/Resources/config/routing/backend/shipping_method.yml
+
+free_note_backend_user:
+    prefix: /users
+    resource: @FreeNoteBundle/Resources/config/routing/backend/user.yml
+
+free_note_backend_settings:
+    prefix: /settings
+    resource: @FreeNoteBundle/Resources/config/routing/backend/settings.yml

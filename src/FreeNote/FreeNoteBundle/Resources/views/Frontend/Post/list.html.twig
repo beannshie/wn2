@@ -1,0 +1,27 @@
+{% extends 'FreeNoteBundle:Frontend:layout.html.twig' %}
+
+{% block content %}
+<div class="page-header">
+<h1>Blog <small>Blog posts list</small></h1>
+</div>
+
+{% if posts.haveToPaginate() %}
+{{ pagerfanta(posts, 'twitter_bootstrap_translated') }}
+{% endif %}
+
+{% if posts|length > 0 %}
+    {% for post in posts %}
+        {% include 'FreeNoteBundle:Frontend/Post:_single.html.twig' %}
+    {% endfor %}
+{% else %}
+    <hr />
+    <div class="alert alert-info">
+        No posts to display.
+    </div>
+{% endif %}
+
+{% if posts.haveToPaginate() %}
+{{ pagerfanta(posts, 'twitter_bootstrap_translated') }}
+{% endif %}
+
+{% endblock %}

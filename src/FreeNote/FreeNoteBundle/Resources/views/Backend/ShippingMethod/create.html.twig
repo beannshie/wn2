@@ -1,0 +1,23 @@
+{% extends 'FreeNoteBundle:Backend:layout.html.twig' %}
+
+{% block javascripts %}
+{{ parent() }}
+{% javascripts
+    '@FreeNoteBundle/Resources/assets/js/sylius-shipping-method.js'
+%}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+{% endblock %}
+
+{% block header %}
+    <h1>Creating shipping method<small> Use the form below to create a shipping method</small></h1>
+{% endblock %}
+
+{% block content %}
+<form action="{{ path('free_note_backend_shipping_method_create') }}" method="post" class="form-horizontal" novalidate>
+    {% include 'FreeNoteBundle:Backend/ShippingMethod:_form.html.twig' %}
+    <div class="form-actions">
+       <input type="submit" value="create shipping method" class="btn btn-primary btn-large" />
+    </div>
+</form>
+{% endblock %}

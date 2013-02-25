@@ -1,7 +1,0 @@
-#wn_addressing_homepage:
-#    pattern:  /hello/{name}
-#    defaults: { _controller: WnAddressingBundle:Default:index }
-
-sylius_addressing_backend_address:
-    resource: @SyliusAddressingBundle/Resources/config/routing/backend/address.yml
-    prefix: /administration/addresses

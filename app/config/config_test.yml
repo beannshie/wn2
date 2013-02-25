@@ -15,7 +15,7 @@ swiftmailer:
 
 doctrine:
     dbal:
-        dbname: %sylius.database.name%_testing
+        dbname: %database_name%_testing
 
 security:
     firewalls:

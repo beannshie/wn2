@@ -1,0 +1,47 @@
+{% extends 'FreeNoteBundle:Backend:layout.html.twig' %}
+
+{% from 'MopaBootstrapBundle::macros.html.twig' import label %}
+
+{% block header %}
+    <h1>User details <small>{{ user.username }}</small></h1>
+{% endblock %}
+
+{% block content %}
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th colspan="2">User details for {{ user.username }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>#id</strong></td>
+            <td>{{ user.id }}</td>
+        </tr>
+        <tr>
+            <td><strong>username</strong></td>
+            <td>{{ user.username }}</td>
+        </tr>
+        <tr>
+            <td><strong>email</strong></td>
+            <td>{{ user.email }}</td>
+        </tr>
+        <tr>
+            <td><strong>enabled</strong></td>
+            <td>
+            {% if user.enabled %}
+                {{ label('yes', 'success') }}
+            {% else %}
+                {{ label('no', 'warning') }}
+            {% endif %}
+            </td>
+        </tr>
+        {% if user.lastLogin %}
+        <tr>
+            <td><strong>last login</strong></td>
+            <td>{{ user.lastLogin|date('d.m.Y, H:i:s') }}</td>
+        </tr>
+        {% endif %}
+    </tbody>
+</table>
+{% endblock %}

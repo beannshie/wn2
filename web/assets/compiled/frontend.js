@@ -99,17 +99,17 @@ if(c!==g&&(d="container"===a[0]?c.container:c[a[0]].apply(c,a.slice(1)),d!==g))r
 formatInputTooShort:function(a,b){return"Please enter "+(b-a.length)+" more characters"},formatSelectionTooBig:function(a){return"You can only select "+a+" item"+(1==a?"":"s")},formatLoadMore:function(){return"Loading more results..."},formatSearching:function(){return"Searching..."},minimumResultsForSearch:0,minimumInputLength:0,maximumSelectionSize:0,id:function(a){return a.id},matcher:function(a,b){return 0<=b.toUpperCase().indexOf(a.toUpperCase())},separator:",",tokenSeparators:[],tokenizer:H,
 escapeMarkup:function(a){return a&&"string"===typeof a?a.replace(/&/g,"&amp;"):a},blurOnChange:!1};window.Select2={query:{ajax:C,local:D,tags:E},util:{debounce:A,markMatch:B},"class":{"abstract":w,single:y,multi:z}}}})(jQuery);
 
-/*
- * This file is part of the Sylius sandbox application.
- *
- * (c) Paweł Jędrzejewski
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
 ; // Temporary fix for live environment
 (function ( $ ) {
     $(document).ready(function() {
+        if ($('.billing-address-trigger').is(':checked')) {
+            $('#billing-address-container').fadeIn();
+        }
+
+        $('.billing-address-trigger').on('click', function () {
+            $('#billing-address-container').fadeToggle();
+        });
+
         $("select.country-select").each(function () {
             var $this = $(this);
 
@@ -124,7 +124,7 @@ escapeMarkup:function(a){return a&&"string"===typeof a?a.replace(/&/g,"&amp;"):a
                     } else {
                         provinceContainer.fadeOut('slow', function () {
                             $('select.select2').select2();
-                            provinceContainer.html(response.content.replace('name="sylius_addressing_address_province"', 'name="sylius_addressing_address[province]"'));
+                            provinceContainer.html(response.content.replace('name="sylius_address_province"', 'name="sylius_address[province]"'));
                             provinceContainer.fadeIn();
                         });
                     }

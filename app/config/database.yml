@@ -27,8 +27,7 @@ doctrine:
                     SyliusShippingBundle: ~
                     SyliusTaxationBundle: ~
                     SyliusTaxonomiesBundle: ~
-                    SyliusSandboxBundle: ~
-                    WnWnBundle: ~
+                    FreeNoteBundle: ~
                 filters:
                     softdeleteable:
                         class: Gedmo\SoftDeleteable\Filter\SoftDeleteableFilter

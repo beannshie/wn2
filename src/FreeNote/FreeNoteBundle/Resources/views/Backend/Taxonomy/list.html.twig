@@ -1,0 +1,90 @@
+{% extends 'FreeNoteBundle:Backend:layout.html.twig' %}
+
+{% block header %}
+    <h1>Taxonomies list <small>All taxonomies saved in the system</small></h1>
+{% endblock %}
+
+{% block content %}
+
+<div class="well">
+<a href="{{ path('free_note_backend_taxonomy_create') }}" class="btn btn-primary">
+    <i class="icon-plus icon-white"></i> create taxonomy
+</a>
+</div>
+
+{% if taxonomies|length > 0 %}
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>{{ sylius_resource_sort('id', '#id') }}</th>
+            <th>{{ sylius_resource_sort('name') }}</th>
+            <th>terms</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for taxonomy in taxonomies %}
+        <tr>
+            <td>{{ taxonomy.id }}</td>
+            <td>{{ taxonomy.name }}</td>
+            <td>
+                {% for taxon in taxonomy.taxons %}
+                    {{ taxon.name }}
+                <div class="pull-right">
+                    <div class="btn-group">
+                        <a href="#" data-toggle="dropdown" class="btn btn-small dropdown-toggle"><i class="icon-cog"></i></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                            <a href="{{ path('free_note_backend_product_list_by_taxon', {'permalink': taxon.permalink}) }}">
+                               <i class="icon-list"></i> products
+                            </a>
+                            </li>
+                            <li>
+                            <a href="{{ path('free_note_backend_taxon_update', {'taxonomyId': taxonomy.id, 'id': taxon.id}) }}">
+                               <i class="icon-pencil"></i> edit
+                            </a>
+                            </li>
+                            <li>
+                            <a href="{{ path('free_note_backend_taxon_delete', {'taxonomyId': taxonomy.id, 'id': taxon.id}) }}" class="confirmer"
+                                data-confirmer-question="Do you want to delete taxon <strong>{{ taxon.name }}</strong>?"
+                            >
+                                <i class="icon-remove icon-trash"></i> delete
+                            </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                    {% if not loop.last %}
+                        <hr>
+                    {% endif %}
+                {% else %}
+                This taxonomy has no taxons. <a href="{{ path('free_note_backend_taxon_create', {'taxonomyId': taxonomy.id}) }}" class="btn btn-primary btn-small pull-right">Add new one</a>
+                {% endfor %}
+            </td>
+            <td>
+                <div class="btn-group pull-right">
+                    <a href="{{ path('free_note_backend_taxon_create', {'taxonomyId': taxonomy.id}) }}" class="btn">
+                        <i class="icon-plus-sign"></i> new taxon
+                    </a>
+                    <a href="{{ path('free_note_backend_taxonomy_update', {'id': taxonomy.id}) }}" class="btn">
+                        <i class="icon-pencil"></i> edit
+                    </a>
+                    <a href="{{ path('free_note_backend_taxonomy_delete', {'id': taxonomy.id}) }}"  class="btn btn-danger confirmer"
+                        data-confirmer-question="Do you really want to delete taxonomy <strong>{{ taxonomy.name }}</strong>?"
+                    >
+                        <i class="icon-trash icon-white"></i> delete
+                    </a>
+                </div>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div class="alert alert-info">
+    <h4 class="alert-heading">Information</h4>
+    There are no taxonomies to display
+</div>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'FreeNoteBundle:Backend:layout.html.twig' %}
+
+{% block header %}
+    <h1>Create post <small>Use this form to create a post</small></h1>
+{% endblock %}
+
+{% block content %}
+<form action="{{ path('free_note_backend_post_create') }}" method="post" class="form-horizontal">
+    {% include 'FreeNoteBundle:Backend/Post:_form.html.twig' %}
+    <div class="form-actions">
+        <input type="submit" class="btn btn-large btn-primary" value="create post">
+    </div>
+</form>
+{% endblock %}

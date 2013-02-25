@@ -23,7 +23,7 @@ framework:
 twig:
     form:
         resources:
-            - 'SyliusSandboxBundle::forms.html.twig'
+            - 'FreeNoteBundle::forms.html.twig'
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
 
@@ -72,15 +72,14 @@ avalanche_imagine:
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
-    user_class: Sylius\Bundle\SandboxBundle\Entity\User
-#    user_class: Wn\WnBundle\Entity\WnUser
+    user_class: FreeNote\FreeNoteBundle\Entity\User
 
 fos_comment:
     db_driver: orm
     class:
         model:
-            comment: Sylius\Bundle\SandboxBundle\Entity\Comment
-            thread: Sylius\Bundle\SandboxBundle\Entity\Thread
+            comment: FreeNote\FreeNoteBundle\Entity\Comment
+            thread: FreeNote\FreeNoteBundle\Entity\Thread
     acl: true
     service:
         acl:
@@ -111,69 +110,69 @@ sylius_assortment:
     driver: doctrine/orm
     classes:
         product:
-            model: Sylius\Bundle\SandboxBundle\Entity\Product
-            controller: Sylius\Bundle\SandboxBundle\Controller\ProductController
-            repository: Sylius\Bundle\SandboxBundle\Repository\ProductRepository
-            form: Sylius\Bundle\SandboxBundle\Form\Type\ProductType
+            model: FreeNote\FreeNoteBundle\Entity\Product
+            controller: FreeNote\FreeNoteBundle\Controller\ProductController
+            repository: FreeNote\FreeNoteBundle\Repository\ProductRepository
+            form: FreeNote\FreeNoteBundle\Form\Type\ProductType
         variant:
-            model: Sylius\Bundle\SandboxBundle\Entity\Variant
-            form: Sylius\Bundle\SandboxBundle\Form\Type\VariantType
+            model: FreeNote\FreeNoteBundle\Entity\Variant
+            form: FreeNote\FreeNoteBundle\Form\Type\VariantType
 
 sylius_categorizer:
     driver: doctrine/orm
     catalogs:
         articles:
             property: "articles"
-            model: Sylius\Bundle\SandboxBundle\Entity\PostCategory
+            model: FreeNote\FreeNoteBundle\Entity\PostCategory
             templates:
-                backend: SyliusSandboxBundle:Backend/PostCategory:%s.html.twig
-                frontend: SyliusSandboxBundle:Frontend/PostCategory:%s.html.twig
+                backend: FreeNoteBundle:Backend/PostCategory:%s.html.twig
+                frontend: FreeNoteBundle:Frontend/PostCategory:%s.html.twig
         news:
             property: "news"
-            model: Sylius\Bundle\SandboxBundle\Entity\PostCategory
+            model: FreeNote\FreeNoteBundle\Entity\PostCategory
             templates:
-                backend: SyliusSandboxBundle:Backend/PostCategory:%s.html.twig
-                frontend: SyliusSandboxBundle:Frontend/PostCategory:%s.html.twig
+                backend: FreeNoteBundle:Backend/PostCategory:%s.html.twig
+                frontend: FreeNoteBundle:Frontend/PostCategory:%s.html.twig
         events:
             property: "events"
-            model: Sylius\Bundle\SandboxBundle\Entity\PostCategory
+            model: FreeNote\FreeNoteBundle\Entity\PostCategory
             templates:
-                backend: SyliusSandboxBundle:Backend/PostCategory:%s.html.twig
-                frontend: SyliusSandboxBundle:Frontend/PostCategory:%s.html.twig
+                backend: FreeNoteBundle:Backend/PostCategory:%s.html.twig
+                frontend: FreeNoteBundle:Frontend/PostCategory:%s.html.twig
         advertisements:
             property: "advertisements"
-            model: Sylius\Bundle\SandboxBundle\Entity\PostCategory
+            model: FreeNote\FreeNoteBundle\Entity\PostCategory
             templates:
-                backend: SyliusSandboxBundle:Backend/PostCategory:%s.html.twig
-                frontend: SyliusSandboxBundle:Frontend/PostCategory:%s.html.twig
+                backend: FreeNoteBundle:Backend/PostCategory:%s.html.twig
+                frontend: FreeNoteBundle:Frontend/PostCategory:%s.html.twig
 
 sylius_cart:
     driver: doctrine/orm
-    resolver: sylius_sandbox_cart.resolver
+    resolver: free_note_cart.resolver
     classes:
         cart:
-            model: Sylius\Bundle\SandboxBundle\Entity\Cart
-            repository: Sylius\Bundle\SandboxBundle\Repository\CartRepository
+            model: FreeNote\FreeNoteBundle\Entity\Cart
+            repository: FreeNote\FreeNoteBundle\Repository\CartRepository
         item:
-            model: Sylius\Bundle\SandboxBundle\Entity\CartItem
-            form: Sylius\Bundle\SandboxBundle\Form\Type\CartItemType
+            model: FreeNote\FreeNoteBundle\Entity\CartItem
+            form: FreeNote\FreeNoteBundle\Form\Type\CartItemType
 
 sylius_blogger:
     driver: doctrine/orm
     classes:
         post:
-            model: Sylius\Bundle\SandboxBundle\Entity\Post
-            form: Sylius\Bundle\SandboxBundle\Form\Type\PostType
+            model: FreeNote\FreeNoteBundle\Entity\Post
+            form: FreeNote\FreeNoteBundle\Form\Type\PostType
 
 sylius_sales:
     driver: doctrine/orm
     classes:
         order:
-            model: Sylius\Bundle\SandboxBundle\Entity\Order
-            form: Sylius\Bundle\SandboxBundle\Form\Type\OrderType
+            model: FreeNote\FreeNoteBundle\Entity\Order
+            form: FreeNote\FreeNoteBundle\Form\Type\OrderType
         order_item:
-            model: Sylius\Bundle\SandboxBundle\Entity\OrderItem
-            form: Sylius\Bundle\SandboxBundle\Form\Type\OrderItemType
+            model: FreeNote\FreeNoteBundle\Entity\OrderItem
+            form: FreeNote\FreeNoteBundle\Form\Type\OrderItemType
         sellable:
             model: %sylius.model.variant.class%
 
@@ -185,7 +184,7 @@ sylius_inventory:
     backorders: true
     classes:
         unit:
-            model: Sylius\Bundle\SandboxBundle\Entity\InventoryUnit
+            model: FreeNote\FreeNoteBundle\Entity\InventoryUnit
         stockable:
             model: %sylius.model.variant.class%
     events:
@@ -194,29 +193,24 @@ sylius_inventory:
 
 sylius_taxonomies:
     driver: doctrine/orm
-    classes:
-        taxonomy:
-            model: Sylius\Bundle\SandboxBundle\Entity\Taxonomy
-        taxon:
-            model: Sylius\Bundle\SandboxBundle\Entity\Taxon
 
 sylius_taxation:
     driver: doctrine/orm
     classes:
         tax_rate:
-            model: Sylius\Bundle\SandboxBundle\Entity\TaxRate
-            form: Sylius\Bundle\SandboxBundle\Form\Type\TaxRateType
+            model: FreeNote\FreeNoteBundle\Entity\TaxRate
+            form: FreeNote\FreeNoteBundle\Form\Type\TaxRateType
 
 sylius_shipping:
     driver: doctrine/orm
     classes:
         shipment:
-            model: Sylius\Bundle\SandboxBundle\Entity\Shipment
+            model: FreeNote\FreeNoteBundle\Entity\Shipment
         shipment_item:
-            model: Sylius\Bundle\SandboxBundle\Entity\InventoryUnit
+            model: FreeNote\FreeNoteBundle\Entity\InventoryUnit
         shipping_method:
-            model: Sylius\Bundle\SandboxBundle\Entity\ShippingMethod
-            form: Sylius\Bundle\SandboxBundle\Form\Type\ShippingMethodType
+            model: FreeNote\FreeNoteBundle\Entity\ShippingMethod
+            form: FreeNote\FreeNoteBundle\Form\Type\ShippingMethodType
 
 sylius_settings:
     driver: doctrine/orm
@@ -231,4 +225,4 @@ sylius_resource:
         sylius.user:
             driver: doctrine/orm
             classes:
-                model: Sylius\Bundle\SandboxBundle\Entity\User
+                model: FreeNote\FreeNoteBundle\Entity\User

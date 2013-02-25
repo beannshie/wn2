@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services
+                               http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="free_note_core.controller.frontend.main.class">FreeNote\FreeNoteBundle\Controller\Frontend\MainController</parameter>
+        <parameter key="free_note_core.controller.frontend.security.class">FreeNote\FreeNoteBundle\Controller\Frontend\SecurityController</parameter>
+        <parameter key="free_note_core.controller.backend.main.class">FreeNote\FreeNoteBundle\Controller\Backend\MainController</parameter>
+
+        <parameter key="free_note_cart.resolver.class">FreeNote\FreeNoteBundle\Resolver\ItemResolver</parameter>
+
+        <parameter key="free_note.scenario.checkout.class">FreeNote\FreeNoteBundle\Process\Scenario\CheckoutProcessScenario</parameter>
+
+        <parameter key="free_note.builder.order.class">FreeNote\FreeNoteBundle\Builder\OrderBuilder</parameter>
+
+        <parameter key="free_note.form.type.product_category.class">FreeNote\FreeNoteBundle\Form\Type\ProductCategoryType</parameter>
+
+        <parameter key="free_note.form.type.product_variants_grid.class">FreeNote\FreeNoteBundle\Form\Type\ProductVariantsGridType</parameter>
+        <parameter key="free_note.form.type.product_variants_grid_line.class">FreeNote\FreeNoteBundle\Form\Type\ProductVariantsGridLineType</parameter>
+
+        <parameter key="free_note.form.type.checkout_addressing.class">FreeNote\FreeNoteBundle\Form\Type\CheckoutAddressingType</parameter>
+        <parameter key="free_note.form.type.checkout_shipping.class">FreeNote\FreeNoteBundle\Form\Type\CheckoutShippingType</parameter>
+
+        <parameter key="free_note.settings.general.class">FreeNote\FreeNoteBundle\Settings\GeneralSettingsSchema</parameter>
+        <parameter key="free_note.settings.taxation.class">FreeNote\FreeNoteBundle\Settings\TaxationSettingsSchema</parameter>
+
+        <parameter key="free_note.listener.order_taxation.class">FreeNote\FreeNoteBundle\EventListener\OrderTaxationListener</parameter>
+        <parameter key="free_note.listener.order_inventory.class">FreeNote\FreeNoteBundle\EventListener\OrderInventoryListener</parameter>
+        <parameter key="free_note.listener.order_shipping.class">FreeNote\FreeNoteBundle\EventListener\OrderShippingListener</parameter>
+    </parameters>
+
+    <services>
+        <service id="free_note_core.controller.frontend.main" class="%free_note_core.controller.frontend.main.class%">
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+        </service>
+        <service id="free_note_core.controller.frontend.security" class="%free_note_core.controller.frontend.security.class%">
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+        </service>
+        <service id="free_note_core.controller.backend.main" class="%free_note_core.controller.backend.main.class%">
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+        </service>
+
+        <service id="free_note_cart.resolver" class="%free_note_cart.resolver.class%">
+            <argument type="service" id="sylius.repository.product" />
+            <argument type="service" id="form.factory" />
+            <argument type="service" id="sylius.availability_checker" />
+        </service>
+
+        <service id="free_note.scenario.checkout" class="%free_note.scenario.checkout.class%">
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+            <tag name="sylius_flow.scenario" alias="free_note_checkout" />
+        </service>
+
+        <service id="free_note.builder.order" class="%free_note.builder.order.class%">
+            <argument type="service" id="sylius.repository.order" />
+            <argument type="service" id="sylius.repository.order_item" />
+            <argument type="service" id="sylius.cart_provider" />
+            <argument type="service" id="security.context" />
+        </service>
+
+        <service id="free_note.form.type.product_category" class="%free_note.form.type.product_category.class%">
+            <tag name="form.type" alias="free_note_product_category" />
+        </service>
+
+        <service id="free_note.form.type.product_variants_grid" class="%free_note.form.type.product_variants_grid.class%">
+            <argument>%sylius.model.product.class%</argument>
+            <tag name="form.type" alias="free_note_product_variants_grid" />
+        </service>
+        <service id="free_note.form.type.product_variants_grid_line" class="%free_note.form.type.product_variants_grid_line.class%">
+            <argument>%sylius.model.variant.class%</argument>
+            <tag name="form.type" alias="free_note_product_variants_grid_line" />
+        </service>
+
+        <service id="free_note.form.type.checkout_addressing" class="%free_note.form.type.checkout_addressing.class%">
+            <tag name="form.type" alias="free_note_checkout_addressing" />
+        </service>
+        <service id="free_note.form.type.checkout_shipping" class="%free_note.form.type.checkout_shipping.class%">
+            <tag name="form.type" alias="free_note_checkout_shipping" />
+        </service>
+
+        <service id="free_note.settings.general" class="%free_note.settings.general.class%">
+            <tag name="sylius.settings_schema" namespace="general" />
+        </service>
+
+        <service id="free_note.settings.taxation" class="%free_note.settings.taxation.class%">
+            <argument type="service" id="sylius.repository.zone" />
+            <tag name="sylius.settings_schema" namespace="taxation" />
+        </service>
+
+        <service id="free_note.listener.order_taxation" class="%free_note.listener.order_taxation.class%">
+            <argument type="service" id="sylius.zone_matcher" />
+            <argument type="service" id="sylius.tax_rate_resolver" />
+            <argument type="service" id="sylius.tax_calculator" />
+            <argument type="service" id="sylius.repository.adjustment" />
+            <argument type="service" id="sylius.settings.manager" />
+            <tag name="kernel.event_listener" event="sylius.order.pre_create" method="processTaxes" />
+            <tag name="kernel.event_listener" event="sylius.order.pre_update" method="processTaxes" />
+        </service>
+
+        <service id="free_note.listener.order_inventory" class="%free_note.listener.order_inventory.class%">
+            <argument type="service" id="sylius.manager.variant" />
+            <argument type="service" id="sylius.inventory_operator" />
+            <tag name="kernel.event_listener" event="sylius.order.pre_create" method="processInventory" priority="10" />
+        </service>
+
+        <service id="free_note.listener.order_shipping" class="%free_note.listener.order_shipping.class%">
+            <argument type="service" id="sylius.repository.adjustment" />
+            <argument type="service" id="sylius.shipping_calculator" />
+            <tag name="kernel.event_listener" event="sylius.order.pre_create" method="processShippingCharges" />
+        </service>
+    </services>
+
+</container>

@@ -1,0 +1,32 @@
+free_note_backend_prototype_list:
+    pattern: /
+    defaults:
+        _controller: sylius.controller.prototype:indexAction
+        _template: FreeNoteBundle:Backend/Prototype:list.html.twig
+
+free_note_backend_prototype_create:
+    pattern: /create
+    defaults:
+        _controller: sylius.controller.prototype:createAction
+        _template: FreeNoteBundle:Backend/Prototype:create.html.twig
+        _redirect: free_note_backend_prototype_list
+
+free_note_backend_prototype_update:
+    pattern: /{id}/update
+    defaults:
+        _controller: sylius.controller.prototype:updateAction
+        _template: FreeNoteBundle:Backend/Prototype:update.html.twig
+        _redirect: free_note_backend_prototype_list
+
+free_note_backend_prototype_delete:
+    pattern: /{id}/delete
+    defaults:
+        _controller: sylius.controller.prototype:deleteAction
+        _redirect: free_note_backend_prototype_list
+
+free_note_backend_prototype_build:
+    pattern: /{id}/build
+    defaults:
+        _controller: sylius.controller.prototype:buildAction
+        _template: FreeNoteBundle:Backend/Prototype:build.html.twig
+        _redirect: free_note_backend_product_show

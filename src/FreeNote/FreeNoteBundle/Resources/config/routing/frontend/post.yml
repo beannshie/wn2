@@ -1,0 +1,17 @@
+free_note_post_list:
+    pattern: /
+    defaults:
+        _controller: sylius_blogger.controller.post:indexAction
+        _template: FreeNoteBundle:Frontend/Post:list.html.twig
+        _paginate: 10
+        _criteria:
+            published: true
+        _sorting:
+            createdAt: desc
+
+free_note_post_show:
+    pattern: /{slug}
+    defaults:
+        _controller: sylius_blogger.controller.post:showAction
+        _template: FreeNoteBundle:Frontend/Post:show.html.twig
+        _identifier: slug

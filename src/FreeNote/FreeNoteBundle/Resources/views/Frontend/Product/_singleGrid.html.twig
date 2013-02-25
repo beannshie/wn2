@@ -1,0 +1,19 @@
+<div class="span4 well well-small">
+    <a href="{{ path('free_note_product_show', {'slug': product.slug})}}" class="thumbnail" style="width: 265px; height: 150px;">
+        <img src="{{ product.imageWebPath|apply_filter('frontend_box') }}" alt="" />
+    </a>
+    <hr />
+
+        <h4>
+            <a href="{{ path('free_note_product_show', {'slug': product.slug})}}">
+                {{ product.name|slice(0, 20) }}...
+            </a>
+        </h4>
+
+        {% if not product.hasOptions %}
+            <span class="label label-price label-success pull-right"><strong>Price</strong>: {{ product.price }} {{ currency|raw }}</span>
+        {% endif %}
+
+    <p>{{ product.description|slice(0, 50) }}...</p>
+    <p><a href="{{ path('free_note_product_show', {'slug': product.slug})}}" class="btn pull-right">Read more</a>
+</div>

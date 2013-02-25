@@ -1,0 +1,33 @@
+free_note_core_frontend:
+    pattern: /
+    defaults: { _controller: free_note_core.controller.frontend.main:indexAction }
+
+free_note_about:
+    pattern: /about
+    defaults: { _controller: free_note_core.controller.frontend.main:aboutAction }
+
+free_note_core_frontend_product:
+    resource: @FreeNoteBundle/Resources/config/routing/frontend/product.yml
+    prefix: /products
+
+free_note_core_frontend_post:
+    resource: @FreeNoteBundle/Resources/config/routing/frontend/post.yml
+    prefix: /blog
+
+free_note_checkout_start:
+    pattern: /checkout
+    defaults: { _controller: sylius.controller.process:startAction, scenarioAlias: 'free_note_checkout' }
+
+free_note_checkout_display:
+    pattern: /checkout/{stepName}
+    defaults: { _controller: sylius.controller.process:displayAction, scenarioAlias: 'free_note_checkout' }
+
+free_note_checkout_forward:
+    pattern: /checkout/{stepName}/forward
+    defaults: { _controller: sylius.controller.process:forwardAction, scenarioAlias: 'free_note_checkout' }
+
+free_note_ajax_render_province_choice_form:
+    pattern: /ajax/render-province-choice-form
+    defaults:
+        _controller: sylius.controller.province:renderProvinceChoiceTypeAction
+        _template: FreeNoteBundle:Backend/Province:_provinceChoiceForm.html.twig

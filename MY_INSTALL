@@ -20,3 +20,24 @@ inne:
 katalogi:
 web/uploads na 777
 web/media na 777
+
+
+TODO
+
+1) Resources/views
+
+2) zlikwidowac variant w orderItem. Bo jest teraz sellable.
+Aktualnie dodalam sellable, ale nie jest uzywane. Nadal wszystko leci w orderze po wariancie - ale to wlasnie trzeba przepiac na sellable:)
+
+3) taxon i taxonomy - entity, model i mapping - nie ustawia sie root_id dla taxonomy
+
+4) produkt - odwrotnie jak taxon i taxonomy - tu zostawilam w konstruktorze ustawianie masterVariant na new Variant()
+
+5) sprawdzic: bo CartItem ma variant_id not nullable. Co jesli mam order z jakims cartItemem, a potem usune ten variant, ktory to cartItema byl przypisany?
+co jesli ja mam juz cartItem w carcie i zapisana jego cene i w tym momencie ktos w backendzie zmieni mi cene?
+
+6) orderNumberGenerator (loadordersdata)
+
+query
+abstractquery
+clasmetadatainfo

@@ -1,0 +1,6 @@
+free_note_core_frontend:
+    resource: @FreeNoteBundle/Resources/config/routing/frontend/base.yml
+
+free_note_core_backend:
+    resource: @FreeNoteBundle/Resources/config/routing/backend/base.yml
+    prefix: /administration

@@ -1,0 +1,55 @@
+{% extends 'FreeNoteBundle:Backend:layout.html.twig' %}
+
+{% block header %}
+    <h1>Product prototypes<small> List of all created prototype types</small></h1>
+{% endblock %}
+
+{% block content %}
+<div class="well">
+<a href="{{ path('free_note_backend_prototype_create') }}" class="btn btn-primary">
+    <i class="icon-plus icon-white"></i> create prototype
+</a>
+</div>
+
+{% if prototypes|length > 0 %}
+    <table class="table">
+    <thead>
+        <tr>
+            <th>#id</th>
+            <th>name</th>
+            <th>creation time</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for prototype in prototypes %}
+        <tr>
+            <td>{{ prototype.id }}</td>
+            <td>{{ prototype.name }}</td>
+            <td>{{ prototype.createdAt|date }}</td>
+            <td>
+                <div class="btn-group pull-right">
+                    <a href="{{ path('free_note_backend_prototype_build', {'id': prototype.id}) }}" class="btn">
+                       <i class="icon-play-circle"></i> build
+                    </a>
+                    <a href="{{ path('free_note_backend_prototype_update', {'id': prototype.id}) }}" class="btn">
+                       <i class="icon-pencil"></i> edit
+                    </a>
+                    <a href="{{ path('free_note_backend_prototype_delete', {'id': prototype.id}) }}" class="btn btn-danger confirmer"
+                        data-confirmer-question="Do you really want to delete this prototype?"
+                    >
+                        <i class="icon-trash icon-white"></i> delete
+                    </a>
+                </div>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div class="alert alert-info">
+    <h4 class="alert-heading">Information</h4>
+    There are no prototypes to display.
+</div>
+{% endif %}
+{% endblock %}

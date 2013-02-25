@@ -1,0 +1,23 @@
+free_note_core_backend:
+    pattern: /
+    defaults: { _controller: free_note_core.controller.backend.main:indexAction }
+
+free_note_core_backend_product:
+    resource: @FreeNoteBundle/Resources/config/routing/backend/product.yml
+    prefix: /products
+
+free_note_core_backend_variant:
+    resource: @FreeNoteBundle/Resources/config/routing/backend/variant.yml
+    prefix: /products/variants
+
+free_note_core_backend_option:
+    resource: @FreeNoteBundle/Resources/config/routing/backend/option.yml
+    prefix: /options
+
+free_note_core_backend_prototype:
+    resource: @FreeNoteBundle/Resources/config/routing/backend/prototype.yml
+    prefix: /prototypes
+
+free_note_core_backend_properties:
+    resource: @FreeNoteBundle/Resources/config/routing/backend/property.yml
+    prefix: /properties

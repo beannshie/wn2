@@ -1,0 +1,14 @@
+{% extends 'FreeNoteBundle:Backend:layout.html.twig' %}
+
+{% block header %}
+    <h1>Creating order<small> Build new order</small></h1>
+{% endblock %}
+
+{% block content %}
+<form action="{{ path('free_note_backend_order_create') }}" method="post" novalidate>
+    {% include 'FreeNoteBundle:Backend/Order:_form.html.twig' %}
+    <div class="form-actions">
+       <input type="submit" value="create order" class="btn btn-primary btn-large" />
+    </div>
+</form>
+{% endblock %}

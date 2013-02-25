@@ -1,0 +1,13 @@
+free_note_backend_settings_general_configure:
+    pattern: /general
+    defaults:
+        _controller: sylius.controller.settings:configureAction
+        namespace: general
+        template: FreeNoteBundle:Backend/Settings:general.html.twig
+
+free_note_backend_settings_taxation_configure:
+    pattern: /taxation
+    defaults:
+        _controller: sylius.controller.settings:configureAction
+        namespace: taxation
+        template: FreeNoteBundle:Backend/Settings:taxation.html.twig

@@ -1,7 +1,0 @@
-sylius_blogger:
-    label:
-        post:
-            title: Tytuł
-            author: Autor
-            content: Treść
-            published: Opublikowano

@@ -1,0 +1,23 @@
+{% extends 'FreeNoteBundle:Backend:layout.html.twig' %}
+
+{% block header %}
+    <h1>Editing shipping method <small>"{{ method.name }}"</small></h1>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+{% javascripts
+    '@FreeNoteBundle/Resources/assets/js/sylius-shipping-method.js'
+%}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+{% endblock %}
+
+{% block content %}
+<form action="{{ path('free_note_backend_shipping_method_update', {'id': method.id}) }}" method="post" class="form-horizontal" novalidate>
+    {% include 'FreeNoteBundle:Backend/ShippingMethod:_form.html.twig' %}
+    <div class="form-actions">
+       <input type="submit" value="save changes" class="btn btn-primary btn-large" />
+    </div>
+</form>
+{% endblock %}

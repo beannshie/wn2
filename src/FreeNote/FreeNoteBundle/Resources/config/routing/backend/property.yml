@@ -1,0 +1,28 @@
+free_note_backend_property_list:
+    pattern: /
+    defaults:
+        _controller: sylius.controller.property:indexAction
+        _template: FreeNoteBundle:Backend/Property:list.html.twig
+        _sortable: true
+        _sorting:
+            name: desc
+
+free_note_backend_property_create:
+    pattern: /create
+    defaults:
+        _controller: sylius.controller.property:createAction
+        _template: FreeNoteBundle:Backend/Property:create.html.twig
+        _redirect: free_note_backend_property_list
+
+free_note_backend_property_update:
+    pattern: /update
+    defaults:
+        _controller: sylius.controller.property:updateAction
+        _template: FreeNoteBundle:Backend/Property:update.html.twig
+        _redirect: free_note_backend_property_list
+
+free_note_backend_property_delete:
+    pattern: /{id}/delete
+    defaults:
+        _controller: sylius.controller.property:deleteAction
+        _redirect: free_note_backend_property_list
