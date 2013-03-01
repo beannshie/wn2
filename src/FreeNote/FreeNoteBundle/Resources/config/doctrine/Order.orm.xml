@@ -5,7 +5,7 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                                       http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="FreeNote\FreeNoteBundle\Entity\Order" table="free_note_shop_sales_order">
+    <entity name="FreeNote\FreeNoteBundle\Entity\Order" table="free_note_shop_order">
         <id name="id" column="id" type="integer">
             <generator strategy="AUTO" />
         </id>
