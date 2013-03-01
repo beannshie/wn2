@@ -26,6 +26,8 @@ twig:
             - 'FreeNoteBundle::forms.html.twig'
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
+    globals:
+        currency:     %currency%
 
 # Assetic Configuration
 assetic:

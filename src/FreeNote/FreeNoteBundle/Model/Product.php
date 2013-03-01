@@ -9,7 +9,7 @@ use Sylius\Bundle\TaxationBundle\Model\TaxCategoryInterface;
 use Sylius\Bundle\TaxationBundle\Model\TaxableInterface;
 use Sylius\Bundle\InventoryBundle\Model\StockableInterface;
 use Symfony\Component\Validator\Constraints as Assert;
-use FreeNote\FreeNoteBundle\Entity\Variant as Variant;
+use FreeNote\FreeNoteBundle\Entity\Variant as VariantEntity;
 
 class Product extends BaseProduct implements StockableInterface, TaxableInterface
 {
@@ -53,7 +53,7 @@ class Product extends BaseProduct implements StockableInterface, TaxableInterfac
         $this->variantPickingMode = self::VARIANT_PICKING_CHOICE;
         $this->taxons = new ArrayCollection();
 
-        $this->setMasterVariant(new Variant());
+        $this->setMasterVariant(new VariantEntity());
     }
 
     public function getTaxCategory()

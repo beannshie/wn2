@@ -6,13 +6,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
  * Frontend main controller.
- *
- * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
 class MainController extends Controller
 {
     /**
-     * Fronte page with newest products.
+     * Main page.
      *
      * @return Response
      */
