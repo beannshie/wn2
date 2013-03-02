@@ -24,7 +24,7 @@ class LoadOrdersData extends DataFixture
             $order = $repository->createNew();
             $this->buildOrder($order, $i);
 
-            //$eventDispatcher->dispatch('sylius.order.pre_create', new GenericEvent($order));
+            $eventDispatcher->dispatch('sylius.order.pre_create', new GenericEvent($order));
 
             $orderManager->persist($order);
             $eventDispatcher->dispatch('sylius.order.post_create', new GenericEvent($order));
@@ -50,7 +50,6 @@ class LoadOrdersData extends DataFixture
     private function buildOrder(OrderInterface $order, $pk)
     {
         $itemRepository = $this->getOrderItemRepository();
-        $itemManager = $this->getOrderItemManager();
         $totalVariants = SYLIUS_ASSORTMENT_FIXTURES_TV;
 
         $order->getItems()->clear();
@@ -63,7 +62,6 @@ class LoadOrdersData extends DataFixture
             $item->setQuantity(rand(1, 5));
             $item->setSellable($variant);
             $item->setUnitPrice($variant->getPrice());
-            $itemManager->persist($item);
 
             $order->addItem($item);
         }

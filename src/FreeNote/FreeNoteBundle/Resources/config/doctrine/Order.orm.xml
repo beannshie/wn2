@@ -9,11 +9,11 @@
         <id name="id" column="id" type="integer">
             <generator strategy="AUTO" />
         </id>
-        <!--<one-to-many field="items" target-entity="FreeNote\FreeNoteBundle\Entity\OrderItem" mapped-by="order">-->
-            <!--<cascade>-->
-                <!--<cascade-all/>-->
-            <!--</cascade>-->
-        <!--</one-to-many>-->
+        <one-to-many field="items" target-entity="FreeNote\FreeNoteBundle\Entity\OrderItem" mapped-by="order">
+            <cascade>
+                <cascade-all/>
+            </cascade>
+        </one-to-many>
         <one-to-many field="adjustments" target-entity="Sylius\Bundle\SalesBundle\Model\AdjustmentInterface" mapped-by="order" orphan-removal="true">
             <cascade>
                 <cascade-all/>

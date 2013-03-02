@@ -46,20 +46,20 @@ class Variant extends BaseVariant implements StockableInterface, ShippableInterf
      * @var Boolean
      */
     protected $availableOnDemand;
-//
-//    /**
-//     * Items in order.
-//     *
-//     * @var Collection
-//     */
-//    protected $items;
-//
-//    /**
-//     * Items total.
-//     *
-//     * @var mixed
-//     */
-//    protected $itemsTotal;
+
+    /**
+     * Items in order.
+     *
+     * @var Collection
+     */
+    protected $items;
+
+    /**
+     * Items total.
+     *
+     * @var mixed
+     */
+    protected $itemsTotal;
 
     /**
      * Override constructor to set on hand stock.
