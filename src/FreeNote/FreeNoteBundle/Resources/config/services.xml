@@ -30,6 +30,9 @@
         <parameter key="free_note.listener.order_taxation.class">FreeNote\FreeNoteBundle\EventListener\OrderTaxationListener</parameter>
         <parameter key="free_note.listener.order_inventory.class">FreeNote\FreeNoteBundle\EventListener\OrderInventoryListener</parameter>
         <parameter key="free_note.listener.order_shipping.class">FreeNote\FreeNoteBundle\EventListener\OrderShippingListener</parameter>
+
+
+        <parameter key="sylius.generator.order_number.class">FreeNote\FreeNoteBundle\Generator\OrderNumberGenerator</parameter>
     </parameters>
 
     <services>
