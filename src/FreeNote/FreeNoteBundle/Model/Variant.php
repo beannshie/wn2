@@ -71,6 +71,7 @@ class Variant extends BaseVariant implements StockableInterface, ShippableInterf
         $this->price = 0.00;
         $this->onHand = 1;
         $this->availableOnDemand = true;
+        $this->items = new ArrayCollection();
     }
 
     public function getSku()

@@ -183,7 +183,7 @@ class Builder extends ContainerAware
             ));
         }
 
-        if ($this->container->get('security.context')->isGranted('ROLE_SYLIUS_ADMIN')) {
+        if ($this->container->get('security.context')->isGranted('ROLE_ADMIN')) {
             $child->addChild('Panel administratora', array(
                 'route' => 'free_note_core_backend',
                 'labelAttributes' => array('icon' => 'icon-lock')

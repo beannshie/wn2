@@ -110,7 +110,7 @@ class LoadCountriesData extends DataFixture
      */
     public function getOrder()
     {
-        return 2;
+        return 1;
     }
 
     private function getCountryRepository()

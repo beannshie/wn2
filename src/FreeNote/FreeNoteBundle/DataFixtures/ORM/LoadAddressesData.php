@@ -49,7 +49,7 @@ class LoadAddressesData extends DataFixture
      */
     public function getOrder()
     {
-        return 5;
+        return 4;
     }
 
     private function getAddressManager()

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                                      http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd"
+        >
+
+    <entity name="FreeNote\FreeNoteBundle\Entity\UserProfile" table="free_note_user_profile" repository-class="FreeNote\FreeNoteBundle\Repository\UserProfileRepository">
+        <id name="user" association-key="true" />
+        <one-to-one field="user" target-entity="FreeNote\FreeNoteBundle\Entity\User" inversed-by="userProfile">
+        </one-to-one>
+
+        <field name="name" column="name" type="string" length="255" nullable="true" />
+        <field name="surname" column="surname" type="string" length="255" nullable="true" />
+        <field name="phoneNumber" column="phone_number" type="string" length="255" nullable="true" />
+        <field name="recommendedBy" column="recommended_by" type="string" length="255" nullable="true" />
+        <one-to-one field="postalAddress" target-entity="Sylius\Bundle\AddressingBundle\Model\AddressInterface" inversed-by="postalAddress">
+            <cascade>
+                <cascade-all/>
+            </cascade>
+            <join-column name="postal_address_id" referenced-column-name="id" on-delete="SET NULL"/>
+        </one-to-one>
+        <field name="avatarPath" column="avatar_path" type="string" length="255" nullable="true" />
+        <field name="newsletter" column="newsletter" type="boolean" />
+        <field name="freeNotes" column="free_notes" type="integer" />
+
+        <field name="companyName" column="company_name" type="string" length="255" nullable="true" />
+        <field name="nip" column="nip" type="string" length="255" nullable="true" />
+        <field name="regon" column="regon" type="string" length="255" nullable="true" />
+
+        <one-to-one field="businessAddress" target-entity="Sylius\Bundle\AddressingBundle\Model\AddressInterface" inversed-by="businessAddress">
+            <cascade>
+                <cascade-all/>
+            </cascade>
+            <join-column name="business_address_id" referenced-column-name="id" on-delete="SET NULL"/>
+        </one-to-one>
+    </entity>
+
+</doctrine-mapping>

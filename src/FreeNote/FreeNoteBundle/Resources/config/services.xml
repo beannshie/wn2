@@ -31,8 +31,10 @@
         <parameter key="free_note.listener.order_inventory.class">FreeNote\FreeNoteBundle\EventListener\OrderInventoryListener</parameter>
         <parameter key="free_note.listener.order_shipping.class">FreeNote\FreeNoteBundle\EventListener\OrderShippingListener</parameter>
 
-
         <parameter key="sylius.generator.order_number.class">FreeNote\FreeNoteBundle\Generator\OrderNumberGenerator</parameter>
+
+        <parameter key="free_note.repository.user_profile.class">FreeNote\FreeNoteBundle\Repository\UserProfileRepository</parameter>
+        <parameter key="free_note.model.user_profile.class">FreeNote\FreeNoteBundle\Entity\UserProfile</parameter>
     </parameters>
 
     <services>
@@ -121,6 +123,21 @@
             <argument type="service" id="sylius.repository.adjustment" />
             <argument type="service" id="sylius.shipping_calculator" />
             <tag name="kernel.event_listener" event="sylius.order.pre_create" method="processShippingCharges" />
+        </service>
+
+        <service id="free_note.manager.user_profile" alias="doctrine.orm.entity_manager" />
+        <service id="free_note.repository.user_profile" class="%free_note.repository.user_profile.class%">
+            <argument type="service" id="free_note.manager.user_profile" />
+            <argument type="service">
+                <service
+                        factory-service="free_note.manager.user_profile"
+                        factory-method="getClassMetadata"
+                        class="Doctrine\ORM\Mapping\ClassMetadata"
+                        public="false"
+                        >
+                    <argument>%free_note.model.user_profile.class%</argument>
+                </service>
+            </argument>
         </service>
     </services>
 

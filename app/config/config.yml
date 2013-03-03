@@ -92,18 +92,18 @@ fos_comment:
         comment:
             create: IS_AUTHENTICATED_ANONYMOUSLY
             view: IS_AUTHENTICATED_ANONYMOUSLY
-            edit: ROLE_SYLIUS_ADMIN
-            delete: ROLE_SYLIUS_ADMIN
+            edit: ROLE_ADMIN
+            delete: ROLE_ADMIN
         thread:
             create: IS_AUTHENTICATED_ANONYMOUSLY
             view: IS_AUTHENTICATED_ANONYMOUSLY
-            edit: ROLE_SYLIUS_ADMIN
-            delete: ROLE_SYLIUS_ADMIN
+            edit: ROLE_ADMIN
+            delete: ROLE_ADMIN
         vote:
             create: IS_AUTHENTICATED_ANONYMOUSLY
             view: IS_AUTHENTICATED_ANONYMOUSLY
-            edit: ROLE_SYLIUS_ADMIN
-            delete: ROLE_SYLIUS_ADMIN
+            edit: ROLE_ADMIN
+            delete: ROLE_ADMIN
 
 mopa_bootstrap:
     navbar: ~

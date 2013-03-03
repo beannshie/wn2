@@ -6,14 +6,14 @@
                                       http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd"
 >
 
-    <entity name="FreeNote\FreeNoteBundle\Entity\Product" table="free_note_shop_assortment_product">
+    <entity name="FreeNote\FreeNoteBundle\Entity\Product" table="free_note_shop_product">
         <id name="id" column="id" type="integer">
             <generator strategy="AUTO" />
         </id>
         <field name="variantPickingMode" column="variant_picking_mode" type="integer" />
         <field name="imagePath" column="image_path" nullable="true" />
-        <many-to-one field="taxCategory" target-entity="Sylius\Bundle\TaxationBundle\Model\TaxCategoryInterface" on-delete="SET NULL">
-            <join-column name="tax_category_id" referenced-column-name="id" />
+        <many-to-one field="taxCategory" target-entity="Sylius\Bundle\TaxationBundle\Model\TaxCategoryInterface">
+            <join-column name="tax_category_id" referenced-column-name="id" on-delete="SET NULL"/>
         </many-to-one>
         <many-to-many field="taxons" target-entity="Sylius\Bundle\TaxonomiesBundle\Model\TaxonInterface">
             <join-table name="free_note_shop_product_taxon">
