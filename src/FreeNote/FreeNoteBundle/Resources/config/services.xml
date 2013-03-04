@@ -139,6 +139,11 @@
                 </service>
             </argument>
         </service>
+
+        <service id="free_note_user.registration.form.type" class="FreeNote\FreeNoteBundle\Form\Type\RegistrationFormType">
+            <tag name="form.type" alias="free_note_user_registration" />
+            <argument>%fos_user.model.user.class%</argument>
+        </service>
     </services>
 
 </container>

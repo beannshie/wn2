@@ -104,11 +104,13 @@ class UserProfile
     public function setUser(UserInterface $user)
     {
         $this->user = $user;
+        return $this;
     }
 
     public function setAvatar($avatar)
     {
         $this->avatar = $avatar;
+        return $this;
     }
 
     public function getAvatar()
@@ -122,6 +124,7 @@ class UserProfile
     public function setAvatarPath($avatarPath)
     {
         $this->avatarPath = $avatarPath;
+        return $this;
     }
 
     /**
@@ -185,6 +188,7 @@ class UserProfile
     public function setBusinessAddress(AddressInterface $businessAddress)
     {
         $this->businessAddress = $businessAddress;
+        return $this;
     }
 
     /**
@@ -201,6 +205,7 @@ class UserProfile
     public function setCompanyName($companyName)
     {
         $this->companyName = $companyName;
+        return $this;
     }
 
     /**
@@ -217,6 +222,7 @@ class UserProfile
     public function setFreeNotes($freeNotes)
     {
         $this->freeNotes = $freeNotes;
+        return $this;
     }
 
     /**
@@ -233,6 +239,7 @@ class UserProfile
     public function setName($name)
     {
         $this->name = $name;
+        return $this;
     }
 
     /**
@@ -249,6 +256,7 @@ class UserProfile
     public function setNewsletter($newsletter)
     {
         $this->newsletter = $newsletter;
+        return $this;
     }
 
     /**
@@ -265,6 +273,7 @@ class UserProfile
     public function setNip($nip)
     {
         $this->nip = $nip;
+        return $this;
     }
 
     /**
@@ -281,6 +290,7 @@ class UserProfile
     public function setPhoneNumber($phoneNumber)
     {
         $this->phoneNumber = $phoneNumber;
+        return $this;
     }
 
     /**
@@ -297,6 +307,7 @@ class UserProfile
     public function setPostalAddress(AddressInterface $postalAddress)
     {
         $this->postalAddress = $postalAddress;
+        return $this;
     }
 
     /**
@@ -313,6 +324,7 @@ class UserProfile
     public function setRecommendedBy($recommendedBy)
     {
         $this->recommendedBy = $recommendedBy;
+        return $this;
     }
 
     /**
@@ -329,6 +341,7 @@ class UserProfile
     public function setRegon($regon)
     {
         $this->regon = $regon;
+        return $this;
     }
 
     /**
@@ -345,6 +358,7 @@ class UserProfile
     public function setSurname($surname)
     {
         $this->surname = $surname;
+        return $this;
     }
 
     /**

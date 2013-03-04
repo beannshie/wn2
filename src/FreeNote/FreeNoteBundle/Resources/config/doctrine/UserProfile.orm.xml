@@ -9,6 +9,10 @@
     <entity name="FreeNote\FreeNoteBundle\Entity\UserProfile" table="free_note_user_profile" repository-class="FreeNote\FreeNoteBundle\Repository\UserProfileRepository">
         <id name="user" association-key="true" />
         <one-to-one field="user" target-entity="FreeNote\FreeNoteBundle\Entity\User" inversed-by="userProfile">
+            <cascade>
+                <cascade-all/>
+            </cascade>
+            <join-column name="user_id" referenced-column-name="id" nullable="false" />
         </one-to-one>
 
         <field name="name" column="name" type="string" length="255" nullable="true" />

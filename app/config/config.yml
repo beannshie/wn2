@@ -75,6 +75,9 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: FreeNote\FreeNoteBundle\Entity\User
+    registration:
+        form:
+            type: free_note_user_registration
 
 fos_comment:
     db_driver: orm

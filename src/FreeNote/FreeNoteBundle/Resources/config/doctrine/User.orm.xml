@@ -10,6 +10,12 @@
         <id name="id" column="id" type="integer">
             <generator strategy="AUTO" />
         </id>
+        <one-to-one field="userProfile" target-entity="FreeNote\FreeNoteBundle\Entity\UserProfile" mapped-by="user">
+            <cascade>
+                <cascade-all/>
+            </cascade>
+            <join-column name="id" referenced-column-name="user_id"/>
+        </one-to-one>
     </entity>
 
 </doctrine-mapping>
