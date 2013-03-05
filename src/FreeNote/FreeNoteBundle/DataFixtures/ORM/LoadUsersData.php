@@ -29,6 +29,7 @@ class LoadUsersData extends DataFixture
         $manager->persist($user);
         $manager->flush();
 
+        $user = new User();
         $user->setUsername('kaala');
         $user->setEmail('kaala@example.com');
         $user->setPlainPassword('halfvren');
@@ -53,6 +54,9 @@ class LoadUsersData extends DataFixture
             $user->setEnabled(true);
             $user->setRoles(array('ROLE_USER'));
 
+            $manager->persist($user);
+            $manager->flush();
+
             $userProfile->setUser($user);
             $userProfile->setName($this->faker->firstName);
             $userProfile->setSurname($this->faker->lastName);
@@ -64,17 +68,12 @@ class LoadUsersData extends DataFixture
             $userProfile->setNip($this->faker->randomNumber(3).'-'.$this->faker->randomNumber(3).'-'.$this->faker->randomNumber(2).'-'.$this->faker->randomNumber(2));
             $userProfile->setRegon($this->faker->randomNumber(9));
 
-            //$userProfileManager->persist($userProfile);
-            $user->setUserProfile($userProfile);
-            $manager->persist($user);
+            $userProfileManager->persist($userProfile);
 
             $this->setReference('User-'.$i, $user);
         }
 
-        //$userProfileManager->flush();
-
-        $manager->flush();
-
+        $userProfileManager->flush();
     }
 
     /**

@@ -10,7 +10,12 @@ class UserProfileType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name');
+        $builder->add('name')
+            ->add('surname')
+            ->add('phone_number')
+            ->add('newsletter')
+            ->add('free_notes');
+
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
