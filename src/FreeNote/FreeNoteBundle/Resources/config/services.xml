@@ -144,6 +144,14 @@
             <tag name="form.type" alias="free_note_user_registration" />
             <argument>%fos_user.model.user.class%</argument>
         </service>
+        <service id="free_note_user.registration.form.handler" class="FreeNote\FreeNoteBundle\Form\Handler\FreeNoteRegistrationFormHandler" scope="request" public="false">
+            <argument type="service" id="fos_user.registration.form" />
+            <argument type="service" id="request" />
+            <argument type="service" id="fos_user.user_manager" />
+            <argument type="service" id="fos_user.mailer" />
+            <argument type="service" id="fos_user.util.token_generator" />
+            <argument type="service" id="free_note.manager.user_profile" />
+        </service>
     </services>
 
 </container>

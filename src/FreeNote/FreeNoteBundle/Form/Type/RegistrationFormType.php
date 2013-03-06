@@ -20,9 +20,9 @@ class RegistrationFormType extends BaseType
     {
         parent::setDefaultOptions($resolver);
 
-//        $resolver->setDefaults(array(
-//            'cascade_validation' => true,
-//        ));
+        $resolver->setDefaults(array(
+            'cascade_validation' => true,
+        ));
     }
 
     public function getName()

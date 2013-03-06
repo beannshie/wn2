@@ -78,6 +78,7 @@ fos_user:
     registration:
         form:
             type: free_note_user_registration
+            handler: free_note_user.registration.form.handler
 
 fos_comment:
     db_driver: orm

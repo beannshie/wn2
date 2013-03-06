@@ -23,11 +23,14 @@ class UserProfile
     protected $user;
 
     /**
+     * @Assert\NotBlank(groups={"buyerPP", "buyerCO"})
+     *
      * @var string
      */
     protected $name;
 
     /**
+     * @Assert\NotBlank(groups={"buyerCO"})
      * @var string
      */
     protected $surname;
