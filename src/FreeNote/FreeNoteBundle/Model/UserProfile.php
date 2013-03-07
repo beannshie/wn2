@@ -23,14 +23,11 @@ class UserProfile
     protected $user;
 
     /**
-     * @Assert\NotBlank(groups={"buyerPP", "buyerCO"})
-     *
      * @var string
      */
     protected $name;
 
     /**
-     * @Assert\NotBlank(groups={"buyerCO"})
      * @var string
      */
     protected $surname;
@@ -57,9 +54,7 @@ class UserProfile
 
     /**
      * avatar upload.
-     *
-     * @Assert\File(maxSize="1024k")
-     * @Assert\Image
+     * @var string
      */
     protected $avatar;
 

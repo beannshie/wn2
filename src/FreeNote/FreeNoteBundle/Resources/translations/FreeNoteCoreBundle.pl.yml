@@ -7,10 +7,6 @@ show: pokaż
 duplicate: duplikat
 build: utwórz
 
-title:
-    backend:  Wolna Nuta - administracja
-    frontend: Wolna Nuta
-
 confirmer:
     header: Potwierdź akcję
     question: Czy jesteś pewny/a, że chcesz wykonać akcję?

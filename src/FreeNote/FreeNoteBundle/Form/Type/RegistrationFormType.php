@@ -3,6 +3,7 @@
 namespace FreeNote\FreeNoteBundle\Form\Type;
 
 use Symfony\Component\Form\FormBuilderInterface;
+use FreeNote\FreeNoteBundle\Model\fnUserInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use FOS\UserBundle\Form\Type\RegistrationFormType as BaseType;
 
@@ -12,8 +13,13 @@ class RegistrationFormType extends BaseType
     {
         parent::buildForm($builder, $options);
 
-        // embed user profile form
-        $builder->add('userProfile', new UserProfileType());
+        $builder
+            ->add('account_type', 'hidden', array(
+            'mapped' => false,
+            'data' => ''));
+        $builder->add('user_profile', new UserProfileType(fnUserInterface::FN_ROLE_BUYER), array(
+            'label' => 'fn.user.register.profile',
+            'translation_domain' => 'fnForms'));
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

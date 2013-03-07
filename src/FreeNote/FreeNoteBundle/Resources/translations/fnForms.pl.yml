@@ -1,0 +1,17 @@
+fn:
+    user:
+        register:
+            profile: Szczegóły
+            name: Imię
+            surname: Nazwisko
+            phone_number: Numer telefonu
+            recommended_by: Login osoby polecającej
+            postal_address: Adres korespondencyjny
+            avatar: Miniatura (avatar)
+            newsletter: Zapisz do newsletter
+            company_name: Nazwa firmy
+            nip: Nip
+            regon: Regon
+            business_address: Adres siedziby firmy
+
+

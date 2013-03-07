@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * User entity.
  */
-class User extends BaseUser
+class User extends BaseUser implements fnUserInterface
 {
     /**
      * @Assert\Type(type="FreeNote\FreeNoteBundle\Entity\UserProfile")
