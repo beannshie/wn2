@@ -6,11 +6,11 @@
                                       http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd"
 >
 
-    <entity name="FreeNote\FreeNoteBundle\Entity\PostCategory" table="free_note_blogger_category">
+    <entity name="FreeNote\FreeNoteBundle\Entity\ArticleCategory" table="free_note_article_category">
         <id name="id" column="id" type="integer">
             <generator strategy="AUTO" />
         </id>
-        <many-to-many field="posts" target-entity="FreeNote\FreeNoteBundle\Entity\Post" mapped-by="categories" />
+        <many-to-many field="entries" target-entity="FreeNote\FreeNoteBundle\Entity\ArticleEntry" mapped-by="categories" />
     </entity>
 
 </doctrine-mapping>

@@ -7,7 +7,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 /**
  * Default blog categories to play with Sylius sandbox.
  */
-class LoadPostCategoriesData extends DataFixture
+class LoadCategoriesData extends DataFixture
 {
     private $manager;
     private $manipulator;
@@ -22,18 +22,18 @@ class LoadPostCategoriesData extends DataFixture
         $this->manipulator = $this->get('sylius_categorizer.manipulator.category');
         $this->catalog = $this->get('sylius_categorizer.registry')->getCatalog('articles');
 
-        $this->createCategory('Symfony2');
-        $this->createCategory('Doctrine');
-        $this->createCategory('Sylius');
-        $this->createCategory('Composer');
+        $this->createArticleCategory('Zespoły');
+        $this->createArticleCategory('Płyty');
+        $this->createArticleCategory('Recenzje');
+        $this->createArticleCategory('Literatura');
 
 
-        $this->catalog = $this->get('sylius_categorizer.registry')->getCatalog('news');
-
-        $this->createCategory('newsSymfony2');
-        $this->createCategory('newsDoctrine');
-        $this->createCategory('newsSylius');
-        $this->createCategory('newsComposer');
+//        $this->catalog = $this->get('sylius_categorizer.registry')->getCatalog('events');
+//
+//        $this->createCategory('Premiery');
+//        $this->createCategory('Koncerty');
+//        $this->createCategory('Zapowiedzi');
+//        $this->createCategory('Recenzje');
     }
 
     /**
@@ -41,13 +41,13 @@ class LoadPostCategoriesData extends DataFixture
      *
      * @param string $name
      */
-    private function createCategory($name)
+    private function createArticleCategory($name)
     {
         $category = $this->manager->createCategory($this->catalog);
         $category->setName($name);
 
         $this->manipulator->create($category);
-        $this->setReference('Sandbox.Blogger.Category.'.$name, $category);
+        $this->setReference('Sandbox.Article.Category.'.$name, $category);
     }
 
     public function getOrder()

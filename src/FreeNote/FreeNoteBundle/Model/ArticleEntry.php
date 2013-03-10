@@ -6,9 +6,9 @@ use Doctrine\Common\Collections\Collection;
 use Sylius\Bundle\BloggerBundle\Entity\Post as BasePost;
 
 /**
- * Categorized blog post.
+ * Categorized article entry.
  */
-class Post extends BasePost
+class ArticleEntry extends BasePost
 {
     /**
      * @var Collection
@@ -42,6 +42,6 @@ class Post extends BasePost
      */
     public function getCommentThreadId()
     {
-        return 'blogger_post_'.$this->getId();
+        return 'article_entry_'.$this->getId();
     }
 }

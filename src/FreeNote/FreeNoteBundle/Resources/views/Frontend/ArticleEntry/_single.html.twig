@@ -3,5 +3,5 @@
     <p>Posted at {{ post.createdAt|date('Y-m-d H:i:s') }} by <strong>{{ post.author }}</strong>.</p>
     <p>{{ post.content }}</p>
     <hr />
-    <a href="{{ path('free_note_post_show', {'slug': post.slug}) }}" class="btn span3" style="float: none;">read</a>
+    <a href="{{ path('free_note_article_entry_show', {'slug': post.slug}) }}" class="btn span3" style="float: none;">read</a>
 </div>

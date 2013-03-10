@@ -6,7 +6,7 @@
 
 {% block content %}
 <div class="well">
-<a href="{{ path('free_note_backend_post_create') }}" class="btn btn-primary large">
+<a href="{{ path('free_note_backend_article_entry_create') }}" class="btn btn-primary large">
     <i class="icon-plus icon-white"></i> create post
 </a>
 </div>
@@ -33,13 +33,13 @@
                 <td>{{ post.author }}</td>
                 <td>
                     <div class="pull-right btn-group">
-                        <a href="{{ path('free_note_backend_post_show', {'id': post.id}) }}" class="btn">
+                        <a href="{{ path('free_note_backend_article_entryt_show', {'id': post.id}) }}" class="btn">
                             <i class="icon-book"></i> read
                         </a>
-                        <a href="{{ path('free_note_backend_post_update', {'id': post.id}) }}" class="btn">
+                        <a href="{{ path('free_note_backend_article_entryt_update', {'id': post.id}) }}" class="btn">
                             <i class="icon-pencil"></i> update
                         </a>
-                        <a href="{{ path('free_note_backend_post_delete', {'id': post.id}) }}" class="btn btn-danger confirmer"
+                        <a href="{{ path('free_note_backend_article_entry_delete', {'id': post.id}) }}" class="btn btn-danger confirmer"
                             data-toggle="modal"
                             data-target="confirmer-modal"
                             data-confirmer-question="Are you sure you want to delete this post?"

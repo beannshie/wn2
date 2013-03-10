@@ -9,7 +9,7 @@ use Symfony\Component\Form\FormBuilderInterface;
  * Sandbox blog post form type.
  * Adds category choice field.
  */
-class PostType extends BasePostType
+class ArticleEntryType extends BasePostType
 {
     /**
      * {@inheritdoc}
@@ -21,7 +21,7 @@ class PostType extends BasePostType
         $builder
             ->add('categories', 'sylius_categorizer_category_choice', array(
                 'multiple' => true,
-                'catalog'  => 'blog'
+                'catalog'  => 'articles'
             ))
         ;
     }

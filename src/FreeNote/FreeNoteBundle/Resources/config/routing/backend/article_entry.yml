@@ -1,0 +1,31 @@
+free_note_backend_article_entry_list:
+    pattern: /
+    defaults:
+        _controller: sylius_blogger.controller.post:indexAction
+        template: FreeNoteBundle:Backend/ArticleEntry:list.html.twig
+
+free_note_backend_article_entry_create:
+    pattern: /create
+    defaults:
+        _controller: sylius_blogger.controller.post:createAction
+        template: FreeNoteBundle:Backend/ArticleEntry:create.html.twig
+        redirect: free_note_backend_article_entry_show
+
+free_note_backend_article_entry_update:
+    pattern: /{id}/update
+    defaults:
+        _controller: sylius_blogger.controller.post:updateAction
+        template: FreeNoteBundle:Backend/ArticleEntry:update.html.twig
+        redirect: free_note_backend_article_entry_show
+
+free_note_backend_article_entry_delete:
+    pattern: /{id}/delete
+    defaults:
+        _controller: sylius_blogger.controller.post:deleteAction
+        redirect: free_note_backend_article_entry_list
+
+free_note_backend_article_entry_show:
+    pattern: /{id}
+    defaults:
+        _controller: sylius_blogger.controller.post:showAction
+        template: FreeNoteBundle:Backend/ArticleEntry:show.html.twig

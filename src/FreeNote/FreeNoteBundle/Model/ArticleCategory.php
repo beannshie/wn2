@@ -7,14 +7,14 @@ use Doctrine\Common\Collections\Collection;
 use Sylius\Bundle\CategorizerBundle\Entity\Category as BaseCategory;
 
 /**
- * Blog post category.
+ * Article entry category.
  */
-class PostCategory extends BaseCategory
+class ArticleCategory extends BaseCategory
 {
     /**
      * @var Collection
      */
-    protected $posts;
+    protected $entries;
 
     /**
      * Constructor.
@@ -23,26 +23,26 @@ class PostCategory extends BaseCategory
     {
         parent::__construct();
 
-        $this->posts = new ArrayCollection;
+        $this->entries = new ArrayCollection;
     }
 
     /**
-     * Get posts.
+     * Get entries.
      *
      * @return Collection
      */
-    public function getPosts()
+    public function getEntries()
     {
-        return $this->posts;
+        return $this->entries;
     }
 
     /**
-     * Set posts.
+     * Set entries.
      *
-     * @param Collection $posts
+     * @param Collection $entries
      */
-    public function setPosts(Collection $posts)
+    public function setEntries(Collection $entries)
     {
-        $this->posts = $posts;
+        $this->entries = $entries;
     }
 }

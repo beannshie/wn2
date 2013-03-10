@@ -11,7 +11,7 @@
 
 {% if posts|length > 0 %}
     {% for post in posts %}
-        {% include 'FreeNoteBundle:Frontend/Post:_single.html.twig' %}
+        {% include 'FreeNoteBundle:Frontend/ArticleEntry:_single.html.twig' %}
     {% endfor %}
 {% else %}
     <hr />

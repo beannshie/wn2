@@ -132,28 +132,28 @@ sylius_categorizer:
     catalogs:
         articles:
             property: "articles"
-            model: FreeNote\FreeNoteBundle\Entity\PostCategory
+            model: FreeNote\FreeNoteBundle\Entity\ArticleCategory
             templates:
-                backend: FreeNoteBundle:Backend/PostCategory:%s.html.twig
-                frontend: FreeNoteBundle:Frontend/PostCategory:%s.html.twig
-        news:
-            property: "news"
-            model: FreeNote\FreeNoteBundle\Entity\PostCategory
-            templates:
-                backend: FreeNoteBundle:Backend/PostCategory:%s.html.twig
-                frontend: FreeNoteBundle:Frontend/PostCategory:%s.html.twig
-        events:
-            property: "events"
-            model: FreeNote\FreeNoteBundle\Entity\PostCategory
-            templates:
-                backend: FreeNoteBundle:Backend/PostCategory:%s.html.twig
-                frontend: FreeNoteBundle:Frontend/PostCategory:%s.html.twig
-        advertisements:
-            property: "advertisements"
-            model: FreeNote\FreeNoteBundle\Entity\PostCategory
-            templates:
-                backend: FreeNoteBundle:Backend/PostCategory:%s.html.twig
-                frontend: FreeNoteBundle:Frontend/PostCategory:%s.html.twig
+                backend: FreeNoteBundle:Backend/ArticleCategory:%s.html.twig
+                frontend: FreeNoteBundle:Frontend/ArticleCategory:%s.html.twig
+#        news:
+#            property: "news"
+#            model: FreeNote\FreeNoteBundle\Entity\PostCategory
+#            templates:
+#                backend: FreeNoteBundle:Backend/PostCategory:%s.html.twig
+#                frontend: FreeNoteBundle:Frontend/PostCategory:%s.html.twig
+#        events:
+#            property: "events"
+#            model: FreeNote\FreeNoteBundle\Entity\PostCategory
+#            templates:
+#                backend: FreeNoteBundle:Backend/PostCategory:%s.html.twig
+#                frontend: FreeNoteBundle:Frontend/PostCategory:%s.html.twig
+#        advertisements:
+#            property: "advertisements"
+#            model: FreeNote\FreeNoteBundle\Entity\PostCategory
+#            templates:
+#                backend: FreeNoteBundle:Backend/PostCategory:%s.html.twig
+#                frontend: FreeNoteBundle:Frontend/PostCategory:%s.html.twig
 
 sylius_cart:
     driver: doctrine/orm

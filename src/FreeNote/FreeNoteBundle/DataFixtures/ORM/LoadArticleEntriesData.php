@@ -8,15 +8,15 @@ use Doctrine\Common\Persistence\ObjectManager;
 /**
  * Default blog posts to play with Sylius sandbox.
  */
-class LoadPostsData extends DataFixture
+class LoadArticleEntriesData extends DataFixture
 {
     /**
      * {@inheritdoc}
      */
     public function load(ObjectManager $manager)
     {
-        $categoriesA = array('Symfony2', 'Sylius');
-        $categoriesB = array('Doctrine', 'Composer');
+        $categoriesA = array('Zespoły', 'Płyty');
+        $categoriesB = array('Recenzje', 'Literatura');
 
         for ($i = 1; $i <= 50; $i++) {
             $post = $this->get('sylius_blogger.repository.post')->createNew();
@@ -29,15 +29,15 @@ class LoadPostsData extends DataFixture
             $randomB = $this->faker->randomElement($categoriesB);
 
             $categories = array(
-                $this->getReference('Sandbox.Blogger.Category.'.$randomA),
-                $this->getReference('Sandbox.Blogger.Category.'.$randomB)
+                $this->getReference('Sandbox.Article.Category.'.$randomA),
+                $this->getReference('Sandbox.Article.Category.'.$randomB)
             );
 
             $post->setCategories(new ArrayCollection($categories));
 
             $manager->persist($post);
 
-            $this->setReference('Sandbox.Blogger.Post-'.$i, $post);
+            $this->setReference('Sandbox.Article.Enrty-'.$i, $post);
 
             if (0 === $i % 20) {
                 $manager->flush();

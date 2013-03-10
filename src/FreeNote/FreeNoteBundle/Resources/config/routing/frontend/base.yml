@@ -6,13 +6,13 @@ free_note_about:
     pattern: /about
     defaults: { _controller: free_note_core.controller.frontend.main:aboutAction }
 
-free_note_core_frontend_product:
+free_note_frontend_product:
     resource: @FreeNoteBundle/Resources/config/routing/frontend/product.yml
     prefix: /products
 
-free_note_core_frontend_post:
-    resource: @FreeNoteBundle/Resources/config/routing/frontend/post.yml
-    prefix: /blog
+free_note_frontend_article_entry:
+    resource: @FreeNoteBundle/Resources/config/routing/frontend/article_entry.yml
+    prefix: /artykuly
 
 free_note_checkout_start:
     pattern: /checkout

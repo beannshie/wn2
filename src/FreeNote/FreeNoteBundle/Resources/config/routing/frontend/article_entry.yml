@@ -1,17 +1,17 @@
-free_note_post_list:
+free_note_article_entry_list:
     pattern: /
     defaults:
         _controller: sylius_blogger.controller.post:indexAction
-        template: FreeNoteBundle:Frontend/Post:list.html.twig
+        template: FreeNoteBundle:Frontend/ArticleEntry:list.html.twig
         paginate: 10
         criteria:
             published: true
         sorting:
             createdAt: desc
 
-free_note_post_show:
+free_note_article_entry_show:
     pattern: /{slug}
     defaults:
         _controller: sylius_blogger.controller.post:showAction
-        template: FreeNoteBundle:Frontend/Post:show.html.twig
+        template: FreeNoteBundle:Frontend/ArticleEntry:show.html.twig
         identifier: slug
