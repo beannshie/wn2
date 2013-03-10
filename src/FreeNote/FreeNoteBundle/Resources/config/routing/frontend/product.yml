@@ -2,18 +2,18 @@ free_note_product_list_by_taxon:
     pattern: /t/{permalink}
     defaults:
         _controller: sylius.controller.product:listByTaxonAction
-        _template: FreeNoteBundle:Frontend/Product:listByTaxon.html.twig
+        template: FreeNoteBundle:Frontend/Product:listByTaxon.html.twig
 
 free_note_product_list:
     pattern: /
     defaults:
         _controller: sylius.controller.product:indexAction
-        _template: FreeNoteBundle:Frontend/Product:list.html.twig
-        _paginate: 9
+        template: FreeNoteBundle:Frontend/Product:list.html.twig
+        paginate: 9
 
 free_note_product_show:
     pattern: /{slug}
     defaults:
         _controller: sylius.controller.product:showAction
-        _template: FreeNoteBundle:Frontend/Product:show.html.twig
-        _identifier: slug
+        template: FreeNoteBundle:Frontend/Product:show.html.twig
+        identifier: slug

@@ -30,4 +30,4 @@ free_note_ajax_render_province_choice_form:
     pattern: /ajax/render-province-choice-form
     defaults:
         _controller: sylius.controller.province:renderProvinceChoiceTypeAction
-        _template: FreeNoteBundle:Backend/Province:_provinceChoiceForm.html.twig
+        template: FreeNoteBundle:Backend/Province:_provinceChoiceForm.html.twig

@@ -2,25 +2,25 @@ free_note_backend_country_list:
     pattern: /
     defaults:
         _controller: sylius.controller.country:indexAction
-        _template: FreeNoteBundle:Backend/Country:list.html.twig
-        _paginate: 50
+        template: FreeNoteBundle:Backend/Country:list.html.twig
+        paginate: 50
 
 free_note_backend_country_create:
     pattern: /create
     defaults:
         _controller: sylius.controller.country:createAction
-        _template: FreeNoteBundle:Backend/Country:create.html.twig
-        _redirect: free_note_backend_country_list
+        template: FreeNoteBundle:Backend/Country:create.html.twig
+        redirect: free_note_backend_country_list
 
 free_note_backend_country_update:
     pattern: /{id}/update
     defaults:
         _controller: sylius.controller.country:updateAction
-        _template: FreeNoteBundle:Backend/Country:update.html.twig
-        _redirect: free_note_backend_country_list
+        template: FreeNoteBundle:Backend/Country:update.html.twig
+        redirect: free_note_backend_country_list
 
 free_note_backend_country_delete:
     pattern: /{id}/delete
     defaults:
         _controller: sylius.controller.country:deleteAction
-        _redirect: free_note_backend_country_list
+        redirect: free_note_backend_country_list

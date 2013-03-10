@@ -111,6 +111,9 @@ fos_comment:
 
 mopa_bootstrap:
     navbar: ~
+    form:
+        render_required_asterisk: true
+        render_optional_text: false
 
 sylius_assortment:
     driver: doctrine/orm

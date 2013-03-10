@@ -2,7 +2,7 @@ free_note_backend_stockable_list:
     pattern: /list
     defaults:
         _controller: sylius.controller.stockable:indexAction
-        _template: FreeNoteBundle:Backend/Stockable:list.html.twig
-        _sortable: true
-        _sorting:
+        template: FreeNoteBundle:Backend/Stockable:list.html.twig
+        sortable: true
+        sorting:
             updatedAt: asc

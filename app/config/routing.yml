@@ -1,8 +1,3 @@
-#Wn
-#wn_core:
-#    resource: "@WnBundle/Resources/config/routing.yml"
-#    prefix:   /
-
 #Sylius
 free_note_core:
     resource: @FreeNoteBundle/Resources/config/routing/base.yml

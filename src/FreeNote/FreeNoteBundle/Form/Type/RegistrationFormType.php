@@ -14,10 +14,10 @@ class RegistrationFormType extends BaseType
         parent::buildForm($builder, $options);
 
         $builder
-            ->add('account_type', 'hidden', array(
+            ->add('accountType', 'hidden', array(
             'mapped' => false,
             'data' => ''));
-        $builder->add('user_profile', new UserProfileType(fnUserInterface::FN_ROLE_BUYER), array(
+        $builder->add('userProfile', new UserProfileType(fnUserInterface::FN_ROLE_BUYER), array(
             'label' => 'fn.user.register.profile',
             'translation_domain' => 'fnForms'));
     }

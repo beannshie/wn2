@@ -37,7 +37,7 @@ class OrderNumberGenerator implements OrderNumberGeneratorInterface
      */
     public function generate(OrderInterface $order)
     {
-        $order->setNumber($this->getOrderPrefix().$order->getUser()->getId().$this->getOrderPostfix());
+        $order->setNumber($this->getOrderPrefix().($order->getUser()?$order->getUser()->getId():'nn').$this->getOrderPostfix());
     }
 
     /**

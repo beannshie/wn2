@@ -36,12 +36,13 @@ class UserProfileType extends AbstractType
             ->add('surname', null, array(
                 'label' => 'fn.user.register.surname',
                 'translation_domain' => 'fnForms'))
-            ->add('phone_number', null, array(
+            ->add('phoneNumber', 'number', array(
                 'label' => 'fn.user.register.phone_number',
                 'translation_domain' => 'fnForms'))
-            ->add('recommended_by', null, array(
+            ->add('recommendedBy', null, array(
                 'label' => 'fn.user.register.recommended_by',
-                'translation_domain' => 'fnForms'))
+                'translation_domain' => 'fnForms',
+                'required' => false))
             ->add('avatar', null, array(
                 'label' => 'fn.user.register.avatar',
                 'translation_domain' => 'fnForms'))
@@ -49,7 +50,7 @@ class UserProfileType extends AbstractType
                 'label' => 'fn.user.register.newsletter',
                 'translation_domain' => 'fnForms',
                 'data' => true))
-            ->add('postal_address', null, array(
+            ->add('postalAddress', 'sylius_address', array(
                 'label' => 'fn.user.register.postal_address',
                 'translation_domain' => 'fnForms'));
 
@@ -57,17 +58,17 @@ class UserProfileType extends AbstractType
         {
             $builder
                 ->add('companyName', null, array(
-                'label' => 'fn.user.register.company_name',
-                'translation_domain' => 'fnForms'))
+                    'label' => 'fn.user.register.company_name',
+                    'translation_domain' => 'fnForms'))
                 ->add('nip', null, array(
-                'label' => 'fn.user.register.nip',
-                'translation_domain' => 'fnForms'))
+                    'label' => 'fn.user.register.nip',
+                    'translation_domain' => 'fnForms'))
                 ->add('regon', null, array(
-                'label' => 'fn.user.register.regon',
-                'translation_domain' => 'fnForms'))
-                ->add('business_address', null, array(
-                'label' => 'fn.user.register.business_address',
-                'translation_domain' => 'fnForms'));
+                    'label' => 'fn.user.register.regon',
+                    'translation_domain' => 'fnForms'))
+                ->add('businessAddress', 'sylius_address', array(
+                    'label' => 'fn.user.register.business_address',
+                    'translation_domain' => 'fnForms'));
         }
     }
 

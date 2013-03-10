@@ -4,8 +4,11 @@ security:
 
     role_hierarchy:
         ROLE_WRITER:      ROLE_USER
-        ROLE_ADMIN:       ROLE_USER
-        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+        ROLE_BUYER:       ROLE_USER
+        ROLE_BUYER_CO:    ROLE_USER
+        ROLE_SELLER:      ROLE_USER
+        ROLE_ADMIN:       [ROLE_WRITER, ROLE_BUYER, ROLE_BUYER_CO, ROLE_SELLER]
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
         fos_userbundle:
@@ -31,4 +34,4 @@ security:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: "/administration.*", role: ROLE_SYLIUS_ADMIN }
+        - { path: "/administration.*", role: ROLE_WRITER }

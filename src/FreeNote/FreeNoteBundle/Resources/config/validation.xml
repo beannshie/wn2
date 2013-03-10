@@ -12,5 +12,70 @@
         </constraint>
     </class>
 
+    <class name="FreeNote\FreeNoteBundle\Model\UserProfile">
+        <property name="name">
+            <constraint name="NotBlank">
+                <option name="groups">
+                    <value>buyerPP</value>
+                    <value>buyerCO</value>
+                </option>
+                <option name="message">fn.user.register.name.blank</option>
+            </constraint>
+        </property>
+        <property name="surname">
+            <constraint name="NotBlank">
+                <option name="groups">
+                    <value>buyerPP</value>
+                    <value>buyerCO</value>
+                </option>
+                <option name="message">fn.user.register.surname.blank</option>
+            </constraint>
+        </property>
+        <property name="phoneNumber">
+            <constraint name="NotBlank">
+                <option name="groups">
+                    <value>buyerPP</value>
+                    <value>buyerCO</value>
+                </option>
+                <option name="message">fn.user.register.phone_number.blank</option>
+            </constraint>
+        </property>
+        <property name="avatar">
+            <constraint name="File">
+                <option name="maxSize">1024k</option>
+                <option name="mimeTypes">
+                    <value>gif</value>
+                    <value>png</value>
+                    <value>jpg</value>
+                    <value>jpeg</value>
+                </option>
+            </constraint>
+        </property>
+        <property name="companyName">
+            <constraint name="NotBlank">
+                <option name="groups">
+                    <value>buyerCO</value>
+                </option>
+                <option name="message">fn.user.register.company_name.blank</option>
+            </constraint>
+        </property>
+        <property name="nip">
+            <constraint name="NotBlank">
+                <option name="groups">
+                    <value>buyerCO</value>
+                </option>
+                <option name="message">fn.user.register.nip.blank</option>
+            </constraint>
+        </property>
+        <property name="regon">
+            <constraint name="NotBlank">
+                <option name="groups">
+                    <value>buyerCO</value>
+                </option>
+                <option name="message">fn.user.register.regon.blank</option>
+            </constraint>
+        </property>
+    </class>
+
 </constraint-mapping>
 
