@@ -78,7 +78,7 @@ fos_user:
     registration:
         form:
             type: free_note_user_registration
-            handler: free_note_user.registration.form.handler
+            handler: free_note.user.registration.form.handler
 
 fos_comment:
     db_driver: orm
@@ -170,8 +170,7 @@ sylius_blogger:
     driver: doctrine/orm
     classes:
         post:
-            model: FreeNote\FreeNoteBundle\Entity\Post
-            form: FreeNote\FreeNoteBundle\Form\Type\PostType
+            model: FreeNote\FreeNoteBundle\Entity\FakeEntity
 
 sylius_sales:
     driver: doctrine/orm
@@ -235,3 +234,11 @@ sylius_resource:
             driver: doctrine/orm
             classes:
                 model: FreeNote\FreeNoteBundle\Entity\User
+
+free_note:
+    classes:
+        article_entry:
+            model: FreeNote\FreeNoteBundle\Entity\ArticleEntry
+            type:  FreeNote\FreeNoteBundle\Form\Type\ArticleEntryType
+            repository:  Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository
+            controller:  Sylius\Bundle\ResourceBundle\Controller\ResourceController

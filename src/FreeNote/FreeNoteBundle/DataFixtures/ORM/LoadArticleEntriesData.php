@@ -19,7 +19,7 @@ class LoadArticleEntriesData extends DataFixture
         $categoriesB = array('Recenzje', 'Literatura');
 
         for ($i = 1; $i <= 50; $i++) {
-            $post = $this->get('sylius_blogger.repository.post')->createNew();
+            $post = $this->get('free_note.repository.article_entry')->createNew();
 
             $post->setTitle($this->faker->sentence);
             $post->setAuthor($this->faker->name);
