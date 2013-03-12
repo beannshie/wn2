@@ -1,0 +1,30 @@
+# This file is part of the Sylius package.
+# (c) Paweł Jędrzejewski
+
+free_note_backend_category_create:
+    pattern: /{alias}/kategorie/create
+    defaults: { _controller: sylius_categorizer.controller.backend.category:createAction }
+
+free_note_backend_category_update:
+    pattern: /{alias}/kategorie/{id}/update
+    defaults: { _controller: sylius_categorizer.controller.backend.category:updateAction }
+
+free_note_backend_category_delete:
+    pattern: /{alias}/kategorie/{id}/delete
+    defaults: { _controller: sylius_categorizer.controller.backend.category:deleteAction }
+
+free_note_backend_category_move_up:
+    pattern: /{alias}/kategorie/{id}/move-up
+    defaults: { _controller: sylius_categorizer.controller.backend.category:moveUpAction }
+
+free_note_backend_category_move_down:
+    pattern: /{alias}/kategorie/{id}/move-down
+    defaults: { _controller: sylius_categorizer.controller.backend.category:moveDownAction }
+
+free_note_backend_category_list:
+    pattern: /{alias}/kategorie/lista
+    defaults: { _controller: sylius_categorizer.controller.backend.category:listAction }
+
+free_note_backend_category_show:
+    pattern: /{alias}/kategorie/{id}
+    defaults: { _controller: sylius_categorizer.controller.backend.category:showAction }

@@ -9,13 +9,13 @@
 {{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
 {% endif %}
 
-{% if posts %}
-    {% for post in posts %}
+{% if entries %}
+    {% for entry in entries %}
         {% include 'FreeNoteBundle:Frontend/ArticleEntry:_single.html.twig' %}
     {% endfor %}
 {% else %}
     <div class="alert alert-info">
-        No posts to display.
+        No entries to display.
     </div>
 {% endif %}
 

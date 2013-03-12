@@ -130,8 +130,8 @@ sylius_assortment:
 sylius_categorizer:
     driver: doctrine/orm
     catalogs:
-        articles:
-            property: "articles"
+        artykuly:
+            property: "entries"
             model: FreeNote\FreeNoteBundle\Entity\ArticleCategory
             templates:
                 backend: FreeNoteBundle:Backend/ArticleCategory:%s.html.twig

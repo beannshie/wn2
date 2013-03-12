@@ -37,7 +37,7 @@ class LoadArticleEntriesData extends DataFixture
 
             $manager->persist($post);
 
-            $this->setReference('Sandbox.Article.Enrty-'.$i, $post);
+            $this->setReference('Sandbox.Article.Entry-'.$i, $post);
 
             if (0 === $i % 20) {
                 $manager->flush();

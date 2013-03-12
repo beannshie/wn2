@@ -54,6 +54,9 @@ free_note_backend_prototype:
     prefix: /prototypes
     resource: @FreeNoteBundle/Resources/config/routing/backend/prototype.yml
 
+free_note_backend_category:
+    resource: @FreeNoteBundle/Resources/config/routing/backend/category.yml
+
 free_note_backend_article_entry:
     resource: @FreeNoteBundle/Resources/config/routing/backend/article_entry.yml
     prefix: /articles

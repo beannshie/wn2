@@ -5,12 +5,12 @@
 <h1>Blog <small>Blog posts list</small></h1>
 </div>
 
-{% if posts.haveToPaginate() %}
-{{ pagerfanta(posts, 'twitter_bootstrap_translated') }}
+{% if article_entries.haveToPaginate() %}
+{{ pagerfanta(article_entries, 'twitter_bootstrap_translated') }}
 {% endif %}
 
-{% if posts|length > 0 %}
-    {% for post in posts %}
+{% if article_entries|length > 0 %}
+    {% for entry in article_entries %}
         {% include 'FreeNoteBundle:Frontend/ArticleEntry:_single.html.twig' %}
     {% endfor %}
 {% else %}
@@ -20,8 +20,8 @@
     </div>
 {% endif %}
 
-{% if posts.haveToPaginate() %}
-{{ pagerfanta(posts, 'twitter_bootstrap_translated') }}
+{% if article_entries.haveToPaginate() %}
+{{ pagerfanta(article_entries, 'twitter_bootstrap_translated') }}
 {% endif %}
 
 {% endblock %}

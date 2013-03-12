@@ -6,20 +6,20 @@
 </div>
 
 <div class="well">
-    <h3>{{ post.title }}</h3>
-    <p>Posted at {{ post.createdAt|date('Y-m-d H:i:s') }} by <strong>{{ post.author }}</strong>.</p>
+    <h3>{{ article_entry.title }}</h3>
+    <p>Posted at {{ article_entry.createdAt|date('Y-m-d H:i:s') }} by <strong>{{ article_entry.author }}</strong>.</p>
     <hr />
 
     <ul class="nav nav-pills">
-        {% for category in post.categories %}
+        {% for category in article_entry.categories %}
             <li class="active">
-            <a href="{{ path('sylius_categorizer_category_show', {'alias': 'blog', 'slug': category.slug}) }}">{{ category.name }}</a>
+            <a href="{{ path('free_note_category_show', {'alias': 'artykuly', 'slug': category.slug}) }}">{{ category.name }}</a>
             </li>
         {% endfor %}
     </ul>
 
     <hr />
-    {{ post.content|markdown }}
+    {{ article_entry.content|markdown }}
     <hr />
     <div id="fos_comment_thread"></div>
 </div>
@@ -27,5 +27,5 @@
 
 {% block javascripts %}
     {{ parent() }}
-    {% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': post.commentThreadId} %}
+    {% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': article_entry.commentThreadId} %}
 {% endblock %}

@@ -14,6 +14,9 @@ free_note_frontend_article_entry:
     resource: @FreeNoteBundle/Resources/config/routing/frontend/article_entry.yml
     prefix: /artykuly
 
+free_note_frontend_category:
+    resource: @FreeNoteBundle/Resources/config/routing/frontend/category.yml
+
 free_note_checkout_start:
     pattern: /checkout
     defaults: { _controller: sylius.controller.process:startAction, scenarioAlias: 'free_note_checkout' }

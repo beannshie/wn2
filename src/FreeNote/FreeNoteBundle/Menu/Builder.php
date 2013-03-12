@@ -39,73 +39,73 @@ class Builder extends ContainerAware
         );
 
         $categoryManager = $this->container->get('sylius_categorizer.manager.category');
-        $articleCategories = $categoryManager->findCategories('articles');
+        $articleCategories = $categoryManager->findCategories('artykuly');
 
         $child = $menu->addChild('Artykuły', $childOptions);
-        $child->addChild('Najnowsze wpisy', array('route' => 'free_note_post_list'));
+        $child->addChild('Najnowsze wpisy', array('route' => 'free_note_article_entry_list'));
         $this->addDivider($child);
 
         foreach ($articleCategories as $category) {
             $child->addChild($category->getName(), array(
-                'route'           => 'sylius_categorizer_category_show',
+                'route'           => 'free_note_category_show',
                 'routeParameters' => array(
-                    'alias' => 'articles',
+                    'alias' => 'artykuly',
                     'slug'  => $category->getSlug()
                 ),
                 'labelAttributes' => array('icon' => 'icon-chevron-right')
             ));
         }
-
-        $newsCategories = $categoryManager->findCategories('news');
-
-        $child = $menu->addChild('Aktualności', $childOptions);
-        $child->addChild('Najnowsze wpisy', array('route' => 'free_note_post_list'));
-        $this->addDivider($child);
-
-        foreach ($newsCategories as $category) {
-            $child->addChild($category->getName(), array(
-                'route'           => 'sylius_categorizer_category_show',
-                'routeParameters' => array(
-                    'alias' => 'news',
-                    'slug'  => $category->getSlug()
-                ),
-                'labelAttributes' => array('icon' => 'icon-chevron-right')
-            ));
-        }
-
-        $eventCategories = $categoryManager->findCategories('events');
-
-        $child = $menu->addChild('Wydarzenia', $childOptions);
-        $child->addChild('Najnowsze wpisy', array('route' => 'free_note_post_list'));
-        $this->addDivider($child);
-
-        foreach ($eventCategories as $category) {
-            $child->addChild($category->getName(), array(
-                'route'           => 'sylius_categorizer_category_show',
-                'routeParameters' => array(
-                    'alias' => 'events',
-                    'slug'  => $category->getSlug()
-                ),
-                'labelAttributes' => array('icon' => 'icon-chevron-right')
-            ));
-        }
-
-        $advertisementCategories = $categoryManager->findCategories('advertisements');
-
-        $child = $menu->addChild('Ogłoszenia', $childOptions);
-        $child->addChild('Najnowsze wpisy', array('route' => 'free_note_post_list'));
-        $this->addDivider($child);
-
-        foreach ($advertisementCategories as $category) {
-            $child->addChild($category->getName(), array(
-                'route'           => 'sylius_categorizer_category_show',
-                'routeParameters' => array(
-                    'alias' => 'advertisements',
-                    'slug'  => $category->getSlug()
-                ),
-                'labelAttributes' => array('icon' => 'icon-chevron-right')
-            ));
-        }
+//
+//        $newsCategories = $categoryManager->findCategories('news');
+//
+//        $child = $menu->addChild('Aktualności', $childOptions);
+//        $child->addChild('Najnowsze wpisy', array('route' => 'free_note_article_entry_list'));
+//        $this->addDivider($child);
+//
+//        foreach ($newsCategories as $category) {
+//            $child->addChild($category->getName(), array(
+//                'route'           => 'free_note_category_show',
+//                'routeParameters' => array(
+//                    'alias' => 'news',
+//                    'slug'  => $category->getSlug()
+//                ),
+//                'labelAttributes' => array('icon' => 'icon-chevron-right')
+//            ));
+//        }
+//
+//        $eventCategories = $categoryManager->findCategories('events');
+//
+//        $child = $menu->addChild('Wydarzenia', $childOptions);
+//        $child->addChild('Najnowsze wpisy', array('route' => 'free_note_article_entry_list'));
+//        $this->addDivider($child);
+//
+//        foreach ($eventCategories as $category) {
+//            $child->addChild($category->getName(), array(
+//                'route'           => 'free_note_category_show',
+//                'routeParameters' => array(
+//                    'alias' => 'events',
+//                    'slug'  => $category->getSlug()
+//                ),
+//                'labelAttributes' => array('icon' => 'icon-chevron-right')
+//            ));
+//        }
+//
+//        $advertisementCategories = $categoryManager->findCategories('advertisements');
+//
+//        $child = $menu->addChild('Ogłoszenia', $childOptions);
+//        $child->addChild('Najnowsze wpisy', array('route' => 'free_note_article_entry_list'));
+//        $this->addDivider($child);
+//
+//        foreach ($advertisementCategories as $category) {
+//            $child->addChild($category->getName(), array(
+//                'route'           => 'free_note_category_show',
+//                'routeParameters' => array(
+//                    'alias' => 'advertisements',
+//                    'slug'  => $category->getSlug()
+//                ),
+//                'labelAttributes' => array('icon' => 'icon-chevron-right')
+//            ));
+//        }
 
         $menu->addChild('O nas', array('route' => 'free_note_about'));
         $menu->addChild('Koszyk', array('route' => 'sylius_cart_summary'));
@@ -225,9 +225,9 @@ class Builder extends ContainerAware
         $this->addCustomersMenu($menu, $childOptions);
         $this->addConfigurationMenu($menu, $childOptions);
         $this->addArticleMenu($menu, $childOptions);
-        $this->addNewsMenu($menu, $childOptions);
-        $this->addEventMenu($menu, $childOptions);
-        $this->addAdvertisementMenu($menu, $childOptions);
+//        $this->addNewsMenu($menu, $childOptions);
+//        $this->addEventMenu($menu, $childOptions);
+//        $this->addAdvertisementMenu($menu, $childOptions);
 
         $menu->addChild('Przejdź do <strong>strony głównej</strong>', array('route' => 'free_note_core_frontend'));
 
@@ -347,24 +347,24 @@ class Builder extends ContainerAware
         $child = $menu->addChild('Artykuły', $childOptions);
 
         $child->addChild('Dodaj kategorię', array(
-            'route'           => 'sylius_categorizer_backend_category_create',
-            'routeParameters' => array('alias' => 'articles'),
+            'route'           => 'free_note_backend_category_create',
+            'routeParameters' => array('alias' => 'artykuly'),
             'labelAttributes' => array('icon' => 'icon-plus-sign')
         ));
         $child->addChild('Lista kategorii', array(
-            'route'           => 'sylius_categorizer_backend_category_list',
-            'routeParameters' => array('alias' => 'articles'),
+            'route'           => 'free_note_backend_category_list',
+            'routeParameters' => array('alias' => 'artykuly'),
             'labelAttributes' => array('icon' => 'icon-list-alt')
         ));
 
         $this->addDivider($child);
 
         $child->addChild('Dodaj wpis', array(
-            'route' => 'free_note_backend_post_create',
+            'route' => 'free_note_backend_article_entry_create',
             'labelAttributes' => array('icon' => 'icon-plus-sign')
         ));
         $child->addChild('Lista wpisów', array(
-            'route'           => 'free_note_backend_post_list',
+            'route'           => 'free_note_backend_article_entry_list',
             'labelAttributes' => array('icon' => 'icon-list-alt')
         ));
     }
@@ -380,24 +380,24 @@ class Builder extends ContainerAware
         $child = $menu->addChild('Aktualności', $childOptions);
 
         $child->addChild('Dodaj kategorię', array(
-            'route'           => 'sylius_categorizer_backend_category_create',
-            'routeParameters' => array('alias' => 'news'),
+            'route'           => 'free_note_backend_category_create',
+            'routeParameters' => array('alias' => 'aktualnosci'),
             'labelAttributes' => array('icon' => 'icon-plus-sign')
         ));
         $child->addChild('Lista kategorii', array(
-            'route'           => 'sylius_categorizer_backend_category_list',
-            'routeParameters' => array('alias' => 'news'),
+            'route'           => 'free_note_backend_category_list',
+            'routeParameters' => array('alias' => 'aktualnosci'),
             'labelAttributes' => array('icon' => 'icon-list-alt')
         ));
 
         $this->addDivider($child);
 
         $child->addChild('Dodaj wpis', array(
-            'route' => 'free_note_backend_post_create',
+            'route' => 'free_note_backend_article_entry_create',
             'labelAttributes' => array('icon' => 'icon-plus-sign')
         ));
         $child->addChild('Lista wpisów', array(
-            'route'           => 'free_note_backend_post_list',
+            'route'           => 'free_note_backend_article_entry_list',
             'labelAttributes' => array('icon' => 'icon-list-alt')
         ));
     }
@@ -413,24 +413,24 @@ class Builder extends ContainerAware
         $child = $menu->addChild('Wydarzenia', $childOptions);
 
         $child->addChild('Dodaj kategorię', array(
-            'route'           => 'sylius_categorizer_backend_category_create',
-            'routeParameters' => array('alias' => 'events'),
+            'route'           => 'free_note_backend_category_create',
+            'routeParameters' => array('alias' => 'wydarzenia'),
             'labelAttributes' => array('icon' => 'icon-plus-sign')
         ));
         $child->addChild('Lista kategorii', array(
-            'route'           => 'sylius_categorizer_backend_category_list',
-            'routeParameters' => array('alias' => 'events'),
+            'route'           => 'free_note_backend_category_list',
+            'routeParameters' => array('alias' => 'wydarzenia'),
             'labelAttributes' => array('icon' => 'icon-list-alt')
         ));
 
         $this->addDivider($child);
 
         $child->addChild('Dodaj wpis', array(
-            'route' => 'free_note_backend_post_create',
+            'route' => 'free_note_backend_article_entry_create',
             'labelAttributes' => array('icon' => 'icon-plus-sign')
         ));
         $child->addChild('Lista wpisów', array(
-            'route'           => 'free_note_backend_post_list',
+            'route'           => 'free_note_backend_article_entry_list',
             'labelAttributes' => array('icon' => 'icon-list-alt')
         ));
     }
@@ -446,24 +446,24 @@ class Builder extends ContainerAware
         $child = $menu->addChild('Ogłoszenia', $childOptions);
 
         $child->addChild('Dodaj kategorię', array(
-            'route'           => 'sylius_categorizer_backend_category_create',
-            'routeParameters' => array('alias' => 'advertisements'),
+            'route'           => 'free_note_backend_category_create',
+            'routeParameters' => array('alias' => 'ogloszenia'),
             'labelAttributes' => array('icon' => 'icon-plus-sign')
         ));
         $child->addChild('Lista kategorii', array(
-            'route'           => 'sylius_categorizer_backend_category_list',
-            'routeParameters' => array('alias' => 'advertisements'),
+            'route'           => 'free_note_backend_category_list',
+            'routeParameters' => array('alias' => 'ogloszenia'),
             'labelAttributes' => array('icon' => 'icon-list-alt')
         ));
 
         $this->addDivider($child);
 
         $child->addChild('Dodaj wpis', array(
-            'route' => 'free_note_backend_post_create',
+            'route' => 'free_note_backend_article_entry_create',
             'labelAttributes' => array('icon' => 'icon-plus-sign')
         ));
         $child->addChild('Lista wpisów', array(
-            'route'           => 'free_note_backend_post_list',
+            'route'           => 'free_note_backend_article_entry_list',
             'labelAttributes' => array('icon' => 'icon-list-alt')
         ));
     }

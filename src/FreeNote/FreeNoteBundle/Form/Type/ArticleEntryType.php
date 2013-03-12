@@ -21,8 +21,16 @@ class ArticleEntryType extends BasePostType
         $builder
             ->add('categories', 'sylius_categorizer_category_choice', array(
                 'multiple' => true,
-                'catalog'  => 'articles'
+                'catalog'  => 'artykuly'
             ))
         ;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getName()
+    {
+        return 'free_note_article_entry';
     }
 }
