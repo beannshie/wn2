@@ -235,6 +235,41 @@ sylius_resource:
             classes:
                 model: FreeNote\FreeNoteBundle\Entity\User
 
+stfalcon_tinymce:
+    include_jquery: true
+    tinymce_jquery: true
+    textarea_class: "tinymce"
+    language: %locale%
+    theme:
+        simple:
+            mode: "textareas"
+            theme: "advanced"
+            theme_advanced_buttons1: "bold,italic,underline,separator,strikethrough,justifyleft,justifycenter,justifyright,justifyfull,bullist,numlist,undo,redo,link,unlink"
+            theme_advanced_buttons2: ""
+            theme_advanced_buttons3: ""
+            theme_advanced_toolbar_location: "top"
+            theme_advanced_toolbar_align: "left"
+            theme_advanced_statusbar_location: "bottom"
+            plugins: "table,advhr, fullscreen"
+            theme_advanced_buttons1_add: "table,advhr, fullscreen"
+            paste_auto_cleanup_on_paste: true
+        my:
+            plugins: "imagemanager,table,save,advimage,pagebreak,paste"
+            theme_advanced_enable: "table, forecolor, pagebreak"
+            theme_advanced_buttons1 : "bold,forecolor,formatselect,removeformat,separator,outdent,indent,separator,bullist,table,pagebreak,charmap,separator,link,unlink,anchor,image"
+            theme_advanced_buttons2 : "undo,redo,separator,removeformat,cleanup,help,code"
+            theme_advanced_buttons3 : ""
+#            file_browser_callback : "imagemanager"
+            theme_advanced_more_colors : false
+            theme_advanced_default_foreground_color : "#686868"
+            theme_advanced_text_colors : "686868,3385B1"
+            theme_advanced_blockformats : "Brak=div,Nagłówek1=h1,Nagłówek2=h2,Paragraf=p,Cytat=em"
+            table_default_bordercolor: "#686868"
+            paste_remove_styles: true
+            paste_auto_cleanup_on_paste : true
+            convert_urls : false
+
+
 free_note:
     classes:
         article_entry:

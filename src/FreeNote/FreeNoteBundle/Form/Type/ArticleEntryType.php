@@ -23,6 +23,13 @@ class ArticleEntryType extends BasePostType
                 'multiple' => true,
                 'catalog'  => 'artykuly'
             ))
+            ->add('content', 'textarea', array(
+                'label' => 'sylius_blogger.label.post.content',
+                'attr' => array(
+                    'class' => 'tinymce',
+                    'data-theme' => 'my' // simple, medium, advanced, bbcode
+                )
+            ))
         ;
     }
 

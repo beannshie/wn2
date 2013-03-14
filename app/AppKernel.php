@@ -54,6 +54,7 @@ class AppKernel extends Kernel
             new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
 
             new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle(),
+            new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
 
             /*
             * Wn bundles.
