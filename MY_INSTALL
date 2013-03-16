@@ -15,6 +15,7 @@ inne:
 
   366  php app/console doctrine:schema:update --force
 
+  app/console assets:install web/
 
 
 katalogi:

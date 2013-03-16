@@ -18,7 +18,7 @@ class RegistrationFormType extends BaseType
             'mapped' => false,
             'data' => ''));
         $builder->add('userProfile', new UserProfileType(fnUserInterface::FN_ROLE_BUYER), array(
-            'label' => 'fn.user.register.profile',
+            'label' => 'fn.label.user.profile',
             'translation_domain' => 'fnForms'));
     }
 

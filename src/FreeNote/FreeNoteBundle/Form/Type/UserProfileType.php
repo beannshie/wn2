@@ -31,44 +31,33 @@ class UserProfileType extends AbstractType
     {
         $builder
             ->add('name', null, array(
-                'label' => 'fn.user.register.name',
-                'translation_domain' => 'fnForms'))
+                'label' => 'fn.label.user.name'))
             ->add('surname', null, array(
-                'label' => 'fn.user.register.surname',
-                'translation_domain' => 'fnForms'))
+                'label' => 'fn.label.user.surname'))
             ->add('phoneNumber', 'number', array(
-                'label' => 'fn.user.register.phone_number',
-                'translation_domain' => 'fnForms'))
+                'label' => 'fn.label.user.phone_number'))
             ->add('recommendedBy', null, array(
-                'label' => 'fn.user.register.recommended_by',
-                'translation_domain' => 'fnForms',
+                'label' => 'fn.label.user.recommended_by',
                 'required' => false))
             ->add('avatar', null, array(
-                'label' => 'fn.user.register.avatar',
-                'translation_domain' => 'fnForms'))
+                'label' => 'fn.label.user.avatar'))
             ->add('newsletter', 'checkbox', array(
-                'label' => 'fn.user.register.newsletter',
-                'translation_domain' => 'fnForms',
+                'label' => 'fn.label.user.newsletter',
                 'data' => true))
             ->add('postalAddress', 'sylius_address', array(
-                'label' => 'fn.user.register.postal_address',
-                'translation_domain' => 'fnForms'));
+                'label' => 'fn.label.user.postal_address'));
 
         if($this->role == fnUserInterface::FN_ROLE_BUYER_CO)
         {
             $builder
                 ->add('companyName', null, array(
-                    'label' => 'fn.user.register.company_name',
-                    'translation_domain' => 'fnForms'))
+                    'label' => 'fn.label.user.company_name'))
                 ->add('nip', null, array(
-                    'label' => 'fn.user.register.nip',
-                    'translation_domain' => 'fnForms'))
+                    'label' => 'fn.label.user.nip'))
                 ->add('regon', null, array(
-                    'label' => 'fn.user.register.regon',
-                    'translation_domain' => 'fnForms'))
+                    'label' => 'fn.label.user.regon'))
                 ->add('businessAddress', 'sylius_address', array(
-                    'label' => 'fn.user.register.business_address',
-                    'translation_domain' => 'fnForms'));
+                    'label' => 'fn.label.user.business_address'));
         }
     }
 

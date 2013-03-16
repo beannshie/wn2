@@ -1,18 +1,21 @@
 fn:
     user:
-        register:
-            name:
-                blank: Proszę wpisać imię
-            surname:
-                blank: Proszę wpisać nazwisko
-            phone_number:
-                blank: Proszę wpisać numer telefonu kontaktowego
-            company_name:
-                blank: Proszę wpisać nazwę firmy
-            nip:
-                blank: Proszę wpisać nip
-            regon:
-                blank: Proszę wpisać regon
+        name:
+            blank: "Proszę wpisać imię"
+        surname:
+            blank: "Proszę wpisać nazwisko"
+        phone_number:
+            blank: "Proszę wpisać numer telefonu kontaktowego"
+        company_name:
+            blank: "Proszę wpisać nazwę firmy"
+        nip:
+            blank: "Proszę wpisać nip"
+        regon:
+            blank: "Proszę wpisać regon"
+    article:
+        article_entry:
+            author:
+                blank: "Proszę podać autora artykułu"
 
 
 sylius:
@@ -62,3 +65,14 @@ sylius:
             max_length: "Zone name must not be longer than 255 characters|Name must not be longer than 255 characters."
         members:
             min_count: "Please add at least {{ limit }} zone member."
+
+sylius_blogger:
+    validation:
+        post:
+            title:
+                not_blank: "Proszę wpisać tytuł artykułu"
+                min_length: "Tytuł nie może być krótszy niż {{ limit }} znaki|Tytuł nie może być krótszy niż {{ limit }} znaki."
+                max_length: "Tytuł nie może być dłuższy niż {{ limit }} znaków|Tytuł nie może być dłuższy niż {{ limit }} znaków."
+            content:
+                not_blank: "Proszę wpisać treść artykułu"
+                min_length: "Treść nie może być krótsza niż {{ limit }} znaki|Treść nie może być krótsza niż {{ limit }} znaki."

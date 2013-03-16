@@ -24,6 +24,15 @@ class LoadArticleEntriesData extends DataFixture
             $post->setTitle($this->faker->sentence);
             $post->setAuthor($this->faker->name);
             $post->setContent($this->faker->paragraph(9));
+            $post->setCreatedBy($this->getReference('User-'.rand(1, 15)));
+            $post->setUpdatedBy($this->faker->userName);
+            if($i%2)
+            {
+                $post->setMainImageFilename('t-shirt.jpg');
+                $post->setMainImagePath('../../bundles/freenote/images/t-shirt.jpg');
+                $post->setMainImageMimeType('image/jpg');
+                $post->setMainImageSize(123);
+            }
 
             $randomA = $this->faker->randomElement($categoriesA);
             $randomB = $this->faker->randomElement($categoriesB);

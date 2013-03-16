@@ -17,3 +17,5 @@ parameters:
     cache:             apc
 
     currency:          'zł'
+
+    fn_web_dir:        %kernel.root_dir%/../web

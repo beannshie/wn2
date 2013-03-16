@@ -20,7 +20,7 @@ class LoadCategoriesData extends DataFixture
     {
         $this->manager = $this->get('sylius_categorizer.manager.category');
         $this->manipulator = $this->get('sylius_categorizer.manipulator.category');
-        $this->catalog = $this->get('sylius_categorizer.registry')->getCatalog('articles');
+        $this->catalog = $this->get('sylius_categorizer.registry')->getCatalog('artykuly');
 
         $this->createArticleCategory('Zespoły');
         $this->createArticleCategory('Płyty');

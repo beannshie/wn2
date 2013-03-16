@@ -242,7 +242,7 @@ class Product extends BaseProduct implements StockableInterface, TaxableInterfac
 
     protected function getImageUploadRootDir()
     {
-        return __DIR__.'/../../../../../public/'.$this->getImageUploadDir();
+        return __DIR__.'/../../../../web/'.$this->getImageUploadDir();
     }
 
     public static function getVariantPickingModeChoices()

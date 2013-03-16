@@ -1,6 +1,3 @@
-# This file is part of the Sylius package.
-# (c) Paweł Jędrzejewski
-
 sylius:
     form:
         address:
@@ -27,3 +24,32 @@ sylius:
             country: "Kraj"
         zone_member_zone:
             zone: "Region"
+
+sylius_blogger:
+    label:
+        post:
+            title: "Tytuł"
+            author: "Autor"
+            content: "Treść"
+            published: "Opublikowany"
+
+
+fn:
+    label:
+        user:
+            profile: "Szczegóły"
+            name: "Imię"
+            surname: "Nazwisko"
+            phone_number: "Numer telefonu"
+            recommended_by: "Login osoby polecającej"
+            postal_address: "Adres korespondencyjny"
+            avatar: "Miniatura (avatar)"
+            newsletter: "Zapisz do newsletter"
+            company_name: "Nazwa firmy"
+            nip: "Nip"
+            regon: "Regon"
+            business_address: "Adres siedziby firmy"
+        article:
+            article_entry:
+                main_image: "Obraz główny"
+                categories: "Kategorie"

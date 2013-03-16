@@ -12,14 +12,14 @@
         </constraint>
     </class>
 
-    <class name="FreeNote\FreeNoteBundle\Model\UserProfile">
+    <class name="FreeNote\FreeNoteBundle\Entity\UserProfile">
         <property name="name">
             <constraint name="NotBlank">
                 <option name="groups">
                     <value>buyerPP</value>
                     <value>buyerCO</value>
                 </option>
-                <option name="message">fn.user.register.name.blank</option>
+                <option name="message">fn.user.name.blank</option>
             </constraint>
         </property>
         <property name="surname">
@@ -28,7 +28,7 @@
                     <value>buyerPP</value>
                     <value>buyerCO</value>
                 </option>
-                <option name="message">fn.user.register.surname.blank</option>
+                <option name="message">fn.user.surname.blank</option>
             </constraint>
         </property>
         <property name="phoneNumber">
@@ -37,17 +37,17 @@
                     <value>buyerPP</value>
                     <value>buyerCO</value>
                 </option>
-                <option name="message">fn.user.register.phone_number.blank</option>
+                <option name="message">fn.user.phone_number.blank</option>
             </constraint>
         </property>
         <property name="avatar">
             <constraint name="File">
                 <option name="maxSize">1024k</option>
                 <option name="mimeTypes">
-                    <value>gif</value>
-                    <value>png</value>
-                    <value>jpg</value>
-                    <value>jpeg</value>
+                    <value>image/gif</value>
+                    <value>image/png</value>
+                    <value>image/jpg</value>
+                    <value>image/jpeg</value>
                 </option>
             </constraint>
         </property>
@@ -56,7 +56,7 @@
                 <option name="groups">
                     <value>buyerCO</value>
                 </option>
-                <option name="message">fn.user.register.company_name.blank</option>
+                <option name="message">fn.user.company_name.blank</option>
             </constraint>
         </property>
         <property name="nip">
@@ -64,7 +64,7 @@
                 <option name="groups">
                     <value>buyerCO</value>
                 </option>
-                <option name="message">fn.user.register.nip.blank</option>
+                <option name="message">fn.user.nip.blank</option>
             </constraint>
         </property>
         <property name="regon">
@@ -72,7 +72,26 @@
                 <option name="groups">
                     <value>buyerCO</value>
                 </option>
-                <option name="message">fn.user.register.regon.blank</option>
+                <option name="message">fn.user.regon.blank</option>
+            </constraint>
+        </property>
+    </class>
+
+    <class name="FreeNote\FreeNoteBundle\Entity\ArticleEntry">
+        <property name="author">
+            <constraint name="NotBlank">
+                <option name="message">fn.article.article_entry.author.blank</option>
+            </constraint>
+        </property>
+        <property name="mainImage">
+            <constraint name="File">
+                <option name="maxSize">1024k</option>
+                <option name="mimeTypes">
+                    <value>image/gif</value>
+                    <value>image/png</value>
+                    <value>image/jpg</value>
+                    <value>image/jpeg</value>
+                </option>
             </constraint>
         </property>
     </class>
