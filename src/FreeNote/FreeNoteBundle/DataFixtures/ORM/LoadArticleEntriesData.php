@@ -15,8 +15,8 @@ class LoadArticleEntriesData extends DataFixture
      */
     public function load(ObjectManager $manager)
     {
-        $categoriesA = array('Zespoły', 'Płyty');
-        $categoriesB = array('Recenzje', 'Literatura');
+        $cats = array('Zespoły', 'Początkujące', 'Współpracujące z WN', 'Płyty',
+            'Recenzje', 'Koncerty', 'Festiwale', 'Dyskografie', 'Literatura', 'Biografie');
 
         for ($i = 1; $i <= 50; $i++) {
             $post = $this->get('free_note.repository.article_entry')->createNew();
@@ -34,8 +34,12 @@ class LoadArticleEntriesData extends DataFixture
                 $post->setMainImageSize(123);
             }
 
-            $randomA = $this->faker->randomElement($categoriesA);
-            $randomB = $this->faker->randomElement($categoriesB);
+            $randomA = $this->faker->randomElement($cats);
+            $randomB = $this->faker->randomElement($cats);
+            while ($randomA == $randomB)
+            {
+                $randomB = $this->faker->randomElement($cats);
+            }
 
             $categories = array(
                 $this->getReference('Sandbox.Article.Category.'.$randomA),

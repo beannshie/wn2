@@ -19,8 +19,7 @@ class ArticleEntry extends BasePost implements fnUploadableImageInterface
     /**
      * Image upload.
      *
-     * @Assert\File(maxSize="1024k")
-     * @Assert\Image
+     * @var UploadedFile
      */
     protected $mainImage;
 

@@ -38,8 +38,8 @@ class Builder extends ContainerAware
             'labelAttributes'    => array('class' => 'dropdown-toggle', 'data-toggle' => 'dropdown', 'href' => '#')
         );
 
-        $categoryManager = $this->container->get('sylius_categorizer.manager.category');
-        $articleCategories = $categoryManager->findCategories('artykuly');
+        $categoryManager = $this->container->get('free_note.manager.category');
+        $articleCategories = $categoryManager->findRootCategories('artykuly');
 
         $child = $menu->addChild('Artykuły', $childOptions);
         $child->addChild('Najnowsze wpisy', array('route' => 'free_note_article_entry_list'));

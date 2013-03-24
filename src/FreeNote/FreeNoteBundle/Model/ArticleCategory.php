@@ -3,18 +3,75 @@
 namespace FreeNote\FreeNoteBundle\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Sylius\Bundle\CategorizerBundle\Model\NestedCategoryInterface;
 use Doctrine\Common\Collections\Collection;
-use Sylius\Bundle\CategorizerBundle\Entity\Category as BaseCategory;
+use Sylius\Bundle\CategorizerBundle\Entity\NestedCategory as BaseCategory;
 
 /**
  * Article entry category.
  */
-class ArticleCategory extends BaseCategory
+class ArticleCategory extends BaseCategory implements fnUploadableImageInterface
 {
+    /**
+     * Parent category.
+     *
+     * @var NestedCategoryInterface
+     */
+    protected $parent;
+
+    /**
+     * Child categories.
+     *
+     * @var Collection
+     */
+    protected $children;
+
     /**
      * @var Collection
      */
     protected $entries;
+
+    /**
+     * Image upload.
+     *
+     * @var UploadedFile
+     */
+    protected $image;
+
+    /**
+     * @var string
+     */
+    protected $imageFilename;
+
+    /**
+     * @var string
+     */
+    protected $imagePath;
+
+    /**
+     * @var string
+     */
+    protected $imageAbsolutePath;
+
+    /**
+     * @var string
+     */
+    protected $imageMimeType;
+
+    /**
+     * @var decimal
+     */
+    protected $imageSize;
+
+    /**
+     * @var string
+     */
+    protected $createdBy;
+
+    /**
+     * @var string
+     */
+    protected $updatedBy;
 
     /**
      * Constructor.
@@ -24,6 +81,14 @@ class ArticleCategory extends BaseCategory
         parent::__construct();
 
         $this->entries = new ArrayCollection;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function isRoot()
+    {
+        return null === $this->parent;
     }
 
     /**
@@ -44,5 +109,140 @@ class ArticleCategory extends BaseCategory
     public function setEntries(Collection $entries)
     {
         $this->entries = $entries;
+    }
+
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param string $imageFilename
+     */
+    public function setImageFilename($imageFilename)
+    {
+        $this->imageFilename = $imageFilename;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImageFilename()
+    {
+        return $this->imageFilename;
+    }
+
+    /**
+     * @param string $imageAbsolutePath
+     */
+    public function setImageAbsolutePath($imageAbsolutePath)
+    {
+        $this->imageAbsolutePath = $imageAbsolutePath;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImageAbsolutePath()
+    {
+        return $this->imageAbsolutePath;
+    }
+
+    /**
+     * @param string $imageMimeType
+     */
+    public function setImageMimeType($imageMimeType)
+    {
+        $this->imageMimeType = $imageMimeType;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImageMimeType()
+    {
+        return $this->imageMimeType;
+    }
+
+    /**
+     * @param string $imagePath
+     */
+    public function setImagePath($imagePath)
+    {
+        $this->imagePath = $imagePath;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImagePath()
+    {
+        return $this->imagePath;
+    }
+
+    /**
+     * @param decimal $imageSize
+     */
+    public function setImageSize($imageSize)
+    {
+        $this->imageSize = $imageSize;
+    }
+
+    /**
+     * @return decimal
+     */
+    public function getImageSize()
+    {
+        return $this->imageSize;
+    }
+
+    /**
+     * @param string $createdBy
+     */
+    public function setCreatedBy($createdBy)
+    {
+        $this->createdBy = $createdBy;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy;
+    }
+
+    public function getMainImagePathDir()
+    {
+        if($this->mainImageAbsolutePath)
+        {
+            return $this->getMainImageAbsolutePath();
+        }
+        return $this->getImageUploadRootDir();
+    }
+
+    /**
+     * Returns file upload dir (relative to web directory.
+     *
+     * @return string
+     */
+    public function getImageUploadDir()
+    {
+        return 'uploads/images/article';
+    }
+
+    protected function getImageUploadRootDir()
+    {
+        return __DIR__.'/../../../../web/'.$this->getImageUploadDir();
+    }
+
+    public function uploadableCallback(array $info)
+    {
+        $this->setImageFilename($info['fileName']);
     }
 }

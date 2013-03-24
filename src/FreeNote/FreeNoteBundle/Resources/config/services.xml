@@ -35,6 +35,9 @@
 
         <parameter key="free_note.repository.user_profile.class">FreeNote\FreeNoteBundle\Repository\UserProfileRepository</parameter>
         <parameter key="free_note.model.user_profile.class">FreeNote\FreeNoteBundle\Entity\UserProfile</parameter>
+
+        <parameter key="free_note.manager.category.class">FreeNote\FreeNoteBundle\Model\fnCategoryManager</parameter>
+
     </parameters>
 
     <services>
@@ -179,6 +182,12 @@
         <service id="free_note.form.type.article_entry" class="%free_note.form.type.article_entry.class%">
             <argument>%free_note.model.article_entry.class%</argument>
             <tag name="form.type" alias="free_note_article_entry" />
+        </service>
+        <service id="free_note.manager.category" class="%free_note.manager.category.class%">
+            <argument type="service" id="sylius_categorizer.registry" />
+            <argument type="service" id="doctrine.orm.default_entity_manager" />
+            <argument type="service" id="stof_doctrine_extensions.uploadable.manager" />
+            <argument>%fn_web_dir%</argument>
         </service>
     </services>
 

@@ -12,6 +12,7 @@ class LoadCategoriesData extends DataFixture
     private $manager;
     private $manipulator;
     private $catalog;
+    private $referenceNamespace;
 
     /**
      * {@inheritdoc}
@@ -20,12 +21,20 @@ class LoadCategoriesData extends DataFixture
     {
         $this->manager = $this->get('sylius_categorizer.manager.category');
         $this->manipulator = $this->get('sylius_categorizer.manipulator.category');
-        $this->catalog = $this->get('sylius_categorizer.registry')->getCatalog('artykuly');
 
-        $this->createArticleCategory('Zespoły');
-        $this->createArticleCategory('Płyty');
-        $this->createArticleCategory('Recenzje');
-        $this->createArticleCategory('Literatura');
+        $this->catalog = $this->get('sylius_categorizer.registry')->getCatalog('artykuly');
+        $this->referenceNamespace = 'Sandbox.Article.Category.';
+
+        $c1 = $this->createCategory('Zespoły');
+        $this->createCategory('Początkujące', $c1);
+        $this->createCategory('Współpracujące z WN', $c1);
+        $c2 = $this->createCategory('Płyty');
+        $c3 = $this->createCategory('Recenzje');
+        $this->createCategory('Koncerty', $c3);
+        $this->createCategory('Festiwale', $c3);
+        $this->createCategory('Dyskografie', $c3);
+        $c4 = $this->createCategory('Literatura');
+        $this->createCategory('Biografie', $c4);
 
 
 //        $this->catalog = $this->get('sylius_categorizer.registry')->getCatalog('events');
@@ -41,13 +50,19 @@ class LoadCategoriesData extends DataFixture
      *
      * @param string $name
      */
-    private function createArticleCategory($name)
+    private function createCategory($name, $parent = null)
     {
         $category = $this->manager->createCategory($this->catalog);
         $category->setName($name);
+        if($parent)
+        {
+            $category->setParent($parent);
+        }
 
         $this->manipulator->create($category);
-        $this->setReference('Sandbox.Article.Category.'.$name, $category);
+        $this->setReference($this->referenceNamespace.$name, $category);
+
+        return $category;
     }
 
     public function getOrder()
