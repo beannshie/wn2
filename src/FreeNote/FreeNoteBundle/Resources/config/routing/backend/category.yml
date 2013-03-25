@@ -24,6 +24,9 @@ free_note_backend_category_move_down:
 free_note_backend_category_list:
     pattern: /{alias}/kategorie/lista
     defaults: { _controller: sylius_categorizer.controller.backend.category:listAction }
+sylius_categorizer_backend_category_list:
+    pattern: /{alias}/kategorie/lista
+    defaults: { _controller: sylius_categorizer.controller.backend.category:listAction }
 
 free_note_backend_category_show:
     pattern: /{alias}/kategorie/{id}

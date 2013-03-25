@@ -7,7 +7,7 @@
                   xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping"
 >
 
-    <entity name="FreeNote\FreeNoteBundle\Entity\ArticleCategory" table="free_note_article_category" repository-class="Gedmo\Tree\Entity\Repository\NestedTreeRepository">
+    <entity name="FreeNote\FreeNoteBundle\Entity\ArticleCategory" table="free_note_article_category" repository-class="FreeNote\FreeNoteBundle\Repository\ArticleCategoryRepository">
         <id name="id" column="id" type="integer">
             <generator strategy="AUTO" />
         </id>
@@ -20,7 +20,7 @@
         <field name="imagePath" column="image_path" type="string" nullable="true">
             <gedmo:uploadable-file-path />
         </field>
-        <field name="mimageMimeType" column="image_mime_type" type="string" nullable="true">
+        <field name="imageMimeType" column="image_mime_type" type="string" nullable="true">
             <gedmo:uploadable-file-mime-type />
         </field>
         <field name="imageSize" column="image_size" type="decimal" nullable="true">

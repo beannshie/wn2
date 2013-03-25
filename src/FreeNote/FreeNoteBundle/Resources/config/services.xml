@@ -183,7 +183,7 @@
             <argument>%free_note.model.article_entry.class%</argument>
             <tag name="form.type" alias="free_note_article_entry" />
         </service>
-        <service id="free_note.manager.category" class="%free_note.manager.category.class%">
+        <service id="sylius_categorizer.manager.category" class="%free_note.manager.category.class%">
             <argument type="service" id="sylius_categorizer.registry" />
             <argument type="service" id="doctrine.orm.default_entity_manager" />
             <argument type="service" id="stof_doctrine_extensions.uploadable.manager" />

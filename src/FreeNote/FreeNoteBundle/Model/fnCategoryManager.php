@@ -5,6 +5,8 @@ namespace FreeNote\FreeNoteBundle\Model;
 use Sylius\Bundle\CategorizerBundle\Entity\CategoryManager;
 use Sylius\Bundle\CategorizerBundle\Model\CategoryInterface;
 use Stof\DoctrineExtensionsBundle\Uploadable\UploadableManager;
+use Sylius\Bundle\CategorizerBundle\Registry\CatalogRegistry;
+use Doctrine\ORM\EntityManager;
 
 class fnCategoryManager extends CategoryManager
 {
@@ -25,7 +27,7 @@ class fnCategoryManager extends CategoryManager
     /**
      * Constructor.
      *
-     * @param CataogRegistry $catalogRegistry
+     * @param CatalogRegistry $catalogRegistry
      * @param EntityManager  $entityManager
      */
     public function __construct(CatalogRegistry $catalogRegistry, EntityManager $entityManager, UploadableManager $uploadableManager, $fnWebDir)
@@ -43,9 +45,20 @@ class fnCategoryManager extends CategoryManager
      */
     public function findRootCategories($catalog)
     {
-        return $this->getRepository($catalog)->getChildren(null, true);
+        $rootCategory = $this->getCatalogCategory($catalog);
+        return $this->getRepository($catalog)->getChildren($rootCategory, true);
     }
 
+    public function findChildren($catalog)
+    {
+        return $this->getRepository($catalog)->getChildren();
+    }
+
+    public function findChildrenHierarchyCollection($catalog)
+    {
+        $rootCategory = $this->getCatalogCategory($catalog);
+        return $this->getRepository($catalog)->getNodesHierarchyCollection($rootCategory);
+    }
 
     public function persistCategory(CategoryInterface $category)
     {
@@ -66,5 +79,32 @@ class fnCategoryManager extends CategoryManager
         }
 
         $this->entityManager->flush();
+    }
+
+    public function moveCategoryUp(CategoryInterface $category)
+    {
+        $repository = $this->getRepository($this->catalogRegistry->guessCatalog($category));
+        if ($this->isNested($category)) {
+            if(!$category->isRoot())
+            {
+                $repository->moveUp($category, 1);
+                $this->entityManager->clear();
+            }
+        } else {
+            if (!$relatedCategory = $repository->findOneBy(array('position' => $category->getPosition() - 1))) {
+
+                throw new \LogicException('Cannot move up top category.');
+            }
+            $this->swapCategoriesPosition($category, $relatedCategory);
+        }
+    }
+
+    private function getCatalogCategory($catalog)
+    {
+        if (!$rootCategory = $this->getRepository($catalog)->findOneBySlug($catalog))
+        {
+            throw new \InvalidArgumentException('Requested category catalog does not exist: '.$catalog.'.');
+        }
+        return $rootCategory;
     }
 }

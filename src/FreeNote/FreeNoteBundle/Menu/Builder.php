@@ -3,6 +3,7 @@
 namespace FreeNote\FreeNoteBundle\Menu;
 
 use Knp\Menu\FactoryInterface;
+use FreeNote\FreeNoteBundle\Model\fnCategoryInterface;
 use Knp\Menu\ItemInterface;
 use Symfony\Component\DependencyInjection\ContainerAware;
 
@@ -38,8 +39,8 @@ class Builder extends ContainerAware
             'labelAttributes'    => array('class' => 'dropdown-toggle', 'data-toggle' => 'dropdown', 'href' => '#')
         );
 
-        $categoryManager = $this->container->get('free_note.manager.category');
-        $articleCategories = $categoryManager->findRootCategories('artykuly');
+        $categoryManager = $this->container->get('sylius_categorizer.manager.category');
+        $articleCategories = $categoryManager->findRootCategories(fnCategoryInterface::FN_CATEGORY_ARTICLE_SLUG);
 
         $child = $menu->addChild('Artykuły', $childOptions);
         $child->addChild('Najnowsze wpisy', array('route' => 'free_note_article_entry_list'));
@@ -49,7 +50,7 @@ class Builder extends ContainerAware
             $child->addChild($category->getName(), array(
                 'route'           => 'free_note_category_show',
                 'routeParameters' => array(
-                    'alias' => 'artykuly',
+                    'alias' => fnCategoryInterface::FN_CATEGORY_ARTICLE_SLUG,
                     'slug'  => $category->getSlug()
                 ),
                 'labelAttributes' => array('icon' => 'icon-chevron-right')

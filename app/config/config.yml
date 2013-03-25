@@ -159,6 +159,10 @@ sylius_categorizer:
 #            templates:
 #                backend: FreeNoteBundle:Backend/PostCategory:%s.html.twig
 #                frontend: FreeNoteBundle:Frontend/PostCategory:%s.html.twig
+    classes:
+        controller:
+            backend:
+                category: FreeNote\FreeNoteBundle\Controller\Backend\fnCategoryController
 
 sylius_cart:
     driver: doctrine/orm

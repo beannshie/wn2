@@ -10,7 +10,7 @@ use Sylius\Bundle\CategorizerBundle\Entity\NestedCategory as BaseCategory;
 /**
  * Article entry category.
  */
-class ArticleCategory extends BaseCategory implements fnUploadableImageInterface
+class ArticleCategory extends BaseCategory implements fnUploadableImageInterface, fnCategoryInterface
 {
     /**
      * Parent category.
@@ -217,11 +217,27 @@ class ArticleCategory extends BaseCategory implements fnUploadableImageInterface
         return $this->createdBy;
     }
 
-    public function getMainImagePathDir()
+    /**
+     * @param string $updatedBy
+     */
+    public function setUpdatedBy($updatedBy)
     {
-        if($this->mainImageAbsolutePath)
+        $this->updatedBy = $updatedBy;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUpdatedBy()
+    {
+        return $this->updatedBy;
+    }
+
+    public function getImagePathDir()
+    {
+        if($this->imageAbsolutePath)
         {
-            return $this->getMainImageAbsolutePath();
+            return $this->getImageAbsolutePath();
         }
         return $this->getImageUploadRootDir();
     }
