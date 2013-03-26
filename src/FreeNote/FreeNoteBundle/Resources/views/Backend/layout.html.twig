@@ -2,7 +2,7 @@
 
 <html>
     <head>
-        <title>{% block title %}Sylius administration.{% endblock %}</title>
+        <title>{% block title %}Wolna Nuta - panel administracyjny.{% endblock %}</title>
         <meta charset="UTF-8">
 
         <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -37,14 +37,14 @@
                 <p class="confirmer-modal-question">Are you sure about that?</p>
             </div>
             <div class="modal-footer">
-                <a class="confirmer-modal-confirm btn btn-primary">yes</a>
-                <a class="btn" data-dismiss="modal">cancel</a>
+                <a class="confirmer-modal-confirm btn btn-primary">{{ 'yes'|trans({}, 'FreeNoteCoreBundle') }}</a>
+                <a class="btn" data-dismiss="modal">{{ 'cancel'|trans({}, 'FreeNoteCoreBundle') }}</a>
             </div>
         </div>
         <div class="navbar navbar-fixed-top navbar-inverse">
             <div class="navbar-inner">
                 <div class="container-fluid">
-                    <a class="brand" href="http://sylius.org">Sylius</a>
+                    <a class="brand" href="{{ path('free_note_core_frontend') }}">Wolna Nuta</a>
                     {{ knp_menu_render('FreeNoteBundle:Builder:backendMainMenu', {'template': 'FreeNoteBundle:Menu:main.html.twig', 'currentClass': 'active'}) }}
                 </div>
             </div>
@@ -61,7 +61,7 @@
                 <div id="content" class="span10">
                     <div id="content-inner">
                         <div class="page-header">
-                            {% block header %}<h1>Welcome<small> Sylius dashboard</small></h1>{% endblock %}
+                            {% block header %}<h1>Wolna Nuta<small> Panel administratora</small></h1>{% endblock %}
                         </div>
                         {% from 'MopaBootstrapBundle::flash.html.twig' import flash %}
                         {% for name, value in app.session.flashes if name in ['success', 'error'] %}
@@ -72,7 +72,7 @@
                     </div>
                     <hr>
                     <footer>
-                        <p>&copy; <a href="http://Sylius.org">Sylius.org</a>, 2011 - {{ 'now'|date('Y') }}.</p>
+                        <p>&copy; <a href="{{ path('free_note_core_frontend') }}">Wolna Nuta</a>, 2013 - {{ 'now'|date('Y') }}.</p>
                     </footer>
                 </div>
             </div>

@@ -138,6 +138,7 @@ sylius_categorizer:
         artykuly:
             property: "entries"
             model: FreeNote\FreeNoteBundle\Entity\ArticleCategory
+            form:  free_note_article_category
             templates:
                 backend: FreeNoteBundle:Backend/ArticleCategory:%s.html.twig
                 frontend: FreeNoteBundle:Frontend/ArticleCategory:%s.html.twig

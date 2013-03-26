@@ -96,5 +96,19 @@
         </property>
     </class>
 
+    <class name="FreeNote\FreeNoteBundle\Entity\ArticleCategory">
+        <property name="image">
+            <constraint name="File">
+                <option name="maxSize">1024k</option>
+                <option name="mimeTypes">
+                    <value>image/gif</value>
+                    <value>image/png</value>
+                    <value>image/jpg</value>
+                    <value>image/jpeg</value>
+                </option>
+            </constraint>
+        </property>
+    </class>
+
 </constraint-mapping>
 

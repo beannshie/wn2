@@ -37,6 +37,7 @@
         <parameter key="free_note.model.user_profile.class">FreeNote\FreeNoteBundle\Entity\UserProfile</parameter>
 
         <parameter key="free_note.manager.category.class">FreeNote\FreeNoteBundle\Model\fnCategoryManager</parameter>
+        <parameter key="free_note.form.type.category.class">FreeNote\FreeNoteBundle\Form\Type\ArticleCategoryType</parameter>
 
     </parameters>
 
@@ -188,6 +189,9 @@
             <argument type="service" id="doctrine.orm.default_entity_manager" />
             <argument type="service" id="stof_doctrine_extensions.uploadable.manager" />
             <argument>%fn_web_dir%</argument>
+        </service>
+        <service id="free_note.form.type.article_category" class="%free_note.form.type.category.class%">
+            <tag name="form.type" alias="free_note_article_category" />
         </service>
     </services>
 

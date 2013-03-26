@@ -6,6 +6,7 @@ use Sylius\Bundle\CategorizerBundle\Entity\CategoryManager;
 use Sylius\Bundle\CategorizerBundle\Model\CategoryInterface;
 use Stof\DoctrineExtensionsBundle\Uploadable\UploadableManager;
 use Sylius\Bundle\CategorizerBundle\Registry\CatalogRegistry;
+use Sylius\Bundle\CategorizerBundle\Registry\CatalogInterface;
 use Doctrine\ORM\EntityManager;
 
 class fnCategoryManager extends CategoryManager
@@ -40,21 +41,21 @@ class fnCategoryManager extends CategoryManager
 
     /**
      * Return main categories in nested tree
-     * @param $catalog
+     * @param CatalogInterface $catalog
      * @return mixed
      */
-    public function findRootCategories($catalog)
+    public function findRootCategories(CatalogInterface $catalog)
     {
         $rootCategory = $this->getCatalogCategory($catalog);
         return $this->getRepository($catalog)->getChildren($rootCategory, true);
     }
 
-    public function findChildren($catalog)
+    public function findChildren(CatalogInterface $catalog)
     {
         return $this->getRepository($catalog)->getChildren();
     }
 
-    public function findChildrenHierarchyCollection($catalog)
+    public function findChildrenHierarchyCollection(CatalogInterface $catalog)
     {
         $rootCategory = $this->getCatalogCategory($catalog);
         return $this->getRepository($catalog)->getNodesHierarchyCollection($rootCategory);
@@ -99,11 +100,11 @@ class fnCategoryManager extends CategoryManager
         }
     }
 
-    private function getCatalogCategory($catalog)
+    private function getCatalogCategory(CatalogInterface $catalog)
     {
-        if (!$rootCategory = $this->getRepository($catalog)->findOneBySlug($catalog))
+        if (!$rootCategory = $this->getRepository($catalog)->findOneBySlug($catalog->getAlias()))
         {
-            throw new \InvalidArgumentException('Requested category catalog does not exist: '.$catalog.'.');
+            throw new \InvalidArgumentException('Requested category catalog does not exist: '.$catalog->getAlias().'.');
         }
         return $rootCategory;
     }

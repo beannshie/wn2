@@ -34,6 +34,13 @@ sylius_blogger:
             published: "Opublikowany"
 
 
+sylius_categorizer:
+    label:
+        category:
+            name: "Nazwa"
+            parent: "Kategoria nadrzędna"
+
+
 fn:
     label:
         user:
@@ -53,3 +60,5 @@ fn:
             article_entry:
                 main_image: "Obraz główny"
                 categories: "Kategorie"
+            article_category:
+                image: "Ikona"

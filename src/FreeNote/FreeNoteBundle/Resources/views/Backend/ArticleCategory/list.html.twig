@@ -1,13 +1,13 @@
 {% extends 'FreeNoteBundle:Backend:layout.html.twig' %}
 
 {% block header %}
-    <h1>Categories <small>Manage blog categories</small></h1>
+    <h1>{{ 'category.title'|trans({}, 'FreeNoteCoreBundle') }} <small>Zarządzaj kategoriami</small></h1>
 {% endblock %}
 
 {% block content %}
 <div class="well">
     <a href="{{ path('free_note_backend_category_create', {'alias': catalog.alias}) }}" class="btn btn-primary">
-        <i class="icon-plus icon-white"></i> create category
+        <i class="icon-plus icon-white"></i> {{ 'category.create'|trans({}, 'FreeNoteCoreBundle') }}
     </a>
 </div>
 
@@ -15,8 +15,8 @@
 <table class="table">
     <thead>
         <tr>
-            <th>#id</th>
-            <th>name</th>
+            <th>{{ 'category.id'|trans({}, 'FreeNoteCoreBundle') }}</th>
+            <th>{{ 'category.name'|trans({}, 'FreeNoteCoreBundle') }}</th>
             <th></th>
         </tr>
     </thead>
@@ -42,15 +42,15 @@
                         </div>
                         <div class="btn-group">
                             <a href="{{ path('free_note_backend_category_show', {'alias': catalog.alias, 'id': category.id}) }}" class="btn">
-                                <i class="icon-list-alt"></i> list posts
+                                <i class="icon-list-alt"></i> {{ 'category.list_posts.article'|trans({}, 'FreeNoteCoreBundle') }}
                             </a>
                             <a href="{{ path('free_note_backend_category_update', {'alias': catalog.alias, 'id': category.id}) }}" class="btn">
-                                <i class="icon-pencil"></i> {{ 'update'|trans({}, 'SandboxCoreBundle') }}
+                                <i class="icon-pencil"></i> {{ 'update'|trans({}, 'FreeNoteCoreBundle') }}
                             </a>
                             <a href="{{ path('free_note_backend_category_delete', {'alias': catalog.alias, 'id': category.id}) }}" class="btn btn-danger confirmer"
                                 data-confirmer-question="{{ 'confirmer.q.category.delete'|trans({}, 'SandboxCoreBundle') }}"
                             >
-                                <i class="icon-remove icon-white"></i> {{ 'delete'|trans({}, 'SandboxCoreBundle') }}
+                                <i class="icon-remove icon-white"></i> {{ 'delete'|trans({}, 'FreeNoteCoreBundle') }}
                             </a>
                         </div>
                     </div>
@@ -61,8 +61,8 @@
 </table>
 {% else %}
 <div class="alert alert-info">
-    <h4 class="alert-heading">{{ 'alert.heading.info'|trans({}, 'SandboxCoreBundle') }}.</h4>
-    There are no categories to display.
+    <h4 class="alert-heading">{{ 'alert.heading.info'|trans({}, 'FreeNoteCoreBundle') }}.</h4>
+    {{ 'no_results'|trans({}, 'FreeNoteCoreBundle') }}
 </div>
 {% endif %}
 {% endblock %}

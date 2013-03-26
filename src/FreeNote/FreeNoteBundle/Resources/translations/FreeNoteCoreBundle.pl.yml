@@ -6,6 +6,7 @@ delete: usuń
 show: pokaż
 duplicate: duplikat
 build: utwórz
+no_results: Brak wyników.
 
 confirmer:
     header: Potwierdź akcję
@@ -29,3 +30,15 @@ confirmer:
 alert:
     heading:
         info: Informacje
+
+pager:
+    prev_message: poprzednia
+    next_message: następna
+
+category:
+    title: Kategorie artykułów
+    id: '#id'
+    name: nazwa
+    create: Nowa kategoria
+    list_posts:
+        article: Lista artykułów

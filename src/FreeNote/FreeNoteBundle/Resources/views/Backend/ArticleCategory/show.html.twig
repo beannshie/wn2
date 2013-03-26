@@ -1,18 +1,19 @@
 {% extends 'FreeNoteBundle:Backend:layout.html.twig' %}
 
 {% block header %}
-    <h1>Blog category<small> List of all posts in this category</small></h1>
+    <h1>{{ 'category.title'|trans({}, 'FreeNoteCoreBundle') }}<small> Lista akrtykułów w tej kategorii</small></h1>
 {% endblock %}
 
 {% block content %}
 <div class="well">
 <a href="{{ path('free_note_backend_article_entry_create') }}" class="btn btn-primary large">
-    <i class="icon-plus icon-white"></i> create post
+    <i class="icon-plus icon-white"></i> {{ 'category.create'|trans({}, 'FreeNoteCoreBundle') }}
 </a>
 </div>
 
 {% if paginator.haveToPaginate() %}
-{{ pagerfanta(paginator, 'twitter_bootstrap', {'prev_message': "previous page...", 'next_message': "next page..."}) }}
+{{ pagerfanta(paginator, 'twitter_bootstrap',
+{'prev_message': {{ 'pager.prev_message'|trans({}, 'FreeNoteCoreBundle') }}, 'next_message': {{ 'pager.next_message'|trans({}, 'FreeNoteCoreBundle') }}}) }}
 {% endif %}
 
 {% if entries|length > 0 %}

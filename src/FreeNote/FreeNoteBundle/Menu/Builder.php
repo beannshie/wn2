@@ -40,7 +40,8 @@ class Builder extends ContainerAware
         );
 
         $categoryManager = $this->container->get('sylius_categorizer.manager.category');
-        $articleCategories = $categoryManager->findRootCategories(fnCategoryInterface::FN_CATEGORY_ARTICLE_SLUG);
+        $catalog = $this->container->get('sylius_categorizer.registry')->getCatalog(fnCategoryInterface::FN_CATEGORY_ARTICLE_SLUG);
+        $articleCategories = $categoryManager->findRootCategories($catalog);
 
         $child = $menu->addChild('Artykuły', $childOptions);
         $child->addChild('Najnowsze wpisy', array('route' => 'free_note_article_entry_list'));
