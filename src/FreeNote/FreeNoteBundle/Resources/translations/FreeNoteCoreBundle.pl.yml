@@ -7,6 +7,9 @@ show: pokaż
 duplicate: duplikat
 build: utwórz
 no_results: Brak wyników.
+read: przeczytaj
+save_changes: zapisz zmiany
+create: dodaj
 
 confirmer:
     header: Potwierdź akcję
@@ -26,6 +29,8 @@ confirmer:
             delete: Czy napewno chcesz usunąć ten prototyp?
         variant:
             delete: Czy napewno chcesz usunąć ten wariant?
+        article_entry:
+            delete: Czy napewno chcesz usunąć ten artykuł?
 
 alert:
     heading:
@@ -36,9 +41,21 @@ pager:
     next_message: następna
 
 category:
-    title: Kategorie artykułów
+    list_header: Kategorie artykułów
+    update_header: Edycja kategorii artykułów
+    new_header: Dodaj kategorię artykułów
     id: '#id'
+    icon: ikona
     name: nazwa
     create: Nowa kategoria
     list_posts:
         article: Lista artykułów
+        news: Lista aktualności
+
+article_entry:
+    header: Lista artykułów
+    id: '#id'
+    title: tytuł
+    main_image: obraz główny
+    author: autor
+    create: Nowy artykuł

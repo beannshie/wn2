@@ -1,7 +1,7 @@
 {% extends 'FreeNoteBundle:Backend:layout.html.twig' %}
 
 {% block header %}
-    <h1>{{ 'category.title'|trans({}, 'FreeNoteCoreBundle') }}<small> Lista akrtykułów w tej kategorii</small></h1>
+    <h1>{{ category.name }}<small> Lista akrtykułów</small></h1>
 {% endblock %}
 
 {% block content %}
@@ -12,17 +12,21 @@
 </div>
 
 {% if paginator.haveToPaginate() %}
-{{ pagerfanta(paginator, 'twitter_bootstrap',
-{'prev_message': {{ 'pager.prev_message'|trans({}, 'FreeNoteCoreBundle') }}, 'next_message': {{ 'pager.next_message'|trans({}, 'FreeNoteCoreBundle') }}}) }}
+{{ pagerfanta(
+    paginator,
+    'twitter_bootstrap',
+    {'prev_message': 'pager.prev_message'|trans({}, 'FreeNoteCoreBundle'),'next_message': 'pager.next_message'|trans({}, 'FreeNoteCoreBundle')}
+)}}
 {% endif %}
 
 {% if entries|length > 0 %}
 <table class="table">
     <thead>
         <tr>
-            <th>#id</th>
-            <th>title</th>
-            <th>author</th>
+            <th>{{ 'article_entry.id'|trans({}, 'FreeNoteCoreBundle') }}</th>
+            <th>{{ 'article_entry.main_image'|trans({}, 'FreeNoteCoreBundle') }}</th>
+            <th>{{ 'article_entry.title'|trans({}, 'FreeNoteCoreBundle') }}</th>
+            <th>{{ 'article_entry.author'|trans({}, 'FreeNoteCoreBundle') }}</th>
             <th></th>
         </tr>
     </thead>
@@ -30,22 +34,25 @@
         {% for entry in entries %}
             <tr>
                 <td>{{ entry.id }}</td>
+                <td>
+                    {% set path = entry.imageUploadDir ~ '/' ~ entry.mainImageFilename %}
+                    <img src="{{ entry.mainImageFilename is empty ? 'http://placehold.it/90x60' : path|apply_filter('backend_mini') }}" alt="{{ entry.title }}" /></td>
                 <td>{{ entry.title }}</td>
                 <td>{{ entry.author }}</td>
                 <td>
                     <div class="pull-right btn-group">
                         <a href="{{ path('free_note_backend_article_entry_show', {'id': entry.id}) }}" class="btn">
-                            <i class="icon-book"></i> read
+                            <i class="icon-book"></i> {{ 'read'|trans({}, 'FreeNoteCoreBundle') }}
                         </a>
                         <a href="{{ path('free_note_backend_article_entry_update', {'id': entry.id}) }}" class="btn">
-                            <i class="icon-pencil"></i> update
+                            <i class="icon-pencil"></i> {{ 'update'|trans({}, 'FreeNoteCoreBundle') }}
                         </a>
                         <a href="{{ path('free_note_backend_article_entry_delete', {'id': entry.id}) }}" class="btn btn-danger confirmer"
                             data-toggle="modal"
                             data-target="confirmer-modal"
-                            data-confirmer-question="Are you sure you want to delete this post?"
+                            data-confirmer-question="{{ 'confirmer.q.article_entry.delete'|trans({}, 'SandboxCoreBundle') }}"
                         >
-                            <i class="icon-remove icon-white"></i> delete
+                            <i class="icon-remove icon-white"></i> {{ 'delete'|trans({}, 'FreeNoteCoreBundle') }}
                         </a>
                     </div>
                 </td>
@@ -55,13 +62,17 @@
 </table>
 {% else %}
 <div class="alert alert-info">
-    <h4 class="alert-heading">{{ 'alert.heading.info'|trans({}, 'SandboxCoreBundle') }}.</h4>
-    There are no posts to display.
+    <h4 class="alert-heading">{{ 'alert.heading.info'|trans({}, 'FreeNoteCoreBundle') }}.</h4>
+    {{ 'no_results'|trans({}, 'FreeNoteCoreBundle') }}
 </div>
 {% endif %}
 
 {% if paginator.haveToPaginate() %}
-{{ pagerfanta(paginator, 'twitter_bootstrap', {'prev_message': "previous page...", 'next_message': "next page..."}) }}
+{{ pagerfanta(
+    paginator,
+    'twitter_bootstrap',
+    {'prev_message': 'pager.prev_message'|trans({}, 'FreeNoteCoreBundle'),'next_message': 'pager.next_message'|trans({}, 'FreeNoteCoreBundle')}
+)}}
 {% endif %}
 
 {% endblock %}

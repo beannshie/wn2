@@ -249,7 +249,7 @@ class ArticleCategory extends BaseCategory implements fnUploadableImageInterface
      */
     public function getImageUploadDir()
     {
-        return 'uploads/images/article';
+        return 'uploads/images/article/category';
     }
 
     protected function getImageUploadRootDir()

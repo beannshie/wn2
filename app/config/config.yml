@@ -62,6 +62,9 @@ avalanche_imagine:
     web_root: %fn_web_dir%
     cache_prefix: media/cache
     filters:
+        icon:
+            type: thumbnail
+            options: { size: [45, 30], mode: inbound }
         frontend_medium:
             type: thumbnail
             options: { size: [220, 180], mode: outbound }
@@ -142,6 +145,8 @@ sylius_categorizer:
             templates:
                 backend: FreeNoteBundle:Backend/ArticleCategory:%s.html.twig
                 frontend: FreeNoteBundle:Frontend/ArticleCategory:%s.html.twig
+            pagination:
+                mpp: 10
 #        news:
 #            property: "news"
 #            model: FreeNote\FreeNoteBundle\Entity\PostCategory
