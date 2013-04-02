@@ -66,6 +66,16 @@ class ArticleCategory extends BaseCategory implements fnUploadableImageInterface
     /**
      * @var string
      */
+    protected $imageAlt;
+
+    /**
+     * @var string
+     */
+    protected $imageTitle;
+
+    /**
+     * @var string
+     */
     protected $createdBy;
 
     /**
@@ -202,6 +212,38 @@ class ArticleCategory extends BaseCategory implements fnUploadableImageInterface
     }
 
     /**
+     * @param string $imageAlt
+     */
+    public function setImageAlt($imageAlt)
+    {
+        $this->imageAlt = $imageAlt;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImageAlt()
+    {
+        return $this->imageAlt;
+    }
+
+    /**
+     * @param string $imageTitle
+     */
+    public function setImageTitle($imageTitle)
+    {
+        $this->imageTitle = $imageTitle;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImageTitle()
+    {
+        return $this->imageTitle;
+    }
+
+    /**
      * @param string $createdBy
      */
     public function setCreatedBy($createdBy)
@@ -249,7 +291,7 @@ class ArticleCategory extends BaseCategory implements fnUploadableImageInterface
      */
     public function getImageUploadDir()
     {
-        return 'uploads/images/article/category';
+        return '/uploads/images/article/category';
     }
 
     protected function getImageUploadRootDir()
@@ -260,5 +302,10 @@ class ArticleCategory extends BaseCategory implements fnUploadableImageInterface
     public function uploadableCallback(array $info)
     {
         $this->setImageFilename($info['fileName']);
+    }
+
+    public function getImageWebPath()
+    {
+        return $this->getImageFilename() ? $this->getImageUploadDir().DIRECTORY_SEPARATOR.$this->getImageFilename() : null;
     }
 }

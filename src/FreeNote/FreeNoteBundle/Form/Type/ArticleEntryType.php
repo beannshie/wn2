@@ -15,9 +15,15 @@ class ArticleEntryType extends BasePostType
         parent::buildForm($builder, $options);
 
         $builder
-            ->add('mainImage', 'file', array(
+            ->add('image', 'file', array(
                 'required' => false,
-                'label' => 'fn.label.article.article_entry.main_image'
+                'label' => 'fn.label.article.article_entry.image'
+            ))
+            ->add('image_alt', 'text', array(
+                'label' => 'fn.label.article.article_entry.image_alt'
+            ))
+            ->add('image_title', 'text', array(
+                'label' => 'fn.label.article.article_entry.image_title'
             ))
             ->add('categories', 'sylius_categorizer_category_choice', array(
                 'multiple' => true,

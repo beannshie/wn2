@@ -56,6 +56,6 @@ article_entry:
     header: Lista artykułów
     id: '#id'
     title: tytuł
-    main_image: obraz główny
+    image: obraz główny
     author: autor
     create: Nowy artykuł

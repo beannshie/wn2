@@ -28,10 +28,12 @@ class LoadArticleEntriesData extends DataFixture
             $post->setUpdatedBy($this->faker->userName);
             if($i%2)
             {
-                $post->setMainImageFilename('t-shirt.jpg');
-                $post->setMainImagePath('../../bundles/freenote/images/t-shirt.jpg');
-                $post->setMainImageMimeType('image/jpg');
-                $post->setMainImageSize(123);
+                $post->setImageFilename('t-shirt.jpg');
+                $post->setImagePath('../../bundles/freenote/images/t-shirt.jpg');
+                $post->setImageMimeType('image/jpg');
+                $post->setImageSize(123);
+                $post->setImageAlt('tiszert');
+                $post->setImageTitle('Koszulek');
             }
 
             $randomA = $this->faker->randomElement($cats);

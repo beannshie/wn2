@@ -31,3 +31,14 @@
         {{ block('form_message') }}
     {% endspaceless %}
 {% endblock checkbox_widget %}
+
+{% block file_widget %}
+    {% spaceless %}
+        {% if image_url is defined and image_url is not null %}
+            <img src="{{ image_url|apply_filter(image_filter is defined ? image_filter : 'icon') }}"/>
+            <br />
+        {% endif %}
+        {{ block('form_widget') }}
+
+    {% endspaceless %}
+{% endblock %}

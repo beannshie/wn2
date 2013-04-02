@@ -21,32 +21,42 @@ class ArticleEntry extends BasePost implements fnUploadableImageInterface
      *
      * @var UploadedFile
      */
-    protected $mainImage;
+    protected $image;
 
     /**
      * @var string
      */
-    protected $mainImageFilename;
+    protected $imageFilename;
 
     /**
      * @var string
      */
-    protected $mainImagePath;
+    protected $imagePath;
 
     /**
      * @var string
      */
-    protected $mainImageAbsolutePath;
+    protected $imageAbsolutePath;
 
     /**
      * @var string
      */
-    protected $mainImageMimeType;
+    protected $imageMimeType;
 
     /**
      * @var decimal
      */
-    protected $mainImageSize;
+    protected $imageSize;
+
+    /**
+     * @var string
+     */
+    protected $imageAlt;
+
+    /**
+     * @var string
+     */
+    protected $imageTitle;
 
     /**
      * @var string
@@ -84,94 +94,126 @@ class ArticleEntry extends BasePost implements fnUploadableImageInterface
         $this->categories = $categories;
     }
 
-    public function setMainImage($mainImage)
+    public function setImage($image)
     {
-        $this->mainImage = $mainImage;
+        $this->image = $image;
     }
 
-    public function getMainImage()
+    public function getImage()
     {
-        return $this->mainImage;
-    }
-
-    /**
-     * @param string $mainImageFilename
-     */
-    public function setMainImageFilename($mainImageFilename)
-    {
-        $this->mainImageFilename = $mainImageFilename;
+        return $this->image;
     }
 
     /**
-     * @return string
+     * @param string $imageFilename
      */
-    public function getMainImageFilename()
+    public function setImageFilename($imageFilename)
     {
-        return $this->mainImageFilename;
-    }
-
-    /**
-     * @param string $mainImageAbsolutePath
-     */
-    public function setMainImageAbsolutePath($mainImageAbsolutePath)
-    {
-        $this->mainImageAbsolutePath = $mainImageAbsolutePath;
+        $this->imageFilename = $imageFilename;
     }
 
     /**
      * @return string
      */
-    public function getMainImageAbsolutePath()
+    public function getImageFilename()
     {
-        return $this->mainImageAbsolutePath;
+        return $this->imageFilename;
     }
 
     /**
-     * @param string $mainImageMimeType
+     * @param string $imageAbsolutePath
      */
-    public function setMainImageMimeType($mainImageMimeType)
+    public function setImageAbsolutePath($imageAbsolutePath)
     {
-        $this->mainImageMimeType = $mainImageMimeType;
-    }
-
-    /**
-     * @return string
-     */
-    public function getMainImageMimeType()
-    {
-        return $this->mainImageMimeType;
-    }
-
-    /**
-     * @param string $mainImagePath
-     */
-    public function setMainImagePath($mainImagePath)
-    {
-        $this->mainImagePath = $mainImagePath;
+        $this->imageAbsolutePath = $imageAbsolutePath;
     }
 
     /**
      * @return string
      */
-    public function getMainImagePath()
+    public function getImageAbsolutePath()
     {
-        return $this->mainImagePath;
+        return $this->imageAbsolutePath;
     }
 
     /**
-     * @param decimal $mainImageSize
+     * @param string $imageMimeType
      */
-    public function setMainImageSize($mainImageSize)
+    public function setImageMimeType($imageMimeType)
     {
-        $this->mainImageSize = $mainImageSize;
+        $this->imageMimeType = $imageMimeType;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImageMimeType()
+    {
+        return $this->imageMimeType;
+    }
+
+    /**
+     * @param string $imagePath
+     */
+    public function setImagePath($imagePath)
+    {
+        $this->imagePath = $imagePath;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImagePath()
+    {
+        return $this->imagePath;
+    }
+
+    /**
+     * @param decimal $imageSize
+     */
+    public function setImageSize($imageSize)
+    {
+        $this->imageSize = $imageSize;
     }
 
     /**
      * @return decimal
      */
-    public function getMainImageSize()
+    public function getImageSize()
     {
-        return $this->mainImageSize;
+        return $this->imageSize;
+    }
+
+    /**
+     * @param string $imageAlt
+     */
+    public function setImageAlt($imageAlt)
+    {
+        $this->imageAlt = $imageAlt;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImageAlt()
+    {
+        return $this->imageAlt;
+    }
+
+    /**
+     * @param string $imageTitle
+     */
+    public function setImageTitle($imageTitle)
+    {
+        $this->imageTitle = $imageTitle;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImageTitle()
+    {
+        return $this->imageTitle;
     }
 
     /**
@@ -232,11 +274,11 @@ class ArticleEntry extends BasePost implements fnUploadableImageInterface
         return 'article_entry_'.$this->getId();
     }
 
-    public function getMainImagePathDir()
+    public function getImagePathDir()
     {
-        if($this->mainImageAbsolutePath)
+        if($this->imageAbsolutePath)
         {
-            return $this->getMainImageAbsolutePath();
+            return $this->getImageAbsolutePath();
         }
         return $this->getImageUploadRootDir();
     }
@@ -258,6 +300,6 @@ class ArticleEntry extends BasePost implements fnUploadableImageInterface
 
     public function uploadableCallback(array $info)
     {
-        $this->setMainImageFilename($info['fileName']);
+        $this->setImageFilename($info['fileName']);
     }
 }

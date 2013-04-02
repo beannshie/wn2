@@ -58,7 +58,11 @@ fn:
             business_address: "Adres siedziby firmy"
         article:
             article_entry:
-                main_image: "Obraz główny"
+                image: "Obraz główny"
+                image_alt: "Alternatywny opis obrazu"
+                image_title: "Tytuł obrazu"
                 categories: "Kategorie"
             article_category:
                 image: "Ikona"
+                image_alt: "Alternatywny opis ikony"
+                image_title: "Tytuł ikony"

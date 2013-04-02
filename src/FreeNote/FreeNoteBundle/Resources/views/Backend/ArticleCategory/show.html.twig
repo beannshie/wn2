@@ -24,7 +24,7 @@
     <thead>
         <tr>
             <th>{{ 'article_entry.id'|trans({}, 'FreeNoteCoreBundle') }}</th>
-            <th>{{ 'article_entry.main_image'|trans({}, 'FreeNoteCoreBundle') }}</th>
+            <th>{{ 'article_entry.image'|trans({}, 'FreeNoteCoreBundle') }}</th>
             <th>{{ 'article_entry.title'|trans({}, 'FreeNoteCoreBundle') }}</th>
             <th>{{ 'article_entry.author'|trans({}, 'FreeNoteCoreBundle') }}</th>
             <th></th>
@@ -35,8 +35,8 @@
             <tr>
                 <td>{{ entry.id }}</td>
                 <td>
-                    {% set path = entry.imageUploadDir ~ '/' ~ entry.mainImageFilename %}
-                    <img src="{{ entry.mainImageFilename is empty ? 'http://placehold.it/90x60' : path|apply_filter('backend_mini') }}" alt="{{ entry.title }}" /></td>
+                    {% set path = entry.imageUploadDir ~ '/' ~ entry.imageFilename %}
+                    <img src="{{ entry.imageFilename is empty ? 'http://placehold.it/90x60' : path|apply_filter('backend_mini') }}" alt="{{ entry.title }}" /></td>
                 <td>{{ entry.title }}</td>
                 <td>{{ entry.author }}</td>
                 <td>

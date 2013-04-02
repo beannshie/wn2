@@ -26,8 +26,7 @@
             <tr>
                 <td>{{ category.id }}</td>
                 <td>
-                    {% set path = category.imageUploadDir ~ '/' ~ category.imageFilename %}
-                    <img src="{{ category.imageFilename is empty ? 'http://placehold.it/45x30' : path|apply_filter('icon') }}" alt="{{ category.name }}" /></td>
+                    <img src="{{ category.imageWebPath is empty ? 'http://placehold.it/45x30' : category.imageWebPath|apply_filter('icon') }}" alt="{{ category.name }}" /></td>
                 <td class="category_level_{{ category.level }}">{{ "|" }}
                     {% for i in 0..category.level if i < category.level-1 %}{{ '--' }}{% endfor %}--> {{ category.name }}</td>
                 <td>

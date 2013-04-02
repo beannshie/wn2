@@ -83,7 +83,7 @@
                 <option name="message">fn.article.article_entry.author.blank</option>
             </constraint>
         </property>
-        <property name="mainImage">
+        <property name="image">
             <constraint name="File">
                 <option name="maxSize">1024k</option>
                 <option name="mimeTypes">

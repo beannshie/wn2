@@ -13,13 +13,19 @@ class ArticleCategoryType extends NestedCategoryType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         parent::buildForm($builder, $options);
-
         $builder
             ->add('image', 'file', array(
                 'required' => false,
-                'label' => 'fn.label.article.article_category.image'
+                'label' => 'fn.label.article.article_category.image',
+                'image_path' => 'imageWebPath',
+                'image_filter' => 'icon'
             ))
-        ;
+            ->add('image_alt', 'text', array(
+                'label' => 'fn.label.article.article_category.image_alt'
+            ))
+            ->add('image_title', 'text', array(
+                'label' => 'fn.label.article.article_category.image_title'
+            ));
     }
 
     /**

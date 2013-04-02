@@ -75,7 +75,7 @@ class fnCategoryManager extends CategoryManager
                 $category->setImageAbsolutePath($this->fnWebDir.DIRECTORY_SEPARATOR.$category->getImageUploadDir());
             }
 
-            // Here, "getMainImage" returns the "UploadedFile" instance that the form bound in your $mainImage property
+            // Here, "getImage" returns the "UploadedFile" instance that the form bound in your $image property
             $this->uploadableManager->markEntityToUpload($category, $category->getImage());
         }
 

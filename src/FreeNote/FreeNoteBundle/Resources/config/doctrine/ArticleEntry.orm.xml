@@ -12,16 +12,20 @@
             <generator strategy="AUTO" />
         </id>
 
-        <field name="mainImageFilename" column="main_image_filename" type="string" nullable="true">
+        <field name="imageFilename" column="image_filename" type="string" nullable="true">
         </field>
-        <field name="mainImagePath" column="main_image_path" type="string" nullable="true">
+        <field name="imagePath" column="image_path" type="string" nullable="true">
             <gedmo:uploadable-file-path />
         </field>
-        <field name="mainImageMimeType" column="main_image_mime_type" type="string" nullable="true">
+        <field name="imageMimeType" column="image_mime_type" type="string" nullable="true">
             <gedmo:uploadable-file-mime-type />
         </field>
-        <field name="mainImageSize" column="main_image_size" type="decimal" nullable="true">
+        <field name="imageSize" column="image_size" type="decimal" nullable="true">
             <gedmo:uploadable-file-size />
+        </field>
+        <field name="imageAlt" column="image_alt" type="string" nullable="true">
+        </field>
+        <field name="imageTitle" column="image_title" type="string" nullable="true">
         </field>
 
         <field name="createdBy" type="string">
@@ -46,7 +50,7 @@
         </many-to-many>
 
         <gedmo:uploadable
-            path-method="getMainImagePathDir"
+            path-method="getimagePathDir"
             allow-overwrite="false"
             append-number="true"
             callback="uploadableCallback"/>

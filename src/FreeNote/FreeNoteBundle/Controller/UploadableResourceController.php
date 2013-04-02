@@ -17,18 +17,18 @@ class UploadableResourceController extends ResourceController
         $manager->persist($resource);
 
         //for doctrine uploadable extension
-        if($resource->getMainImage())
+        if($resource->getImage())
         {
             $uploadableManager = $this->get('stof_doctrine_extensions.uploadable.manager');
 
             // change saved to database path to image
             if($resource instanceof fnUploadableImageInterface)
             {
-                $resource->setMainImageAbsolutePath($this->container->getParameter('fn_web_dir').DIRECTORY_SEPARATOR.$resource->getImageUploadDir());
+                $resource->setImageAbsolutePath($this->container->getParameter('fn_web_dir').DIRECTORY_SEPARATOR.$resource->getImageUploadDir());
             }
 
-            // Here, "getMainImage" returns the "UploadedFile" instance that the form bound in your $mainImage property
-            $uploadableManager->markEntityToUpload($resource, $resource->getMainImage());
+            // Here, "getImage" returns the "UploadedFile" instance that the form bound in your $Image property
+            $uploadableManager->markEntityToUpload($resource, $resource->getImage());
         }
 
         $manager->flush();

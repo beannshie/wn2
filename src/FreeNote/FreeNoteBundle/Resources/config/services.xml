@@ -193,6 +193,10 @@
         <service id="free_note.form.type.article_category" class="%free_note.form.type.category.class%">
             <tag name="form.type" alias="free_note_article_category" />
         </service>
+
+        <service id="free_note.image_type_extension" class="FreeNote\FreeNoteBundle\Form\Extension\ImageTypeExtension">
+            <tag name="form.type_extension" alias="file" />
+        </service>
     </services>
 
 </container>

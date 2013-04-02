@@ -65,6 +65,8 @@ class LoadCategoriesData extends DataFixture
         $category->setImagePath('../../bundles/freenote/images/t-shirt.jpg');
         $category->setImageMimeType('image/jpg');
         $category->setImageSize(123);
+        $category->setImageAlt('ikona');
+        $category->setImageTitle('Ikona');
 
         $category->setCreatedBy($this->getReference('User-'.rand(1, 15)));
         $category->setUpdatedBy($this->faker->userName);
