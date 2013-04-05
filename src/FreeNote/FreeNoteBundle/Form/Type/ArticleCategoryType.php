@@ -4,6 +4,7 @@ namespace FreeNote\FreeNoteBundle\Form\Type;
 
 use Sylius\Bundle\CategorizerBundle\Form\Type\NestedCategoryType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class ArticleCategoryType extends NestedCategoryType
 {
@@ -21,10 +22,14 @@ class ArticleCategoryType extends NestedCategoryType
                 'image_filter' => 'icon'
             ))
             ->add('image_alt', 'text', array(
-                'label' => 'fn.label.article.article_category.image_alt'
+                'required' => true,
+                'label' => 'fn.label.article.article_category.image_alt',
+                'help_block' => 'W przypadku braku, aplikacja wygeneruje domyślny opis na podstawie nazwy kategorii.'
             ))
             ->add('image_title', 'text', array(
-                'label' => 'fn.label.article.article_category.image_title'
+                'required' => false,
+                'label' => 'fn.label.article.article_category.image_title',
+                'help_block' => 'Nazwa ta wyświetli się, jeśli plik graficzny nie zostanie znaleziony. W przypadku braku, aplikacja wygeneruje domyślny tytuł na podstawie nazwy kategorii.'
             ));
     }
 
