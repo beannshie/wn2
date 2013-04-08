@@ -5,6 +5,8 @@ namespace FreeNote\FreeNoteBundle\Form\Type;
 use Sylius\Bundle\CategorizerBundle\Form\Type\NestedCategoryType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Sylius\Bundle\CategorizerBundle\Form\EventListener\BuildNestedCategoryTypeListener;
+use Symfony\Component\Form\AbstractType;
 
 class ArticleCategoryType extends NestedCategoryType
 {
@@ -14,7 +16,14 @@ class ArticleCategoryType extends NestedCategoryType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         parent::buildForm($builder, $options);
+        $builder->remove('parent');
         $builder
+            ->add('ancestor', 'sylius_categorizer_category_choice', array(
+                'label' => 'sylius_categorizer.label.category.parent',
+                'required' => true,
+                'multiple' => false,
+                'catalog'  => $options['catalog']
+            ))
             ->add('image', 'file', array(
                 'required' => false,
                 'label' => 'fn.label.article.article_category.image',
@@ -22,7 +31,7 @@ class ArticleCategoryType extends NestedCategoryType
                 'image_filter' => 'icon'
             ))
             ->add('image_alt', 'text', array(
-                'required' => true,
+                'required' => false,
                 'label' => 'fn.label.article.article_category.image_alt',
                 'help_block' => 'W przypadku braku, aplikacja wygeneruje domyślny opis na podstawie nazwy kategorii.'
             ))

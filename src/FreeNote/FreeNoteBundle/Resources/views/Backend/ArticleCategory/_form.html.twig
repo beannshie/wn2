@@ -1,4 +1,5 @@
 <fieldset>
-    {{ form_row(form.name, {'attr': {'class': 'span7'}}) }}
+    {{ form_row(form.name) }}
+    {{ form_row(form.ancestor, {'attr': {'class': 'select2 input-xxlarge', 'placeholder': 'Wybierz kategorię nadrzędną'}}) }}
 </fieldset>
     {{ form_rest(form) }}

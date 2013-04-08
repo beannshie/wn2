@@ -38,8 +38,8 @@
             <gedmo:blameable on="update"/>
         </field>
 
-        <many-to-one field="parent" target-entity="FreeNote\FreeNoteBundle\Entity\ArticleCategory">
-            <join-column name="parent_id" referenced-column-name="id" nullable="true" on-delete="CASCADE" />
+        <many-to-one field="ancestor" target-entity="FreeNote\FreeNoteBundle\Entity\ArticleCategory">
+            <join-column name="ancestor_id" referenced-column-name="id" nullable="true" on-delete="CASCADE" />
             <gedmo:tree-parent />
         </many-to-one>
         <many-to-many field="entries" target-entity="FreeNote\FreeNoteBundle\Entity\ArticleEntry" mapped-by="categories" />

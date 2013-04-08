@@ -22,6 +22,10 @@ katalogi:
 web/uploads na 777
 web/media na 777
 
+pliki z vendor:
+CategoryChoiceList z sylius categorizer pluginu - parent::__construct(array(), 'label', array(), null, null); (linia 36)
+
+
 
 TODO
 

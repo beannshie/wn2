@@ -17,7 +17,23 @@ class ArticleCategory extends BaseCategory implements fnUploadableImageInterface
      *
      * @var NestedCategoryInterface
      */
-    protected $parent;
+    protected $ancestor;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getAncestor()
+    {
+        return $this->ancestor;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setAncestor(NestedCategoryInterface $ancestor)
+    {
+        $this->ancestor = $ancestor;
+    }
 
     /**
      * Child categories.
@@ -291,7 +307,7 @@ class ArticleCategory extends BaseCategory implements fnUploadableImageInterface
      */
     public function getImageUploadDir()
     {
-        return '/uploads/images/article/category';
+        return 'uploads/images/article/category';
     }
 
     protected function getImageUploadRootDir()

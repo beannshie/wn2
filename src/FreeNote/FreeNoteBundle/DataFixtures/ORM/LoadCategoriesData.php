@@ -52,13 +52,13 @@ class LoadCategoriesData extends DataFixture
      *
      * @param string $name
      */
-    private function createCategory($name, $parent = null)
+    private function createCategory($name, $ancestor = null)
     {
         $category = $this->manager->createCategory($this->catalog);
         $category->setName($name);
-        if($parent)
+        if($ancestor)
         {
-            $category->setParent($parent);
+            $category->setAncestor($ancestor);
         }
 
         $category->setImageFilename('t-shirt.jpg');

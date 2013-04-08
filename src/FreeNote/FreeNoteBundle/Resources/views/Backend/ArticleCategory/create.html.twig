@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-<form action="{{ path('free_note_backend_category_create', {'alias': catalog.alias}) }}" method="post" class="form-horizontal">
+<form action="{{ path('free_note_backend_category_create', {'alias': catalog.alias}) }}" method="post" class="form-horizontal" {{ form_enctype(form) }} novalidate>
     {% include 'FreeNoteBundle:Backend/ArticleCategory:_form.html.twig' %}
     <div class="form-actions">
         <input type="submit" value="{{ 'create'|trans({}, 'FreeNoteCoreBundle') }}" class="btn btn-primary btn-large" />

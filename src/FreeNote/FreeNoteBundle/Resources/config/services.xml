@@ -37,6 +37,7 @@
         <parameter key="free_note.model.user_profile.class">FreeNote\FreeNoteBundle\Entity\UserProfile</parameter>
 
         <parameter key="free_note.manager.category.class">FreeNote\FreeNoteBundle\Model\fnCategoryManager</parameter>
+        <parameter key="sylius_categorizer.manager.category.class">FreeNote\FreeNoteBundle\Model\fnCategoryManager</parameter>
         <parameter key="free_note.form.type.category.class">FreeNote\FreeNoteBundle\Form\Type\ArticleCategoryType</parameter>
 
     </parameters>
