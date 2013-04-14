@@ -24,6 +24,10 @@ sylius:
             country: "Kraj"
         zone_member_zone:
             zone: "Region"
+    resource:
+        create: Obiekt utworzono poprawnie.
+        update: Obiekt zapisano poprawnie.
+        delete: Obiekt usunięto poprawnie.
 
 sylius_blogger:
     label:

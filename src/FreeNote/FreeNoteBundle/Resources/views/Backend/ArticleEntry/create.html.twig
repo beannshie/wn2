@@ -1,14 +1,14 @@
 {% extends 'FreeNoteBundle:Backend:layout.html.twig' %}
 
 {% block header %}
-    <h1>Create post <small>Use this form to create a post</small></h1>
+    <h1>{{ ('entry.new_header')|trans({}, 'FreeNoteCoreBundle') }}</h1>
 {% endblock %}
 
 {% block content %}
 <form action="{{ path('free_note_backend_article_entry_create') }}" {{ form_enctype(form) }} method="post" class="form-horizontal" novalidate>
     {% include 'FreeNoteBundle:Backend/ArticleEntry:_form.html.twig' %}
     <div class="form-actions">
-        <input type="submit" class="btn btn-large btn-primary" value="create post">
+        <input type="submit" class="btn btn-large btn-primary" value="{{ 'create'|trans({}, 'FreeNoteCoreBundle') }}">
     </div>
 </form>
 {% endblock %}

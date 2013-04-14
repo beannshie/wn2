@@ -1,7 +1,7 @@
 yes:    tak
 no:     nie
 cancel: anuluj
-update: edycja
+update: edytuj
 delete: usuń
 show: pokaż
 duplicate: duplikat
@@ -41,7 +41,9 @@ pager:
     next_message: następna
 
 category:
-    list_header: Kategorie artykułów
+    list_header:
+        artykuly: Kategorie artykułów
+        aktualnosci: Kategorie aktualności
     update_header: Edycja kategorii artykułów
     new_header: Dodaj kategorię artykułów
     id: '#id'
@@ -49,13 +51,24 @@ category:
     name: nazwa
     create: Nowa kategoria
     list_posts:
-        article: Lista artykułów
-        news: Lista aktualności
+        artykuly: Lista artykułów
+        aktualnosci: Lista aktualności
 
-article_entry:
-    header: Lista artykułów
+entry:
     id: '#id'
     title: tytuł
     image: obraz główny
     author: autor
-    create: Nowy artykuł
+    content: treść
+    created_at: utworzono
+    created_by: utworzono przez
+    updated_at: ostatnia modyfikacja
+    updated_by: modyfikowany przez
+    categories: kategorie
+    categories_blank: brak
+    update_header: Edycja wpisu
+    new_header: Dodaj wpis
+    article:
+        list_header: Lista artykułów
+        create: Nowy artykuł
+        details: Szczegóły artykułu

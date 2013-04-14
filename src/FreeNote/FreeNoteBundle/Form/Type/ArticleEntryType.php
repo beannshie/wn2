@@ -20,9 +20,11 @@ class ArticleEntryType extends BasePostType
                 'label' => 'fn.label.article.article_entry.image'
             ))
             ->add('image_alt', 'text', array(
+            'required' => false,
                 'label' => 'fn.label.article.article_entry.image_alt'
             ))
             ->add('image_title', 'text', array(
+            'required' => false,
                 'label' => 'fn.label.article.article_entry.image_title'
             ))
             ->add('categories', 'sylius_categorizer_category_choice', array(

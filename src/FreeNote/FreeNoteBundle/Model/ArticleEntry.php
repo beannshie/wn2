@@ -302,4 +302,24 @@ class ArticleEntry extends BasePost implements fnUploadableImageInterface
     {
         $this->setImageFilename($info['fileName']);
     }
+
+    public function getImageWebPath()
+    {
+        return $this->getImageFilename() ? $this->getImageUploadDir().DIRECTORY_SEPARATOR.$this->getImageFilename() : null;
+    }
+
+    public function saveTitleAlt()
+    {
+        if($this->imageFilename)
+        {
+            if(empty($this->imageTitle))
+            {
+                $this->imageTitle = ucfirst($this->title);
+            }
+            if(empty($this->imageAlt))
+            {
+                $this->imageAlt = $this->title;
+            }
+        }
+    }
 }

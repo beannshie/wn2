@@ -95,7 +95,7 @@ class AppKernel extends Kernel
             ini_set('display_errors', 0);
         }
 
-        ini_set('date.timezone', 'UTC');
+        ini_set('date.timezone', 'Europe/Warsaw');
     }
 
     public function registerContainerConfiguration(LoaderInterface $loader)

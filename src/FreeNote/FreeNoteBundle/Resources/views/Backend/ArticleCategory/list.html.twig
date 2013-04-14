@@ -1,7 +1,7 @@
 {% extends 'FreeNoteBundle:Backend:layout.html.twig' %}
 
 {% block header %}
-    <h1>{{ 'category.list_header'|trans({}, 'FreeNoteCoreBundle') }} <small>Zarządzaj kategoriami</small></h1>
+    <h1>{{ ('category.list_header.'~catalog.alias)|trans({}, 'FreeNoteCoreBundle') }} <small>Zarządzaj kategoriami</small></h1>
 {% endblock %}
 
 {% block content %}
@@ -26,7 +26,8 @@
             <tr>
                 <td>{{ category.id }}</td>
                 <td>
-                    <img src="{{ category.imageWebPath is empty ? 'http://placehold.it/45x30' : category.imageWebPath|apply_filter('icon') }}" alt="{{ category.name }}" /></td>
+                    <img src="{{ category.imageWebPath is empty ? 'http://placehold.it/45x30' : category.imageWebPath|apply_filter('icon') }}"
+                         alt="{{ category.imageAlt }}" title="{{ category.imageTitle }}" /></td>
                 <td class="category_level_{{ category.level }}">{{ "|" }}
                     {% for i in 0..category.level if i < category.level-1 %}{{ '--' }}{% endfor %}--> {{ category.name }}</td>
                 <td>
@@ -46,7 +47,7 @@
                         </div>
                         <div class="btn-group">
                             <a href="{{ path('free_note_backend_category_show', {'alias': catalog.alias, 'id': category.id}) }}" class="btn">
-                                <i class="icon-list-alt"></i> {{ 'category.list_posts.article'|trans({}, 'FreeNoteCoreBundle') }}
+                                <i class="icon-list-alt"></i> {{ ('category.list_posts.'~catalog.alias)|trans({}, 'FreeNoteCoreBundle') }}
                             </a>
                             <a href="{{ path('free_note_backend_category_update', {'alias': catalog.alias, 'id': category.id}) }}" class="btn">
                                 <i class="icon-pencil"></i> {{ 'update'|trans({}, 'FreeNoteCoreBundle') }}

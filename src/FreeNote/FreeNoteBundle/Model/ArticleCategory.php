@@ -324,4 +324,19 @@ class ArticleCategory extends BaseCategory implements fnUploadableImageInterface
     {
         return $this->getImageFilename() ? $this->getImageUploadDir().DIRECTORY_SEPARATOR.$this->getImageFilename() : null;
     }
+
+    public function saveTitleAlt()
+    {
+        if($this->imageFilename)
+        {
+            if(empty($this->imageTitle))
+            {
+                $this->imageTitle = ucfirst($this->name);
+            }
+            if(empty($this->imageAlt))
+            {
+                $this->imageAlt = $this->name;
+            }
+        }
+    }
 }

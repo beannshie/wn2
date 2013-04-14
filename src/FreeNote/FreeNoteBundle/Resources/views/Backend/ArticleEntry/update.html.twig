@@ -1,14 +1,14 @@
 {% extends 'FreeNoteBundle:Backend:layout.html.twig' %}
 
 {% block header %}
-    <h1>Updating post <small>Use this form to modify existing post</small></h1>
+    <h1>{{ ('entry.update_header')|trans({}, 'FreeNoteCoreBundle') }} <small>{{ article_entry.title }}</small></h1>
 {% endblock %}
 
 {% block content %}
 <form action="{{ path('free_note_backend_article_entry_update', {'id': article_entry.id}) }}" {{ form_enctype(form) }} method="post" class="form-horizontal">
     {% include 'FreeNoteBundle:Backend/ArticleEntry:_form.html.twig' %}
     <div class="form-actions">
-        <input type="submit" class="btn btn-large btn-primary" value="save changes">
+        <input type="submit" class="btn btn-large btn-primary" value="{{ 'save_changes'|trans({}, 'FreeNoteCoreBundle') }}">
     </div>
 </form>
 {% endblock %}

@@ -50,10 +50,16 @@
         </many-to-many>
 
         <gedmo:uploadable
-            path-method="getimagePathDir"
+            path-method="getImagePathDir"
+            filename-generator="ALPHANUMERIC"
             allow-overwrite="false"
             append-number="true"
             callback="uploadableCallback"/>
+
+        <lifecycle-callbacks>
+            <lifecycle-callback type="prePersist" method="saveTitleAlt"/>
+            <lifecycle-callback type="preUpdate" method="saveTitleAlt"/>
+        </lifecycle-callbacks>
     </entity>
 
 </doctrine-mapping>
