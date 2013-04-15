@@ -71,7 +71,7 @@
 
 <div class="well">
     <h3>{{ 'entry.image'|trans({}, 'FreeNoteCoreBundle') }}</h3>
-    <img src="{{ article_entry.imageWebPath is empty ? 'http://placehold.it/90x60' : article_entry.imageWebPath|apply_filter('backend_medium') }}"
+    <img src="{{ article_entry.imageWebPath is empty ? 'http://placehold.it/250x150' : article_entry.imageWebPath|apply_filter('backend_medium') }}"
              alt="{{ article_entry.imageAlt }}" title="{{ article_entry.imageTitle }}" />
 </div>
 

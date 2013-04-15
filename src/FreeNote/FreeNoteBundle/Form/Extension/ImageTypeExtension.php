@@ -55,11 +55,11 @@ class ImageTypeExtension extends AbstractTypeExtension
             }
 
             // set an "image_url" variable that will be available when rendering this field
-            $view->set('image_url', $imageUrl);
+            $view->vars['image_url'] = $imageUrl;
         }
         if (array_key_exists('image_filter', $options))
         {
-            $view->set('image_filter', $options['image_filter']);
+            $view->vars['image_filter'] = $options['image_filter'];
         }
     }
 }

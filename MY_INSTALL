@@ -17,6 +17,7 @@ inne:
 
   app/console assets:install web/
 
+  ./app/console cache:clear --env=prod --no-debug --no-warmup
 
 katalogi:
 web/uploads na 777

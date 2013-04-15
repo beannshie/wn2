@@ -17,18 +17,23 @@ class ArticleEntryType extends BasePostType
         $builder
             ->add('image', 'file', array(
                 'required' => false,
-                'label' => 'fn.label.article.article_entry.image'
+                'label' => 'fn.label.article.article_entry.image',
+                'image_path' => 'imageWebPath',
+                'image_filter' => 'backend_mini'
             ))
             ->add('image_alt', 'text', array(
-            'required' => false,
-                'label' => 'fn.label.article.article_entry.image_alt'
+                'required' => false,
+                'label' => 'fn.label.article.article_entry.image_alt',
+                'help_block' => 'fn.help.image_alt'
             ))
             ->add('image_title', 'text', array(
-            'required' => false,
-                'label' => 'fn.label.article.article_entry.image_title'
+                'required' => false,
+                'label' => 'fn.label.article.article_entry.image_title',
+                'help_block' => 'fn.help.image_title'
             ))
             ->add('categories', 'sylius_categorizer_category_choice', array(
                 'multiple' => true,
+                'required' => true,
                 'catalog'  => 'artykuly',
                 'label' => 'fn.label.article.article_entry.categories'
             ))

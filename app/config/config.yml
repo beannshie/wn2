@@ -64,19 +64,19 @@ avalanche_imagine:
     filters:
         icon:
             type: thumbnail
-            options: { size: [45, 30], mode: inbound }
+            options: { size: [45, 30], mode: inset }
         frontend_medium:
             type: thumbnail
-            options: { size: [220, 180], mode: outbound }
+            options: { size: [220, 180], mode: inset }
         frontend_box:
             type: thumbnail
-            options: { size: [130, 75], mode: outbound }
+            options: { size: [130, 75], mode: inset }
         backend_mini:
             type: thumbnail
-            options: { size: [90, 60], mode: outbound }
+            options: { size: [90, 60], mode: inset }
         backend_medium:
             type: thumbnail
-            options: { size: [250, 150], mode: outbound }
+            options: { size: [250, 150], mode: inset }
 
 # User bundle
 fos_user:

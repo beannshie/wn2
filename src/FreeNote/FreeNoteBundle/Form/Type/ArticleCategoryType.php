@@ -33,12 +33,12 @@ class ArticleCategoryType extends NestedCategoryType
             ->add('image_alt', 'text', array(
                 'required' => false,
                 'label' => 'fn.label.article.article_category.image_alt',
-                'help_block' => 'W przypadku braku, aplikacja wygeneruje domyślny opis na podstawie nazwy kategorii.'
+                'help_block' => 'fn.help.image_alt'
             ))
             ->add('image_title', 'text', array(
                 'required' => false,
                 'label' => 'fn.label.article.article_category.image_title',
-                'help_block' => 'Nazwa ta wyświetli się, jeśli plik graficzny nie zostanie znaleziony. W przypadku braku, aplikacja wygeneruje domyślny tytuł na podstawie nazwy kategorii.'
+                'help_block' => 'fn.help.image_title'
             ));
     }
 
