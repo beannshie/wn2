@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-<form action="{{ path('free_note_backend_article_entry_update', {'id': article_entry.id}) }}" {{ form_enctype(form) }} method="post" class="form-horizontal">
+<form action="{{ path('free_note_backend_article_entry_update', {'id': article_entry.id}) }}" {{ form_enctype(form) }} method="post" class="form-horizontal" novalidate>
     {% include 'FreeNoteBundle:Backend/ArticleEntry:_form.html.twig' %}
     <div class="form-actions">
         <input type="submit" class="btn btn-large btn-primary" value="{{ 'save_changes'|trans({}, 'FreeNoteCoreBundle') }}">

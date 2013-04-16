@@ -308,9 +308,9 @@ class ArticleEntry extends BasePost implements fnUploadableImageInterface
         return $this->getImageFilename() ? $this->getImageUploadDir().DIRECTORY_SEPARATOR.$this->getImageFilename() : null;
     }
 
-    public function saveTitleAlt()
+    public function generateTitleAlt()
     {
-        if($this->imageFilename)
+        if($this->image)
         {
             if(empty($this->imageTitle))
             {

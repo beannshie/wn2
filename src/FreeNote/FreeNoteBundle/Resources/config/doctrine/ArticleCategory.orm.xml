@@ -52,8 +52,8 @@
                 callback="uploadableCallback"/>
 
         <lifecycle-callbacks>
-            <lifecycle-callback type="prePersist" method="saveTitleAlt"/>
-            <lifecycle-callback type="preUpdate" method="saveTitleAlt"/>
+            <lifecycle-callback type="prePersist" method="generateTitleAlt"/>
+            <lifecycle-callback type="preUpdate" method="generateTitleAlt"/>
         </lifecycle-callbacks>
     </entity>
 

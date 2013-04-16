@@ -10,4 +10,10 @@ interface fnUploadableImageInterface
      * @return string
      */
     function getImageUploadDir();
+
+
+    /**
+     * Change image title and alt if not set and image is uploaded
+     */
+    function generateTitleAlt();
 }
