@@ -14,13 +14,13 @@
 </div>
 
 {% if article_entries.haveToPaginate() %}
-{{ pagerfanta(article_entries, 'twitter_bootstrap_translated') }}
+{{ pagerfanta(article_entries, 'twitter_bootstrap_translated', {'routeParams': app.request.query.all(), 'routeName': 'free_note_backend_article_entry_list'}) }}
 {% endif %}
 
 {{ macros.list(article_entries, 'article_entry', {'page': article_entries.currentPage}) }}
 
 {% if article_entries.haveToPaginate() %}
-{{ pagerfanta(article_entries, 'twitter_bootstrap_translated') }}
+{{ pagerfanta(article_entries, 'twitter_bootstrap_translated', {'routeParams': app.request.query.all(), 'routeName': 'free_note_backend_article_entry_list'}) }}
 {% endif %}
 
 {% endblock %}
