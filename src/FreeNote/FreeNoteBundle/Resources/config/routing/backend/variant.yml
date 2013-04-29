@@ -2,31 +2,36 @@ free_note_backend_variant_create:
     pattern: /create
     defaults:
         _controller: sylius.controller.variant:createAction
-        template: FreeNoteBundle:Backend/Variant:create.html.twig
-        redirect: free_note_backend_variant_show
+        _sylius:
+            template: FreeNoteBundle:Backend/Variant:create.html.twig
+            redirect: free_note_backend_variant_show
 
 free_note_backend_variant_update:
     pattern: /{id}/update
     defaults:
         _controller: sylius.controller.variant:updateAction
-        template: FreeNoteBundle:Backend/Variant:update.html.twig
-        redirect: free_note_backend_variant_show
+        _sylius:
+            template: FreeNoteBundle:Backend/Variant:update.html.twig
+            redirect: free_note_backend_variant_show
 
 free_note_backend_variant_delete:
     pattern: /{id}/delete
     defaults:
         _controller: sylius.controller.variant:deleteAction
-        redirect: free_note_backend_product_list
+        _sylius:
+            redirect: free_note_backend_product_list
 
 free_note_backend_variant_generate:
     pattern: /generate
     defaults:
         _controller: sylius.controller.variant:generateAction
-        redirect: free_note_backend_product_show
+        _sylius:
+            redirect: free_note_backend_product_show
 
 free_note_backend_variant_show:
     pattern: /{id}
     defaults:
         _controller: sylius.controller.variant:showAction
-        template: FreeNoteBundle:Backend/Variant:show.html.twig
-        productId: 'any' # Hacky hack...
+        _sylius:
+            template: FreeNoteBundle:Backend/Variant:show.html.twig
+            productId: 'any' # Hacky hack...

@@ -2,44 +2,50 @@ free_note_backend_product_list:
     pattern: /
     defaults:
         _controller: sylius.controller.product:indexAction
-        template: FreeNoteBundle:Backend/Product:list.html.twig
-        sortable: true
-        sorting:
-            updatedAt: desc
+        _sylius:
+            template: FreeNoteBundle:Backend/Product:list.html.twig
+            sortable: true
+            sorting:
+                updatedAt: desc
 
 free_note_backend_product_list_by_taxon:
     pattern: /t/{permalink}
     defaults:
         _controller: sylius.controller.product:listByTaxonAction
-        template: FreeNoteBundle:Backend/Product:listByTaxon.html.twig
+        _sylius:
+            template: FreeNoteBundle:Backend/Product:listByTaxon.html.twig
 
 free_note_backend_product_create:
     pattern: /create
     defaults:
         _controller: sylius.controller.product:createAction
-        template: FreeNoteBundle:Backend/Product:create.html.twig
-        redirect: free_note_backend_product_show
+        _sylius:
+            template: FreeNoteBundle:Backend/Product:create.html.twig
+            redirect: free_note_backend_product_show
 
 free_note_backend_product_update:
     pattern: /{id}/update
     defaults:
         _controller: sylius.controller.product:updateAction
-        template: FreeNoteBundle:Backend/Product:update.html.twig
-        redirect: free_note_backend_product_show
+        _sylius:
+            template: FreeNoteBundle:Backend/Product:update.html.twig
+            redirect: free_note_backend_product_show
 
 free_note_backend_product_update_variants:
     pattern: /{id}/update-variants
     defaults:
         _controller: sylius.controller.product:updateAction
-        form: free_note_product_variants_grid
-        template: FreeNoteBundle:Backend/Product:updateVariants.html.twig
-        redirect: free_note_backend_product_show
+        _sylius:
+            form: free_note_product_variants_grid
+            template: FreeNoteBundle:Backend/Product:updateVariants.html.twig
+            redirect: free_note_backend_product_show
 
 free_note_backend_product_delete:
     pattern: /{id}/delete
     defaults:
         _controller: sylius.controller.product:deleteAction
-        redirect: free_note_backend_product_list
+        _sylius:
+            redirect: free_note_backend_product_list
 
 free_note_backend_product_duplicate:
     pattern: /{id}/duplicate
@@ -50,4 +56,5 @@ free_note_backend_product_show:
     pattern: /{id}
     defaults:
         _controller: sylius.controller.product:showAction
-        template: FreeNoteBundle:Backend/Product:show.html.twig
+        _sylius:
+            template: FreeNoteBundle:Backend/Product:show.html.twig

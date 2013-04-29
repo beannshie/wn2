@@ -2,20 +2,23 @@ free_note_backend_user_list:
     pattern: /list
     defaults:
         _controller: sylius.controller.user:indexAction
-        template: FreeNoteBundle:Backend/User:list.html.twig
-        filterable: true
-        sortable: true
-        sorting:
-            id: desc
+        _sylius:
+            template: FreeNoteBundle:Backend/User:list.html.twig
+            filterable: true
+            sortable: true
+            sorting:
+                id: desc
 
 free_note_backend_user_delete:
     pattern: /{id}/delete
     defaults:
         _controller: sylius.controller.user:deleteAction
-        redirect: free_note_backend_user_list
+        _sylius:
+            redirect: free_note_backend_user_list
 
 free_note_backend_user_show:
     pattern: /{id}
     defaults:
         _controller: sylius.controller.user:showAction
-        template: FreeNoteBundle:Backend/User:show.html.twig
+        _sylius:
+            template: FreeNoteBundle:Backend/User:show.html.twig

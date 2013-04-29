@@ -2,33 +2,38 @@ free_note_backend_order_list:
     pattern: /list
     defaults:
         _controller: sylius.controller.order:indexAction
-        template: FreeNoteBundle:Backend/Order:list.html.twig
-        sortable: true
-        sorting:
-            updatedAt: asc
+        _sylius:
+            template: FreeNoteBundle:Backend/Order:list.html.twig
+            sortable: true
+            sorting:
+                updatedAt: asc
 
 free_note_backend_order_create:
     pattern: /create
     defaults:
         _controller: sylius.controller.order:createAction
-        template: FreeNoteBundle:Backend/Order:create.html.twig
-        redirect: free_note_backend_order_show
+        _sylius:
+            template: FreeNoteBundle:Backend/Order:create.html.twig
+            redirect: free_note_backend_order_show
 
 free_note_backend_order_update:
     pattern: /{id}/update
     defaults:
         _controller: sylius.controller.order:updateAction
-        template: FreeNoteBundle:Backend/Order:update.html.twig
-        redirect: free_note_backend_order_show
+        _sylius:
+            template: FreeNoteBundle:Backend/Order:update.html.twig
+            redirect: free_note_backend_order_show
 
 free_note_backend_order_delete:
     pattern: /{id}/delete
     defaults:
         _controller: sylius.controller.order:deleteAction
-        redirect: free_note_backend_order_list
+        _sylius:
+            redirect: free_note_backend_order_list
 
 free_note_backend_order_show:
     pattern: /{id}
     defaults:
         _controller: sylius.controller.order:showAction
-        template: FreeNoteBundle:Backend/Order:show.html.twig
+        _sylius:
+            template: FreeNoteBundle:Backend/Order:show.html.twig

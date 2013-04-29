@@ -2,26 +2,30 @@ free_note_backend_shipment_list:
     pattern: /list
     defaults:
         _controller: sylius.controller.shipment:indexAction
-        template: FreeNoteBundle:Backend/Shipment:list.html.twig
-        sortable: true
-        sorting:
-            updatedAt: asc
+        _sylius:
+            template: FreeNoteBundle:Backend/Shipment:list.html.twig
+            sortable: true
+            sorting:
+                updatedAt: asc
 
 free_note_backend_shipment_update:
     pattern: /{id}/update
     defaults:
         _controller: sylius.controller.shipment:updateAction
-        template: FreeNoteBundle:Backend/Shipment:update.html.twig
-        redirect: free_note_backend_shipment_show
+        _sylius:
+            template: FreeNoteBundle:Backend/Shipment:update.html.twig
+            redirect: free_note_backend_shipment_show
 
 free_note_backend_shipment_delete:
     pattern: /{id}/delete
     defaults:
         _controller: sylius.controller.shipment:deleteAction
-        redirect: free_note_backend_shipment_list
+        _sylius:
+            redirect: free_note_backend_shipment_list
 
 free_note_backend_shipment_show:
     pattern: /{id}
     defaults:
         _controller: sylius.controller.shipment:showAction
-        template: FreeNoteBundle:Backend/Shipment:show.html.twig
+        _sylius:
+            template: FreeNoteBundle:Backend/Shipment:show.html.twig

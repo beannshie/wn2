@@ -2,4 +2,5 @@ free_note_backend_zone_member_delete:
     pattern: /{id}/delete
     defaults:
         _controller: sylius.controller.zone_member:deleteAction
-        redirect: free_note_backend_zone_list
+        _sylius:
+            redirect: free_note_backend_zone_list

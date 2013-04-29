@@ -2,18 +2,21 @@ free_note_backend_province_create:
     pattern: /create
     defaults:
         _controller: sylius.controller.province:createAction
-        template: FreeNoteBundle:Backend/Province:create.html.twig
-        redirect: free_note_backend_country_list
+        _sylius:
+            template: FreeNoteBundle:Backend/Province:create.html.twig
+            redirect: free_note_backend_country_list
 
 free_note_backend_province_update:
     pattern: /{id}/update
     defaults:
         _controller: sylius.controller.province:updateAction
-        template: FreeNoteBundle:Backend/Province:update.html.twig
-        redirect: free_note_backend_country_list
+        _sylius:
+            template: FreeNoteBundle:Backend/Province:update.html.twig
+            redirect: free_note_backend_country_list
 
 free_note_backend_province_delete:
     pattern: /{id}/delete
     defaults:
         _controller: sylius.controller.province:deleteAction
-        redirect: free_note_backend_country_list
+        _sylius:
+            redirect: free_note_backend_country_list

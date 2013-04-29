@@ -2,33 +2,38 @@ free_note_backend_address_list:
     pattern: /list
     defaults:
         _controller: sylius.controller.address:indexAction
-        template: FreeNoteBundle:Backend/Address:list.html.twig
-        sortable: true
-        sorting:
-            updatedAt: desc
+        _sylius:
+            template: FreeNoteBundle:Backend/Address:list.html.twig
+            sortable: true
+            sorting:
+                updatedAt: desc
 
 free_note_backend_address_create:
     pattern: /create
     defaults:
         _controller: sylius.controller.address:createAction
-        template: FreeNoteBundle:Backend/Address:create.html.twig
-        redirect: free_note_backend_address_show
+        _sylius:
+            template: FreeNoteBundle:Backend/Address:create.html.twig
+            redirect: free_note_backend_address_show
 
 free_note_backend_address_update:
     pattern: /{id}/update
     defaults:
         _controller: sylius.controller.address:updateAction
-        template: FreeNoteBundle:Backend/Address:update.html.twig
-        redirect: free_note_backend_address_show
+        _sylius:
+            template: FreeNoteBundle:Backend/Address:update.html.twig
+            redirect: free_note_backend_address_show
 
 free_note_backend_address_delete:
     pattern: /{id}/delete
     defaults:
         _controller: sylius.controller.address:deleteAction
-        redirect: free_note_backend_address_list
+        _sylius:
+            redirect: free_note_backend_address_list
 
 free_note_backend_address_show:
     pattern: /{id}
     defaults:
         _controller: sylius.controller.address:showAction
-        template: FreeNoteBundle:Backend/Address:show.html.twig
+        _sylius:
+            template: FreeNoteBundle:Backend/Address:show.html.twig

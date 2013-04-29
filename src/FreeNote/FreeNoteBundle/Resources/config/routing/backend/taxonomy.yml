@@ -2,25 +2,29 @@ free_note_backend_taxonomy_list:
     pattern: /list
     defaults:
         _controller: sylius.controller.taxonomy:indexAction
-        template: FreeNoteBundle:Backend/Taxonomy:list.html.twig
-        sortable: true
+        _sylius:
+            template: FreeNoteBundle:Backend/Taxonomy:list.html.twig
+            sortable: true
 
 free_note_backend_taxonomy_create:
     pattern: /create
     defaults:
         _controller: sylius.controller.taxonomy:createAction
-        template: FreeNoteBundle:Backend/Taxonomy:create.html.twig
-        redirect: free_note_backend_taxonomy_list
+        _sylius:
+            template: FreeNoteBundle:Backend/Taxonomy:create.html.twig
+            redirect: free_note_backend_taxonomy_list
 
 free_note_backend_taxonomy_update:
     pattern: /{id}/update
     defaults:
         _controller: sylius.controller.taxonomy:updateAction
-        template: FreeNoteBundle:Backend/Taxonomy:update.html.twig
-        redirect: free_note_backend_taxonomy_list
+        _sylius:
+            template: FreeNoteBundle:Backend/Taxonomy:update.html.twig
+            redirect: free_note_backend_taxonomy_list
 
 free_note_backend_taxonomy_delete:
     pattern: /{id}/delete
     defaults:
         _controller: sylius.controller.taxonomy:deleteAction
-        redirect: free_note_backend_taxonomy_list
+        _sylius:
+            redirect: free_note_backend_taxonomy_list

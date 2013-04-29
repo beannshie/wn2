@@ -2,27 +2,31 @@ free_note_backend_tax_rate_list:
     pattern: /
     defaults:
         _controller: sylius.controller.tax_rate:indexAction
-        template: FreeNoteBundle:Backend/TaxRate:list.html.twig
-        sortable: true
-        sorting:
-            name: desc
+        _sylius:
+            template: FreeNoteBundle:Backend/TaxRate:list.html.twig
+            sortable: true
+            sorting:
+                name: desc
 
 free_note_backend_tax_rate_create:
     pattern: /create
     defaults:
         _controller: sylius.controller.tax_rate:createAction
-        template: FreeNoteBundle:Backend/TaxRate:create.html.twig
-        redirect: free_note_backend_tax_rate_list
+        _sylius:
+            template: FreeNoteBundle:Backend/TaxRate:create.html.twig
+            redirect: free_note_backend_tax_rate_list
 
 free_note_backend_tax_rate_update:
     pattern: /update
     defaults:
         _controller: sylius.controller.tax_rate:updateAction
-        template: FreeNoteBundle:Backend/TaxRate:update.html.twig
-        redirect: free_note_backend_tax_rate_list
+        _sylius:
+            template: FreeNoteBundle:Backend/TaxRate:update.html.twig
+            redirect: free_note_backend_tax_rate_list
 
 free_note_backend_tax_rate_delete:
     pattern: /{id}/delete
     defaults:
         _controller: sylius.controller.tax_rate:deleteAction
-        redirect: free_note_backend_tax_rate_list
+        _sylius:
+            redirect: free_note_backend_tax_rate_list

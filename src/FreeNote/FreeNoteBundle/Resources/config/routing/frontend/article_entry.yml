@@ -2,16 +2,19 @@ free_note_article_entry_list:
     pattern: /
     defaults:
         _controller: free_note.controller.article_entry:indexAction
-        template: FreeNoteBundle:Frontend/ArticleEntry:list.html.twig
-        paginate: 10
-        criteria:
-            published: true
-        sorting:
-            createdAt: desc
+        _sylius:
+            template: FreeNoteBundle:Frontend/ArticleEntry:list.html.twig
+            paginate: 10
+            criteria:
+                published: true
+            sorting:
+                createdAt: desc
 
 free_note_article_entry_show:
     pattern: /{slug}
     defaults:
         _controller: free_note.controller.article_entry:showAction
-        template: FreeNoteBundle:Frontend/ArticleEntry:show.html.twig
-        identifier: slug
+        _sylius:
+            template: FreeNoteBundle:Frontend/ArticleEntry:show.html.twig
+            criteria:
+                slug: $slug
