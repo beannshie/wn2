@@ -17,6 +17,14 @@
 >
     <i class="icon-remove icon-white"></i> {{ 'delete'|trans({}, 'FreeNoteCoreBundle') }}
 </a>
+<a href="
+    {% if (app.request.server.get('HTTP_REFERER')) is not empty %}
+        {{ (app.request.server.get('HTTP_REFERER')) }}
+    {% else %}
+        {{ path('free_note_backend_article_entry_list') }}
+    {% endif %}
+    " class="btn">{{ 'cancel'|trans({}, 'FreeNoteCoreBundle') }}
+</a>
 </div>
 
 <table class="table table-bordered">

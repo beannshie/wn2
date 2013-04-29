@@ -9,6 +9,13 @@
     {% include 'FreeNoteBundle:Backend/ArticleEntry:_form.html.twig' %}
     <div class="form-actions">
         <input type="submit" class="btn btn-large btn-primary" value="{{ 'save_changes'|trans({}, 'FreeNoteCoreBundle') }}">
+        <a href="
+            {% if (app.request.server.get('HTTP_REFERER')) is not empty %}
+                {{ (app.request.server.get('HTTP_REFERER')) }}
+            {% else %}
+                {{ path('free_note_backend_article_entry_list') }}
+            {% endif %}
+            " class="btn btn-large">{{ 'cancel'|trans({}, 'FreeNoteCoreBundle') }}</a>
     </div>
 </form>
 {% endblock %}
