@@ -6,9 +6,9 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Persistence\ObjectManager;
 
 /**
- * Default articles to play with.
+ * Default news to play with.
  */
-class LoadArticleEntriesData extends DataFixture
+class LoadNewsEntriesData extends DataFixture
 {
     /**
      * {@inheritdoc}
@@ -19,7 +19,7 @@ class LoadArticleEntriesData extends DataFixture
             'Recenzje', 'Koncerty', 'Festiwale', 'Dyskografie', 'Literatura', 'Biografie');
 
         for ($i = 1; $i <= 50; $i++) {
-            $post = $this->get('free_note.repository.article_entry')->createNew();
+            $post = $this->get('free_note.repository.news_entry')->createNew();
 
             $post->setTitle($this->faker->sentence);
             $post->setAuthor($this->faker->name);
@@ -44,15 +44,15 @@ class LoadArticleEntriesData extends DataFixture
             }
 
             $categories = array(
-                $this->getReference('Sandbox.Article.Category.'.$randomA),
-                $this->getReference('Sandbox.Article.Category.'.$randomB)
+                $this->getReference('Sandbox.News.Category.'.$randomA),
+                $this->getReference('Sandbox.News.Category.'.$randomB)
             );
 
             $post->setCategories(new ArrayCollection($categories));
 
             $manager->persist($post);
 
-            $this->setReference('Sandbox.Article.Entry-'.$i, $post);
+            $this->setReference('Sandbox.News.Entry-'.$i, $post);
 
             if (0 === $i % 20) {
                 $manager->flush();
@@ -67,6 +67,6 @@ class LoadArticleEntriesData extends DataFixture
      */
     public function getOrder()
     {
-        return 10;
+        return 11;
     }
 }

@@ -7,7 +7,7 @@
                 <th>{{ sylius_resource_sort('id', 'entry.id'|trans({}, 'FreeNoteCoreBundle'), null, null, routeParams) }}</th>
                 <th>{{ 'entry.image'|trans({}, 'FreeNoteCoreBundle') }}</th>
                 <th>{{ sylius_resource_sort('title', 'entry.title'|trans({}, 'FreeNoteCoreBundle'), null, null, routeParams) }}</th>
-                <th>{{ sylius_resource_sort('author', 'entry.author'|trans({}, 'FreeNoteCoreBundle'), null, null, routeParams) }}</th>
+                <th>{{ sylius_resource_sort('author', ('entry.'~routeSlug~'.author')|trans({}, 'FreeNoteCoreBundle'), null, null, routeParams) }}</th>
                 <th></th>
             </tr>
             </thead>
@@ -46,6 +46,14 @@
             <h4 class="alert-heading">{{ 'alert.heading.info'|trans({}, 'FreeNoteCoreBundle') }}.</h4>
             {{ 'no_results'|trans({}, 'FreeNoteCoreBundle') }}
         </div>
+    {% endif %}
+
+{% endmacro %}
+
+{% macro pager(entries, routeSlug) %}
+
+    {% if entries.haveToPaginate() %}
+        {{ pagerfanta(entries, 'twitter_bootstrap_translated', {'routeParams': app.request.query.all(), 'routeName': 'free_note_backend_'~routeSlug~'_list'}) }}
     {% endif %}
 
 {% endmacro %}

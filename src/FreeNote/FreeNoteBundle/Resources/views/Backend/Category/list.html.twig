@@ -1,0 +1,73 @@
+{% extends 'FreeNoteBundle:Backend:layout.html.twig' %}
+
+{% block header %}
+    <h1>{{ ('category.list_header.'~catalog.alias)|trans({}, 'FreeNoteCoreBundle') }} <small>Zarządzaj kategoriami</small></h1>
+{% endblock %}
+
+{% block content %}
+<div class="well">
+    <a href="{{ path('free_note_backend_category_create', {'alias': catalog.alias}) }}" class="btn btn-primary">
+        <i class="icon-plus icon-white"></i> {{ 'category.create'|trans({}, 'FreeNoteCoreBundle') }}
+    </a>
+</div>
+
+{% if categories %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>{{ 'category.id'|trans({}, 'FreeNoteCoreBundle') }}</th>
+            <th>{{ 'category.icon'|trans({}, 'FreeNoteCoreBundle') }}</th>
+            <th>{{ 'category.name'|trans({}, 'FreeNoteCoreBundle') }}</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for category in categories %}
+            <tr>
+                <td>{{ category.id }}</td>
+                <td>
+                    <img src="{{ category.imageWebPath is empty ? 'http://placehold.it/45x30' : category.imageWebPath|apply_filter('icon') }}"
+                         alt="{{ category.imageAlt }}" title="{{ category.imageTitle }}" /></td>
+                <td class="category_level_{{ category.level }}">{{ "|" }}
+                    {% for i in 0..category.level if i < category.level-1 %}{{ '--' }}{% endfor %}--> {{ category.name }}</td>
+                <td>
+                    <div class="pull-right btn-toolbar">
+                        <div class="btn-group">
+                            {% if loop.first %}
+                            <a class="btn disabled">&uarr;</a>
+                            {% else %}
+                            <a href="{{ path('free_note_backend_category_move_up', {'alias': catalog.alias, 'id': category.id}) }}" class="btn">&uarr;</a>
+                            {% endif %}
+
+                            {% if loop.last %}
+                            <a class="btn disabled">&darr;</a>
+                            {% else %}
+                            <a href="{{ path('free_note_backend_category_move_down', {'alias': catalog.alias, 'id': category.id}) }}" class="btn">&darr;</a>
+                            {% endif %}
+                        </div>
+                        <div class="btn-group">
+                            <a href="{{ path('free_note_backend_category_show', {'alias': catalog.alias, 'id': category.id}) }}" class="btn">
+                                <i class="icon-list-alt"></i> {{ ('category.list_posts.'~catalog.alias)|trans({}, 'FreeNoteCoreBundle') }}
+                            </a>
+                            <a href="{{ path('free_note_backend_category_update', {'alias': catalog.alias, 'id': category.id}) }}" class="btn">
+                                <i class="icon-pencil"></i> {{ 'update'|trans({}, 'FreeNoteCoreBundle') }}
+                            </a>
+                            <a href="{{ path('free_note_backend_category_delete', {'alias': catalog.alias, 'id': category.id}) }}" class="btn btn-danger confirmer"
+                                data-confirmer-question="{{ 'confirmer.q.category.delete'|trans({}, 'SandboxCoreBundle') }}"
+                            >
+                                <i class="icon-remove icon-white"></i> {{ 'delete'|trans({}, 'FreeNoteCoreBundle') }}
+                            </a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div class="alert alert-info">
+    <h4 class="alert-heading">{{ 'alert.heading.info'|trans({}, 'FreeNoteCoreBundle') }}.</h4>
+    {{ 'no_results'|trans({}, 'FreeNoteCoreBundle') }}
+</div>
+{% endif %}
+{% endblock %}

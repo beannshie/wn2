@@ -1,0 +1,24 @@
+{% extends 'FreeNoteBundle:Backend:layout.html.twig' %}
+
+{% import 'FreeNoteBundle:Backend/Entry:macros.html.twig' as macros %}
+
+{% set en_alias = constant('FreeNote\\FreeNoteBundle\\Model\\fnCategoryInterface::FN_CATEGORY_BACKEND_'~catalog.alias~'_ALIAS') %}
+
+{% block header %}
+    <h1>{{ category.name }}<small> {{ ('entry.'~en_alias~'_entry.list_header')|trans({}, 'FreeNoteCoreBundle') }}</small></h1>
+{% endblock %}
+
+{% block content %}
+<div class="well">
+<a href="{{ path('free_note_backend_'~en_alias~'_entry_create') }}" class="btn btn-primary large">
+    <i class="icon-plus icon-white"></i> {{ ('entry.'~en_alias~'_entry.create')|trans({}, 'FreeNoteCoreBundle') }}
+</a>
+</div>
+
+{{ macros.pager(paginator, en_alias~'_entry') }}
+
+{{ macros.list(entries, en_alias~'_entry', {'alias': catalog.alias, 'id':category.id}) }}
+
+{{ macros.pager(paginator, en_alias~'_entry') }}
+
+{% endblock %}

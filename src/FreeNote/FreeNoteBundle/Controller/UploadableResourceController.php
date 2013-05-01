@@ -11,6 +11,49 @@ use FreeNote\FreeNoteBundle\Model\fnUploadableImageInterface;
  */
 class UploadableResourceController extends ResourceController
 {
+    /**
+     * Get collection (paginated by default) of resources.
+     */
+    public function indexAction(Request $request)
+    {
+        $config = $this->getConfiguration();
+
+        $criteria = $config->getCriteria();
+        $sorting = $config->getSorting();
+
+        $pluralName = $config->getPluralResourceName();
+        $repository = $this->getRepository();
+
+        if ($config->isPaginated()) {
+            $resources = $this
+                ->getResourceResolver()
+                ->getResource($repository, $config, 'createPaginator', array($criteria, $sorting))
+            ;
+
+            $resources
+                ->setCurrentPage($request->get('page', 1), true, true)
+                ->setMaxPerPage($config->getPaginationMaxPerPage())
+            ;
+        } else {
+            $resources = $this
+                ->getResourceResolver()
+                ->getResource($repository, $config, 'findBy', array($criteria, $sorting, $config->getLimit()))
+            ;
+        }
+
+        $view = $this
+            ->view()
+            ->setTemplate($config->getTemplate('index.html'))
+            ->setTemplateVar($pluralName)
+            ->setData(array(
+                'entries' => $resources,
+                'resourceName' => $config->getResourceName()
+            ))
+        ;
+
+        return $this->handleView($view);
+    }
+
     public function persistAndFlush($resource)
     {
         $manager = $this->getManager();

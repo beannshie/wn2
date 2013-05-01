@@ -4,9 +4,6 @@ namespace FreeNote\FreeNoteBundle\Form\Type;
 
 use Sylius\Bundle\CategorizerBundle\Form\Type\NestedCategoryType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Sylius\Bundle\CategorizerBundle\Form\EventListener\BuildNestedCategoryTypeListener;
-use Symfony\Component\Form\AbstractType;
 
 class ArticleCategoryType extends NestedCategoryType
 {

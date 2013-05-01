@@ -44,8 +44,12 @@ category:
     list_header:
         artykuly: Kategorie artykułów
         aktualnosci: Kategorie aktualności
-    update_header: Edycja kategorii artykułów
-    new_header: Dodaj kategorię artykułów
+    update_header:
+        artykuly: Edycja kategorii artykułów
+        aktualnosci: Edycja kategorii aktualności
+    new_header:
+        artykuly: Dodaj kategorię artykułów
+        aktualnosci: Dodaj kategorię aktualności
     id: '#id'
     icon: ikona
     name: nazwa
@@ -57,8 +61,7 @@ category:
 entry:
     id: '#id'
     title: tytuł
-    image: obraz główny
-    author: autor
+    image: obraz
     content: treść
     created_at: utworzono
     created_by: utworzono przez
@@ -66,9 +69,17 @@ entry:
     updated_by: modyfikowany przez
     categories: kategorie
     categories_blank: brak
-    update_header: Edycja wpisu
-    new_header: Dodaj wpis
-    article:
+    article_entry:
+        author: autor
         list_header: Lista artykułów
         create: Nowy artykuł
         details: Szczegóły artykułu
+        update_header: Edycja artykułu
+        new_header: Dodaj artykuł
+    news_entry:
+        author: źródło
+        list_header: Lista aktualności
+        create: Nowa aktualność
+        details: Szczegóły aktualności
+        update_header: Edycja aktualności
+        new_header: Dodaj aktualność

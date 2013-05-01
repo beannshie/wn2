@@ -1,0 +1,22 @@
+{% extends 'FreeNoteBundle:Backend:layout.html.twig' %}
+
+{% import 'FreeNoteBundle:Backend/Entry:macros.html.twig' as macros %}
+
+{% block header %}
+    <h1>{{ ('entry.'~resourceName~'.list_header')|trans({}, 'FreeNoteCoreBundle') }}</h1>
+{% endblock %}
+
+{% block content %}
+<div class="well">
+    <a href="{{ path('free_note_backend_'~resourceName~'_create') }}" class="btn btn-primary">
+        <i class="icon-plus icon-white"></i> {{ ('entry.'~resourceName~'.create')|trans({}, 'FreeNoteCoreBundle') }}
+    </a>
+</div>
+
+{{ macros.pager(entries, resourceName) }}
+
+{{ macros.list(entries, resourceName, {'page': entries.currentPage}) }}
+
+{{ macros.pager(entries, resourceName) }}
+
+{% endblock %}

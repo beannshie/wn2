@@ -92,3 +92,7 @@ free_note_backend_user:
 free_note_backend_settings:
     prefix: /settings
     resource: @FreeNoteBundle/Resources/config/routing/backend/settings.yml
+
+free_note_backend_news_entry:
+    resource: @FreeNoteBundle/Resources/config/routing/backend/news_entry.yml
+    prefix: /news

@@ -1,0 +1,20 @@
+free_note_news_entry_list:
+    pattern: /
+    defaults:
+        _controller: free_note.controller.news_entry:indexAction
+        _sylius:
+            template: FreeNoteBundle:Frontend/NewsEntry:list.html.twig
+            paginate: 10
+            criteria:
+                published: true
+            sorting:
+                createdAt: desc
+
+free_note_news_entry_show:
+    pattern: /{slug}
+    defaults:
+        _controller: free_note.controller.news_entry:showAction
+        _sylius:
+            template: FreeNoteBundle:Frontend/NewsEntry:show.html.twig
+            criteria:
+                slug: $slug

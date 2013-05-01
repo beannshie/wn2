@@ -1,0 +1,15 @@
+{% extends 'FreeNoteBundle:Backend:layout.html.twig' %}
+
+{% block header %}
+    <h1>{{ ('category.new_header.'~catalog.alias)|trans({}, 'FreeNoteCoreBundle') }}</h1>
+{% endblock %}
+
+{% block content %}
+<form action="{{ path('free_note_backend_category_create', {'alias': catalog.alias}) }}" method="post" class="form-horizontal" {{ form_enctype(form) }} novalidate>
+    {% include 'FreeNoteBundle:Backend/Category:_form.html.twig' %}
+    <div class="form-actions">
+        <input type="submit" value="{{ 'create'|trans({}, 'FreeNoteCoreBundle') }}" class="btn btn-primary btn-large" />
+        <a href="{{ path('free_note_backend_category_list', {'alias': catalog.alias}) }}" class="btn btn-large">{{ 'cancel'|trans({}, 'FreeNoteCoreBundle') }}</a>
+    </div>
+</form>
+{% endblock %}

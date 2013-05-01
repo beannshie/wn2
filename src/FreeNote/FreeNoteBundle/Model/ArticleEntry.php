@@ -4,7 +4,6 @@ namespace FreeNote\FreeNoteBundle\Model;
 
 use Doctrine\Common\Collections\Collection;
 use Sylius\Bundle\BloggerBundle\Entity\Post as BasePost;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Categorized article entry.

@@ -71,6 +71,6 @@ class LoadZonesData extends DataFixture
      */
     public function getOrder()
     {
-        return 3;
+        return 2;
     }
 }

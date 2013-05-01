@@ -1,0 +1,9 @@
+{% extends 'FreeNoteBundle:Backend:layout.html.twig' %}
+
+{% block header %}
+    <h1>{{ ('entry.'~resourceName~'.new_header')|trans({}, 'FreeNoteCoreBundle') }}</h1>
+{% endblock %}
+
+{% block content %}
+    {% include 'FreeNoteBundle:Backend/Entry:_createContent.html.twig' %}
+{% endblock %}
