@@ -40,6 +40,7 @@
         <parameter key="sylius_categorizer.manager.category.class">FreeNote\FreeNoteBundle\Model\fnCategoryManager</parameter>
         <parameter key="free_note.form.type.article_category.class">FreeNote\FreeNoteBundle\Form\Type\ArticleCategoryType</parameter>
         <parameter key="free_note.form.type.news_category.class">FreeNote\FreeNoteBundle\Form\Type\NewsCategoryType</parameter>
+        <parameter key="free_note.form.type.event_category.class">FreeNote\FreeNoteBundle\Form\Type\EventCategoryType</parameter>
 
     </parameters>
 
@@ -228,6 +229,36 @@
         </service>
         <service id="free_note.form.type.news_category" class="%free_note.form.type.news_category.class%">
             <tag name="form.type" alias="free_note_news_category" />
+        </service>
+
+        <service id="free_note.manager.event_entry" alias="doctrine.orm.entity_manager" />
+        <service id="free_note.repository.event_entry" class="%free_note.repository.event_entry.class%">
+            <argument type="service" id="free_note.manager.event_entry" />
+            <argument type="service">
+                <service
+                        factory-service="doctrine.orm.default_entity_manager"
+                        factory-method="getClassMetadata"
+                        class="Doctrine\ORM\Mapping\ClassMetadata"
+                        public="false"
+                        >
+                    <argument>%free_note.model.event_entry.class%</argument>
+                </service>
+            </argument>
+        </service>
+        <service id="free_note.controller.event_entry" class="%free_note.controller.event_entry.class%">
+            <argument>free_note</argument>
+            <argument>event_entry</argument>
+            <argument>FreeNoteBundle:EventEntry</argument>
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+        </service>
+        <service id="free_note.form.type.event_entry" class="%free_note.form.type.event_entry.class%">
+            <argument>%free_note.model.event_entry.class%</argument>
+            <tag name="form.type" alias="free_note_event_entry" />
+        </service>
+        <service id="free_note.form.type.event_category" class="%free_note.form.type.event_category.class%">
+            <tag name="form.type" alias="free_note_event_category" />
         </service>
     </services>
 

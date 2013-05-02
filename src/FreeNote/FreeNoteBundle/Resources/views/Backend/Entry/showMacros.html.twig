@@ -1,0 +1,101 @@
+{% macro buttons(entry, resourceName) %}
+
+    <div class="well">
+        <a href="{{ path('free_note_backend_'~resourceName~'_update', {'id': entry.id}) }}" class="btn">
+            <i class="icon-pencil"></i> {{ 'update'|trans({}, 'FreeNoteCoreBundle') }}
+        </a>
+        <a href="{{ path('free_note_backend_'~resourceName~'_delete', {'id': entry.id}) }}" class="btn btn-danger confirmer"
+           data-toggle="modal"
+           data-target="confirmer-modal"
+           data-confirmer-question="{{ ('confirmer.q.'~resourceName~'.delete')|trans({}, 'FreeNoteCoreBundle') }}"
+                >
+            <i class="icon-remove icon-white"></i> {{ 'delete'|trans({}, 'FreeNoteCoreBundle') }}
+        </a>
+        <a href="
+            {% if (app.request.server.get('HTTP_REFERER')) is not empty %}
+                {{ (app.request.server.get('HTTP_REFERER')) }}
+            {% else %}
+                {{ path('free_note_backend_'~resourceName~'_list') }}
+            {% endif %}
+            " class="btn">{{ 'cancel'|trans({}, 'FreeNoteCoreBundle') }}
+        </a>
+    </div>
+
+{% endmacro %}
+
+{% macro data(entry, resourceName) %}
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>{{ ('entry.id')|trans({}, 'FreeNoteCoreBundle') }}</th>
+            <th>{{ ('entry.categories')|trans({}, 'FreeNoteCoreBundle') }}</th>
+            <th>{{ ('entry.title')|trans({}, 'FreeNoteCoreBundle') }}</th>
+            <th>{{ ('entry.'~resourceName~'.author')|trans({}, 'FreeNoteCoreBundle') }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ entry.id }}</td>
+            <td>
+                {% if entry.categories|length > 0 %}
+                    <ul>
+                        {% for category in entry.categories %}
+                            <li>{{ category.name }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <span class="label label-info label-padded">
+                        <i class="icon-list-alt icon-white"></i> {{ ('entry.categories_blank')|trans({}, 'FreeNoteCoreBundle') }}
+                    </span>
+                {% endif %}
+            </td>
+            <td>{{ entry.title }}</td>
+            <td>{{ entry.author }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+{% endmacro %}
+
+{% macro date(entry) %}
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>{{ ('entry.created_at')|trans({}, 'FreeNoteCoreBundle') }}</th>
+            <th>{{ ('entry.created_by')|trans({}, 'FreeNoteCoreBundle') }}</th>
+            <th>{{ ('entry.updated_at')|trans({}, 'FreeNoteCoreBundle') }}</th>
+            <th>{{ ('entry.updated_by')|trans({}, 'FreeNoteCoreBundle') }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ entry.createdAt|date('d.m.Y, H:i:s') }}</td>
+            <td>{{ entry.createdBy }}</td>
+            <td>{{ entry.updatedAt|date('d.m.Y, H:i:s') }}</td>
+            <td>{{ entry.updatedBy }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+{% endmacro %}
+
+{% macro image(entry) %}
+
+    <div class="well">
+        <h3>{{ 'entry.image'|trans({}, 'FreeNoteCoreBundle') }}</h3>
+        <img src="{{ entry.imageWebPath is empty ? 'http://placehold.it/250x150' : entry.imageWebPath|apply_filter('backend_medium') }}"
+             alt="{{ entry.imageAlt }}" title="{{ entry.imageTitle }}"/>
+    </div>
+
+{% endmacro %}
+
+{% macro content(entry) %}
+
+    <div class="well">
+        <h3>{{ 'entry.content'|trans({}, 'FreeNoteCoreBundle') }}</h3>
+        {{ entry.content|markdown }}
+    </div>
+
+{% endmacro %}

@@ -154,12 +154,13 @@ sylius_categorizer:
             templates:
                 backend: FreeNoteBundle:Backend/NewsCategory:%s.html.twig
                 frontend: FreeNoteBundle:Frontend/NewsCategory:%s.html.twig
-#        events:
-#            property: "events"
-#            model: FreeNote\FreeNoteBundle\Entity\PostCategory
-#            templates:
-#                backend: FreeNoteBundle:Backend/PostCategory:%s.html.twig
-#                frontend: FreeNoteBundle:Frontend/PostCategory:%s.html.twig
+        wydarzenia:
+            property: "entries"
+            model: FreeNote\FreeNoteBundle\Entity\EventCategory
+            form:  free_note_event_category
+            templates:
+                backend: FreeNoteBundle:Backend/EventCategory:%s.html.twig
+                frontend: FreeNoteBundle:Frontend/EventCategory:%s.html.twig
 #        advertisements:
 #            property: "advertisements"
 #            model: FreeNote\FreeNoteBundle\Entity\PostCategory
@@ -295,5 +296,10 @@ free_note:
         news_entry:
             model: FreeNote\FreeNoteBundle\Entity\NewsEntry
             type:  FreeNote\FreeNoteBundle\Form\Type\NewsEntryType
+            repository:  Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository
+            controller:  FreeNote\FreeNoteBundle\Controller\UploadableResourceController
+        event_entry:
+            model: FreeNote\FreeNoteBundle\Entity\EventEntry
+            type:  FreeNote\FreeNoteBundle\Form\Type\EventEntryType
             repository:  Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository
             controller:  FreeNote\FreeNoteBundle\Controller\UploadableResourceController

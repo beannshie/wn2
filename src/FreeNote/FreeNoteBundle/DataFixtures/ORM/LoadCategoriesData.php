@@ -55,6 +55,22 @@ class LoadCategoriesData extends DataFixture
         $c4 = $this->createCategory('Literatura', $c0);
         $this->createCategory('Biografie', $c4);
 
+        // Wydarzenia
+        $this->catalog = $this->get('sylius_categorizer.registry')->getCatalog(fnCategoryInterface::FN_CATEGORY_EVENT_SLUG);
+        $this->referenceNamespace = 'Sandbox.Event.Category.';
+
+        $c0 = $this->createCategory('Wydarzenia');
+        $c1 = $this->createCategory('Zespoły', $c0);
+        $this->createCategory('Początkujące', $c1);
+        $this->createCategory('Współpracujące z WN', $c1);
+        $c2 = $this->createCategory('Płyty', $c0);
+        $c3 = $this->createCategory('Recenzje', $c0);
+        $this->createCategory('Koncerty', $c3);
+        $this->createCategory('Festiwale', $c3);
+        $this->createCategory('Dyskografie', $c3);
+        $c4 = $this->createCategory('Literatura', $c0);
+        $this->createCategory('Biografie', $c4);
+
 
 //        $this->catalog = $this->get('sylius_categorizer.registry')->getCatalog('events');
 //

@@ -96,3 +96,8 @@ free_note_backend_settings:
 free_note_backend_news_entry:
     resource: @FreeNoteBundle/Resources/config/routing/backend/news_entry.yml
     prefix: /news
+
+free_note_backend_event_entry:
+    resource: @FreeNoteBundle/Resources/config/routing/backend/event_entry.yml
+    prefix: /event
+

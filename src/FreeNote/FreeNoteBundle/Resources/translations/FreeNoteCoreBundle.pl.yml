@@ -44,12 +44,15 @@ category:
     list_header:
         artykuly: Kategorie artykułów
         aktualnosci: Kategorie aktualności
+        wydarzenia: Kategorie wydarzeń
     update_header:
         artykuly: Edycja kategorii artykułów
         aktualnosci: Edycja kategorii aktualności
+        wydarzenia: Edycja kategorii wydarzeń
     new_header:
         artykuly: Dodaj kategorię artykułów
         aktualnosci: Dodaj kategorię aktualności
+        wydarzenia: Dodaj kategorię wydarzeń
     id: '#id'
     icon: ikona
     name: nazwa
@@ -57,6 +60,7 @@ category:
     list_posts:
         artykuly: Lista artykułów
         aktualnosci: Lista aktualności
+        wydarzenia: Lista wydarzeń
 
 entry:
     id: '#id'
@@ -83,3 +87,11 @@ entry:
         details: Szczegóły aktualności
         update_header: Edycja aktualności
         new_header: Dodaj aktualność
+    event_entry:
+        author: organizator
+        list_header: Lista wydarzeń
+        create: Nowe wydarzenie
+        details: Szczegóły wydarzenia
+        update_header: Edycja wydarzenia
+        new_header: Dodaj wydarzenie
+        place: miejsce

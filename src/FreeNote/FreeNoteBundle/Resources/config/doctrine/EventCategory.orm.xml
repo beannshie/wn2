@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                                      http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd"
+                  xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping"
+>
+
+    <entity name="FreeNote\FreeNoteBundle\Entity\EventCategory" table="free_note_event_category" repository-class="FreeNote\FreeNoteBundle\Repository\EventCategoryRepository">
+        <id name="id" column="id" type="integer">
+            <generator strategy="AUTO" />
+        </id>
+
+        <field name="root" column="tree_root" type="integer">
+            <gedmo:tree-root />
+        </field>
+        <field name="imageFilename" column="image_filename" type="string" nullable="true">
+        </field>
+        <field name="imagePath" column="image_path" type="string" nullable="true">
+            <gedmo:uploadable-file-path />
+        </field>
+        <field name="imageMimeType" column="image_mime_type" type="string" nullable="true">
+            <gedmo:uploadable-file-mime-type />
+        </field>
+        <field name="imageSize" column="image_size" type="decimal" nullable="true">
+            <gedmo:uploadable-file-size />
+        </field>
+        <field name="imageAlt" column="image_alt" type="string" nullable="true">
+        </field>
+        <field name="imageTitle" column="image_title" type="string" nullable="true">
+        </field>
+
+        <field name="createdBy" type="string">
+            <gedmo:blameable on="create"/>
+        </field>
+        <field name="updatedBy" type="string">
+            <gedmo:blameable on="update"/>
+        </field>
+
+        <many-to-one field="ancestor" target-entity="FreeNote\FreeNoteBundle\Entity\EventCategory">
+            <join-column name="ancestor_id" referenced-column-name="id" nullable="true" on-delete="CASCADE" />
+            <gedmo:tree-parent />
+        </many-to-one>
+        <many-to-many field="entries" target-entity="FreeNote\FreeNoteBundle\Entity\EventEntry" mapped-by="categories" />
+
+        <gedmo:uploadable
+                path-method="getImagePathDir"
+                filename-generator="ALPHANUMERIC"
+                allow-overwrite="false"
+                append-number="true"
+                callback="uploadableCallback"/>
+
+        <lifecycle-callbacks>
+            <lifecycle-callback type="prePersist" method="generateTitleAlt"/>
+            <lifecycle-callback type="preUpdate" method="generateTitleAlt"/>
+        </lifecycle-callbacks>
+    </entity>
+
+</doctrine-mapping>

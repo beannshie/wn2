@@ -1,10 +1,16 @@
 {% extends 'FreeNoteBundle:Backend:layout.html.twig' %}
 
+{% import 'FreeNoteBundle:Backend/Entry:showMacros.html.twig' as macros %}
+
 {% block header %}
     <h1>{{ ('entry.'~resourceName~'.details')|trans({}, 'FreeNoteCoreBundle') }}</h1>
     <h2>{{ entry.title }}</h2>
 {% endblock %}
 
 {% block content %}
-    {% include 'FreeNoteBundle:Backend/Entry:_showContent.html.twig' %}
+    {{ macros.buttons(entry, resourceName) }}
+    {{ macros.data(entry, resourceName) }}
+    {{ macros.date(entry) }}
+    {{ macros.image(entry) }}
+    {{ macros.content(entry) }}
 {% endblock %}

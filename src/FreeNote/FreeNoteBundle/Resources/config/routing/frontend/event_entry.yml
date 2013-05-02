@@ -1,0 +1,20 @@
+free_note_event_entry_list:
+    pattern: /
+    defaults:
+        _controller: free_note.controller.event_entry:indexAction
+        _sylius:
+            template: FreeNoteBundle:Frontend/EventEntry:list.html.twig
+            paginate: 10
+            criteria:
+                published: true
+            sorting:
+                createdAt: desc
+
+free_note_event_entry_show:
+    pattern: /{slug}
+    defaults:
+        _controller: free_note.controller.event_entry:showAction
+        _sylius:
+            template: FreeNoteBundle:Frontend/EventEntry:show.html.twig
+            criteria:
+                slug: $slug

@@ -1,0 +1,45 @@
+{% macro form(form) %}
+
+    <fieldset>
+        {{ form_row(form.title, {'attr': {'class': 'input-xlarge'}}) }}
+        {{ form_row(form.author, {'attr': {'class': 'input-large'}}) }}
+        {{ form_row(form.content, {'attr': {'class': 'input-xxlarge tinymce', 'rows': 10}}) }}
+        {{ form_row(form.published) }}
+        {{ form_row(form.categories, {'attr': {'class': 'select2 input-large'}}) }}
+    </fieldset>
+    {{ form_rest(form) }}
+
+    {#{{ app.session.set('isLoggedIn', false) }}#}
+    {{ tinymce_init() }}
+
+{% endmacro %}
+
+{% macro buttonsCreate(resourceName) %}
+
+    <div class="form-actions">
+        <input type="submit" class="btn btn-large btn-primary" value="{{ 'create'|trans({}, 'FreeNoteCoreBundle') }}">
+        <a href="
+            {% if (app.request.server.get('HTTP_REFERER')) is not empty %}
+                {{ (app.request.server.get('HTTP_REFERER')) }}
+            {% else %}
+                {{ path('free_note_backend_'~resourceName~'_list') }}
+            {% endif %}
+            " class="btn btn-large">{{ 'cancel'|trans({}, 'FreeNoteCoreBundle') }}</a>
+    </div>
+
+{% endmacro %}
+
+{% macro buttonsUpdate(resourceName) %}
+
+    <div class="form-actions">
+        <input type="submit" class="btn btn-large btn-primary" value="{{ 'save_changes'|trans({}, 'FreeNoteCoreBundle') }}">
+        <a href="
+            {% if (app.request.server.get('HTTP_REFERER')) is not empty %}
+                {{ (app.request.server.get('HTTP_REFERER')) }}
+            {% else %}
+                {{ path('free_note_backend_'~resourceName~'_list') }}
+            {% endif %}
+            " class="btn btn-large">{{ 'cancel'|trans({}, 'FreeNoteCoreBundle') }}</a>
+    </div>
+
+{% endmacro %}

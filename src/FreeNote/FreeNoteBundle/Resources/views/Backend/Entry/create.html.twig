@@ -1,9 +1,14 @@
 {% extends 'FreeNoteBundle:Backend:layout.html.twig' %}
 
+{% import 'FreeNoteBundle:Backend/Entry:formMacros.html.twig' as macros %}
+
 {% block header %}
     <h1>{{ ('entry.'~resourceName~'.new_header')|trans({}, 'FreeNoteCoreBundle') }}</h1>
 {% endblock %}
 
 {% block content %}
-    {% include 'FreeNoteBundle:Backend/Entry:_createContent.html.twig' %}
+    <form action="{{ path('free_note_backend_'~resourceName~'_create') }}" {{ form_enctype(form) }} method="post" class="form-horizontal" novalidate>
+        {{ macros.form(form) }}
+        {{ macros.buttonsCreate(resourceName) }}
+    </form>
 {% endblock %}

@@ -1,6 +1,6 @@
 {% extends 'FreeNoteBundle:Backend:layout.html.twig' %}
 
-{% import 'FreeNoteBundle:Backend/Entry:macros.html.twig' as macros %}
+{% import 'FreeNoteBundle:Backend/Entry:listMacros.html.twig' as macros %}
 
 {% block header %}
     <h1>{{ ('entry.'~resourceName~'.list_header')|trans({}, 'FreeNoteCoreBundle') }}</h1>
@@ -15,7 +15,9 @@
 
 {{ macros.pager(entries, resourceName) }}
 
-{{ macros.list(entries, resourceName, {'page': entries.currentPage}) }}
+{% block list %}
+    {{ macros.list(entries, resourceName, {'page': entries.currentPage}) }}
+{% endblock %}
 
 {{ macros.pager(entries, resourceName) }}
 

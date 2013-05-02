@@ -1,0 +1,40 @@
+free_note_backend_event_entry_list:
+    pattern: /
+    defaults:
+        _controller: free_note.controller.event_entry:indexAction
+        _sylius:
+            template: FreeNoteBundle:Backend/EventEntry:list.html.twig
+            filterable: true
+            sortable: true
+            sorting:
+                createdAt: desc
+
+free_note_backend_event_entry_create:
+    pattern: /create
+    defaults:
+        _controller: free_note.controller.event_entry:createAction
+        _sylius:
+            template: FreeNoteBundle:Backend/EventEntry:create.html.twig
+            redirect: free_note_backend_event_entry_show
+
+free_note_backend_event_entry_update:
+    pattern: /{id}/update
+    defaults:
+        _controller: free_note.controller.event_entry:updateAction
+        _sylius:
+            template: FreeNoteBundle:Backend/EventEntry:update.html.twig
+            redirect: free_note_backend_event_entry_show
+
+free_note_backend_event_entry_delete:
+    pattern: /{id}/delete
+    defaults:
+        _controller: free_note.controller.event_entry:deleteAction
+        _sylius:
+            redirect: free_note_backend_event_entry_list
+
+free_note_backend_event_entry_show:
+    pattern: /{id}
+    defaults:
+        _controller: free_note.controller.event_entry:showAction
+        _sylius:
+            template: FreeNoteBundle:Backend/EventEntry:show.html.twig

@@ -38,3 +38,7 @@ free_note_ajax_render_province_choice_form:
 free_note_frontend_news_entry:
     resource: @FreeNoteBundle/Resources/config/routing/frontend/news_entry.yml
     prefix: /aktualnosci
+
+free_note_frontend_event_entry:
+    resource: @FreeNoteBundle/Resources/config/routing/frontend/event_entry.yml
+    prefix: /wydarzenia

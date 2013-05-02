@@ -62,37 +62,38 @@ class Builder extends ContainerAware
         $newsCategories = $categoryManager->findRootCategories($catalog);
 
         $child = $menu->addChild('Aktualności', $childOptions);
-        $child->addChild('Najnowsze wpisy', array('route' => 'free_note_article_entry_list'));
+        $child->addChild('Najnowsze wpisy', array('route' => 'free_note_news_entry_list'));
         $this->addDivider($child);
 
         foreach ($newsCategories as $category) {
             $child->addChild($category->getName(), array(
                 'route'           => 'free_note_category_show',
                 'routeParameters' => array(
-                    'alias' => 'news',
+                    'alias' => fnCategoryInterface::FN_CATEGORY_NEWS_SLUG,
                     'slug'  => $category->getSlug()
                 ),
                 'labelAttributes' => array('icon' => 'icon-chevron-right')
             ));
         }
 
-//        $eventCategories = $categoryManager->findCategories('events');
-//
-//        $child = $menu->addChild('Wydarzenia', $childOptions);
-//        $child->addChild('Najnowsze wpisy', array('route' => 'free_note_article_entry_list'));
-//        $this->addDivider($child);
-//
-//        foreach ($eventCategories as $category) {
-//            $child->addChild($category->getName(), array(
-//                'route'           => 'free_note_category_show',
-//                'routeParameters' => array(
-//                    'alias' => 'events',
-//                    'slug'  => $category->getSlug()
-//                ),
-//                'labelAttributes' => array('icon' => 'icon-chevron-right')
-//            ));
-//        }
-//
+        $catalog = $this->container->get('sylius_categorizer.registry')->getCatalog(fnCategoryInterface::FN_CATEGORY_EVENT_SLUG);
+        $eventCategories = $categoryManager->findRootCategories($catalog);
+
+        $child = $menu->addChild('Wydarzenia', $childOptions);
+        $child->addChild('Najnowsze wpisy', array('route' => 'free_note_event_entry_list'));
+        $this->addDivider($child);
+
+        foreach ($eventCategories as $category) {
+            $child->addChild($category->getName(), array(
+                'route'           => 'free_note_category_show',
+                'routeParameters' => array(
+                    'alias' => fnCategoryInterface::FN_CATEGORY_EVENT_SLUG,
+                    'slug'  => $category->getSlug()
+                ),
+                'labelAttributes' => array('icon' => 'icon-chevron-right')
+            ));
+        }
+
 //        $advertisementCategories = $categoryManager->findCategories('advertisements');
 //
 //        $child = $menu->addChild('Ogłoszenia', $childOptions);
@@ -229,7 +230,7 @@ class Builder extends ContainerAware
         $this->addConfigurationMenu($menu, $childOptions);
         $this->addArticleMenu($menu, $childOptions);
         $this->addNewsMenu($menu, $childOptions);
-//        $this->addEventMenu($menu, $childOptions);
+        $this->addEventMenu($menu, $childOptions);
 //        $this->addAdvertisementMenu($menu, $childOptions);
 
         $menu->addChild('Przejdź do <strong>strony głównej</strong>', array('route' => 'free_note_core_frontend'));
@@ -429,11 +430,11 @@ class Builder extends ContainerAware
         $this->addDivider($child);
 
         $child->addChild('Dodaj wpis', array(
-            'route' => 'free_note_backend_article_entry_create',
+            'route' => 'free_note_backend_event_entry_create',
             'labelAttributes' => array('icon' => 'icon-plus-sign')
         ));
         $child->addChild('Lista wpisów', array(
-            'route'           => 'free_note_backend_article_entry_list',
+            'route'           => 'free_note_backend_event_entry_list',
             'labelAttributes' => array('icon' => 'icon-list-alt')
         ));
     }

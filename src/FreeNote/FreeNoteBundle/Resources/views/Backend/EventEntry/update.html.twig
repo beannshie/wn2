@@ -1,0 +1,13 @@
+{% extends 'FreeNoteBundle:Backend/Entry:update.html.twig' %}
+
+{% import 'FreeNoteBundle:Backend/EventEntry:eventFormMacros.html.twig' as eventMacros %}
+
+{% set entry = event_entry %}
+{% set resourceName = 'event_entry' %}
+
+{% block content %}
+    <form action="{{ path('free_note_backend_'~resourceName~'_update', {'id': entry.id}) }}" {{ form_enctype(form) }} method="post" class="form-horizontal" novalidate>
+        {{ eventMacros.form(form) }}
+        {{ macros.buttonsUpdate(resourceName) }}
+    </form>
+{% endblock %}
