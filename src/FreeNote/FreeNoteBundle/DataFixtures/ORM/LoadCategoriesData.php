@@ -71,13 +71,21 @@ class LoadCategoriesData extends DataFixture
         $c4 = $this->createCategory('Literatura', $c0);
         $this->createCategory('Biografie', $c4);
 
+        // Ogłoszenia
+        $this->catalog = $this->get('sylius_categorizer.registry')->getCatalog(fnCategoryInterface::FN_CATEGORY_ADVERTISEMENT_SLUG);
+        $this->referenceNamespace = 'Sandbox.Advertisement.Category.';
 
-//        $this->catalog = $this->get('sylius_categorizer.registry')->getCatalog('events');
-//
-//        $this->createCategory('Premiery');
-//        $this->createCategory('Koncerty');
-//        $this->createCategory('Zapowiedzi');
-//        $this->createCategory('Recenzje');
+        $c0 = $this->createCategory('Ogloszenia');
+        $c1 = $this->createCategory('Zespoły', $c0);
+        $this->createCategory('Początkujące', $c1);
+        $this->createCategory('Współpracujące z WN', $c1);
+        $c2 = $this->createCategory('Płyty', $c0);
+        $c3 = $this->createCategory('Recenzje', $c0);
+        $this->createCategory('Koncerty', $c3);
+        $this->createCategory('Festiwale', $c3);
+        $this->createCategory('Dyskografie', $c3);
+        $c4 = $this->createCategory('Literatura', $c0);
+        $this->createCategory('Biografie', $c4);
     }
 
     /**

@@ -42,3 +42,8 @@ free_note_frontend_news_entry:
 free_note_frontend_event_entry:
     resource: @FreeNoteBundle/Resources/config/routing/frontend/event_entry.yml
     prefix: /wydarzenia
+
+free_note_frontend_advertisement_entry:
+    resource: @FreeNoteBundle/Resources/config/routing/frontend/advertisement_entry.yml
+    prefix: /ogloszenia
+

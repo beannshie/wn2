@@ -1,0 +1,14 @@
+{% extends 'FreeNoteBundle:Backend/Entry:show.html.twig' %}
+
+{% import 'FreeNoteBundle:Backend/AdvertisementEntry:advertisementShowMacros.html.twig' as eventMacros %}
+
+{% set entry = advertisement_entry %}
+{% set resourceName = 'advertisement_entry' %}
+
+{% block content %}
+    {{ macros.buttons(entry, resourceName) }}
+    {{ eventMacros.data(entry, resourceName) }}
+    {{ macros.date(entry) }}
+    {{ macros.image(entry) }}
+    {{ macros.content(entry) }}
+{% endblock %}

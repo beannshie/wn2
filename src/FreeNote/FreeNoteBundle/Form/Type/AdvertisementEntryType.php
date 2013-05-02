@@ -5,7 +5,7 @@ namespace FreeNote\FreeNoteBundle\Form\Type;
 use Symfony\Component\Form\FormBuilderInterface;
 use FreeNote\FreeNoteBundle\Model\fnCategoryInterface;
 
-class NewsEntryType extends ArticleEntryType
+class AdvertisementEntryType extends ArticleEntryType
 {
     /**
      * {@inheritdoc}
@@ -17,12 +17,16 @@ class NewsEntryType extends ArticleEntryType
         $builder
             ->add('author', 'text', array(
                 'required' => false,
-                'label' => 'fn.label.news.news_entry.author'
+                'label' => 'fn.label.advertisement.advertisement_entry.author'
+            ))
+            ->add('city', 'text', array(
+                'required' => false,
+                'label' => 'fn.label.advertisement.advertisement_entry.place'
             ))
             ->add('categories', 'sylius_categorizer_category_choice', array(
                 'multiple' => true,
                 'required' => true,
-                'catalog'  => fnCategoryInterface::FN_CATEGORY_NEWS_SLUG,
+                'catalog'  => fnCategoryInterface::FN_CATEGORY_ADVERTISEMENT_SLUG,
                 'label' => 'fn.label.article.article_entry.categories'
             ))
         ;
@@ -33,6 +37,6 @@ class NewsEntryType extends ArticleEntryType
      */
     public function getName()
     {
-        return 'free_note_news_entry';
+        return 'free_note_advertisement_entry';
     }
 }

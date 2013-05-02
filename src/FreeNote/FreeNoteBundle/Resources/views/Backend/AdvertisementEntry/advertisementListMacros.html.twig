@@ -1,0 +1,53 @@
+{% macro list(entries, routeSlug, routeParams={}) %}
+
+    {% if entries|length > 0 %}
+        <table class="table">
+            <thead>
+            <tr>
+                <th>{{ sylius_resource_sort('id', 'entry.id'|trans({}, 'FreeNoteCoreBundle'), null, null, routeParams) }}</th>
+                <th>{{ 'entry.image'|trans({}, 'FreeNoteCoreBundle') }}</th>
+                <th>{{ sylius_resource_sort('title', 'entry.title'|trans({}, 'FreeNoteCoreBundle'), null, null, routeParams) }}</th>
+                <th>{{ sylius_resource_sort('author', ('entry.'~routeSlug~'.author')|trans({}, 'FreeNoteCoreBundle'), null, null, routeParams) }}</th>
+                <th>{{ sylius_resource_sort('city', ('entry.'~routeSlug~'.city')|trans({}, 'FreeNoteCoreBundle'), null, null, routeParams) }}</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for entry in entries %}
+                <tr>
+                    <td>{{ entry.id }}</td>
+                    <td>
+                        <img src="{{ entry.imageWebPath is empty ? 'http://placehold.it/90x60' : entry.imageWebPath|apply_filter('backend_mini') }}"
+                             alt="{{ entry.imageAlt }}" title="{{ entry.imageTitle }}" /></td>
+                    <td>{{ entry.title }}</td>
+                    <td>{{ entry.author }}</td>
+                    <td>{{ entry.city }}</td>
+                    <td>
+                        <div class="pull-right btn-group">
+                            <a href="{{ path('free_note_backend_'~routeSlug~'_show', {'id': entry.id}) }}" class="btn">
+                                <i class="icon-book"></i> {{ 'read'|trans({}, 'FreeNoteCoreBundle') }}
+                            </a>
+                            <a href="{{ path('free_note_backend_'~routeSlug~'_update', {'id': entry.id}) }}" class="btn">
+                                <i class="icon-pencil"></i> {{ 'update'|trans({}, 'FreeNoteCoreBundle') }}
+                            </a>
+                            <a href="{{ path('free_note_backend_'~routeSlug~'_delete', {'id': entry.id}) }}" class="btn btn-danger confirmer"
+                               data-toggle="modal"
+                               data-target="confirmer-modal"
+                               data-confirmer-question="{{ ('confirmer.q.'~routeSlug~'.delete')|trans({}, 'FreeNoteCoreBundle') }}"
+                                    >
+                                <i class="icon-remove icon-white"></i> {{ 'delete'|trans({}, 'FreeNoteCoreBundle') }}
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="alert alert-info">
+            <h4 class="alert-heading">{{ 'alert.heading.info'|trans({}, 'FreeNoteCoreBundle') }}.</h4>
+            {{ 'no_results'|trans({}, 'FreeNoteCoreBundle') }}
+        </div>
+    {% endif %}
+
+{% endmacro %}

@@ -101,3 +101,7 @@ free_note_backend_event_entry:
     resource: @FreeNoteBundle/Resources/config/routing/backend/event_entry.yml
     prefix: /event
 
+free_note_backend_advertisement_entry:
+    resource: @FreeNoteBundle/Resources/config/routing/backend/advertisement_entry.yml
+    prefix: /advertisement
+

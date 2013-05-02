@@ -12,6 +12,12 @@
             <generator strategy="AUTO" />
         </id>
 
+        <attribute-overrides>
+            <attribute-override name="author">
+                <field column="author" nullable="true"/>
+            </attribute-override>
+        </attribute-overrides>
+
         <field name="imageFilename" column="image_filename" type="string" nullable="true">
         </field>
         <field name="imagePath" column="image_path" type="string" nullable="true">

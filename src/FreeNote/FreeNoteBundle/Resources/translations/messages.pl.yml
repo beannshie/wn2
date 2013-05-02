@@ -77,6 +77,10 @@ fn:
             event_entry:
                 author: "Organizator"
                 place: "Miejsce"
+        advertisement:
+            advertisement_entry:
+                author: "Autor"
+                city: "Miasto"
     help:
         image_alt: "W przypadku braku, aplikacja wygeneruje domyślny opis na podstawie nazwy kategorii."
         image_title: "Nazwa ta wyświetli się, jeśli plik graficzny nie zostanie znaleziony. W przypadku braku, aplikacja wygeneruje domyślny tytuł na podstawie nazwy kategorii."

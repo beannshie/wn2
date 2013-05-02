@@ -1,0 +1,20 @@
+free_note_advertisement_entry_list:
+    pattern: /
+    defaults:
+        _controller: free_note.controller.advertisement_entry:indexAction
+        _sylius:
+            template: FreeNoteBundle:Frontend/AdvertisementEntry:list.html.twig
+            paginate: 10
+            criteria:
+                published: true
+            sorting:
+                createdAt: desc
+
+free_note_advertisement_entry_show:
+    pattern: /{slug}
+    defaults:
+        _controller: free_note.controller.advertisement_entry:showAction
+        _sylius:
+            template: FreeNoteBundle:Frontend/AdvertisementEntry:show.html.twig
+            criteria:
+                slug: $slug

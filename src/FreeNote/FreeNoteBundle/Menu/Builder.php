@@ -94,22 +94,23 @@ class Builder extends ContainerAware
             ));
         }
 
-//        $advertisementCategories = $categoryManager->findCategories('advertisements');
-//
-//        $child = $menu->addChild('Ogłoszenia', $childOptions);
-//        $child->addChild('Najnowsze wpisy', array('route' => 'free_note_article_entry_list'));
-//        $this->addDivider($child);
-//
-//        foreach ($advertisementCategories as $category) {
-//            $child->addChild($category->getName(), array(
-//                'route'           => 'free_note_category_show',
-//                'routeParameters' => array(
-//                    'alias' => 'advertisements',
-//                    'slug'  => $category->getSlug()
-//                ),
-//                'labelAttributes' => array('icon' => 'icon-chevron-right')
-//            ));
-//        }
+        $catalog = $this->container->get('sylius_categorizer.registry')->getCatalog(fnCategoryInterface::FN_CATEGORY_ADVERTISEMENT_SLUG);
+        $advertisementCategories = $categoryManager->findRootCategories($catalog);
+
+        $child = $menu->addChild('Ogłoszenia', $childOptions);
+        $child->addChild('Najnowsze wpisy', array('route' => 'free_note_advertisement_entry_list'));
+        $this->addDivider($child);
+
+        foreach ($advertisementCategories as $category) {
+            $child->addChild($category->getName(), array(
+                'route'           => 'free_note_category_show',
+                'routeParameters' => array(
+                    'alias' => 'ogloszenia',
+                    'slug'  => $category->getSlug()
+                ),
+                'labelAttributes' => array('icon' => 'icon-chevron-right')
+            ));
+        }
 
         $menu->addChild('O nas', array('route' => 'free_note_about'));
         $menu->addChild('Koszyk', array('route' => 'sylius_cart_summary'));
@@ -231,7 +232,7 @@ class Builder extends ContainerAware
         $this->addArticleMenu($menu, $childOptions);
         $this->addNewsMenu($menu, $childOptions);
         $this->addEventMenu($menu, $childOptions);
-//        $this->addAdvertisementMenu($menu, $childOptions);
+        $this->addAdvertisementMenu($menu, $childOptions);
 
         $menu->addChild('Przejdź do <strong>strony głównej</strong>', array('route' => 'free_note_core_frontend'));
 
@@ -463,11 +464,11 @@ class Builder extends ContainerAware
         $this->addDivider($child);
 
         $child->addChild('Dodaj wpis', array(
-            'route' => 'free_note_backend_article_entry_create',
+            'route' => 'free_note_backend_advertisement_entry_create',
             'labelAttributes' => array('icon' => 'icon-plus-sign')
         ));
         $child->addChild('Lista wpisów', array(
-            'route'           => 'free_note_backend_article_entry_list',
+            'route'           => 'free_note_backend_advertisement_entry_list',
             'labelAttributes' => array('icon' => 'icon-list-alt')
         ));
     }

@@ -1,0 +1,36 @@
+{% macro data(entry, resourceName) %}
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>{{ ('entry.id')|trans({}, 'FreeNoteCoreBundle') }}</th>
+            <th>{{ ('entry.categories')|trans({}, 'FreeNoteCoreBundle') }}</th>
+            <th>{{ ('entry.title')|trans({}, 'FreeNoteCoreBundle') }}</th>
+            <th>{{ ('entry.'~resourceName~'.author')|trans({}, 'FreeNoteCoreBundle') }}</th>
+            <th>{{ ('entry.'~resourceName~'.city')|trans({}, 'FreeNoteCoreBundle') }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ entry.id }}</td>
+            <td>
+                {% if entry.categories|length > 0 %}
+                    <ul>
+                        {% for category in entry.categories %}
+                            <li>{{ category.name }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <span class="label label-info label-padded">
+                        <i class="icon-list-alt icon-white"></i> {{ ('entry.categories_blank')|trans({}, 'FreeNoteCoreBundle') }}
+                    </span>
+                {% endif %}
+            </td>
+            <td>{{ entry.title }}</td>
+            <td>{{ entry.author }}</td>
+            <td>{{ entry.city }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+{% endmacro %}

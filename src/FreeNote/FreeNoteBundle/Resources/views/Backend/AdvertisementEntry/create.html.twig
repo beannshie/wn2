@@ -1,0 +1,12 @@
+{% extends 'FreeNoteBundle:Backend/Entry:create.html.twig' %}
+
+{% import 'FreeNoteBundle:Backend/AdvertisementEntry:advertisementFormMacros.html.twig' as eventMacros %}
+
+{% set resourceName = 'advertisement_entry' %}
+
+{% block content %}
+    <form action="{{ path('free_note_backend_'~resourceName~'_create') }}" {{ form_enctype(form) }} method="post" class="form-horizontal" novalidate>
+        {{ eventMacros.form(form) }}
+        {{ macros.buttonsCreate(resourceName) }}
+    </form>
+{% endblock %}

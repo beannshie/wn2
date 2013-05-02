@@ -3,6 +3,7 @@
 namespace FreeNote\FreeNoteBundle\Form\Type;
 
 use Symfony\Component\Form\FormBuilderInterface;
+use FreeNote\FreeNoteBundle\Model\fnCategoryInterface;
 
 class EventEntryType extends ArticleEntryType
 {
@@ -21,6 +22,12 @@ class EventEntryType extends ArticleEntryType
             ->add('place', 'text', array(
                 'required' => false,
                 'label' => 'fn.label.event.event_entry.place'
+            ))
+            ->add('categories', 'sylius_categorizer_category_choice', array(
+                'multiple' => true,
+                'required' => true,
+                'catalog'  => fnCategoryInterface::FN_CATEGORY_EVENT_SLUG,
+                'label' => 'fn.label.article.article_entry.categories'
             ))
         ;
     }

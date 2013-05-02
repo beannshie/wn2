@@ -3,6 +3,7 @@
 namespace FreeNote\FreeNoteBundle\Form\Type;
 
 use Sylius\Bundle\BloggerBundle\Form\Type\PostType as BasePostType;
+use FreeNote\FreeNoteBundle\Model\fnCategoryInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class ArticleEntryType extends BasePostType
@@ -34,7 +35,7 @@ class ArticleEntryType extends BasePostType
             ->add('categories', 'sylius_categorizer_category_choice', array(
                 'multiple' => true,
                 'required' => true,
-                'catalog'  => 'artykuly',
+                'catalog'  => fnCategoryInterface::FN_CATEGORY_ARTICLE_SLUG,
                 'label' => 'fn.label.article.article_entry.categories'
             ))
             ->add('content', 'textarea', array(

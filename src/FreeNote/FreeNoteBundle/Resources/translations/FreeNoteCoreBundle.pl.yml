@@ -45,14 +45,17 @@ category:
         artykuly: Kategorie artykułów
         aktualnosci: Kategorie aktualności
         wydarzenia: Kategorie wydarzeń
+        ogloszenia: Kategorie ogloszeń
     update_header:
         artykuly: Edycja kategorii artykułów
         aktualnosci: Edycja kategorii aktualności
         wydarzenia: Edycja kategorii wydarzeń
+        ogloszenia: Edycja kategorii ogloszeń
     new_header:
         artykuly: Dodaj kategorię artykułów
         aktualnosci: Dodaj kategorię aktualności
         wydarzenia: Dodaj kategorię wydarzeń
+        ogloszenia: Dodaj kategorię ogloszeń
     id: '#id'
     icon: ikona
     name: nazwa
@@ -61,6 +64,7 @@ category:
         artykuly: Lista artykułów
         aktualnosci: Lista aktualności
         wydarzenia: Lista wydarzeń
+        ogloszenia: Lista ogloszeń
 
 entry:
     id: '#id'
@@ -95,3 +99,11 @@ entry:
         update_header: Edycja wydarzenia
         new_header: Dodaj wydarzenie
         place: miejsce
+    advertisement_entry:
+        author: źródło
+        list_header: Lista ogloszeń
+        create: Nowe ogloszenie
+        details: Szczegóły ogloszenia
+        update_header: Edycja ogloszenia
+        new_header: Dodaj ogloszenie
+        city: miasto
