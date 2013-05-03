@@ -46,16 +46,19 @@ category:
         aktualnosci: Kategorie aktualności
         wydarzenia: Kategorie wydarzeń
         ogloszenia: Kategorie ogloszeń
+        muzyka: Gatunki muzyczne
     update_header:
         artykuly: Edycja kategorii artykułów
         aktualnosci: Edycja kategorii aktualności
         wydarzenia: Edycja kategorii wydarzeń
         ogloszenia: Edycja kategorii ogloszeń
+        muzyka: Edycja gatunku muzycznego
     new_header:
         artykuly: Dodaj kategorię artykułów
         aktualnosci: Dodaj kategorię aktualności
         wydarzenia: Dodaj kategorię wydarzeń
         ogloszenia: Dodaj kategorię ogloszeń
+        muzyka: Dodaj gatunek muzyczny
     id: '#id'
     icon: ikona
     name: nazwa
@@ -65,6 +68,10 @@ category:
         aktualnosci: Lista aktualności
         wydarzenia: Lista wydarzeń
         ogloszenia: Lista ogloszeń
+
+music_genre:
+    origin: "kopia gatunku"
+    create: Nowy gatunek
 
 entry:
     id: '#id'

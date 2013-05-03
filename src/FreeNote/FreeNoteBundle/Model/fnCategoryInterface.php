@@ -12,4 +12,7 @@ interface fnCategoryInterface
     const FN_CATEGORY_BACKEND_aktualnosci_ALIAS = 'news';
     const FN_CATEGORY_BACKEND_wydarzenia_ALIAS = 'event';
     const FN_CATEGORY_BACKEND_ogloszenia_ALIAS = 'advertisement';
+
+    const FN_MUSIC_GENRE_SLUG = 'muzyka';
+    const FN_MUSIC_GENRE_ORIGIN_SLUG = 'origin';
 }

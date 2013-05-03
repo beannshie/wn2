@@ -1,0 +1,27 @@
+{% macro form(form) %}
+
+    <fieldset>
+        {{ form_row(form.name) }}
+        {{ form_row(form.ancestor, {'attr': {'class': 'select2 input-xxlarge', 'placeholder': 'Wybierz kategorię nadrzędną'}}) }}
+    </fieldset>
+    {{ form_rest(form) }}
+
+{% endmacro %}
+
+{% macro buttonsCreate(catalog) %}
+
+    <div class="form-actions">
+        <input type="submit" value="{{ 'create'|trans({}, 'FreeNoteCoreBundle') }}" class="btn btn-primary btn-large" />
+        <a href="{{ path('free_note_backend_category_list', {'alias': catalog.alias}) }}" class="btn btn-large">{{ 'cancel'|trans({}, 'FreeNoteCoreBundle') }}</a>
+    </div>
+
+{% endmacro %}
+
+{% macro buttonsUpdate(catalog) %}
+
+    <div class="form-actions">
+        <input type="submit" value="{{ 'save_changes'|trans({}, 'FreeNoteCoreBundle') }}" class="btn btn-primary btn-large" />
+        <a href="{{ path('free_note_backend_category_list', {'alias': catalog.alias}) }}" class="btn btn-large">{{ 'cancel'|trans({}, 'FreeNoteCoreBundle') }}</a>
+    </div>
+
+{% endmacro %}

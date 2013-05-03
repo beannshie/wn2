@@ -1263,3 +1263,8 @@ disabled look for already selected choices in the results dropdown
 {
     padding-left: 110px !important;
 }
+
+.category_fake
+{
+    background-color: rgb(245,245,245);
+}

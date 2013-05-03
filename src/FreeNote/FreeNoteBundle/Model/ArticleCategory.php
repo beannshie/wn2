@@ -36,13 +36,6 @@ class ArticleCategory extends BaseCategory implements fnUploadableImageInterface
     }
 
     /**
-     * Child categories.
-     *
-     * @var Collection
-     */
-    protected $children;
-
-    /**
      * @var Collection
      */
     protected $entries;

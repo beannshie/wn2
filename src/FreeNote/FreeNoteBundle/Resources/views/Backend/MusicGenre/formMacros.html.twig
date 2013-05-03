@@ -1,0 +1,10 @@
+{% macro form(form) %}
+
+    <fieldset>
+        {{ form_row(form.name) }}
+        {{ form_row(form.ancestor, {'attr': {'class': 'select2 input-xxlarge', 'placeholder': 'Wybierz gatunek nadrzędny'}}) }}
+        {{ form_row(form.origin, {'attr': {'class': 'select2 input-xxlarge', 'placeholder': 'Wybierz gatunek'}}) }}
+    </fieldset>
+    {{ form_rest(form) }}
+
+{% endmacro %}

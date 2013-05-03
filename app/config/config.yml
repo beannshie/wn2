@@ -168,6 +168,13 @@ sylius_categorizer:
             templates:
                 backend: FreeNoteBundle:Backend/AdvertisementCategory:%s.html.twig
                 frontend: FreeNoteBundle:Frontend/AdvertisementCategory:%s.html.twig
+        muzyka:
+            property: "entries"
+            model: FreeNote\FreeNoteBundle\Entity\MusicGenre
+            form:  free_note_music_genre
+            templates:
+                backend: FreeNoteBundle:Backend/MusicGenre:%s.html.twig
+                frontend: FreeNoteBundle:Frontend/MusicGenre:%s.html.twig
     classes:
         controller:
             backend:

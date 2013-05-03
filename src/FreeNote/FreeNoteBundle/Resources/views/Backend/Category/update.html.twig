@@ -1,15 +1,14 @@
 {% extends 'FreeNoteBundle:Backend:layout.html.twig' %}
 
+{% import 'FreeNoteBundle:Backend/Category:formMacros.html.twig' as macros %}
+
 {% block header %}
-    <h1>{{ category.name }} <small>{{ ('category.update_header'~catalog.alias)|trans({}, 'FreeNoteCoreBundle') }}</small></h1>
+    <h1>{{ category.name }} <small>{{ ('category.update_header.'~catalog.alias)|trans({}, 'FreeNoteCoreBundle') }}</small></h1>
 {% endblock %}
 
 {% block content %}
 <form action="{{ path('free_note_backend_category_update', {'alias': catalog.alias, 'id': category.id}) }}" {{ form_enctype(form) }} method="post" class="form-horizontal" novalidate>
-    {% include 'FreeNoteBundle:Backend/Category:_form.html.twig' %}
-    <div class="form-actions">
-        <input type="submit" value="{{ 'save_changes'|trans({}, 'FreeNoteCoreBundle') }}" class="btn btn-primary btn-large" />
-        <a href="{{ path('free_note_backend_category_list', {'alias': catalog.alias}) }}" class="btn btn-large">{{ 'cancel'|trans({}, 'FreeNoteCoreBundle') }}</a>
-    </div>
+    {{ macros.form(form) }}
+    {{ macros.buttonsUpdate(catalog) }}
 </form>
 {% endblock %}

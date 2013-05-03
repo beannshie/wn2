@@ -42,6 +42,7 @@
         <parameter key="free_note.form.type.news_category.class">FreeNote\FreeNoteBundle\Form\Type\NewsCategoryType</parameter>
         <parameter key="free_note.form.type.event_category.class">FreeNote\FreeNoteBundle\Form\Type\EventCategoryType</parameter>
         <parameter key="free_note.form.type.advertisement_category.class">FreeNote\FreeNoteBundle\Form\Type\AdvertisementCategoryType</parameter>
+        <parameter key="free_note.form.type.music_genre.class">FreeNote\FreeNoteBundle\Form\Type\MusicGenreType</parameter>
 
     </parameters>
 
@@ -290,6 +291,10 @@
         </service>
         <service id="free_note.form.type.advertisement_category" class="%free_note.form.type.advertisement_category.class%">
             <tag name="form.type" alias="free_note_advertisement_category" />
+        </service>
+
+        <service id="free_note.form.type.music_genre" class="%free_note.form.type.music_genre.class%">
+            <tag name="form.type" alias="free_note_music_genre" />
         </service>
     </services>
 

@@ -1,0 +1,10 @@
+{% extends 'FreeNoteBundle:Backend/Category:update.html.twig' %}
+
+{% import 'FreeNoteBundle:Backend/MusicGenre:formMacros.html.twig' as genreMacros %}
+
+{% block content %}
+    <form action="{{ path('free_note_backend_category_update', {'alias': catalog.alias, 'id': category.id}) }}" {{ form_enctype(form) }} method="post" class="form-horizontal" novalidate>
+        {{ genreMacros.form(form) }}
+        {{ macros.buttonsUpdate(catalog) }}
+    </form>
+{% endblock %}

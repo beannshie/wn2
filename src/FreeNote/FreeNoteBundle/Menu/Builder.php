@@ -224,11 +224,11 @@ class Builder extends ContainerAware
             'labelAttributes'    => array('class' => 'dropdown-toggle', 'data-toggle' => 'dropdown', 'href' => '#')
         );
 
-        $this->addTaxonomiesMenu($menu, $childOptions);
-        $this->addAssortmentMenu($menu, $childOptions);
-        $this->addSalesMenu($menu, $childOptions);
-        $this->addCustomersMenu($menu, $childOptions);
-        $this->addConfigurationMenu($menu, $childOptions);
+//        $this->addTaxonomiesMenu($menu, $childOptions);
+//        $this->addAssortmentMenu($menu, $childOptions);
+//        $this->addSalesMenu($menu, $childOptions);
+//        $this->addCustomersMenu($menu, $childOptions);
+//        $this->addConfigurationMenu($menu, $childOptions);
         $this->addArticleMenu($menu, $childOptions);
         $this->addNewsMenu($menu, $childOptions);
         $this->addEventMenu($menu, $childOptions);
@@ -262,6 +262,7 @@ class Builder extends ContainerAware
             'labelAttributes'    => array('class' => 'nav-header')
         );
 
+        $this->addMusicGenresMenu($menu, $childOptions);
         $this->addTaxonomiesMenu($menu, $childOptions);
         $this->addAssortmentMenu($menu, $childOptions);
         $this->addSalesMenu($menu, $childOptions);
@@ -568,6 +569,28 @@ class Builder extends ContainerAware
         $child->addChild('Lista sposobów dostawy', array(
             'route' => 'free_note_backend_shipping_method_list',
             'labelAttributes' => array('icon' => 'icon-envelope')
+        ));
+    }
+
+    /**
+     * Adds music genres menu.
+     *
+     * @param ItemInterface $menu
+     * @param array         $childOptions
+     */
+    protected function addMusicGenresMenu(ItemInterface $menu, array $childOptions)
+    {
+        $child = $menu->addChild('Gatunki muzyczne', $childOptions);
+
+        $child->addChild('Dodaj gatunek', array(
+            'route'           => 'free_note_backend_category_create',
+            'routeParameters' => array('alias' => 'muzyka'),
+            'labelAttributes' => array('icon' => 'icon-plus-sign')
+        ));
+        $child->addChild('Lista gatunków', array(
+            'route'           => 'free_note_backend_category_list',
+            'routeParameters' => array('alias' => 'muzyka'),
+            'labelAttributes' => array('icon' => 'icon-list-alt')
         ));
     }
 

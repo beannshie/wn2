@@ -108,4 +108,30 @@ class fnCategoryManager extends CategoryManager
         }
         return $rootCategory;
     }
+
+    public function generateChoices($catalog)
+    {
+        if($catalog == fnCategoryInterface::FN_MUSIC_GENRE_ORIGIN_SLUG)
+        {
+            return $this->generateMusicGenreOriginChoices(fnCategoryInterface::FN_MUSIC_GENRE_SLUG);
+        }
+        else
+        {
+            return parent::generateChoices($catalog);
+        }
+    }
+
+    public function generateMusicGenreOriginChoices($catalog)
+    {
+        $queryBuilder = $this->getRepository($catalog)->createQueryBuilder('c');
+
+        $queryBuilder
+            ->where('c.is_fake = :fake')
+            ->setParameter('fake', 0)
+            ->andWhere('c.slug != :catalogslug')
+            ->setParameter('catalogslug', $catalog)
+            ->orderBy('c.left');
+
+        return $queryBuilder->getQuery()->execute();
+    }
 }

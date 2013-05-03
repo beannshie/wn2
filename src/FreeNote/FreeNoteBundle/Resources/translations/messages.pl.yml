@@ -81,6 +81,11 @@ fn:
             advertisement_entry:
                 author: "Autor"
                 city: "Miasto"
+        music_genre:
+            origin: "Kopia gatunku"
+
     help:
         image_alt: "W przypadku braku, aplikacja wygeneruje domyślny opis na podstawie nazwy kategorii."
         image_title: "Nazwa ta wyświetli się, jeśli plik graficzny nie zostanie znaleziony. W przypadku braku, aplikacja wygeneruje domyślny tytuł na podstawie nazwy kategorii."
+        music_genre:
+            origin: "Jeśli chcesz, aby ta kategoria była kopią innej, podaj kategorię źródłową."

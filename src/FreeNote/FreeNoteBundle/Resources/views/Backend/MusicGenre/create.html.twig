@@ -1,0 +1,10 @@
+{% extends 'FreeNoteBundle:Backend/Category:create.html.twig' %}
+
+{% import 'FreeNoteBundle:Backend/MusicGenre:formMacros.html.twig' as genreMacros %}
+
+{% block content %}
+    <form action="{{ path('free_note_backend_category_create', {'alias': catalog.alias}) }}" method="post" class="form-horizontal" {{ form_enctype(form) }} novalidate>
+        {{ genreMacros.form(form) }}
+        {{ macros.buttonsCreate(catalog) }}
+    </form>
+{% endblock %}
