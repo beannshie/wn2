@@ -14,7 +14,6 @@ class UserProfile
     const NEW_USER_NEWSLETTER_SIGNUP = 0;
     const NEW_USER_FREE_NOTES = 10;
 
-
     /**
      * User.
      *
@@ -175,10 +174,39 @@ class UserProfile
         return __DIR__.'/../../../../../public/'.$this->getAvatarUploadDir();
     }
 
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+        return $this;
+    }
 
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
 
+    /**
+     * @param string $surname
+     */
+    public function setSurname($surname)
+    {
+        $this->surname = $surname;
+        return $this;
+    }
 
-
+    /**
+     * @return string
+     */
+    public function getSurname()
+    {
+        return $this->surname;
+    }
 
     /**
      * @param AddressInterface $businessAddress
@@ -229,23 +257,6 @@ class UserProfile
     public function getFreeNotes()
     {
         return $this->freeNotes;
-    }
-
-    /**
-     * @param string $name
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
     }
 
     /**
@@ -349,23 +360,4 @@ class UserProfile
     {
         return $this->regon;
     }
-
-    /**
-     * @param string $surname
-     */
-    public function setSurname($surname)
-    {
-        $this->surname = $surname;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getSurname()
-    {
-        return $this->surname;
-    }
-
-
 }

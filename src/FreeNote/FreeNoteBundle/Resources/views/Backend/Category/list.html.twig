@@ -27,9 +27,9 @@
                 <td>{{ category.id }}</td>
                 <td>
                     <img src="{{ category.imageWebPath is empty ? 'http://placehold.it/45x30' : category.imageWebPath|apply_filter('icon') }}"
-                         alt="{{ category.imageAlt }}" title="{{ category.imageTitle }}" /></td>
-                <td class="category_level_{{ category.level }}">{{ "|" }}
-                    {% for i in 0..category.level if i < category.level-1 %}{{ '--' }}{% endfor %}--> {{ category.name }}</td>
+                         alt="{{ category.imageAlt }}" title="{{ category.imageTitle }}" class="thumbnail" /></td>
+                <td class="category_level_{{ category.level }}">
+                    {% for i in 0..category.level if i < category.level-1 %}<i class="icon-caret-right"></i>&nbsp;{% endfor %} {{ category.name }}</td>
                 <td>
                     <div class="pull-right btn-toolbar">
                         <div class="btn-group">

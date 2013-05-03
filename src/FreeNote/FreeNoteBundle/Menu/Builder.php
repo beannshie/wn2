@@ -545,12 +545,12 @@ class Builder extends ContainerAware
 //            'labelAttributes' => array('icon' => 'icon-globe')
 //        ));
 //
-//        $this->addDivider($child);
+        $this->addDivider($child);
 
-//        $child->addChild('Configure taxation', array(
-//            'route' => 'free_note_backend_settings_taxation_configure',
-//            'labelAttributes' => array('icon' => 'icon-cogs')
-//        ));
+        $child->addChild('Configure taxation', array(
+            'route' => 'free_note_backend_settings_taxation_configure',
+            'labelAttributes' => array('icon' => 'icon-cogs')
+        ));
         $child->addChild('Kategorie podatków', array(
             'route' => 'free_note_backend_tax_category_list',
             'labelAttributes' => array('icon' => 'icon-tasks')
