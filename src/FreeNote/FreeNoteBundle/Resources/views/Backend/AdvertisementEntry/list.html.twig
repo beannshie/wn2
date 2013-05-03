@@ -1,7 +1,7 @@
 {% extends 'FreeNoteBundle:Backend/Entry:list.html.twig' %}
 
-{% import 'FreeNoteBundle:Backend/AdvertisementEntry:advertisementListMacros.html.twig' as eventMacros %}
+{% import 'FreeNoteBundle:Backend/AdvertisementEntry:advertisementListMacros.html.twig' as advertisementMacros %}
 
 {% block list %}
-    {{ eventMacros.list(entries, resourceName, {'page': entries.currentPage}) }}
+    {{ advertisementMacros.list(entries, resourceName, {'page': entries.currentPage}) }}
 {% endblock %}

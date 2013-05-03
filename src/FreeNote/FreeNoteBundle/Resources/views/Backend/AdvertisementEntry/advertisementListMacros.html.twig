@@ -1,3 +1,5 @@
+{% extends 'FreeNoteBundle:Backend/Entry:listMacros.html.twig' %}
+
 {% macro list(entries, routeSlug, routeParams={}) %}
 
     {% if entries|length > 0 %}
@@ -5,6 +7,7 @@
             <thead>
             <tr>
                 <th>{{ sylius_resource_sort('id', 'entry.id'|trans({}, 'FreeNoteCoreBundle'), null, null, routeParams) }}</th>
+                <th>{{ ('entry.categories')|trans({}, 'FreeNoteCoreBundle') }}</th>
                 <th>{{ 'entry.image'|trans({}, 'FreeNoteCoreBundle') }}</th>
                 <th>{{ sylius_resource_sort('title', 'entry.title'|trans({}, 'FreeNoteCoreBundle'), null, null, routeParams) }}</th>
                 <th>{{ sylius_resource_sort('author', ('entry.'~routeSlug~'.author')|trans({}, 'FreeNoteCoreBundle'), null, null, routeParams) }}</th>
@@ -16,6 +19,19 @@
             {% for entry in entries %}
                 <tr>
                     <td>{{ entry.id }}</td>
+                    <td>
+                        {% if entry.categories|length > 0 %}
+                            <ul>
+                                {% for category in entry.categories %}
+                                    <li>{{ category.name }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <span class="label label-info label-padded">
+                        <i class="icon-list-alt icon-white"></i> {{ ('entry.categories_blank')|trans({}, 'FreeNoteCoreBundle') }}
+                    </span>
+                        {% endif %}
+                    </td>
                     <td>
                         <img src="{{ entry.imageWebPath is empty ? 'http://placehold.it/90x60' : entry.imageWebPath|apply_filter('backend_mini') }}"
                              alt="{{ entry.imageAlt }}" title="{{ entry.imageTitle }}" /></td>

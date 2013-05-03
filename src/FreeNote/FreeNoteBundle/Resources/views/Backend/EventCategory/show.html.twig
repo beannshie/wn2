@@ -1,1 +1,18 @@
 {% extends 'FreeNoteBundle:Backend/Category:show.html.twig' %}
+
+{% import 'FreeNoteBundle:Backend/EventEntry:eventListMacros.html.twig' as eventMacros %}
+
+{% block content %}
+    <div class="well">
+        <a href="{{ path('free_note_backend_'~en_alias~'_entry_create') }}" class="btn btn-primary large">
+            <i class="icon-plus icon-white"></i> {{ ('entry.'~en_alias~'_entry.create')|trans({}, 'FreeNoteCoreBundle') }}
+        </a>
+    </div>
+
+    {{ macros.pager(paginator, en_alias~'_entry') }}
+
+    {{ eventMacros.list(entries, en_alias~'_entry', {'alias': catalog.alias, 'id':category.id}) }}
+
+    {{ macros.pager(paginator, en_alias~'_entry') }}
+
+{% endblock %}
