@@ -3,6 +3,7 @@
 namespace FreeNote\FreeNoteBundle\Model;
 
 use Sylius\Bundle\CategorizerBundle\Model\NestedCategoryInterface;
+use Symfony\Component\Validator\ExecutionContextInterface;
 use FreeNote\FreeNoteBundle\Model\ArticleCategory as BaseCategory;
 
 /**
@@ -73,6 +74,14 @@ class MusicGenre extends BaseCategory implements fnUploadableImageInterface, fnC
         else
         {
             $this->is_fake = false;
+        }
+    }
+
+    public function isOriginValid(ExecutionContextInterface $context)
+    {
+        if($this->getOrigin() && $this->id == $this->getOrigin()->getId())
+        {
+            $context->addViolationAt('origin', 'Wybrana kategoria nadrzędna jest tożsama z tą, którą edytujesz. Nie można dokonać takiego przypisania!', array(), null);
         }
     }
 }

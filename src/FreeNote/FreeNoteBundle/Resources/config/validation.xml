@@ -96,6 +96,48 @@
         </property>
     </class>
 
+    <class name="FreeNote\FreeNoteBundle\Entity\NewsEntry">
+        <property name="image">
+            <constraint name="File">
+                <option name="maxSize">1024k</option>
+                <option name="mimeTypes">
+                    <value>image/gif</value>
+                    <value>image/png</value>
+                    <value>image/jpg</value>
+                    <value>image/jpeg</value>
+                </option>
+            </constraint>
+        </property>
+    </class>
+
+    <class name="FreeNote\FreeNoteBundle\Entity\EventEntry">
+        <property name="image">
+            <constraint name="File">
+                <option name="maxSize">1024k</option>
+                <option name="mimeTypes">
+                    <value>image/gif</value>
+                    <value>image/png</value>
+                    <value>image/jpg</value>
+                    <value>image/jpeg</value>
+                </option>
+            </constraint>
+        </property>
+    </class>
+
+    <class name="FreeNote\FreeNoteBundle\Entity\AdvertisementEntry">
+        <property name="image">
+            <constraint name="File">
+                <option name="maxSize">1024k</option>
+                <option name="mimeTypes">
+                    <value>image/gif</value>
+                    <value>image/png</value>
+                    <value>image/jpg</value>
+                    <value>image/jpeg</value>
+                </option>
+            </constraint>
+        </property>
+    </class>
+
     <class name="FreeNote\FreeNoteBundle\Entity\ArticleCategory">
         <property name="image">
             <constraint name="File">
@@ -108,6 +150,88 @@
                 </option>
             </constraint>
         </property>
+        <constraint name="Callback">
+            <option name="methods">
+                <value>isAncestorValid</value>
+            </option>
+        </constraint>
+    </class>
+
+    <class name="FreeNote\FreeNoteBundle\Entity\NewsCategory">
+        <property name="image">
+            <constraint name="File">
+                <option name="maxSize">1024k</option>
+                <option name="mimeTypes">
+                    <value>image/gif</value>
+                    <value>image/png</value>
+                    <value>image/jpg</value>
+                    <value>image/jpeg</value>
+                </option>
+            </constraint>
+        </property>
+        <constraint name="Callback">
+            <option name="methods">
+                <value>isAncestorValid</value>
+            </option>
+        </constraint>
+    </class>
+
+    <class name="FreeNote\FreeNoteBundle\Entity\EventCategory">
+        <property name="image">
+            <constraint name="File">
+                <option name="maxSize">1024k</option>
+                <option name="mimeTypes">
+                    <value>image/gif</value>
+                    <value>image/png</value>
+                    <value>image/jpg</value>
+                    <value>image/jpeg</value>
+                </option>
+            </constraint>
+        </property>
+        <constraint name="Callback">
+            <option name="methods">
+                <value>isAncestorValid</value>
+            </option>
+        </constraint>
+    </class>
+
+    <class name="FreeNote\FreeNoteBundle\Entity\AdvertisementCategory">
+        <property name="image">
+            <constraint name="File">
+                <option name="maxSize">1024k</option>
+                <option name="mimeTypes">
+                    <value>image/gif</value>
+                    <value>image/png</value>
+                    <value>image/jpg</value>
+                    <value>image/jpeg</value>
+                </option>
+            </constraint>
+        </property>
+        <constraint name="Callback">
+            <option name="methods">
+                <value>isAncestorValid</value>
+            </option>
+        </constraint>
+    </class>
+
+    <class name="FreeNote\FreeNoteBundle\Entity\MusicGenre">
+        <property name="image">
+            <constraint name="File">
+                <option name="maxSize">1024k</option>
+                <option name="mimeTypes">
+                    <value>image/gif</value>
+                    <value>image/png</value>
+                    <value>image/jpg</value>
+                    <value>image/jpeg</value>
+                </option>
+            </constraint>
+        </property>
+        <constraint name="Callback">
+            <option name="methods">
+                <value>isAncestorValid</value>
+                <value>isOriginValid</value>
+            </option>
+        </constraint>
     </class>
 
 </constraint-mapping>

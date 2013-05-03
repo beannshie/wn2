@@ -21,7 +21,7 @@ class AdvertisementEntryType extends ArticleEntryType
             ))
             ->add('city', 'text', array(
                 'required' => false,
-                'label' => 'fn.label.advertisement.advertisement_entry.place'
+                'label' => 'fn.label.advertisement.advertisement_entry.city'
             ))
             ->add('categories', 'sylius_categorizer_category_choice', array(
                 'multiple' => true,

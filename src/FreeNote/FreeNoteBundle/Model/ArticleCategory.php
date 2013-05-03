@@ -3,6 +3,7 @@
 namespace FreeNote\FreeNoteBundle\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\ExecutionContextInterface;
 use Sylius\Bundle\CategorizerBundle\Model\NestedCategoryInterface;
 use Doctrine\Common\Collections\Collection;
 use Sylius\Bundle\CategorizerBundle\Entity\NestedCategory as BaseCategory;
@@ -330,6 +331,14 @@ class ArticleCategory extends BaseCategory implements fnUploadableImageInterface
             {
                 $this->imageAlt = $this->name;
             }
+        }
+    }
+
+    public function isAncestorValid(ExecutionContextInterface $context)
+    {
+        if($this->getAncestor() && $this->id == $this->getAncestor()->getId())
+        {
+            $context->addViolationAt('ancestor', 'Wybrana kategoria nadrzędna jest tożsama z tą, którą edytujesz. Nie można dokonać takiego przypisania!', array(), null);
         }
     }
 }
