@@ -47,7 +47,7 @@ class UserProfileType extends AbstractType
             ->add('postalAddress', 'sylius_address', array(
                 'label' => 'fn.label.user.postal_address'));
 
-        if($this->role == fnUserInterface::FN_ROLE_BUYER_CO)
+        if(in_array($this->role, array(fnUserInterface::FN_ROLE_BUYER_CO, fnUserInterface::FN_ROLE_SELLER)))
         {
             $builder
                 ->add('companyName', null, array(
@@ -70,19 +70,19 @@ class UserProfileType extends AbstractType
             {
                 if($this->role == fnUserInterface::FN_ROLE_USER)
                 {
-                    return array();
+                    return array('Default');
                 }
                 else if($this->role == fnUserInterface::FN_ROLE_BUYER)
                 {
-                    return array('buyerPP');
+                    return array('buyerPP', 'Default');
                 }
                 else if($this->role == fnUserInterface::FN_ROLE_BUYER_CO)
                 {
-                    return array('buyerCO');
+                    return array('buyerCO', 'Default');
                 }
                 else if($this->role == fnUserInterface::FN_ROLE_SELLER)
                 {
-                    return array();
+                    return array('buyerCO', 'Default');
                 }
             },
         ));

@@ -12,11 +12,16 @@ fn:
             blank: "Proszę wpisać nip"
         regon:
             blank: "Proszę wpisać regon"
-    article:
-        article_entry:
-            author:
-                blank: "Proszę podać autora artykułu"
-
+    entry:
+        title:
+            not_blank: "Proszę wpisać tytuł"
+            min_length: "Tytuł nie może być krótszy niż {{ limit }} znaki|Tytuł nie może być krótszy niż {{ limit }} znaki."
+            max_length: "Tytuł nie może być dłuższy niż {{ limit }} znaków|Tytuł nie może być dłuższy niż {{ limit }} znaków."
+        content:
+            not_blank: "Proszę wpisać treść"
+            min_length: "Treść nie może być krótsza niż {{ limit }} znaki|Treść nie może być krótsza niż {{ limit }} znaki."
+        author:
+            not_blank: "Proszę podać autora"
 
 sylius:
     address:
@@ -65,18 +70,6 @@ sylius:
             max_length: "Zone name must not be longer than 255 characters|Name must not be longer than 255 characters."
         members:
             min_count: "Please add at least {{ limit }} zone member."
-
-sylius_blogger:
-    validation:
-        post:
-            title:
-                not_blank: "Proszę wpisać tytuł artykułu"
-                min_length: "Tytuł nie może być krótszy niż {{ limit }} znaki|Tytuł nie może być krótszy niż {{ limit }} znaki."
-                max_length: "Tytuł nie może być dłuższy niż {{ limit }} znaków|Tytuł nie może być dłuższy niż {{ limit }} znaków."
-            content:
-                not_blank: "Proszę wpisać treść artykułu"
-                min_length: "Treść nie może być krótsza niż {{ limit }} znaki|Treść nie może być krótsza niż {{ limit }} znaki."
-
 
 sylius_categorizer:
     category:

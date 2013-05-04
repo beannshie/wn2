@@ -3,6 +3,7 @@
 namespace FreeNote\FreeNoteBundle\Form\Type;
 
 use Sylius\Bundle\BloggerBundle\Form\Type\PostType as BasePostType;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use FreeNote\FreeNoteBundle\Model\fnCategoryInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 
@@ -46,6 +47,13 @@ class ArticleEntryType extends BasePostType
                 )
             ))
         ;
+    }
+
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setDefaults(array(
+            'validation_groups' => array('allEntry', 'articleEntry'),
+        ));
     }
 
     /**

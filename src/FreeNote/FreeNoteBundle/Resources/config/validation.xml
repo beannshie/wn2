@@ -77,12 +77,53 @@
         </property>
     </class>
 
-    <class name="FreeNote\FreeNoteBundle\Entity\ArticleEntry">
+    <class name="FreeNote\FreeNoteBundle\Model\ArticleEntry">
         <property name="author">
             <constraint name="NotBlank">
-                <option name="message">fn.article.article_entry.author.blank</option>
+                <option name="message">fn.entry.author.not_blank</option>
+                <option name="groups">
+                    <value>articleEntry</value>
+                </option>
             </constraint>
         </property>
+        <property name="title">
+            <constraint name="NotBlank">
+                <option name="message">fn.entry.title.not_blank</option>
+                <option name="groups">
+                    <value>allEntry</value>
+                </option>
+            </constraint>
+            <constraint name="MinLength">
+                <option name="limit">2</option>
+                <option name="message">fn.entry.title.min_length</option>
+                <option name="groups">
+                    <value>allEntry</value>
+                </option>
+            </constraint>
+            <constraint name="MaxLength">
+                <option name="limit">255</option>
+                <option name="message">fn.entry.title.max_length</option>
+                <option name="groups">
+                    <value>allEntry</value>
+                </option>
+            </constraint>
+        </property>
+        <property name="content">
+            <constraint name="NotBlank">
+                <option name="message">fn.entry.content.not_blank</option>
+                <option name="groups">
+                    <value>allEntry</value>
+                </option>
+            </constraint>
+            <constraint name="MinLength">
+                <option name="limit">3</option>
+                <option name="message">fn.entry.content.min_length</option>
+                <option name="groups">
+                    <value>allEntry</value>
+                </option>
+            </constraint>
+        </property>
+
         <property name="image">
             <constraint name="File">
                 <option name="maxSize">1024k</option>
@@ -92,47 +133,8 @@
                     <value>image/jpg</value>
                     <value>image/jpeg</value>
                 </option>
-            </constraint>
-        </property>
-    </class>
-
-    <class name="FreeNote\FreeNoteBundle\Entity\NewsEntry">
-        <property name="image">
-            <constraint name="File">
-                <option name="maxSize">1024k</option>
-                <option name="mimeTypes">
-                    <value>image/gif</value>
-                    <value>image/png</value>
-                    <value>image/jpg</value>
-                    <value>image/jpeg</value>
-                </option>
-            </constraint>
-        </property>
-    </class>
-
-    <class name="FreeNote\FreeNoteBundle\Entity\EventEntry">
-        <property name="image">
-            <constraint name="File">
-                <option name="maxSize">1024k</option>
-                <option name="mimeTypes">
-                    <value>image/gif</value>
-                    <value>image/png</value>
-                    <value>image/jpg</value>
-                    <value>image/jpeg</value>
-                </option>
-            </constraint>
-        </property>
-    </class>
-
-    <class name="FreeNote\FreeNoteBundle\Entity\AdvertisementEntry">
-        <property name="image">
-            <constraint name="File">
-                <option name="maxSize">1024k</option>
-                <option name="mimeTypes">
-                    <value>image/gif</value>
-                    <value>image/png</value>
-                    <value>image/jpg</value>
-                    <value>image/jpeg</value>
+                <option name="groups">
+                    <value>allEntry</value>
                 </option>
             </constraint>
         </property>

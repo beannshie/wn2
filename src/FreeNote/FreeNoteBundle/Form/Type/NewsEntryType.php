@@ -3,6 +3,7 @@
 namespace FreeNote\FreeNoteBundle\Form\Type;
 
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use FreeNote\FreeNoteBundle\Model\fnCategoryInterface;
 
 class NewsEntryType extends ArticleEntryType
@@ -26,6 +27,13 @@ class NewsEntryType extends ArticleEntryType
                 'label' => 'fn.label.article.article_entry.categories'
             ))
         ;
+    }
+
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setDefaults(array(
+            'validation_groups' => array('allEntry'),
+        ));
     }
 
     /**

@@ -15,11 +15,15 @@ class RegistrationFormType extends BaseType
 
         $builder
             ->add('accountType', 'hidden', array(
-            'mapped' => false,
-            'data' => ''));
-        $builder->add('userProfile', new UserProfileType(fnUserInterface::FN_ROLE_BUYER), array(
-            'label' => 'fn.label.user.profile',
-            'translation_domain' => 'fnForms'));
+                'mapped' => false,
+                'data' => ''
+            ))
+        ;
+        $builder
+            ->add('userProfile', new UserProfileType(fnUserInterface::FN_ROLE_BUYER), array(
+                'label' => 'fn.label.user.profile'
+            ))
+        ;
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
