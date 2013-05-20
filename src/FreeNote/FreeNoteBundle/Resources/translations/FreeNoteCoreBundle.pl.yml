@@ -114,3 +114,11 @@ entry:
         update_header: Edycja ogloszenia
         new_header: Dodaj ogloszenie
         city: miasto
+
+user:
+    register:
+        header: Zarejestruj
+        user: konto użytkownika
+        buyer: konto kupującego (osoba prywatna)
+        buyerCo: konto kupującego (firma)
+        seller: konto sprzedającego

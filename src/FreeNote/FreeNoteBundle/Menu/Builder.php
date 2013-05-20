@@ -3,6 +3,7 @@
 namespace FreeNote\FreeNoteBundle\Menu;
 
 use Knp\Menu\FactoryInterface;
+use FreeNote\FreeNoteBundle\Model\fnUserParameters;
 use FreeNote\FreeNoteBundle\Model\fnCategoryInterface;
 use Knp\Menu\ItemInterface;
 use Symfony\Component\DependencyInjection\ContainerAware;
@@ -276,6 +277,69 @@ class Builder extends ContainerAware
         ));
 
         return $menu;
+    }
+
+    /**
+     * Builds backend user menu.
+     *
+     * @param FactoryInterface $factory
+     * @param array            $options
+     *
+     * @return ItemInterface
+     */
+    public function backendUserMenu(FactoryInterface $factory, array $options)
+    {
+        $menu = $factory->createItem('root', array(
+            'childrenAttributes' => array(
+                'class' => 'nav'
+            )
+        ));
+
+        $menu->setCurrent($this->container->get('request')->getRequestUri());
+
+        $childOptions = array(
+            'childrenAttributes' => array('class' => 'nav nav-list'),
+            'labelAttributes'    => array('class' => 'nav-header')
+        );
+
+        $child = $menu->addChild('Rejestracja', $childOptions);
+        $this->addUserRegisterMenu($child, $childOptions);
+
+        return $menu;
+    }
+
+    /**
+     * Adds user register menu.
+     *
+     * @param ItemInterface $menu
+     * @param array         $childOptions
+     */
+    protected function addUserRegisterMenu(ItemInterface $menu, array $childOptions)
+    {
+        $menu->addChild('Dodaj użytkownika', array(
+            'route'           => 'free_note_backend_user_register',
+            'routeParameters' => array('who' => fnUserParameters::FN_ROLE_USER_SLUG),
+            'labelAttributes' => array('icon' => 'icon-plus-sign')
+        ));
+        $menu->addChild('Dodaj kupującego (osoba prywatna)', array(
+            'route'           => 'free_note_backend_user_register',
+            'routeParameters' => array('who' => fnUserParameters::FN_ROLE_BUYER_SLUG),
+            'labelAttributes' => array('icon' => 'icon-star-empty')
+        ));
+        $menu->addChild('Dodaj kupującego (firma)', array(
+            'route'           => 'free_note_backend_user_register',
+            'routeParameters' => array('who' => fnUserParameters::FN_ROLE_BUYER_CO_SLUG),
+            'labelAttributes' => array('icon' => 'icon-star-empty')
+        ));
+        $menu->addChild('Dodaj sprzedającego (firma)', array(
+            'route'           => 'free_note_backend_user_register',
+            'routeParameters' => array('who' => fnUserParameters::FN_ROLE_SELLER_SLUG),
+            'labelAttributes' => array('icon' => 'icon-star')
+        ));
+        $menu->addChild('Dodaj zespół', array(
+            'route'           => 'free_note_core_backend',
+            'labelAttributes' => array('icon' => 'icon-music')
+        ));
     }
 
     /**

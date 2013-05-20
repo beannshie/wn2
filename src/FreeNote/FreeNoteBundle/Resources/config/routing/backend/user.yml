@@ -9,6 +9,18 @@ free_note_backend_user_list:
             sorting:
                 id: desc
 
+free_note_backend_user_register:
+    pattern: /register/{who}
+    defaults:
+        _controller: FreeNoteBundle:Backend/User:register
+
+free_note_backend_user_registration_confirmed:
+    pattern: /confirmed
+    defaults:
+        _controller: FreeNoteBundle:Backend/User:confirmed
+        requirements:
+            _method: GET
+
 free_note_backend_user_delete:
     pattern: /{id}/delete
     defaults:

@@ -1,0 +1,18 @@
+{% extends 'FreeNoteBundle:Backend:layout.html.twig' %}
+
+{% block content %}
+<div class="page-header">
+    {% block register_header %}
+    <h1>Rejestracja <small>{{ ('user.register.'~who)|trans({}, 'FreeNoteCoreBundle') }}</small></h1>
+    {% endblock %}
+</div>
+
+<form action="{{ path('free_note_backend_user_register', { 'who': who }) }}" method="post" {{ form_enctype(form) }} novalidate>
+<fieldset class="well">
+    {{ form_widget(form) }}
+</fieldset>
+<div class="form-actions">
+    <input type="submit" class="btn btn-success btn-large span3" value="{{ ('user.register.header')|trans({}, 'FreeNoteCoreBundle') }}" />
+</div>
+</form>
+{% endblock %}

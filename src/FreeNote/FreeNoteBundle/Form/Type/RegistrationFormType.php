@@ -3,12 +3,27 @@
 namespace FreeNote\FreeNoteBundle\Form\Type;
 
 use Symfony\Component\Form\FormBuilderInterface;
-use FreeNote\FreeNoteBundle\Model\fnUserInterface;
+use FreeNote\FreeNoteBundle\Model\fnUserParameters;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use FOS\UserBundle\Form\Type\RegistrationFormType as BaseType;
 
 class RegistrationFormType extends BaseType
 {
+    /**
+     * User role.
+     *
+     * @var string
+     */
+    protected $role = fnUserParameters::FN_ROLE_USER;
+
+    /**
+     * @param $role
+     */
+    public function setRole($role)
+    {
+        $this->role = $role;
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         parent::buildForm($builder, $options);
@@ -20,7 +35,7 @@ class RegistrationFormType extends BaseType
             ))
         ;
         $builder
-            ->add('userProfile', new UserProfileType(fnUserInterface::FN_ROLE_BUYER), array(
+            ->add('userProfile', new UserProfileType($this->role), array(
                 'label' => 'fn.label.user.profile'
             ))
         ;

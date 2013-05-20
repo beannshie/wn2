@@ -3,7 +3,7 @@
 namespace FreeNote\FreeNoteBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
-use FreeNote\FreeNoteBundle\Model\fnUserInterface;
+use FreeNote\FreeNoteBundle\Model\fnUserParameters;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
@@ -47,7 +47,7 @@ class UserProfileType extends AbstractType
             ->add('postalAddress', 'sylius_address', array(
                 'label' => 'fn.label.user.postal_address'));
 
-        if(in_array($this->role, array(fnUserInterface::FN_ROLE_BUYER_CO, fnUserInterface::FN_ROLE_SELLER)))
+        if(in_array($this->role, array(fnUserParameters::FN_ROLE_BUYER_CO, fnUserParameters::FN_ROLE_SELLER)))
         {
             $builder
                 ->add('companyName', null, array(
@@ -68,19 +68,19 @@ class UserProfileType extends AbstractType
             'cascade_validation' => true,
             'validation_groups' => function(FormInterface $form)
             {
-                if($this->role == fnUserInterface::FN_ROLE_USER)
+                if($this->role == fnUserParameters::FN_ROLE_USER)
                 {
                     return array('Default');
                 }
-                else if($this->role == fnUserInterface::FN_ROLE_BUYER)
+                else if($this->role == fnUserParameters::FN_ROLE_BUYER)
                 {
                     return array('buyerPP', 'Default');
                 }
-                else if($this->role == fnUserInterface::FN_ROLE_BUYER_CO)
+                else if($this->role == fnUserParameters::FN_ROLE_BUYER_CO)
                 {
                     return array('buyerCO', 'Default');
                 }
-                else if($this->role == fnUserInterface::FN_ROLE_SELLER)
+                else if($this->role == fnUserParameters::FN_ROLE_SELLER)
                 {
                     return array('buyerCO', 'Default');
                 }
