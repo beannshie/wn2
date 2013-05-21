@@ -38,43 +38,58 @@
     </head>
     <body>
         <div id="main-graphic">
-            <div id="logo_container">
+            <div id="main-content">
                 <div class="current_width_back">
                     <div id="logo"><img src="{{ asset('assets/img/logo.png') }}" alt="Wolna Nuta" /></div>
-                </div>
-            </div>
-            <div id="main-content">
-                <div class="navbar navbar-fixed-top">
-                    <div class="toppanel_top"></div>
-                    <div class="navbar-inner">
-                        <div class="current_width">
-                            <div class="container-fluid">
-                                {% include 'FreeNoteBundle:Frontend/Main:topbar.html.twig' %}
-                                {#<a class="brand" href="http://sylius.org">Sylius</a>#}
-                                {#{{ knp_menu_render('FreeNoteBundle:Builder:frontendMainMenu', {'template': 'FreeNoteBundle:Menu:main.html.twig', 'currentClass': 'active'}) }}#}
+                    <div class="navbar navbar-fixed-top">
+                        <div class="toppanel_top"></div>
+                        <div class="navbar-inner">
+                            <div class="current_width">
+                                <div class="container-fluid">
+                                    {% include 'FreeNoteBundle:Frontend/Main:topbar.html.twig' %}
+                                    {#<a class="brand" href="http://sylius.org">Sylius</a>#}
+                                    {#{{ knp_menu_render('FreeNoteBundle:Builder:frontendMainMenu', {'template': 'FreeNoteBundle:Menu:main.html.twig', 'currentClass': 'active'}) }}#}
+                                </div>
                             </div>
                         </div>
+                        <div class="navbar-underline"></div>
                     </div>
-                    <div class="navbar-underline"></div>
-                </div>
-                <div class="container-fluid">
-                    <div class="row-fluid">
-                        <div id="sidebar" class="span2">
-                            {% from 'MopaBootstrapBundle::flash.html.twig' import flash %}
-                            {% for name, value in app.session.flashes if name in ['success', 'error'] %}
-                                {{ flash(name, value|trans, true) }}
-                            {% endfor %}
-                            {% block sidebar %}
-                                {% include 'FreeNoteBundle:Frontend:sidebar.html.twig' %}
-                            {% endblock %}
-                            <hr />
-                            <footer>
-                                <p>&copy; <a href="#">Wolna Nuta</a>, 2013 - {{ 'now'|date('Y') }}.</p>
-                            </footer>
+                    <div id="menu_min" class="current_width">
+                        {% include 'FreeNoteBundle:Frontend/Main:minimenu.html.twig' %}
+                    </div>
+                    <div class="current_width_back">
+                        <div id="main_menu">
+                            {{ knp_menu_render('FreeNoteBundle:Builder:frontendMainMenu', {'template': 'FreeNoteBundle:Menu:mainmenu.html.twig', 'currentClass': 'active'}) }}
                         </div>
-                        <div id="content" class="span10 boxy">
-                            {% block content %}
-                            {% endblock %}
+                        <div id="content_back" class="current_width">
+                            <div class="container-fluid">
+                                <div class="row-fluid">
+                                    <div id="toplayer">
+                                        <div id="player"><img src="{{ asset('assets/img/player.png') }}" alt="Wolna Nuta - player" /></div>
+                                    </div>
+                                </div>
+                                <div class="row-fluid">
+                                    <div id="page_container">
+                                        <div id="sidebar" class="span2">
+                                            {% from 'MopaBootstrapBundle::flash.html.twig' import flash %}
+                                            {% for name, value in app.session.flashes if name in ['success', 'error'] %}
+                                                {{ flash(name, value|trans, true) }}
+                                            {% endfor %}
+                                            {% block sidebar %}
+                                                {% include 'FreeNoteBundle:Frontend:sidebar.html.twig' %}
+                                            {% endblock %}
+                                            <hr />
+                                            <footer>
+                                                <p>&copy; <a href="#">Wolna Nuta</a>, 2013 - {{ 'now'|date('Y') }}.</p>
+                                            </footer>
+                                        </div>
+                                        <div id="content" class="span10 boxy">
+                                            {% block content %}
+                                            {% endblock %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

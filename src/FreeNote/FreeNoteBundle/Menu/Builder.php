@@ -31,93 +31,117 @@ class Builder extends ContainerAware
 
         $menu->setCurrent($this->container->get('request')->getRequestUri());
 
-        $menu->addChild('Sklep', array('route' => 'free_note_core_frontend'));
-        $menu->addChild('Produkty', array('route' => 'free_note_product_list'));
-
-        $childOptions = array(
-            'attributes'         => array('class' => 'dropdown'),
-            'childrenAttributes' => array('class' => 'dropdown-menu'),
-            'labelAttributes'    => array('class' => 'dropdown-toggle', 'data-toggle' => 'dropdown', 'href' => '#')
-        );
-
-        $categoryManager = $this->container->get('sylius_categorizer.manager.category');
-        $catalog = $this->container->get('sylius_categorizer.registry')->getCatalog(fnCategoryInterface::FN_CATEGORY_ARTICLE_SLUG);
-        $articleCategories = $categoryManager->findRootCategories($catalog);
-
-        $child = $menu->addChild('Artykuły', $childOptions);
-        $child->addChild('Najnowsze wpisy', array('route' => 'free_note_article_entry_list'));
-        $this->addDivider($child);
-
-        foreach ($articleCategories as $category) {
-            $child->addChild($category->getName(), array(
-                'route'           => 'free_note_category_show',
-                'routeParameters' => array(
-                    'alias' => fnCategoryInterface::FN_CATEGORY_ARTICLE_SLUG,
-                    'slug'  => $category->getSlug()
-                ),
-                'labelAttributes' => array('icon' => 'icon-chevron-right')
-            ));
-        }
-
-        $catalog = $this->container->get('sylius_categorizer.registry')->getCatalog(fnCategoryInterface::FN_CATEGORY_NEWS_SLUG);
-        $newsCategories = $categoryManager->findRootCategories($catalog);
-
-        $child = $menu->addChild('Aktualności', $childOptions);
-        $child->addChild('Najnowsze wpisy', array('route' => 'free_note_news_entry_list'));
-        $this->addDivider($child);
-
-        foreach ($newsCategories as $category) {
-            $child->addChild($category->getName(), array(
-                'route'           => 'free_note_category_show',
-                'routeParameters' => array(
-                    'alias' => fnCategoryInterface::FN_CATEGORY_NEWS_SLUG,
-                    'slug'  => $category->getSlug()
-                ),
-                'labelAttributes' => array('icon' => 'icon-chevron-right')
-            ));
-        }
-
-        $catalog = $this->container->get('sylius_categorizer.registry')->getCatalog(fnCategoryInterface::FN_CATEGORY_EVENT_SLUG);
-        $eventCategories = $categoryManager->findRootCategories($catalog);
-
-        $child = $menu->addChild('Wydarzenia', $childOptions);
-        $child->addChild('Najnowsze wpisy', array('route' => 'free_note_event_entry_list'));
-        $this->addDivider($child);
-
-        foreach ($eventCategories as $category) {
-            $child->addChild($category->getName(), array(
-                'route'           => 'free_note_category_show',
-                'routeParameters' => array(
-                    'alias' => fnCategoryInterface::FN_CATEGORY_EVENT_SLUG,
-                    'slug'  => $category->getSlug()
-                ),
-                'labelAttributes' => array('icon' => 'icon-chevron-right')
-            ));
-        }
-
-        $catalog = $this->container->get('sylius_categorizer.registry')->getCatalog(fnCategoryInterface::FN_CATEGORY_ADVERTISEMENT_SLUG);
-        $advertisementCategories = $categoryManager->findRootCategories($catalog);
-
-        $child = $menu->addChild('Ogłoszenia', $childOptions);
-        $child->addChild('Najnowsze wpisy', array('route' => 'free_note_advertisement_entry_list'));
-        $this->addDivider($child);
-
-        foreach ($advertisementCategories as $category) {
-            $child->addChild($category->getName(), array(
-                'route'           => 'free_note_category_show',
-                'routeParameters' => array(
-                    'alias' => 'ogloszenia',
-                    'slug'  => $category->getSlug()
-                ),
-                'labelAttributes' => array('icon' => 'icon-chevron-right')
-            ));
-        }
-
-        $menu->addChild('O nas', array('route' => 'free_note_about'));
-        $menu->addChild('Koszyk', array('route' => 'sylius_cart_summary'));
+        $menu->addChild('GŁÓWNA', array('route' => 'free_note_core_frontend', 'attributes' => array('class' => 'default')));
+        $menu->addChild('O NAS', array('route' => 'free_note_core_frontend', 'attributes' => array('class' => 'default')));
+        $menu->addChild('AKTUALNOŚCI', array('route' => 'free_note_news_entry_list', 'attributes' => array('class' => 'default')));
+        $menu->addChild('WYDARZENIA', array('route' => 'free_note_event_entry_list', 'attributes' => array('class' => 'default')));
+        $menu->addChild('ARTYKUŁY', array('route' => 'free_note_article_entry_list', 'attributes' => array('class' => 'default')));
+        $menu->addChild('RADIO', array('route' => 'free_note_core_frontend', 'attributes' => array('class' => 'default')));
+        $menu->addChild('MUZYKA', array('route' => 'free_note_core_frontend', 'attributes' => array('class' => 'blue')));
+        $menu->addChild('SKLEP', array('route' => 'free_note_core_frontend', 'attributes' => array('class' => 'green')));
+        $menu->addChild('OGŁOSZENIA', array('route' => 'free_note_advertisement_entry_list', 'attributes' => array('class' => 'yellow')));
 
         return $menu;
     }
+
+
+//    public function frontendMainMenu(FactoryInterface $factory, array $options)
+//    {
+//        $menu = $factory->createItem('root', array(
+//            'childrenAttributes' => array(
+//                'class' => 'nav'
+//            )
+//        ));
+//
+//        $menu->setCurrent($this->container->get('request')->getRequestUri());
+//
+//        $menu->addChild('Sklep', array('route' => 'free_note_core_frontend'));
+//        $menu->addChild('Produkty', array('route' => 'free_note_product_list'));
+//
+//        $childOptions = array(
+//            'attributes'         => array('class' => 'dropdown'),
+//            'childrenAttributes' => array('class' => 'dropdown-menu'),
+//            'labelAttributes'    => array('class' => 'dropdown-toggle', 'data-toggle' => 'dropdown', 'href' => '#')
+//        );
+//
+//        $categoryManager = $this->container->get('sylius_categorizer.manager.category');
+//        $catalog = $this->container->get('sylius_categorizer.registry')->getCatalog(fnCategoryInterface::FN_CATEGORY_ARTICLE_SLUG);
+//        $articleCategories = $categoryManager->findRootCategories($catalog);
+//
+//        $child = $menu->addChild('Artykuły', $childOptions);
+//        $child->addChild('Najnowsze wpisy', array('route' => 'free_note_article_entry_list'));
+//        $this->addDivider($child);
+//
+//        foreach ($articleCategories as $category) {
+//            $child->addChild($category->getName(), array(
+//                'route'           => 'free_note_category_show',
+//                'routeParameters' => array(
+//                    'alias' => fnCategoryInterface::FN_CATEGORY_ARTICLE_SLUG,
+//                    'slug'  => $category->getSlug()
+//                ),
+//                'labelAttributes' => array('icon' => 'icon-chevron-right')
+//            ));
+//        }
+//
+//        $catalog = $this->container->get('sylius_categorizer.registry')->getCatalog(fnCategoryInterface::FN_CATEGORY_NEWS_SLUG);
+//        $newsCategories = $categoryManager->findRootCategories($catalog);
+//
+//        $child = $menu->addChild('Aktualności', $childOptions);
+//        $child->addChild('Najnowsze wpisy', array('route' => 'free_note_news_entry_list'));
+//        $this->addDivider($child);
+//
+//        foreach ($newsCategories as $category) {
+//            $child->addChild($category->getName(), array(
+//                'route'           => 'free_note_category_show',
+//                'routeParameters' => array(
+//                    'alias' => fnCategoryInterface::FN_CATEGORY_NEWS_SLUG,
+//                    'slug'  => $category->getSlug()
+//                ),
+//                'labelAttributes' => array('icon' => 'icon-chevron-right')
+//            ));
+//        }
+//
+//        $catalog = $this->container->get('sylius_categorizer.registry')->getCatalog(fnCategoryInterface::FN_CATEGORY_EVENT_SLUG);
+//        $eventCategories = $categoryManager->findRootCategories($catalog);
+//
+//        $child = $menu->addChild('Wydarzenia', $childOptions);
+//        $child->addChild('Najnowsze wpisy', array('route' => 'free_note_event_entry_list'));
+//        $this->addDivider($child);
+//
+//        foreach ($eventCategories as $category) {
+//            $child->addChild($category->getName(), array(
+//                'route'           => 'free_note_category_show',
+//                'routeParameters' => array(
+//                    'alias' => fnCategoryInterface::FN_CATEGORY_EVENT_SLUG,
+//                    'slug'  => $category->getSlug()
+//                ),
+//                'labelAttributes' => array('icon' => 'icon-chevron-right')
+//            ));
+//        }
+//
+//        $catalog = $this->container->get('sylius_categorizer.registry')->getCatalog(fnCategoryInterface::FN_CATEGORY_ADVERTISEMENT_SLUG);
+//        $advertisementCategories = $categoryManager->findRootCategories($catalog);
+//
+//        $child = $menu->addChild('Ogłoszenia', $childOptions);
+//        $child->addChild('Najnowsze wpisy', array('route' => 'free_note_advertisement_entry_list'));
+//        $this->addDivider($child);
+//
+//        foreach ($advertisementCategories as $category) {
+//            $child->addChild($category->getName(), array(
+//                'route'           => 'free_note_category_show',
+//                'routeParameters' => array(
+//                    'alias' => 'ogloszenia',
+//                    'slug'  => $category->getSlug()
+//                ),
+//                'labelAttributes' => array('icon' => 'icon-chevron-right')
+//            ));
+//        }
+//
+//        $menu->addChild('O nas', array('route' => 'free_note_about'));
+//        $menu->addChild('Koszyk', array('route' => 'sylius_cart_summary'));
+//
+//        return $menu;
+//    }
 
     /**
      * Builds frontend side menu.
