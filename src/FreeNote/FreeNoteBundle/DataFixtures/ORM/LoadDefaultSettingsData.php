@@ -18,11 +18,11 @@ class LoadDefaultSettingsData extends DataFixture
         $manager = $this->getSettingsManager();
 
         $general = array(
-            'siteName'               => 'Sylius',
-            'siteUrl'                => 'demo.sylius.org',
-            'defaultMetaTitle'       => 'Sylius - Symfony2 e-commerce',
-            'defaultMetaDescription' => 'Sylius is an e-commerce solution for Symfony2',
-            'defaultMetaKeywords'    => 'symfony2, webshop, ecommerce, e-commerce, sylius, shopping cart'
+            'siteName'               => 'Wolna Nuta',
+            'siteUrl'                => 'wolnanuta.pl',
+            'defaultMetaTitle'       => 'Wolna Nuta - serwis muzyki alternatywnej',
+            'defaultMetaDescription' => 'Wolna Nuta - serwis muzyki alternatywnej',
+            'defaultMetaKeywords'    => 'wolna nuta, muzyka, sklep, alternatywna'
         );
 
         $manager->saveSettings('general', new Settings($general));
