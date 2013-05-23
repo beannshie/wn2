@@ -10,6 +10,7 @@ no_results: Brak wyników.
 read: przeczytaj
 save_changes: zapisz zmiany
 create: dodaj
+back: powrót
 
 confirmer:
     header: Potwierdź akcję

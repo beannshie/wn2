@@ -1,6 +1,14 @@
 {% macro buttons(entry, resourceName) %}
 
     <div class="well">
+        <a href="
+            {% if (app.request.server.get('HTTP_REFERER')) is not empty %}
+                {{ (app.request.server.get('HTTP_REFERER')) }}
+            {% else %}
+                {{ path('free_note_backend_'~resourceName~'_list') }}
+            {% endif %}
+            " class="btn">{{ 'back'|trans({}, 'FreeNoteCoreBundle') }}
+        </a>
         <a href="{{ path('free_note_backend_'~resourceName~'_update', {'id': entry.id}) }}" class="btn">
             <i class="icon-pencil"></i> {{ 'update'|trans({}, 'FreeNoteCoreBundle') }}
         </a>
@@ -10,14 +18,6 @@
            data-confirmer-question="{{ ('confirmer.q.'~resourceName~'.delete')|trans({}, 'FreeNoteCoreBundle') }}"
                 >
             <i class="icon-remove icon-white"></i> {{ 'delete'|trans({}, 'FreeNoteCoreBundle') }}
-        </a>
-        <a href="
-            {% if (app.request.server.get('HTTP_REFERER')) is not empty %}
-                {{ (app.request.server.get('HTTP_REFERER')) }}
-            {% else %}
-                {{ path('free_note_backend_'~resourceName~'_list') }}
-            {% endif %}
-            " class="btn">{{ 'cancel'|trans({}, 'FreeNoteCoreBundle') }}
         </a>
     </div>
 

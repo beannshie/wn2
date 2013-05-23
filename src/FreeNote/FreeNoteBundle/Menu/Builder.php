@@ -44,6 +44,37 @@ class Builder extends ContainerAware
         return $menu;
     }
 
+    public function frontendUserMenu(FactoryInterface $factory, array $options)
+    {
+        $menu = $factory->createItem('root', array(
+            'childrenAttributes' => array(
+                'class' => 'nav'
+            )
+        ));
+
+        if ($this->container->get('security.context')->isGranted('ROLE_USER')) {
+            $menu->addChild('MÓJ PROFIL', array(
+                'route' => 'free_note_core_frontend',
+                'attributes' => array('class' => 'default')
+            ));
+            $menu->addChild('WYLOGUJ', array(
+                'route' => 'fos_user_security_logout',
+                'attributes' => array('class' => 'red')
+            ));
+        } else {
+            $menu->addChild('ZAREJESTRUJ', array(
+                'route' => 'fos_user_registration_register',
+                'attributes' => array('class' => 'red')
+            ));
+            $menu->addChild('ZALOGUJ', array(
+                'route' => 'fos_user_security_login',
+                'attributes' => array('class' => 'default')
+            ));
+        }
+
+        return $menu;
+    }
+
 
 //    public function frontendMainMenu(FactoryInterface $factory, array $options)
 //    {

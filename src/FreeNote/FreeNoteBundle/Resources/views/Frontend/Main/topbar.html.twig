@@ -1,7 +1,13 @@
 <ul class="nav pull-right">
     <li><a href="{{ path('free_note_core_frontend') }}">avatar</a></li>
     <li class="toppanel_spacer"><img src="{{ asset('assets/img/toppanel_spacer.png') }}" alt="" /></li>
-    <li><a href="{{ path('free_note_core_frontend') }}">menu</a></li>
+    <li>
+        <div id="user_menu">
+            <ul>
+                <li>{{ knp_menu_render('FreeNoteBundle:Builder:frontendUserMenu', {'template': 'FreeNoteBundle:Menu:mainmenu.html.twig'}) }}</li>
+            </ul>
+        </div>
+    </li>
     <li class="toppanel_spacer"><img src="{{ asset('assets/img/toppanel_spacer.png') }}" alt="" /></li>
     <li><a href="{{ path('free_note_core_frontend') }}">koszyk</a></li>
 </ul>

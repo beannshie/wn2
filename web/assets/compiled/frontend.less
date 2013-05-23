@@ -182,6 +182,25 @@ body {
   height: 11px;
 }
 
+#navbar_inner_back
+{
+
+  height: 100%;
+  background-color: #000000;
+  background-image: -moz-linear-gradient(top, #666666, #000000);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#666666), to(#000000));
+  background-image: -webkit-linear-gradient(top, #666666, #000000);
+  background-image: -o-linear-gradient(top, #666666, #000000);
+  background-image: linear-gradient(to bottom, #666666, #000000);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff666666', endColorstr='#ff000000', GradientType=0);
+  background-repeat: repeat-x;
+  -moz-opacity: 0.75;
+  -khtml-opacity: 0.75;
+  -webkit-opacity: 0.75;
+  opacity: 0.75;
+  filter: alpha(opacity=75);
+}
+
 .current_width
 {
   width: 1130px;
@@ -204,12 +223,22 @@ body {
   z-index: 2000;
 }
 
+#baner
+{
+  margin: 14px 0px 0px 13px;
+  position: absolute;
+  top: 6px;
+  right: 47px;
+  z-index: 2000;
+}
+
 #menu_min
 {
   height: 30px;
   padding-top: 5px;
   text-align: right;
   font-size: 14px;
+  font-weight: bold;
   z-index: 3000;
 }
 
@@ -223,6 +252,7 @@ body {
 {
   color: #ffffff;
   padding: 0px 5px 0px 5px;
+  text-shadow: 3px 3px 0 #000000;
 }
 
 #menu_min li > a:hover
@@ -296,6 +326,31 @@ body {
   text-shadow: 7px 7px 20px rgba(0, 132, 255, 0.8), -7px 7px 20px rgba(0, 132, 255, 0.8), 7px -7px 20px rgba(0, 132, 255, 0.8), -7px -7px 20px rgba(0, 132, 255, 0.8);
 }
 
+#user_menu li
+{
+  float: none;
+  font-weight: bold;
+  list-style: none;
+}
+
+#user_menu li > a
+{
+  color: #ffffff;
+  padding: 13px 25px 0px 25px;
+  text-shadow: 3px 3px 0 #000000;
+  background-color: transparent;
+}
+
+#user_menu li.default > a
+{
+  color: #ffffff;
+}
+
+#user_menu li.default > a:hover, #user_menu li.red > a
+{
+  color: #FB1D1d;
+}
+
 #content_back
 {
   background-color: transparent;
@@ -330,13 +385,22 @@ body {
   margin-top: 140px;
 }
 
-
-
-
-.container > footer p {
-    text-align: center;
-    margin-top: 10px;
+footer
+{
+  padding: 10px 0 30px 0;
 }
+
+#leftbar
+{
+  width: 265px;
+}
+
+
+
+
+
+
+
 .boxy {
     background-color: transparent;
     padding: 10px;
@@ -350,23 +414,14 @@ body {
 .photo-container {
     margin-left: 0;
 }
-#sidebar {
-    margin-top: 20px;
 
-    span.nav-header {
-        padding-top: 6px;
-        padding-bottom: 6px;
-    }
-}
 th {
     background-color: #f5f5f5;
 }
 #my-cart-btn {
     margin-right: 30px;
 }
-#sidebar div.menu {
-    padding: 6px 0;
-}
+
 .cart-actions {
     margin-top: 3px;
 }

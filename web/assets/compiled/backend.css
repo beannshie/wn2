@@ -1268,4 +1268,4 @@ disabled look for already selected choices in the results dropdown
 {
     background-color: rgb(245,245,245);
 }
-@import url(http://fonts.googleapis.com/css?family=Ubuntu+Condensed);
+@import url(http://fonts.googleapis.com/css?family=Ubuntu+Condensed&subset=latin,latin-ext);
