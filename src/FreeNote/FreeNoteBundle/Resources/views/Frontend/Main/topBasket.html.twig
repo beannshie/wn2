@@ -1,0 +1,20 @@
+<div class="toppanel_basket">
+    <div class="toppanel_basket_row">
+        <div class="toppanel_basket_col">
+            <a href="{{ path('sylius_cart_summary') }}">
+                <img src="{{ asset('assets/img/koszyk.png') }}" alt="Koszyk" />
+            </a>
+        </div>
+        <div class="toppanel_basket_col">
+                    <span class="toppanel_basket_header">
+                        <a href="{{ path('sylius_cart_summary') }}">
+                            {{ ('basket.count_header')|trans({}, 'FreeNoteCoreBundle') }}
+                        </a>
+                    </span>
+            </br>
+                    <span class="toppanel_basket_count">
+                        {{ sylius_cart_get().totalItems }}&nbsp;{{ ('basket.count_unit')|trans({}, 'FreeNoteCoreBundle') }},&nbsp;{{ sylius_cart_get().total }}&nbsp;{{ currency|raw }}
+                    </span>
+        </div>
+    </div>
+</div>

@@ -2,7 +2,7 @@
 
 {% set generalSettings = sylius_settings_all('general') %}
 
-<html>
+<html xmlns="http://www.w3.org/1999/html">
     <head>
         <title>
             {% block title %}
@@ -41,12 +41,12 @@
         <div id="main-graphic">
             <div id="main-content">
                 <div class="current_width_back">
-                    <div id="logo"><img src="{{ asset('assets/img/logo.png') }}" alt="Wolna Nuta" /></div>
+                    <div id="logo"><a href="{{ path('free_note_core_frontend') }}"><img src="{{ asset('assets/img/logo.png') }}" alt="Wolna Nuta" /></a></div>
                     <div id="baner"><img src="{{ asset('assets/img/text.png') }}" alt="Wolna Nuta" /></div>
                     <div class="navbar navbar-fixed-top">
                         <div class="toppanel_top"></div>
+                        <div id="navbar_inner_back">
                         <div class="navbar-inner">
-                            <div id="navbar_inner_back"></div>
                             <div class="current_width">
                                 <div class="container-fluid">
                                     {% include 'FreeNoteBundle:Frontend/Main:topbar.html.twig' %}
@@ -55,14 +55,15 @@
                                 </div>
                             </div>
                         </div>
+                        </div>
                         <div class="navbar-underline"></div>
                     </div>
                     <div id="menu_min" class="current_width">
-                        {% include 'FreeNoteBundle:Frontend/Main:minimenu.html.twig' %}
+                        {% include 'FreeNoteBundle:Frontend/Menu:minimenu.html.twig' %}
                     </div>
                     <div class="current_width_back">
                         <div id="main_menu">
-                            {{ knp_menu_render('FreeNoteBundle:Builder:frontendMainMenu', {'template': 'FreeNoteBundle:Menu:mainmenu.html.twig'}) }}
+                            {{ knp_menu_render('FreeNoteBundle:Builder:frontendMainMenu', {'template': 'FreeNoteBundle:Frontend/Menu:mainmenu.html.twig'}) }}
                         </div>
                         <div id="content_back" class="current_width">
                             <div class="container-fluid">

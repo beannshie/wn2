@@ -3457,7 +3457,7 @@ input[type="submit"].btn.btn-mini {
     -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
   *zoom: 1;
-  text-align: center;
+  text-align: left;
 }
 
 .navbar-inner:before,
