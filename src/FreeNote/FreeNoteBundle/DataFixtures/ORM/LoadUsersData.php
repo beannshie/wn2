@@ -29,6 +29,20 @@ class LoadUsersData extends DataFixture
         $manager->persist($user);
         $manager->flush();
 
+        $userProfile = $userProfileRepository->createNew();
+        $userProfile->setUser($user);
+        $userProfile->setName($this->faker->firstName);
+        $userProfile->setSurname($this->faker->lastName);
+        $userProfile->setPhoneNumber($this->faker->phoneNumber);
+        $userProfile->setAvatarPath('../../bundles/freenote/images/mug.jpg');
+        $userProfile->setPostalAddress($this->getReference('Address-1'));
+        $userProfile->setBusinessAddress($this->getReference('Address-21'));
+        $userProfile->setCompanyName($this->faker->company);
+        $userProfile->setNip($this->faker->randomNumber(3).'-'.$this->faker->randomNumber(3).'-'.$this->faker->randomNumber(2).'-'.$this->faker->randomNumber(2));
+        $userProfile->setRegon($this->faker->randomNumber(9));
+        $userProfileManager->persist($userProfile);
+        $manager->flush();
+
         $user = new User();
         $user->setUsername('kaala');
         $user->setEmail('kaala@example.com');
@@ -62,8 +76,8 @@ class LoadUsersData extends DataFixture
             $userProfile->setSurname($this->faker->lastName);
             $userProfile->setPhoneNumber($this->faker->phoneNumber);
             $userProfile->setAvatarPath('../../bundles/freenote/images/mug.jpg');
-            $userProfile->setPostalAddress($this->getReference('Address-'.$i));
-            $userProfile->setBusinessAddress($this->getReference('Address-'.($i+20)));
+            $userProfile->setPostalAddress($this->getReference('Address-'.($i+2)));
+            $userProfile->setBusinessAddress($this->getReference('Address-'.($i+22)));
             $userProfile->setCompanyName($this->faker->company);
             $userProfile->setNip($this->faker->randomNumber(3).'-'.$this->faker->randomNumber(3).'-'.$this->faker->randomNumber(2).'-'.$this->faker->randomNumber(2));
             $userProfile->setRegon($this->faker->randomNumber(9));

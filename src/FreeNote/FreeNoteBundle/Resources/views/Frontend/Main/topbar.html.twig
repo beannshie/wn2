@@ -1,5 +1,9 @@
 <ul class="nav pull-right" xmlns="http://www.w3.org/1999/html">
-    <li>{% include 'FreeNoteBundle:Frontend/Main:topUser.html.twig' %}</li>
+    <li>
+        {% if is_granted('ROLE_USER') %}
+            {{ render(controller('FreeNoteBundle:TopUser:topUser')) }}
+        {% endif %}
+    </li>
     <li class="toppanel_spacer"><img src="{{ asset('assets/img/toppanel_spacer.png') }}" alt="" /></li>
     <li>
         <div id="user_menu">

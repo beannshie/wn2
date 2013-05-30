@@ -123,6 +123,7 @@ user:
         buyer: konto kupującego (osoba prywatna)
         buyerCo: konto kupującego (firma)
         seller: konto sprzedającego
+    logged_as: zalogowany jako:
 
 basket:
     count_header: produktów w koszyku:
