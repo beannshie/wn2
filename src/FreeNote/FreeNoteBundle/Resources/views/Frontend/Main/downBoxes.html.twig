@@ -1,0 +1,31 @@
+<div class="podzielnik_poziom_big" xmlns="http://www.w3.org/1999/html"></div>
+<div>
+    <div class="box_cell">
+        <div class="box_header shop_header">
+            {{ ('shop.header')|trans({}, 'FreeNoteCoreBundle') }}
+        </div>
+        {{ render(controller('FreeNoteBundle:Frontend/Main:shopBox')) }}
+    </div>
+    <div class="box_cell">
+        <img src="{{ asset('assets/img/pozielnik-pion-big.png') }}" alt="" class="podzielnik_pion" />
+    </div>
+    <div class="box_cell">
+        <div class="box_header cloud_header">
+            {{ ('cloud.header')|trans({}, 'FreeNoteCoreBundle') }}
+        </div>
+        {#TODO - cloud component#}
+        </br/>
+        <img src="{{ asset('assets/img/todelete/cloud.jpg') }}" alt="" width="240"/>
+    </div>
+    <div class="box_cell">
+        <img src="{{ asset('assets/img/pozielnik-pion-big.png') }}" alt=""  class="podzielnik_pion" />
+    </div>
+    <div class="box_cell">
+        <div class="box_header community_header">
+            {{ ('community.header')|trans({}, 'FreeNoteCoreBundle') }}
+        </div>
+        {#TODO - community component#}
+        </br/>
+        <img src="{{ asset('assets/img/todelete/fb_fanbox_default1.jpg') }}" alt=""  width="240"/>
+    </div>
+</div>

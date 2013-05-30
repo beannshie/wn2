@@ -1,10 +1,10 @@
 free_note_core_frontend:
     pattern: /
-    defaults: { _controller: free_note_core.controller.frontend.main:indexAction }
+    defaults: { _controller: free_note_core.controller.frontend.homepage:indexAction }
 
-free_note_about:
-    pattern: /about
-    defaults: { _controller: free_note_core.controller.frontend.main:aboutAction }
+#free_note_about:
+#    pattern: /about
+#    defaults: { _controller: free_note_core.controller.frontend.main:aboutAction }
 
 free_note_frontend_product:
     resource: @FreeNoteBundle/Resources/config/routing/frontend/product.yml

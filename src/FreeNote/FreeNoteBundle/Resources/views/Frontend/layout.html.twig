@@ -36,13 +36,25 @@
             <link rel="stylesheet/less" href="{{ asset_url }}" />
         {% endstylesheets %}
         {% endblock %}
+
+        {% block javascripts %}
+            {% javascripts output='assets/compiled/frontend.js'
+            'http://code.jquery.com/jquery-1.8.0.min.js'
+            'http://cdnjs.cloudflare.com/ajax/libs/less.js/1.3.1/less.min.js'
+            '@FreeNoteBundle/Resources/assets/js/bootstrap.min.js'
+            '@FreeNoteBundle/Resources/assets/js/select2.min.js'
+            '@FreeNoteBundle/Resources/assets/js/sylius-addressing.js'
+            %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+        {% endblock %}
     </head>
     <body>
         <div id="main-graphic">
             <div id="main-content">
                 <div class="current_width_back">
                     <div id="logo"><a href="{{ path('free_note_core_frontend') }}"><img src="{{ asset('assets/img/logo.png') }}" alt="Wolna Nuta" /></a></div>
-                    <div id="baner"><img src="{{ asset('assets/img/text.png') }}" alt="Wolna Nuta" /></div>
+                    <div id="baner"><img src="{{ asset('assets/img/todelete/text.png') }}" alt="Wolna Nuta" /></div>
                     <div class="navbar navbar-fixed-top">
                         <div class="toppanel_top"></div>
                         <div class="navbar-inner">
@@ -66,13 +78,23 @@
                             <div class="container-fluid">
                                 <div class="row-fluid">
                                     <div id="toplayer">
-                                        <div id="player"><img src="{{ asset('assets/img/player.png') }}" alt="Wolna Nuta - player" /></div>
+                                        <div id="player"><img src="{{ asset('assets/img/todelete/player.png') }}" alt="Wolna Nuta - player" /></div>
                                     </div>
                                 </div>
                                 <div class="row-fluid">
                                     <div id="page_container">
-                                        <div id="content">
-                                            {% block content %}
+                                        <div id="mainpage">
+                                            {% block mainpage %}
+                                            {% endblock %}
+                                        </div>
+                                        <div id="down_boxes">
+                                            {% block downboxes %}
+                                                {% include 'FreeNoteBundle:Frontend/Main:downBoxes.html.twig' %}
+                                            {% endblock %}
+                                        </div>
+                                        <div id="down_advert">
+                                            {% block downadvert %}
+                                                {{ render(controller('FreeNoteBundle:Frontend/Main:downAdvert')) }}
                                             {% endblock %}
                                         </div>
                                     </div>
@@ -87,16 +109,5 @@
                 <p>&copy; <a href="{{ path('free_note_core_frontend') }}">Wolna Nuta</a>, 2013 - {{ 'now'|date('Y') }}.</p>
             </footer>
         </div>
-        {% block javascripts %}
-        {% javascripts output='assets/compiled/frontend.js'
-            'http://code.jquery.com/jquery-1.8.0.min.js'
-            'http://cdnjs.cloudflare.com/ajax/libs/less.js/1.3.1/less.min.js'
-            '@FreeNoteBundle/Resources/assets/js/bootstrap.min.js'
-            '@FreeNoteBundle/Resources/assets/js/select2.min.js'
-            '@FreeNoteBundle/Resources/assets/js/sylius-addressing.js'
-        %}
-            <script type="text/javascript" src="{{ asset_url }}"></script>
-        {% endjavascripts %}
-        {% endblock %}
     </body>
 </html>

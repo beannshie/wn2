@@ -22,4 +22,18 @@ class ProductRepository extends CustomizableProductRepository
 
         return $this->getPaginator($queryBuilder);
     }
+
+    public function findTopSelled($limit)
+    {
+        //TODO - implement toto
+        $queryBuilder = $this->getCollectionQueryBuilder();
+
+        $queryBuilder
+            ->leftJoin('product.variants', 'variant')
+            ->orderBy('variant.price', 'desc')
+            ->setMaxResults($limit)
+        ;
+
+        return $queryBuilder->getQuery()->getResult();
+    }
 }

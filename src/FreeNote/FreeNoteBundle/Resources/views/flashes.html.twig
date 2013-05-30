@@ -1,0 +1,4 @@
+{% from 'MopaBootstrapBundle::flash.html.twig' import flash %}
+{% for name, value in app.session.flashes if name in ['success', 'error'] %}
+    {{ flash(name, value|trans, true) }}
+{% endfor %}

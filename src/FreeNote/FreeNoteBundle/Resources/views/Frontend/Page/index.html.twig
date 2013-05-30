@@ -1,0 +1,30 @@
+{% extends 'FreeNoteBundle:Frontend:layout.html.twig' %}
+
+{% block content %}
+
+    {#{%  %}#}
+
+    <div id="leftbar">
+        {% from 'MopaBootstrapBundle::flash.html.twig' import flash %}
+        {% for name, value in app.session.flashes if name in ['success', 'error'] %}
+            {{ flash(name, value|trans, true) }}
+        {% endfor %}
+        {% block sidebar %}
+            {% include 'FreeNoteBundle:Frontend:sidebar.html.twig' %}
+        {% endblock %}
+        <hr />
+    </div>
+
+
+<div class="page-header">
+  <h1>Wolna Nuta <small>Recent products</small></h1>
+</div>
+
+<div class="alert alert-info">
+Cudowny zajebiaszczy kude bele OUR BELOVED projekt of Wolna Nuta:)
+</div>
+
+<hr />
+
+
+{% endblock %}

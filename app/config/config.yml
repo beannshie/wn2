@@ -65,6 +65,12 @@ avalanche_imagine:
         icon:
             type: thumbnail
             options: { size: [45, 30], mode: inset }
+        avatar:
+            type: thumbnail
+            options: { size: [51, 51], mode: inset }
+        frontend_shop_item_small:
+            type: thumbnail
+            options: { size: [130, 160], mode: inset }
         frontend_medium:
             type: thumbnail
             options: { size: [220, 180], mode: inset }

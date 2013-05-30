@@ -1,3 +1,8 @@
 {% render controller('BlogBundle:Post:list', { 'limit': 2 }), { 'alt': 'BlogBundle:Post:error' } %}
 {# Or: #}
 {{ render(controller('BlogBundle:Post:list', { 'limit': 2 }), { 'alt': 'BlogBundle:Post:error'}) }}
+
+
+
+//bootstrap classes
+<div class="alert alert-info">

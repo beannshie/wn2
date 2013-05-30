@@ -1179,7 +1179,7 @@ table th[class*="span"],
   background-color: #c4e3f3;
 }
 form {
-  margin: 0 0 13px;
+  margin: 0;
 }
 fieldset {
   padding: 0;
@@ -3095,7 +3095,7 @@ input[type="submit"].btn.btn-mini {
 }
 .nav {
   margin-left: 0;
-  margin-bottom: 13px;
+  margin-bottom: 0px;
   list-style: none;
 }
 .nav > li > a {
@@ -3187,7 +3187,8 @@ input[type="submit"].btn.btn-mini {
   line-height: 14px;
 }
 .nav-tabs {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 0px solid #ddd;
+    font-size: 14px;
 }
 .nav-tabs > li {
   margin-bottom: -1px;
@@ -3200,18 +3201,17 @@ input[type="submit"].btn.btn-mini {
   -webkit-border-radius: 4px 4px 0 0;
   -moz-border-radius: 4px 4px 0 0;
   border-radius: 4px 4px 0 0;
+    color: #ffffff;
 }
 .nav-tabs > li > a:hover,
 .nav-tabs > li > a:focus {
-  border-color: #eeeeee #eeeeee #dddddd;
+    color: #0084FF;
+  border-color: transparent;
 }
 .nav-tabs > .active > a,
 .nav-tabs > .active > a:hover,
 .nav-tabs > .active > a:focus {
-  color: #555555;
-  background-color: #000000;
-  border: 1px solid #ddd;
-  border-bottom-color: transparent;
+  color: #0084FF;
   cursor: default;
 }
 .nav-pills > li > a {
@@ -4170,9 +4170,6 @@ input[type="submit"].btn.btn-mini {
   padding: 4px;
   line-height: 13px;
   border: 1px solid #ddd;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
   -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
@@ -4181,8 +4178,8 @@ input[type="submit"].btn.btn-mini {
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
-a.thumbnail:hover,
-a.thumbnail:focus {
+a.thumbnail:hover, .thumbnail:hover,
+a.thumbnail:focus, .thumbnail:focus {
   border-color: #fb1d1d;
   -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
   -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);

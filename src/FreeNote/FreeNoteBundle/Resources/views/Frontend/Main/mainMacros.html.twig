@@ -1,0 +1,33 @@
+{% macro shop_box(products) %}
+
+    {% for product in products %}
+        <div class="product_grid_cell">
+            <div class="product_grid_item product_grid_small_item">
+                <div class="product_img thumbnail thumbnail_shop">
+                    <a href="{{ path('free_note_product_show', {'slug': product.slug})}}">
+                        <img src="{{ product.imageWebPath|apply_filter('frontend_shop_item_small') }}" alt="{{ product.name }}" />
+                    </a>
+                </div>
+                <div class="product_name">
+                    <a href="{{ path('free_note_product_show', {'slug': product.slug})}}">
+                        {{ product.name|slice(0, 50) }}
+                    </a>
+                </div>
+                <hr />
+                <div class="product_price_basket">
+                    <div class="product_price">
+                        {{ product.price }} {{ currency|raw|upper }}
+                    </div>
+                    <div class="product_add">
+                        <form action="{{ path('sylius_cart_item_add', {'id': product.id}) }}" method="post" class="clearfix">
+                            {% set form = sylius_cart_form({'product': product}) %}
+                            {{ form_widget(form._token) }}
+                            <input type="submit" class="btn btn-success" value="{{ ('shop.buy')|trans({}, 'FreeNoteCoreBundle') }}">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+{% endmacro %}

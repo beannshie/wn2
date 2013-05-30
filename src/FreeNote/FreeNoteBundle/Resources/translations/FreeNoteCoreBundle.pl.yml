@@ -128,3 +128,18 @@ user:
 basket:
     count_header: produktów w koszyku:
     count_unit: szt.
+
+advert:
+    header: REKLAMA
+
+shop:
+    header: SKLEP
+    buy: KUP
+    most: NAJCZĘŚCIEJ KUPOWANE
+    newest: NOWOŚCI
+
+cloud:
+    header: CHMURA TAGÓW
+
+community:
+    header: ZNAJDŹ NAS NA

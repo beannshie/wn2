@@ -1,0 +1,32 @@
+{% import 'FreeNoteBundle:Frontend/Main:mainMacros.html.twig' as macros %}
+
+<ul class="nav nav-tabs" id="myTab">
+    <li class="active">
+        <a data-toggle="tab" href="#most">{{ ('shop.most')|trans({}, 'FreeNoteCoreBundle') }}</a>
+    </li>
+    <li>
+        <a data-toggle="tab" href="#newest">{{ ('shop.newest')|trans({}, 'FreeNoteCoreBundle') }}</a>
+    </li>
+</ul>
+
+<div class="product_grid_small">
+    <div class="product_grid_row"">
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane active" id="most">
+                {{ macros.shop_box(recentProducts) }}
+            </div>
+            <div class="tab-pane" id="newest">
+                {{ macros.shop_box(mostBuyProducts) }}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#myTab a').click(function (e) {
+        e.preventDefault();
+        $(this).tab('show');
+    })
+</script>
+
+

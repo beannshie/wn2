@@ -1,0 +1,21 @@
+{% extends 'FreeNoteBundle:Frontend:layout.html.twig' %}
+
+{% block mainpage %}
+
+    <div id="icon_menu">
+        {% block iconmenu %}
+        {% endblock %}
+    </div>
+
+    <div id="content_small">
+        {% block content %}
+            {% include 'FreeNoteBundle::flashes.html.twig' %}
+        {% endblock %}
+    </div>
+
+    <div id="rightBoxes">
+        {% block rightboxes %}
+        {% endblock %}
+    </div>
+
+{% endblock %}

@@ -1,6 +1,6 @@
 <?php
 
-namespace FreeNote\FreeNoteBundle\Controller;
+namespace FreeNote\FreeNoteBundle\Controller\Frontend;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
