@@ -11,6 +11,7 @@ read: przeczytaj
 save_changes: zapisz zmiany
 create: dodaj
 back: powrót
+more: 'więcej>>'
 
 confirmer:
     header: Potwierdź akcję
@@ -60,6 +61,10 @@ category:
         wydarzenia: Dodaj kategorię wydarzeń
         ogloszenia: Dodaj kategorię ogloszeń
         muzyka: Dodaj gatunek muzyczny
+    tab_menu:
+        artykuly: ARTYKUŁY
+        aktualnosci: AKTUALNOŚCI
+        wydarzenia: WYDARZENIA
     id: '#id'
     icon: ikona
     name: nazwa
@@ -143,3 +148,9 @@ cloud:
 
 community:
     header: ZNAJDŹ NAS NA
+
+categories_box:
+    header: NOWOŚCI
+
+track_box:
+    most_downloaded_header: NAJCZĘŚCIEJ POBIERANE

@@ -1,0 +1,38 @@
+<div class="box_header categories_box_header">
+    {{ ('categories_box.header')|trans({}, 'FreeNoteCoreBundle') }}
+</div>
+
+<ul class="nav nav-tabs" id="categoriesTab">
+    <li class="active">
+        <a data-toggle="tab" href="#news">{{ ('category.tab_menu.aktualnosci')|trans({}, 'FreeNoteCoreBundle') }}</a>
+    </li>
+    <li>
+        <a data-toggle="tab" href="#events">{{ ('category.tab_menu.wydarzenia')|trans({}, 'FreeNoteCoreBundle') }}</a>
+    </li>
+    <li>
+        <a data-toggle="tab" href="#articles">{{ ('category.tab_menu.artykuly')|trans({}, 'FreeNoteCoreBundle') }}</a>
+    </li>
+</ul>
+
+<div class="categories_box_container"">
+    <div id="categoriesTabContent" class="tab-content">
+        <div class="tab-pane active" id="news">
+            {% include 'FreeNoteBundle:Frontend/Main:tabbox.html.twig' with {'entries': recentNews} %}
+        </div>
+        <div class="tab-pane" id="events">
+            {% include 'FreeNoteBundle:Frontend/Main:tabbox.html.twig' with {'entries': recentEvents} %}
+        </div>
+        <div class="tab-pane" id="articles">
+            {% include 'FreeNoteBundle:Frontend/Main:tabbox.html.twig' with {'entries': recentArticles} %}
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#categoriesTab a').click(function (e) {
+        e.preventDefault();
+        $(this).tab('show');
+    })
+</script>
+
+

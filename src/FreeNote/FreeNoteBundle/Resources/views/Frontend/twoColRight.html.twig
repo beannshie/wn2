@@ -1,9 +1,9 @@
 {% extends 'FreeNoteBundle:Frontend:layout.html.twig' %}
 
-{% block mainpage %}
+{% block content %}
 
-    <div id="content_small">
-        {% block content %}
+    <div id="main">
+        {% block main %}
             {% include 'FreeNoteBundle::flashes.html.twig' %}
         {% endblock %}
     </div>

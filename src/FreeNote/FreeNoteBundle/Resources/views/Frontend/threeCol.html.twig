@@ -1,20 +1,26 @@
 {% extends 'FreeNoteBundle:Frontend:layout.html.twig' %}
 
-{% block mainpage %}
+{% block content %}
 
     <div id="icon_menu">
         {% block iconmenu %}
         {% endblock %}
     </div>
 
-    <div id="content_small">
-        {% block content %}
+    <div id="main_small">
+        {% block main %}
             {% include 'FreeNoteBundle::flashes.html.twig' %}
         {% endblock %}
     </div>
 
     <div id="rightBoxes">
         {% block rightboxes %}
+            {{ render(controller('FreeNoteBundle:Frontend/Main:categoriesBox')) }}
+            <img src="{{ asset('assets/img/podzielnik-poziom.png') }}" alt="" class="podzielnik_poziom_small"/>
+            {{ render(controller('FreeNoteBundle:Frontend/Main:mostDownloadedBox')) }}
+            <img src="{{ asset('assets/img/podzielnik-poziom.png') }}" alt="" />
+            {# TODO - ogloszenia box #}
+            {#{{ render(controller('FreeNoteBundle:Frontend/Main:downAdvert')) }}#}
         {% endblock %}
     </div>
 

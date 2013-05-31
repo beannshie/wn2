@@ -1,0 +1,36 @@
+{% for entry in entries %}
+    <div class="catbox_item">
+        <div class="catbox_item_top">
+            <div class="catbox_item_image">
+                <div class="thumb_container">
+                    <div class="thumbnail thumb thumb_big">
+                        <div class="thumb_border_big">
+                        <a href="{{ path('free_note_product_show', {'slug': entry.slug})}}">
+                            <img src="{{ (entry.imageWebPath is empty ? '/assets/img/icoMedium.png' : entry.imageWebPath)|apply_filter('frontend_thumb_big') }}"
+                                 alt="{{ entry.imageAlt }}" title="{{ entry.imageTitle }}"/>
+                        </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="catbox_item_info">
+                {% block catbox_item_info %}
+                    <div class="catbox_item_date">
+                        {{ entry.createdAt|date('d.m.Y') }}&nbsp;-&nbsp;{{ entry.author|slice(0, 20) }}
+                    </div>
+                    <div class="catbox_item_title">
+                        <a href="{{ path('free_note_news_entry_show', {'slug': entry.slug}) }}">{{ entry.title|slice(0, 50) }}</a>
+                    </div>
+                {% endblock %}
+            </div>
+        </div>
+        <div class="catbox_item_desc">
+            {{ entry.content|slice(0, 150) }}
+        </div>
+        <div class="catbox_item_more">
+            <a href="{{ path('free_note_news_entry_show', {'slug': entry.slug}) }}">{{ 'more'|trans({}, 'FreeNoteCoreBundle') }}</a>
+        </div>
+    </div>
+{% endfor %}
+
+

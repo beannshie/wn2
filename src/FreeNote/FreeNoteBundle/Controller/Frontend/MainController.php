@@ -39,7 +39,7 @@ EOF;
     {
         $recentProducts = $this
             ->getProductRepository()
-            ->findBy(array(), array('updatedAt' => 'desc'), 3)
+            ->findBy(array(), array('createdAt' => 'desc'), 3)
         ;
 
         $mostBuyProducts = $this
@@ -51,11 +51,59 @@ EOF;
             'recentProducts' => $recentProducts,
             'mostBuyProducts' => $mostBuyProducts,
         ));
+    }
 
+    /**
+     * News/articles/events box.
+     *
+     * @return Response
+     */
+    public function categoriesBoxAction()
+    {
+        $recentNews = $this
+            ->getAliasRepository(fnCategoryInterface::FN_CATEGORY_BACKEND_aktualnosci_ALIAS)
+            ->findBy(array(), array('createdAt' => 'desc'), 3)
+        ;
+
+        $recentEvents = $this
+            ->getAliasRepository(fnCategoryInterface::FN_CATEGORY_BACKEND_wydarzenia_ALIAS)
+            ->findBy(array(), array('createdAt' => 'desc'), 3)
+        ;
+
+        $recentArticles = $this
+            ->getAliasRepository(fnCategoryInterface::FN_CATEGORY_BACKEND_artykuly_ALIAS)
+            ->findBy(array(), array('createdAt' => 'desc'), 3)
+        ;
+
+        return $this->render('FreeNoteBundle:Frontend/Main:categoriesBox.html.twig', array(
+            'recentNews' => $recentNews,
+            'recentEvents' => $recentEvents,
+            'recentArticles' => $recentArticles,
+        ));
+    }
+
+    /**
+     * Mosr downloaded box.
+     *
+     * @return Response
+     */
+    public function mostDownloadedBoxAction()
+    {
+        //TODO - -implement
+        $mostDownloaded = array(1,2,3,4);
+
+        return $this->render('FreeNoteBundle:Frontend/Main:mostDownloadedBox.html.twig', array(
+            'mostDownloaded' => $mostDownloaded,
+        ));
     }
 
     private function getProductRepository()
     {
         return $this->get('sylius.repository.product');
+    }
+
+    private function getAliasRepository($alias)
+    {
+        return $this->get('free_note.repository.'.$alias.'_entry');
     }
 }

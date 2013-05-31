@@ -1,14 +1,14 @@
 {% extends 'FreeNoteBundle:Frontend:layout.html.twig' %}
 
-{% block mainpage %}
+{% block content %}
 
     <div id="icon_menu">
         {% block iconmenu %}
         {% endblock %}
     </div>
 
-    <div id="content">
-        {% block content %}
+    <div id="main">
+        {% block main %}
             {% include 'FreeNoteBundle::flashes.html.twig' %}
         {% endblock %}
     </div>
