@@ -75,7 +75,68 @@ class Builder extends ContainerAware
         return $menu;
     }
 
+    public function frontendMusicGenresMenu(FactoryInterface $factory, array $options)
+    {
+        return $this->frontendCategoryMenu($factory, $options, 'free_note_category_show', fnCategoryInterface::FN_MUSIC_GENRE_SLUG);
+    }
 
+    protected function frontendCategoryMenu(FactoryInterface $factory, array $options, $route, $alias)
+    {
+        $menu = $factory->createItem('root', array(
+            'childrenAttributes' => array(
+                'class' => 'nav'
+            )
+        ));
+
+        $menu->setCurrent($this->container->get('request')->getRequestUri());
+
+        $categoryManager = $this->container->get('sylius_categorizer.manager.category');
+        $catalog = $this->container->get('sylius_categorizer.registry')->getCatalog($alias);
+        $articleCategories = $categoryManager->findRootCategories($catalog);
+
+        foreach ($articleCategories as $category) {
+            $child = $menu->addChild($category->getName(), array(
+                'route'           => $route,
+                'routeParameters' => array(
+                    'alias' => $alias,
+                    'slug'  => $category->getSlug()
+                ),
+                'labelAttributes' => array(
+                    'class' => 'nav-header',
+                    'is_rootcat' => true,
+                    'icon' => array(
+                        'webPath' => $category->getImageWebPath(),
+                        'alt' => $category->getImageAlt(),
+                        'title' => $category->getImageTitle()
+                    )
+                ),
+                'childrenAttributes' => array('class' => 'nav nav-list')
+            ));
+
+            foreach($categoryManager->getCategoryChildren($catalog, $category) as $subcat)
+            {
+                $child->addChild($subcat->getName(), array(
+                    'route'           => $route,
+                    'routeParameters' => array(
+                        'alias' => $alias,
+                        'slug'  => $subcat->getSlug()
+                    ),
+                    'labelAttributes' => array(
+                        'is_rootcat' => false,
+                        'icon' => array(
+                            'webPath' => '/assets/img/redDot.png',
+                            'alt' => $subcat->getImageAlt(),
+                            'title' => $subcat->getImageTitle()
+                        )
+                    )
+                ));
+            }
+        }
+
+        return $menu;
+    }
+
+//
 //    public function frontendMainMenu(FactoryInterface $factory, array $options)
 //    {
 //        $menu = $factory->createItem('root', array(

@@ -621,8 +621,7 @@ hr
 
 #content
 {
-  display: block;
-  overflow: hidden;
+  display: table;
   margin: 0px -10px 0px -10px;
 }
 
@@ -635,7 +634,19 @@ hr
 #main_small
 {
   width: 580px;
+  width: 550px !important;
   float: left;
+  font-size: 13px;
+  line-height: 15px;
+  color: #bab9b9;
+  background: -moz-linear-gradient(top, rgba(54,54,54,0.69) 0%, rgba(0,0,0,0.69) 25%, rgba(0,0,0,0.69) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(54,54,54,0.69)), color-stop(25%,rgba(0,0,0,0.69)), color-stop(100%,rgba(0,0,0,0.69))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, rgba(54,54,54,0.69) 0%,rgba(0,0,0,0.69) 25%,rgba(0,0,0,0.69) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(54,54,54,0.69) 0%,rgba(0,0,0,0.69) 25%,rgba(0,0,0,0.69) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, rgba(54,54,54,0.69) 0%,rgba(0,0,0,0.69) 25%,rgba(0,0,0,0.69) 100%); /* IE10+ */
+  background: linear-gradient(to bottom, rgba(54,54,54,0.69) 0%,rgba(0,0,0,0.69) 25%,rgba(0,0,0,0.69) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b0363636', endColorstr='#b0000000',GradientType=0 ); /* IE6-9 */
+  padding: 15px 15px 30px 15px;
 }
 
 #rightBoxes
@@ -643,6 +654,7 @@ hr
   width: 265px;
   float: right;
   text-align: center;
+  margin-left: 40px;
 }
 
 .categories_box_header
@@ -813,9 +825,68 @@ a.thumb_small:focus, .thumb_small:focus
   color: #ffffff;
 }
 
+.main_icon
+{
+  margin-left: -30px;
+}
 
+.sub_icon
+{
+  margin-left: -15px;
+}
 
+#icon_menu a
+{
+  font-size: 18px;
+  color: #ffffff;
+}
 
+#icon_menu .active a,
+#icon_menu .active a:hover,
+#icon_menu .active a:focus,
+#icon_menu a:hover,
+#icon_menu a:focus {
+  color: #0084FF;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+  background-color: transparent;
+}
+
+#icon_menu .nav-list a
+{
+  font-size: 12px;
+
+}
+
+#icon_menu .nav-list li
+{
+  line-height: 20px;
+}
+#icon_menu .nav-list li.first
+{
+  padding-top: 7px;
+}
+#icon_menu .nav-list li.last
+{
+  padding-bottom: 15px;
+}
+
+#icon_menu img
+{
+  padding-right: 20px;
+}
+
+.nav-list > li > a
+{
+  padding: 0px 5px;
+}
+
+#main_small h1
+{
+  color: white;
+  font-size: 20px;
+  padding-bottom: 10px;
+  text-align: center;
+}
 
 
 

@@ -134,4 +134,9 @@ class fnCategoryManager extends CategoryManager
 
         return $queryBuilder->getQuery()->execute();
     }
+
+    public function getCategoryChildren($catalog, $category)
+    {
+        return $this->getRepository($catalog)->children($category);
+    }
 }

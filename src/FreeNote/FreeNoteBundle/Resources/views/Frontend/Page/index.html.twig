@@ -1,7 +1,11 @@
 {% extends 'FreeNoteBundle:Frontend:threeCol.html.twig' %}
 
-{% block content %}
-    {{ parent() }}
-    {#{%  %}#}
+    {% block iconmenu %}
+        {{ knp_menu_render('FreeNoteBundle:Builder:frontendMusicGenresMenu', {'template': 'FreeNoteBundle:Frontend/Menu:categoriesMenu.html.twig', 'currentClass': 'active'}) }}
+    {% endblock %}
 
-{% endblock %}
+
+    {% block main %}
+        {{ parent() }}
+        {{ content|raw }}
+    {% endblock %}

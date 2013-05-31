@@ -1,0 +1,10 @@
+{% extends 'knp_menu.html.twig' %}
+
+{% block label %}
+    {% set icon = item.labelAttribute('icon') %}
+    {% if item.labelAttribute('is_rootcat') %}
+        <img src="{{ attribute(icon, 'webPath') is empty ? 'http://placehold.it/70x40' : attribute(icon, 'webPath')|apply_filter('icon_mg') }}"
+             alt="{{ attribute(icon, 'alt') }}" title="{{ attribute(icon, 'title') }}" class="main_icon" />
+    {% endif %}
+    {{ item.label|upper }}
+{% endblock %}

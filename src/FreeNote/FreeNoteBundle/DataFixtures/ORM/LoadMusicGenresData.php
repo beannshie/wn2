@@ -28,16 +28,24 @@ class LoadMusicGenresData extends DataFixture
         $this->referenceNamespace = 'Sandbox.Music.Genre.';
 
         $c0 = $this->createCategory(fnCategoryInterface::FN_MUSIC_GENRE_SLUG);
-        $c1 = $this->createCategory('Rock', $c0);
-        $orig1 = $this->createCategory('Punk Rock', $c1);
-        $this->createCategory('Rock', $c1);
-        $c2 = $this->createCategory('Techno', $c0);
-        $c3 = $this->createCategory('Metal', $c0);
-        $this->createCategory('Black Metal', $c3);
-        $this->createCategory('Heavy Metal', $c3);
-        $this->createCategory('Trash', $c3);
-        $c4 = $this->createCategory('Punk', $c0);
-        $this->createCategory('Punk Rock', $c4, $orig1);
+        $c1 = $this->createCategory('Alternative', 'muzykaAlt', $c0);
+        $orig1 = $this->createCategory('Punk Rock', null, $c1);
+        $this->createCategory('More Alternative', null, $c1);
+        $c2 = $this->createCategory('Lata 80-te', 'muzyka80te', $c0);
+        $c3 = $this->createCategory('Acoustic', 'muzykaAcoustic', $c0);
+        $this->createCategory('Live Acoustic',null, $c3);
+        $this->createCategory('Studio Acoustic', null, $c3);
+        $c4 = $this->createCategory('Hard Rock', 'muzykaHardRock', $c0);
+        $this->createCategory('Punk Rock', null, $c4, $orig1);
+        $c5 = $this->createCategory('Disco', 'muzykaDisco', $c0);
+        $this->createCategory('Disco Polo', null, $c5);
+        $this->createCategory('Pop', null, $c5);
+        $this->createCategory('Disco disco jupikajej', null, $c5);
+        $c6 = $this->createCategory('Gothic', 'muzykaGothic', $c0);
+        $c7 = $this->createCategory('Heavy Metal', 'muzykaHeavyM', $c0);
+        $c8 = $this->createCategory('Jazz', 'muzykaJazz', $c0);
+        $c9 = $this->createCategory('Lyric', 'muzykaLyric', $c0);
+        $this->createCategory('Poezja śpiewana', null, $c9);
     }
 
     /**
@@ -45,7 +53,7 @@ class LoadMusicGenresData extends DataFixture
      *
      * @param string $name
      */
-    private function createCategory($name, $ancestor = null, $origin = null)
+    private function createCategory($name, $filename = null, $ancestor = null, $origin = null)
     {
         $category = $this->manager->createCategory($this->catalog);
         $category->setName($name);
@@ -59,8 +67,8 @@ class LoadMusicGenresData extends DataFixture
             $category->setIsFake(true);
         }
 
-        $category->setImageFilename('t-shirt.jpg');
-        $category->setImagePath('../../bundles/freenote/images/t-shirt.jpg');
+        $category->setImageFilename(($filename?($filename.'.png'):'t-shirt.jpg'));
+        $category->setImagePath('../../bundles/freenote/images/t-shirt.png');
         $category->setImageMimeType('image/jpg');
         $category->setImageSize(123);
         $category->setImageAlt('ikona');
