@@ -30,6 +30,10 @@ class AdvertisementEntryType extends ArticleEntryType
                 'catalog'  => fnCategoryInterface::FN_CATEGORY_ADVERTISEMENT_SLUG,
                 'label' => 'fn.label.article.article_entry.categories'
             ))
+            ->add('price', null, array(
+                'required' => false,
+                'label' => 'fn.label.advertisement.advertisement_entry.price'
+            ))
         ;
     }
 

@@ -15,6 +15,11 @@ class AdvertisementEntry extends BasePost implements fnUploadableImageInterface
     protected $city;
 
     /**
+     * @var string
+     */
+    protected $price;
+
+    /**
      * @param string $city
      */
     public function setCity($city)
@@ -28,6 +33,22 @@ class AdvertisementEntry extends BasePost implements fnUploadableImageInterface
     public function getCity()
     {
         return $this->city;
+    }
+
+    /**
+     * @param float $price
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+    }
+
+    /**
+     * @return float
+     */
+    public function getPrice()
+    {
+        return $this->price;
     }
 
     /**

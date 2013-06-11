@@ -36,6 +36,7 @@
 
         <field name="city" column="city" type="string" nullable="true">
         </field>
+        <field name="price" column="price" type="decimal" precision="10" scale="2" nullable="true" />
 
         <field name="createdBy" type="string">
             <gedmo:blameable on="create"/>

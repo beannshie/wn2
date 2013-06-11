@@ -8,6 +8,9 @@
             <th>{{ ('entry.title')|trans({}, 'FreeNoteCoreBundle') }}</th>
             <th>{{ ('entry.'~resourceName~'.author')|trans({}, 'FreeNoteCoreBundle') }}</th>
             <th>{{ ('entry.'~resourceName~'.place')|trans({}, 'FreeNoteCoreBundle') }}</th>
+            <th>{{ ('entry.'~resourceName~'.tickets')|trans({}, 'FreeNoteCoreBundle') }}</th>
+            <th>{{ ('entry.'~resourceName~'.start_date')|trans({}, 'FreeNoteCoreBundle') }}</th>
+            <th>{{ ('entry.'~resourceName~'.end_date')|trans({}, 'FreeNoteCoreBundle') }}</th>
         </tr>
         </thead>
         <tbody>
@@ -29,6 +32,9 @@
             <td>{{ entry.title }}</td>
             <td>{{ entry.author }}</td>
             <td>{{ entry.place }}</td>
+            <td>{{ entry.tickets }}</td>
+            <td>{{ entry.startDate|date('d.m.Y, H:i:s') }}</td>
+            <td>{{ entry.endDate|date('d.m.Y, H:i:s')  }}</td>
         </tr>
         </tbody>
     </table>

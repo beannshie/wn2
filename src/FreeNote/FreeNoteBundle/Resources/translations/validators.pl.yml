@@ -22,6 +22,9 @@ fn:
             min_length: "Treść nie może być krótsza niż {{ limit }} znaki|Treść nie może być krótsza niż {{ limit }} znaki."
         author:
             not_blank: "Proszę podać autora"
+        price:
+            bad_format: "Niepoprawny format"
+            not_negative: "Cena nie może być mniejsza niż 0"
 
 sylius:
     address:

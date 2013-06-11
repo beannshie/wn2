@@ -30,6 +30,24 @@ class EventEntryType extends ArticleEntryType
                 'catalog'  => fnCategoryInterface::FN_CATEGORY_EVENT_SLUG,
                 'label' => 'fn.label.article.article_entry.categories'
             ))
+            ->add('tickets', 'text', array(
+                'required' => false,
+                'label' => 'fn.label.event.event_entry.tickets'
+            ))
+            ->add('startDate', 'datetime', array(
+                'required' => true,
+                'date_format' => 'y-M-d',
+                'date_widget' => 'choice',
+                'time_widget' => 'text',
+                'label' => 'fn.label.event.event_entry.start_date'
+            ))
+            ->add('endDate', 'datetime', array(
+                'required' => false,
+                'date_format' => 'y-M-d',
+                'date_widget' => 'choice',
+                'time_widget' => 'text',
+                'label' => 'fn.label.event.event_entry.end_date'
+            ))
         ;
     }
 

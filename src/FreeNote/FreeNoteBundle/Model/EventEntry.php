@@ -15,6 +15,21 @@ class EventEntry extends BasePost implements fnUploadableImageInterface
     protected $place;
 
     /**
+     * @var string
+     */
+    protected $tickets;
+
+    /**
+     * @var \DateTime
+     */
+    protected $startDate;
+
+    /**
+     * @var \DateTime
+     */
+    protected $endDate;
+
+    /**
      * @param string $place
      */
     public function setPlace($place)
@@ -28,6 +43,54 @@ class EventEntry extends BasePost implements fnUploadableImageInterface
     public function getPlace()
     {
         return $this->place;
+    }
+
+    /**
+     * @param string $tickets
+     */
+    public function setTickets($tickets)
+    {
+        $this->tickets = $tickets;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTickets()
+    {
+        return $this->tickets;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getStartDate()
+    {
+        return $this->startDate;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setStartDate(\DateTime $startDate)
+    {
+        $this->startDate = $startDate;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getEndDate()
+    {
+        return $this->endDate;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setEndDate(\DateTime $endDate)
+    {
+        $this->endDate = $endDate;
     }
 
     /**

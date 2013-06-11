@@ -23,6 +23,7 @@ class LoadAdvertisementEntriesData extends DataFixture
 
             $post->setTitle($this->faker->sentence);
             $post->setCity($this->faker->city);
+            $post->setPrice($this->faker->randomNumber(2));
             $post->setContent($this->faker->paragraph(9));
             $post->setCreatedBy($this->getReference('User-'.rand(1, 15)));
             $post->setUpdatedBy($this->faker->userName);

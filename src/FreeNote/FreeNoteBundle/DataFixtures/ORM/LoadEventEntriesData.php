@@ -24,6 +24,9 @@ class LoadEventEntriesData extends DataFixture
             $post->setTitle($this->faker->sentence);
             $post->setAuthor($this->faker->name);
             $post->setPlace($this->faker->city);
+            $post->setTickets($this->faker->text(20));
+            $post->setStartDate($this->faker->dateTime);
+            $post->setEndDate($this->faker->dateTime);
             $post->setContent($this->faker->paragraph(9));
             $post->setCreatedBy($this->getReference('User-'.rand(1, 15)));
             $post->setUpdatedBy($this->faker->userName);

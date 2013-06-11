@@ -113,6 +113,9 @@ entry:
         update_header: Edycja wydarzenia
         new_header: Dodaj wydarzenie
         place: miejsce
+        tickets: bilety
+        start_date: termin rozpoczęcia
+        end_date: termin zakończenia
     advertisement_entry:
         author: źródło
         list_header: Lista ogloszeń
@@ -121,6 +124,7 @@ entry:
         update_header: Edycja ogloszenia
         new_header: Dodaj ogloszenie
         city: miasto
+        price: cena
 
 user:
     register:

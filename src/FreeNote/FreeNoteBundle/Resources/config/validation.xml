@@ -140,6 +140,18 @@
         </property>
     </class>
 
+    <class name="FreeNote\FreeNoteBundle\Entity\AdvertisementEntry">
+        <property name="price">
+            <constraint name="Min">
+                <option name="limit">0</option>
+                <option name="message">fn.entry.price.not_negative</option>
+                <option name="groups">
+                    <value>allEntry</value>
+                </option>
+            </constraint>
+        </property>
+    </class>
+
     <class name="FreeNote\FreeNoteBundle\Entity\ArticleCategory">
         <property name="image">
             <constraint name="File">

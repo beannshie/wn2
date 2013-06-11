@@ -10,6 +10,8 @@
                 <th>{{ sylius_resource_sort('title', 'entry.title'|trans({}, 'FreeNoteCoreBundle'), null, null, routeParams) }}</th>
                 <th>{{ sylius_resource_sort('author', ('entry.'~routeSlug~'.author')|trans({}, 'FreeNoteCoreBundle'), null, null, routeParams) }}</th>
                 <th>{{ sylius_resource_sort('place', ('entry.'~routeSlug~'.place')|trans({}, 'FreeNoteCoreBundle'), null, null, routeParams) }}</th>
+                <th>{{ sylius_resource_sort('startDate', ('entry.'~routeSlug~'.start_date')|trans({}, 'FreeNoteCoreBundle'), null, null, routeParams) }}</th>
+                <th>{{ sylius_resource_sort('endDate', ('entry.'~routeSlug~'.end_date')|trans({}, 'FreeNoteCoreBundle'), null, null, routeParams) }}</th>
                 <th></th>
             </tr>
             </thead>
@@ -36,6 +38,8 @@
                     <td>{{ entry.title }}</td>
                     <td>{{ entry.author }}</td>
                     <td>{{ entry.place }}</td>
+                    <td>{{ entry.startDate|date('d.m.Y, H:i:s')  }}</td>
+                    <td>{{ entry.endDate|date('d.m.Y, H:i:s')  }}</td>
                     <td>
                         <div class="pull-right btn-group">
                             <a href="{{ path('free_note_backend_'~routeSlug~'_show', {'id': entry.id}) }}" class="btn">

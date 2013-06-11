@@ -12,6 +12,7 @@
                 <th>{{ sylius_resource_sort('title', 'entry.title'|trans({}, 'FreeNoteCoreBundle'), null, null, routeParams) }}</th>
                 <th>{{ sylius_resource_sort('author', ('entry.'~routeSlug~'.author')|trans({}, 'FreeNoteCoreBundle'), null, null, routeParams) }}</th>
                 <th>{{ sylius_resource_sort('city', ('entry.'~routeSlug~'.city')|trans({}, 'FreeNoteCoreBundle'), null, null, routeParams) }}</th>
+                <th>{{ sylius_resource_sort('price', ('entry.'~routeSlug~'.price')|trans({}, 'FreeNoteCoreBundle'), null, null, routeParams) }}</th>
                 <th></th>
             </tr>
             </thead>
@@ -38,6 +39,7 @@
                     <td>{{ entry.title }}</td>
                     <td>{{ entry.author }}</td>
                     <td>{{ entry.city }}</td>
+                    <td>{% if entry.price is not null %}{{ entry.price }}&nbsp;{{ currency|raw }}{% endif %}</td>
                     <td>
                         <div class="pull-right btn-group">
                             <a href="{{ path('free_note_backend_'~routeSlug~'_show', {'id': entry.id}) }}" class="btn">

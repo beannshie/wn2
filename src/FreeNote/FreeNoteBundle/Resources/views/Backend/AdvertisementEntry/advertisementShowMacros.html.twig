@@ -8,6 +8,7 @@
             <th>{{ ('entry.title')|trans({}, 'FreeNoteCoreBundle') }}</th>
             <th>{{ ('entry.'~resourceName~'.author')|trans({}, 'FreeNoteCoreBundle') }}</th>
             <th>{{ ('entry.'~resourceName~'.city')|trans({}, 'FreeNoteCoreBundle') }}</th>
+            <th>{{ ('entry.'~resourceName~'.price')|trans({}, 'FreeNoteCoreBundle') }}</th>
         </tr>
         </thead>
         <tbody>
@@ -29,6 +30,7 @@
             <td>{{ entry.title }}</td>
             <td>{{ entry.author }}</td>
             <td>{{ entry.city }}</td>
+            <td>{{ entry.price }}</td>
         </tr>
         </tbody>
     </table>

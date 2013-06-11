@@ -77,10 +77,14 @@ fn:
             event_entry:
                 author: "Organizator"
                 place: "Miejsce"
+                tickets: "Bilety"
+                start_date: "Termin rozpoczęcia"
+                end_date: "Termin zakończenia"
         advertisement:
             advertisement_entry:
                 author: "Autor"
                 city: "Miasto"
+                price: "Cena"
         music_genre:
             origin: "Kopia gatunku"
 

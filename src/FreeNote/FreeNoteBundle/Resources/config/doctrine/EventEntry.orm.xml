@@ -36,6 +36,12 @@
 
         <field name="place" column="place" type="string" nullable="true">
         </field>
+        <field name="tickets" column="tickets" type="string" nullable="true">
+        </field>
+        <field name="startDate" column="start_date" type="datetime" nullable="false">
+        </field>
+        <field name="endDate" column="end_date" type="datetime">
+        </field>
 
         <field name="createdBy" type="string">
             <gedmo:blameable on="create"/>
