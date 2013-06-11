@@ -1,6 +1,6 @@
 {% import 'FreeNoteBundle:Frontend/Main:mainMacros.html.twig' as macros %}
 
-<ul class="nav nav-tabs" id="myTab">
+<ul class="nav nav-tabs" id="shopTab">
     <li class="active">
         <a data-toggle="tab" href="#most">{{ ('shop.most')|trans({}, 'FreeNoteCoreBundle') }}</a>
     </li>
@@ -11,7 +11,7 @@
 
 <div class="product_grid_small">
     <div class="product_grid_row"">
-        <div id="myTabContent" class="tab-content">
+        <div id="shopTabContent" class="tab-content">
             <div class="tab-pane active" id="most">
                 {{ macros.shop_box(recentProducts) }}
             </div>

@@ -1,0 +1,31 @@
+{% extends 'FreeNoteBundle:Frontend:threeCol.html.twig' %}
+
+{% import 'FreeNoteBundle:Frontend/Entry:listMacros.html.twig' as macros %}
+
+{% block iconmenu %}
+    {{ knp_menu_render('FreeNoteBundle:Builder:frontendNewsMenu', {'template': 'FreeNoteBundle:Frontend/Menu:categoriesMenu.html.twig', 'currentClass': 'active'}) }}
+{% endblock %}
+
+{% block main %}
+    {{ parent() }}
+
+    {% if paginator.haveToPaginate() %}
+        {{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
+    {% endif %}
+
+    {% if entries %}
+        {% for entry in entries %}
+            {% include 'FreeNoteBundle:Frontend/ArticleEntry:_single.html.twig' with {'entryPart': 'news'} %}
+        {% endfor %}
+    {% else %}
+        <div class="alert alert-info">
+            <h4 class="alert-heading">{{ 'alert.heading.info'|trans({}, 'FreeNoteCoreBundle') }}.</h4>
+            {{ 'no_results'|trans({}, 'FreeNoteCoreBundle') }}
+        </div>
+    {% endif %}
+
+    {% if paginator.haveToPaginate() %}
+        {{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
+    {% endif %}
+
+{% endblock %}

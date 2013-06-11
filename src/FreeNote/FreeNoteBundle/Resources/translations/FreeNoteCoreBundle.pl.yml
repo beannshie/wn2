@@ -12,6 +12,7 @@ save_changes: zapisz zmiany
 create: dodaj
 back: powrót
 more: 'więcej>>'
+more_text: '<<więcej'
 
 confirmer:
     header: Potwierdź akcję

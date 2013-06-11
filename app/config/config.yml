@@ -83,12 +83,18 @@ avalanche_imagine:
         frontend_thumb_big:
             type: thumbnail
             options: { size: [73, 73], mode: inset }
-#        frontend_medium:
-#            type: thumbnail
-#            options: { size: [220, 180], mode: inset }
-#        frontend_box:
-#            type: thumbnail
-#            options: { size: [130, 75], mode: inset }
+        frontend_entries:
+            type: thumbnail
+            options: { size: [148, 148], mode: inset }
+
+#TODO - remove or update two below
+        frontend_medium:
+            type: thumbnail
+            options: { size: [220, 180], mode: inset }
+        frontend_box:
+            type: thumbnail
+            options: { size: [130, 75], mode: inset }
+
         backend_mini:
             type: thumbnail
             options: { size: [90, 60], mode: inset }

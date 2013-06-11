@@ -1,25 +1,35 @@
-{% extends 'FreeNoteBundle:Frontend:layout.html.twig' %}
+{% extends 'FreeNoteBundle:Frontend:threeCol.html.twig' %}
 
-{% block content %}
-<div class="page-header">
-<h1>Blog catalog category show <small>This action is handled inside categorizer bundle</small></h1>
-</div>
+{% import 'FreeNoteBundle:Frontend/Entry:listMacros.html.twig' as macros %}
 
-{% if paginator.haveToPaginate() %}
-{{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
-{% endif %}
+{% block iconmenu %}
+    {{ knp_menu_render('FreeNoteBundle:Builder:frontendArticleMenu', {'template': 'FreeNoteBundle:Frontend/Menu:categoriesMenu.html.twig', 'currentClass': 'active'}) }}
+{% endblock %}
 
-{% if entries %}
-    {% for entry in entries %}
-        {% include 'FreeNoteBundle:Frontend/ArticleEntry:_single.html.twig' %}
-    {% endfor %}
-{% else %}
-    <div class="alert alert-info">
-        No entries to display.
+{% block main %}
+    {{ parent() }}
+
+    <div class="pager_blue">
+        {% if paginator.haveToPaginate() %}
+            {{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
+        {% endif %}
     </div>
-{% endif %}
 
-{% if paginator.haveToPaginate() %}
-{{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
-{% endif %}
+    {% if entries %}
+        {% for entry in entries %}
+            {% include 'FreeNoteBundle:Frontend/ArticleEntry:_single.html.twig' with {'entryPart': 'article'} %}
+        {% endfor %}
+    {% else %}
+        <div class="alert alert-info">
+            <h4 class="alert-heading">{{ 'alert.heading.info'|trans({}, 'FreeNoteCoreBundle') }}.</h4>
+            {{ 'no_results'|trans({}, 'FreeNoteCoreBundle') }}
+        </div>
+    {% endif %}
+
+    <div class="pager_blue">
+        {% if paginator.haveToPaginate() %}
+            {{ pagerfanta(paginator, 'twitter_bootstrap_translated') }}
+        {% endif %}
+    </div>
+
 {% endblock %}

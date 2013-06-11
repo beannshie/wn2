@@ -3,17 +3,15 @@
 {% import 'FreeNoteBundle:Frontend/Entry:listMacros.html.twig' as macros %}
 
 {% block iconmenu %}
-    {{ knp_menu_render('FreeNoteBundle:Builder:frontendArticleMenu', {'template': 'FreeNoteBundle:Frontend/Menu:categoriesMenu.html.twig', 'currentClass': 'active'}) }}
+    {{ knp_menu_render('FreeNoteBundle:Builder:frontendAdvertisementMenu', {'template': 'FreeNoteBundle:Frontend/Menu:categoriesMenu.html.twig', 'currentClass': 'active'}) }}
 {% endblock %}
 
 {% block main %}
-    <div class="pager_blue">
-        {{ macros.pager(entries, resourceName) }}
-    </div>
+    {{ macros.pager(entries, resourceName) }}
 
     {% if entries|length > 0 %}
         {% for entry in entries %}
-            {% include 'FreeNoteBundle:Frontend/ArticleEntry:_single.html.twig' with {'entryPart': 'article'} %}
+            {% include 'FreeNoteBundle:Frontend/ArticleEntry:_single.html.twig' with {'entryPart': 'advertisement'} %}
         {% endfor %}
     {% else %}
         <div class="alert alert-info">
@@ -22,8 +20,6 @@
         </div>
     {% endif %}
 
-    <div class="pager_blue">
-        {{ macros.pager(entries, resourceName) }}
-    </div>
+    {{ macros.pager(entries, resourceName) }}
 
 {% endblock %}

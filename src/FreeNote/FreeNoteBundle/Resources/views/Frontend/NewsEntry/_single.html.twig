@@ -3,8 +3,8 @@
         <div class="catbox_item_top">
             <div class="catbox_item_image">
                 <div class="thumb_container">
-                    <div class="thumbnail thumb thumb_big thumb_big_blue">
-                        <div class="thumb_border thumb_border_big">
+                    <div class="thumbnail thumb thumb_big">
+                        <div class="thumb_border thumb_border_big_blue">
                             <a href="{{ path(('free_note_'~entryPart~'_entry_show'), {'slug': entry.slug})}}">
                                 <img src="{{ (entry.imageWebPath is empty ? '/assets/img/icoMedium.png' : entry.imageWebPath)|apply_filter('frontend_thumb_big') }}"
                                      alt="{{ entry.imageAlt }}" title="{{ entry.imageTitle }}"/>
@@ -25,8 +25,10 @@
             </div>
         </div>
         <div class="catbox_item_desc">
-            {{ entry.content|slice(0, 480) }}...&nbsp;&nbsp;
-            <a href="{{ path(('free_note_'~entryPart~'_entry_show'), {'slug': entry.slug}) }}">{{ 'more_text'|trans({}, 'FreeNoteCoreBundle') }}</a>
+            {{ entry.content|slice(0, 150) }}
+        </div>
+        <div class="catbox_item_more">
+            <a href="{{ path(('free_note_'~entryPart~'_entry_show'), {'slug': entry.slug}) }}">{{ 'more'|trans({}, 'FreeNoteCoreBundle') }}</a>
         </div>
         <hr>
     </div>

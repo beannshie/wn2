@@ -31,14 +31,12 @@ class Builder extends ContainerAware
 
         $menu->setCurrent($this->container->get('request')->getRequestUri());
 
-        $menu->addChild('GŁÓWNA', array('route' => 'free_note_core_frontend', 'attributes' => array('class' => 'default')));
-        $menu->addChild('O NAS', array('route' => 'free_note_core_frontend', 'attributes' => array('class' => 'default')));
-        $menu->addChild('AKTUALNOŚCI', array('route' => 'free_note_news_entry_list', 'attributes' => array('class' => 'default')));
-        $menu->addChild('WYDARZENIA', array('route' => 'free_note_event_entry_list', 'attributes' => array('class' => 'default')));
-        $menu->addChild('ARTYKUŁY', array('route' => 'free_note_article_entry_list', 'attributes' => array('class' => 'default')));
-        $menu->addChild('RADIO', array('route' => 'free_note_core_frontend', 'attributes' => array('class' => 'default')));
-        $menu->addChild('MUZYKA', array('route' => 'free_note_core_frontend', 'attributes' => array('class' => 'blue')));
-        $menu->addChild('SKLEP', array('route' => 'free_note_core_frontend', 'attributes' => array('class' => 'green')));
+        $menu->addChild('AKTUALNOŚCI', array('route' => 'free_note_news_entry_list', 'attributes' => array('class' => 'default default_blue')));
+        $menu->addChild('WYDARZENIA', array('route' => 'free_note_event_entry_list', 'attributes' => array('class' => 'default default_blue')));
+        $menu->addChild('ARTYKUŁY', array('route' => 'free_note_article_entry_list', 'attributes' => array('class' => 'default default_blue')));
+        $menu->addChild('PRACOWNIA', array('route' => 'free_note_core_backend', 'attributes' => array('class' => 'default default_red')));
+        $menu->addChild('MUZYKA', array('route' => 'free_note_core_backend', 'attributes' => array('class' => 'red')));
+        $menu->addChild('SKLEP', array('route' => 'free_note_core_backend', 'attributes' => array('class' => 'green')));
         $menu->addChild('OGŁOSZENIA', array('route' => 'free_note_advertisement_entry_list', 'attributes' => array('class' => 'yellow')));
 
         return $menu;
@@ -77,14 +75,34 @@ class Builder extends ContainerAware
 
     public function frontendMusicGenresMenu(FactoryInterface $factory, array $options)
     {
-        return $this->frontendCategoryMenu($factory, $options, 'free_note_category_show', fnCategoryInterface::FN_MUSIC_GENRE_SLUG);
+        return $this->frontendCategoryMenu($factory, $options, 'free_note_category_show', fnCategoryInterface::FN_MUSIC_GENRE_SLUG, 'icon_menu_red');
     }
 
-    protected function frontendCategoryMenu(FactoryInterface $factory, array $options, $route, $alias)
+    public function frontendArticleMenu(FactoryInterface $factory, array $options)
+    {
+        return $this->frontendCategoryMenu($factory, $options, 'free_note_category_show', fnCategoryInterface::FN_CATEGORY_ARTICLE_SLUG, 'icon_menu_blue');
+    }
+
+    public function frontendNewsMenu(FactoryInterface $factory, array $options)
+    {
+        return $this->frontendCategoryMenu($factory, $options, 'free_note_category_show', fnCategoryInterface::FN_CATEGORY_NEWS_SLUG, 'icon_menu_blue');
+    }
+
+    public function frontendEventMenu(FactoryInterface $factory, array $options)
+    {
+        return $this->frontendCategoryMenu($factory, $options, 'free_note_category_show', fnCategoryInterface::FN_CATEGORY_EVENT_SLUG, 'icon_menu_blue');
+    }
+
+    public function frontendAdvertisementMenu(FactoryInterface $factory, array $options)
+    {
+        return $this->frontendCategoryMenu($factory, $options, 'free_note_category_show', fnCategoryInterface::FN_CATEGORY_ADVERTISEMENT_SLUG, 'icon_menu_yellow');
+    }
+
+    protected function frontendCategoryMenu(FactoryInterface $factory, array $options, $route, $alias, $cssclass)
     {
         $menu = $factory->createItem('root', array(
             'childrenAttributes' => array(
-                'class' => 'nav'
+                'class' => 'nav '.$cssclass
             )
         ));
 
@@ -122,12 +140,7 @@ class Builder extends ContainerAware
                         'slug'  => $subcat->getSlug()
                     ),
                     'labelAttributes' => array(
-                        'is_rootcat' => false,
-                        'icon' => array(
-                            'webPath' => '/assets/img/redDot.png',
-                            'alt' => $subcat->getImageAlt(),
-                            'title' => $subcat->getImageTitle()
-                        )
+                        'is_rootcat' => false
                     )
                 ));
             }

@@ -1,28 +1,57 @@
-{% extends 'FreeNoteBundle:Frontend:layout.html.twig' %}
+{% extends 'FreeNoteBundle:Frontend:threeCol.html.twig' %}
 
-{% block content %}
-<div class="page-header">
-<h1>Reading blog post</h1>
-</div>
+{% block iconmenu %}
+    {{ knp_menu_render('FreeNoteBundle:Builder:frontendArticleMenu', {'template': 'FreeNoteBundle:Frontend/Menu:categoriesMenu.html.twig', 'currentClass': 'active'}) }}
+{% endblock %}
 
-<div class="well">
-    <h3>{{ article_entry.title }}</h3>
-    <p>Posted at {{ article_entry.createdAt|date('Y-m-d H:i:s') }} by <strong>{{ article_entry.author }}</strong>.</p>
-    <hr />
+{% block main %}
 
-    <ul class="nav nav-pills">
-        {% for category in article_entry.categories %}
-            <li class="active">
-            <a href="{{ path('free_note_category_show', {'alias': 'artykuly', 'slug': category.slug}) }}">{{ category.name }}</a>
-            </li>
-        {% endfor %}
-    </ul>
+    <div>
+        <div class="show_item_top">
+            <div class="show_item_image">
+                <div class="thumb_container">
+                    <div class="thumbnail thumb thumb_entry thumb_big_blue">
+                        <div class="thumb_border thumb_border_entry">
+                            <img src="{{ (article_entry.imageWebPath is empty ? '/assets/img/icoMedium.png' : article_entry.imageWebPath)|apply_filter('frontend_entries') }}"
+                                 alt="{{ article_entry.imageAlt }}" title="{{ article_entry.imageTitle }}"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="show_item_info">
+                {% block show_item_info %}
+                    <div class="show_item_date">
+                        {{ article_entry.createdAt|date('d.m.Y') }}&nbsp;-&nbsp;{{ article_entry.author}}
+                    </div>
+                    <div class="show_item_title">
+                        {{ article_entry.title }}
+                    </div>
+                {% endblock %}
+            </div>
+        </div>
+        <div class="show_item_desc">
+            {{ article_entry.content }}
+        </div>
 
-    <hr />
-    {{ article_entry.content|markdown }}
-    <hr />
-    <div id="fos_comment_thread"></div>
-</div>
+        {#powrot#}
+
+        {#kategorie#}
+
+        <hr />
+
+        {#<ul class="nav nav-pills">#}
+            {#{% for category in article_entry.categories %}#}
+                {#<li class="active">#}
+                {#<a href="{{ path('free_note_category_show', {'alias': 'artykuly', 'slug': category.slug}) }}">{{ category.name }}</a>#}
+                {#</li>#}
+            {#{% endfor %}#}
+        {#</ul>#}
+
+        {#<hr />#}
+        {#{{ article_entry.content|markdown }}#}
+        {#<hr />#}
+        <div id="fos_comment_thread"></div>
+    </div>
 {% endblock %}
 
 {% block javascripts %}

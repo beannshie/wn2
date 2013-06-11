@@ -1,3 +1,5 @@
+{% import 'FreeNoteBundle:Frontend/Main:mainMacros.html.twig' as macros %}
+
 <div class="box_header categories_box_header">
     {{ ('categories_box.header')|trans({}, 'FreeNoteCoreBundle') }}
 </div>
@@ -17,13 +19,13 @@
 <div class="categories_box_container"">
     <div id="categoriesTabContent" class="tab-content">
         <div class="tab-pane active" id="news">
-            {% include 'FreeNoteBundle:Frontend/Main:tabbox.html.twig' with {'entries': recentNews} %}
+            {{ macros.news_box(recentNews, 'news') }}
         </div>
         <div class="tab-pane" id="events">
-            {% include 'FreeNoteBundle:Frontend/Main:tabbox.html.twig' with {'entries': recentEvents} %}
+            {{ macros.news_box(recentEvents, 'event') }}
         </div>
         <div class="tab-pane" id="articles">
-            {% include 'FreeNoteBundle:Frontend/Main:tabbox.html.twig' with {'entries': recentArticles} %}
+            {{ macros.news_box(recentArticles, 'article') }}
         </div>
     </div>
 </div>

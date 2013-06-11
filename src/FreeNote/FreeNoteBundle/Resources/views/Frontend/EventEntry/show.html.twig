@@ -1,0 +1,33 @@
+{% extends 'FreeNoteBundle:Frontend:threeCol.html.twig' %}
+
+{% block iconmenu %}
+    {{ knp_menu_render('FreeNoteBundle:Builder:frontendEventMenu', {'template': 'FreeNoteBundle:Frontend/Menu:categoriesMenu.html.twig', 'currentClass': 'active'}) }}
+{% endblock %}
+
+{% block main %}
+    {{ parent() }}
+
+<div>
+    <h3>{{ event_entry.title }}</h3>
+    <p>{{ event_entry.createdAt|date('Y-m-d') }} by <strong>{{ event_entry.author }}</strong>.</p>
+    <hr />
+
+    <ul class="nav nav-pills">
+        {% for category in event_entry.categories %}
+            <li class="active">
+            <a href="{{ path('free_note_category_show', {'alias': 'wydarzenia', 'slug': category.slug}) }}">{{ category.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <hr />
+    {{ event_entry.content|markdown }}
+    <hr />
+    <div id="fos_comment_thread"></div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': event_entry.commentThreadId} %}
+{% endblock %}

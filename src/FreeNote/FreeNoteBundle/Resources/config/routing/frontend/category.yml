@@ -1,9 +1,9 @@
 # This file is part of the Sylius package.
 # (c) Paweł Jędrzejewski
 
-free_note_category_list:
-    pattern: /{alias}/kategorie/lista
-    defaults: { _controller: sylius_categorizer.controller.frontend.category:listAction }
+#free_note_category_list:
+#    pattern: /{alias}/kategorie/lista
+#    defaults: { _controller: sylius_categorizer.controller.frontend.category:listAction }
 
 free_note_category_show:
     pattern: /{alias}/kategorie/{slug}

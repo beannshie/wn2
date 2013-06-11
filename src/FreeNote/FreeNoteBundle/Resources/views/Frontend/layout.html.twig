@@ -12,8 +12,8 @@
         <meta charset="UTF-8">
         <meta name="description" content="{{ generalSettings.defaultMetaDescription }}">
         <meta name="keywords" content="{{ generalSettings.defaultMetaKeywords }}">
-        {#<link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed&subset=latin,latin-ext'#}
-              {#rel='stylesheet' type='text/css'>#}
+        <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed&subset=latin,latin-ext'
+              rel='stylesheet' type='text/css'>
         <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
         <!--[if lt IE 9]>
           <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -68,6 +68,7 @@
                         <div class="navbar-underline"></div>
                     </div>
                     <div id="menu_min" class="current_width">
+                        {#TODO - wypierniczyc do menu buildera#}
                         {% include 'FreeNoteBundle:Frontend/Menu:minimenu.html.twig' %}
                     </div>
                     <div class="current_width_back">

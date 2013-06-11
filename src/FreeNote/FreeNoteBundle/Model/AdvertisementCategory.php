@@ -16,6 +16,6 @@ class AdvertisementCategory extends BaseCategory implements fnUploadableImageInt
      */
     public function getImageUploadDir()
     {
-        return 'uploads/images/advertisement/category';
+        return 'uploads/images/adertisement/category';
     }
 }

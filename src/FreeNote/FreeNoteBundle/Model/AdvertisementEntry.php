@@ -47,6 +47,6 @@ class AdvertisementEntry extends BasePost implements fnUploadableImageInterface
      */
     public function getImageUploadDir()
     {
-        return 'uploads/images/advertisement';
+        return 'uploads/images/adertisement';
     }
 }
