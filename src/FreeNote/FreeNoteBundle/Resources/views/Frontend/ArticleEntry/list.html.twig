@@ -16,6 +16,7 @@
             {% include 'FreeNoteBundle:Frontend/ArticleEntry:_single.html.twig' with {'entryPart': 'article'} %}
         {% endfor %}
     {% else %}
+        {#TODO - alert#}
         <div class="alert alert-info">
             <h4 class="alert-heading">{{ 'alert.heading.info'|trans({}, 'FreeNoteCoreBundle') }}.</h4>
             {{ 'no_results'|trans({}, 'FreeNoteCoreBundle') }}

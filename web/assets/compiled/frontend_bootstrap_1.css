@@ -205,9 +205,10 @@ textarea {
 }
 body {
   margin: 0;
-  font-family: 'Ubuntu Condensed', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 13px;
-  line-height: 13px;
+  font-family: 'Titillium Web', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 300;
   color: #bab9b9;
   background-color: #000000;
 }
@@ -810,7 +811,7 @@ address {
 code,
 pre {
   padding: 0 3px 2px;
-  font-family: 'Ubuntu Condensed', Menlo, Monaco, 'Courier New', monospace;
+  font-family: 'Titillium Web', Menlo, Monaco, 'Courier New', monospace;
   font-size: 11px;
   color: #333333;
   -webkit-border-radius: 3px;
@@ -1214,7 +1215,7 @@ input,
 button,
 select,
 textarea {
-  font-family: 'Ubuntu Condensed', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Titillium Web', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 label {
   display: block;
@@ -3570,7 +3571,7 @@ input[type="submit"].btn.btn-mini {
 .navbar-search .search-query {
   margin-bottom: 0;
   padding: 4px 14px;
-  font-family: 'Ubuntu Condensed', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Titillium Web', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 13px;
   font-weight: normal;
   line-height: 1;

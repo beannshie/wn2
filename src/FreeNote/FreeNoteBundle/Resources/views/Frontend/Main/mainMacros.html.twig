@@ -13,10 +13,10 @@
                         {{ product.name|slice(0, 50) }}
                     </a>
                 </div>
-                <hr />
+                <hr class="hr_white"/>
                 <div class="product_price_basket">
                     <div class="product_price">
-                        {{ product.price }} {{ currency|raw|upper }}
+                        {{ product.price }} {{ currency|raw }}
                     </div>
                     <div class="product_add">
                         <form action="{{ path('sylius_cart_item_add', {'id': product.id}) }}" method="post" class="clearfix">

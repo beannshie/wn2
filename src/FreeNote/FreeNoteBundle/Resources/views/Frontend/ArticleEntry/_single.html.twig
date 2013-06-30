@@ -1,5 +1,4 @@
 <div class="entry_row" xmlns="http://www.w3.org/1999/html">
-    <div class="entry_row_top">
         <div class="catbox_item_top">
             <div class="catbox_item_image">
                 <div class="thumb_container">
@@ -24,10 +23,9 @@
                 {% endblock %}
             </div>
         </div>
-        <div class="catbox_item_desc">
+        <div class="entry_row_desc">
             {{ entry.content|slice(0, 480) }}...&nbsp;&nbsp;
             <a href="{{ path(('free_note_'~entryPart~'_entry_show'), {'slug': entry.slug}) }}">{{ 'more_text'|trans({}, 'FreeNoteCoreBundle') }}</a>
         </div>
         <hr>
-    </div>
 </div>

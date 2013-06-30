@@ -1268,4 +1268,7 @@ disabled look for already selected choices in the results dropdown
 {
     background-color: rgb(245,245,245);
 }
-@import url(http://fonts.googleapis.com/css?family=Ubuntu+Condensed&subset=latin,latin-ext);
+/*@import url(http://fonts.googleapis.com/css?family=Dosis:400,500,600,700&subset=latin,latin-ext);*/
+/*@import url(http://fonts.googleapis.com/css?family=Merriweather+Sans:400,700,300&subset=latin,latin-ext);*/
+
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600,300italic,400italic,600italic&subset=latin,latin-ext);
