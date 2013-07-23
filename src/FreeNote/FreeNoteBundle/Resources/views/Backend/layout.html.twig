@@ -57,25 +57,32 @@
         </div>
         <div class="navbar navbar-fixed-top navbar-inverse">
             <div class="navbar-inner">
+            <div  id="fn-navbar-top">
                 <div class="container-fluid">
-                    <a class="brand" href="{{ path('free_note_core_frontend') }}">Wolna Nuta</a>
-                    {{ knp_menu_render('FreeNoteBundle:Builder:backendMainMenu', {'template': 'FreeNoteBundle:Menu:main.html.twig', 'currentClass': 'active'}) }}
+                    {{ knp_menu_render('FreeNoteBundle:Builder:backendMainMenu', {'template': 'FreeNoteBundle:Backend/Menu:main.html.twig', 'currentClass': 'active'}) }}
                 </div>
             </div>
+            </div>
         </div>
-        <div class="container-fluid">
+        <div id="userinfo_bar">
+            <div class="container-fluid">
+                {#<a class="brand" href="{{ path('free_note_core_frontend') }}">Wolna Nuta</a>#}
+                {#{{ knp_menu_render('FreeNoteBundle:Builder:backendMainMenu', {'template': 'FreeNoteBundle:Menu:main.html.twig', 'currentClass': 'active'}) }}#}
+            </div>
+        </div>
+        <div id="container-back" class="container-fluid">
             <div class="row-fluid">
-                <div id="sidebar" class="span2">
+                <div id="menubar" class="span2">
                     {% block sidebar %}
                         <div class="sidebar-nav well">
-                            {{ knp_menu_render('FreeNoteBundle:Builder:backendSidebarMenu', {'template': 'FreeNoteBundle:Menu:sidebar.html.twig', 'currentClass': 'active'}) }}
+                            {{ knp_menu_render('FreeNoteBundle:Builder:backendSidebarMenu', {'template': 'FreeNoteBundle:Backend/Menu:sidebar.html.twig', 'currentClass': 'active'}) }}
                         </div>
                         <div class="sidebar-nav well">
-                            {{ knp_menu_render('FreeNoteBundle:Builder:backendUserMenu', {'template': 'FreeNoteBundle:Menu:sidebar.html.twig', 'currentClass': 'active'}) }}
+                            {{ knp_menu_render('FreeNoteBundle:Builder:backendUserMenu', {'template': 'FreeNoteBundle:Backend/Menu:sidebar.html.twig', 'currentClass': 'active'}) }}
                         </div>
                     {% endblock %}
                 </div>
-                <div id="content" class="span10">
+                <div id="content" class="span8">
                     <div id="content-inner">
                         <div class="page-header">
                             {% block header %}<h1>Wolna Nuta<small> Panel administratora</small></h1>{% endblock %}
@@ -91,6 +98,8 @@
                     <footer>
                         <p>&copy; <a href="{{ path('free_note_core_frontend') }}">Wolna Nuta</a>, 2013 - {{ 'now'|date('Y') }}.</p>
                     </footer>
+                </div>
+                <div id="infobar" class="span2">
                 </div>
             </div>
         </div>

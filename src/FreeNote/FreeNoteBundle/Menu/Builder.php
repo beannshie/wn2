@@ -346,7 +346,14 @@ class Builder extends ContainerAware
 
         $menu->setCurrent($this->container->get('request')->getRequestUri());
 
-        $menu->addChild('Panel', array('route' => 'free_note_core_backend'));
+        $menu->addChild('Wolna Nuta', array(
+            'linkAttributes' => array('class' => 'fn_home'),
+            'route' => 'free_note_core_frontend',
+        ));
+        $menu->addChild('Panel', array(
+            'linkAttributes' => array('class' => 'fn_panel'),
+            'route' => 'free_note_core_backend'
+        ));
 
         $childOptions = array(
             'attributes'         => array('class' => 'dropdown'),
@@ -364,7 +371,7 @@ class Builder extends ContainerAware
         $this->addEventMenu($menu, $childOptions);
         $this->addAdvertisementMenu($menu, $childOptions);
 
-        $menu->addChild('Przejdź do <strong>strony głównej</strong>', array('route' => 'free_note_core_frontend'));
+//        $menu->addChild('Przejdź do <strong>strony głównej</strong>', array('route' => 'free_note_core_frontend'));
 
         return $menu;
     }
@@ -543,6 +550,8 @@ class Builder extends ContainerAware
      */
     protected function addArticleMenu(ItemInterface $menu, array $childOptions)
     {
+        $childOptions['childrenAttributes']['class'] .= ' fn_bck_blue';
+        $childOptions['labelAttributes']['class'] .= ' fn_menu_article';
         $child = $menu->addChild('Artykuły', $childOptions);
 
         $child->addChild('Dodaj kategorię', array(
@@ -576,6 +585,8 @@ class Builder extends ContainerAware
      */
     protected function addNewsMenu(ItemInterface $menu, array $childOptions)
     {
+        $childOptions['childrenAttributes']['class'] .= ' fn_bck_blue';
+        $childOptions['labelAttributes']['class'] .= ' fn_menu_news';
         $child = $menu->addChild('Aktualności', $childOptions);
 
         $child->addChild('Dodaj kategorię', array(
@@ -609,6 +620,8 @@ class Builder extends ContainerAware
      */
     protected function addEventMenu(ItemInterface $menu, array $childOptions)
     {
+        $childOptions['childrenAttributes']['class'] .= ' fn_bck_blue';
+        $childOptions['labelAttributes']['class'] .= ' fn_menu_event';
         $child = $menu->addChild('Wydarzenia', $childOptions);
 
         $child->addChild('Dodaj kategorię', array(
@@ -642,6 +655,8 @@ class Builder extends ContainerAware
      */
     protected function addAdvertisementMenu(ItemInterface $menu, array $childOptions)
     {
+        $childOptions['childrenAttributes']['class'] .= ' fn_bck_yellow';
+        $childOptions['labelAttributes']['class'] .= ' fn_menu_advertisement';
         $child = $menu->addChild('Ogłoszenia', $childOptions);
 
         $child->addChild('Dodaj kategorię', array(

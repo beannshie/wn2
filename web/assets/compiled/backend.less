@@ -135,18 +135,237 @@
   transform: translate(@x, @y);
 }
 
+
+
+.fngradient2 (@bgcolor: @fntxtback, @r1: 155, @g1:155, @b1:155, @a1:0.33, @p1: 0%,
+@r2: 54, @g2: 54, @b2: 54, @a2: 0.69, @p2: 100%,
+@iestart: '#549b9b9b', @iestop: '#54363636')
+{
+  background-color: @bgcolor;
+  background: -moz-linear-gradient(top, rgba(@r1,@g1,@b1,@a1) @p1, rgba(@r2,@g2,@b2,@a2) @p2); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(@p1,rgba(@r1,@g1,@b1,@a1)), color-stop(@p2,rgba(@r2,@g2,@b2,@a2))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, rgba(@r1,@g1,@b1,@a1) @p1,rgba(@r2,@g2,@b2,@a2) @p2); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(@r1,@g1,@b1,@a1) @p1,rgba(@r2,@g2,@b2,@a2) @p2); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, rgba(@r1,@g1,@b1,@a1) @p1,rgba(@r2,@g2,@b2,@a2) @p2); /* IE10+ */
+  background: linear-gradient(to bottom, rgba(@r1,@g1,@b1,@a1) @p1,rgba(@r2,@g2,@b2,@a2) @p2); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=@iestart, endColorstr=@iestop,GradientType=0 ); /* IE6-9 */
+  background-repeat: repeat-x;
+}
+
+@fnbckFontSizeMenu: 15px;
+@fnbckFontSizeMenuSmall: 11px;
+@fnbckFontSizeSubMenu: 13px;
+
+@fnred: #FB1D1d;
+@fnredShadow: rgba(251, 29, 29, 0.8);
+@fnblue: #0084FF;
+@fnblueShadow: rgba(0, 132, 255, 0.8);
+@fngreen: #84d25d;
+@fngreenShadow: rgba(132, 210, 93, 0.8);
+@fnyellow: #FFD800;
+@fnyellowShadow: rgba(255, 216, 0, 0.8);
+@fnwhite: #ebebfb;
+@fngrey: #cac9d9;
+@fntxtback: #292929;
+@fnborderRed: #af0000;
+@fnblack: #292929;
+@fnborderGrey: #bbbbbb;
+
+@fnBckBorderGrey: #666666;
+
 /*
  * This file is part of the Application.
  *
  */
 
 html, body {
-    background-color: #eee;
+  background: url('../img/backend/mesh.png') repeat scroll 0 0 #333333;
+  font-family: Helvetica, sans-serif;
 }
 body {
-    padding-top: 40px;
-    padding-bottom: 20px;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  font-size: 13px;
 }
+
+#container-back
+{
+  padding-top: 20px;
+}
+
+
+
+/******************  TOP MENU ********************/
+#fn-navbar-top
+{
+  background: url('../img/backend/current-dark2.png') repeat scroll 0 0 transparent;
+  line-height: 25px;
+}
+
+.nav
+{
+  font-size: @fnbckFontSizeMenu;
+}
+
+#fn-navbar-top > .container-fluid > .nav
+{
+  text-transform: uppercase;
+  font-size: @fnbckFontSizeMenuSmall;
+  font-weight: bold;
+}
+
+.navbar-inverse, .navbar-inverse .brand, .navbar-inverse .nav > li > a
+{
+  color: @fngrey;
+}
+
+.navbar-inverse .nav > li > a:hover
+{
+  color: @fnwhite;
+}
+
+.navbar .nav > li > a
+{
+  padding: 12px 30px;
+}
+
+.fn_home
+{
+  background: url('../img/logo.png') no-repeat scroll 13px 1px transparent;
+  padding-left: 62px !important;
+  background-size: 43px 40px;
+}
+
+.fn_panel
+{
+  background: url('../img/backend/icons/settings-icon48.png') no-repeat scroll 15px 1px transparent;
+  padding-left: 62px !important;
+  background-size: 40px 40px;
+
+}
+
+.fn_menu_article
+{
+  background: url('../img/backend/icons/docs-icon.png') no-repeat scroll 14px 3px transparent;
+  padding-left: 62px !important;
+  background-size: 42px 40px;
+}
+
+.fn_menu_news
+{
+  background: url('../img/backend/icons/news-icon48.png') no-repeat scroll 8px -6px transparent;
+  padding-left: 62px !important;
+}
+
+.fn_menu_event
+{
+  background: url('../img/backend/icons/calendar-icon48.png') no-repeat scroll 17px 4px transparent;
+  padding-left: 62px !important;
+  background-size: 44px 39px;
+}
+
+.fn_menu_advertisement
+{
+  background: url('../img/backend/icons/megaphone-yellow.png') no-repeat scroll 17px 5px transparent;
+  background-size: 38px 36px;
+  padding-left: 62px !important;
+}
+
+.dropdown-menu
+{
+  background-color: @fnblack;
+}
+
+.navbar-inverse .nav li.dropdown.open > .dropdown-toggle, .navbar-inverse .nav li.dropdown.active > .dropdown-toggle, .navbar-inverse .nav li.dropdown.open.active > .dropdown-toggle
+{
+  background-color: rgba(117,117,117,0.3);
+  .rounded(4px);
+}
+
+.dropdown-menu .divider
+{
+  background-color: #363636;
+  border-bottom: 1px solid #222222;
+}
+
+.dropdown-menu a
+{
+  color: @fnwhite;
+}
+
+.dropdown-menu li>a:hover,.dropdown-menu li>a:focus,.dropdown-submenu:hover>a
+{
+  background-color:@fngrey;
+  .fngradient2 (@fngrey, 202, 201, 217, 1, 0%, 202, 201, 217, 0.5, 100%, '#00cac9d9', '#80cac9d9');
+  .rounded(4px);
+}
+
+.fn_bck_blue.dropdown-menu li>a:hover, fn_bck_blue.dropdown-menu li>a:focus, fn_bck_blue.dropdown-submenu:hover>a
+{
+  background-color:@fnblue;
+  .fngradient2 (@fnblue, 0, 132, 255, 1, 0%, 0, 132, 255, 0.5, 100%, '#000084FF', '#800084FF');
+}
+
+.fn_bck_green.dropdown-menu li>a:hover,.fn_bck_green.dropdown-menu li>a:focus,.fn_bck_green.dropdown-submenu:hover>a
+{
+  background-color:@fngreen;
+  .fngradient2 (@fngreen, 132, 210, 93, 1, 0%, 132, 210, 93, 0.5, 100%, '#0084d25d', '#8084d25d');
+}
+
+.fn_bck_yellow.dropdown-menu li>a:hover,.fn_bck_yellow.dropdown-menu li>a:focus,.fn_bck_yellow.dropdown-submenu:hover>a
+{
+  background-color:@fnyellow;
+  .fngradient2 (@fnyellow, 255, 216, 0, 1, 0%, 255, 216, 0, 0.5, 100%, '#00FFD800', '#80FFD800');
+}
+
+
+/******************  TOP USER PANEL ********************/
+
+#userinfo_bar
+{
+  min-height: 50px;
+  border-bottom: 1px solid @fnBckBorderGrey;
+  background-color: rgba(0,0,0,0.3);
+}
+
+
+
+
+/****************** MENU LEFT BAR ********************/
+
+#menubar
+{
+  span.nav-header {
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+}
+#menubar div.well, #infobar div.well
+{
+  padding: 6px 0;
+}
+
+
+
+/****************** CONTENT ********************/
+
+#content
+{
+  background-color: #fff;
+  background: url('../img/backend/white-noise.png') repeat scroll 0 0 #ffffff;
+  border: 1px solid #DBDBDC;
+  .rounded(10px);
+  .box-shadow(0 1px 3px rgba(0,0,0,.15));
+}
+#content-inner {
+  padding: 20px 20px 0 20px;
+}
+
+
+
+
+
+
 th {
     background-color: #f5f5f5;
 }
@@ -162,27 +381,7 @@ tr.deleted {
 span.label-padded {
     padding: 6px;
 }
-#content {
-    background-color: #fff;
-    .rounded(0 0 6px 6px);
-    .box-shadow(0 1px 3px rgba(0,0,0,.15));
-}
-#content-inner {
-    padding: 20px 20px 0 20px;
-}
-#sidebar {
-    margin-top: 20px;
-
-    span.nav-header {
-        padding-top: 6px;
-        padding-bottom: 6px;
-    }
-}
-#sidebar div.well {
-    padding: 6px 0;
-}
 .page-header {
-    background-color: #f5f5f5;
     padding: 20px 0 20px 20px;
     margin: -20px -20px 20px -20px;
 }
