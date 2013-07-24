@@ -66,19 +66,24 @@
         </div>
         <div id="userinfo_bar">
             <div class="container-fluid">
-                {#<a class="brand" href="{{ path('free_note_core_frontend') }}">Wolna Nuta</a>#}
-                {#{{ knp_menu_render('FreeNoteBundle:Builder:backendMainMenu', {'template': 'FreeNoteBundle:Menu:main.html.twig', 'currentClass': 'active'}) }}#}
+                {{ knp_menu_render('FreeNoteBundle:Builder:backendProfileMenu', {'template': 'FreeNoteBundle:Backend/Menu:main.html.twig', 'currentClass': 'active'}) }}
             </div>
         </div>
         <div id="container-back" class="container-fluid">
             <div class="row-fluid">
                 <div id="menubar" class="span2">
                     {% block sidebar %}
-                        <div class="sidebar-nav well">
-                            {{ knp_menu_render('FreeNoteBundle:Builder:backendSidebarMenu', {'template': 'FreeNoteBundle:Backend/Menu:sidebar.html.twig', 'currentClass': 'active'}) }}
+                        <div class="sidebar-nav well music_well">
+                            {{ knp_menu_render('FreeNoteBundle:Builder:backendMusicMenu', {'template': 'FreeNoteBundle:Backend/Menu:sidebar.html.twig', 'currentClass': 'active'}) }}
+                        </div>
+                        <div class="sidebar-nav well shop_well">
+                            {{ knp_menu_render('FreeNoteBundle:Builder:backendShopMenu', {'template': 'FreeNoteBundle:Backend/Menu:sidebar.html.twig', 'currentClass': 'active'}) }}
                         </div>
                         <div class="sidebar-nav well">
                             {{ knp_menu_render('FreeNoteBundle:Builder:backendUserMenu', {'template': 'FreeNoteBundle:Backend/Menu:sidebar.html.twig', 'currentClass': 'active'}) }}
+                        </div>
+                        <div class="sidebar-nav well">
+                            {{ knp_menu_render('FreeNoteBundle:Builder:backendConfigurationMenu', {'template': 'FreeNoteBundle:Backend/Menu:sidebar.html.twig', 'currentClass': 'active'}) }}
                         </div>
                     {% endblock %}
                 </div>
