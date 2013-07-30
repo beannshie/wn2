@@ -408,12 +408,29 @@ li.nav-list > ul
   color: @fnwhite;
 }
 
-#menubar .accordion-toggle
+.shop_well li.active > a
+{
+  color: @fnwhite;
+}
+
+.shop_well span
 {
   font-size: @fnbckFontSizeSubMenu;
   text-transform: uppercase;
   font-weight: bold;
   color: @fnwhite;
+}
+
+.current_ancestor > span
+{
+  color: @fnblack !important;
+}
+
+.accordion-group
+{
+  border: 0px !important;
+  margin: 0px !important;
+  .border-radius(0px) !important;
 }
 
 

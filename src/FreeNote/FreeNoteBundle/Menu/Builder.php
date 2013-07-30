@@ -435,17 +435,17 @@ class Builder extends ContainerAware
     {
         $menu = $factory->createItem('root', array(
             'childrenAttributes' => array(
-                'class' => 'nav'
+                'class' => 'nav', 'id' => 'accordion1'
             )
         ));
 
         $menu->setCurrent($this->container->get('request')->getRequestUri());
 
         $childOptions = array(
-            'attributes'         => array('class' => 'nav nav-list'),
-            'childrenAttributes' => array('class' => 'nav'),
-//            'childrenAttributes' => array('class' => 'collapse'),
-            'labelAttributes'    => array('class' => 'accordion-toggle', 'data-toggle' => 'collapse')
+            'attributes'         => array('class' => 'nav nav-list accordion-group'),
+//            'childrenAttributes' => array('class' => 'nav'),
+            'childrenAttributes' => array('class' => 'collapse'),
+            'labelAttributes'    => array('class' => 'accordion-toggle', 'data-toggle' => 'collapse', 'data-parent' => '#accordion1')
         );
 
         $this->addTaxonomiesMenu($menu, $childOptions);
