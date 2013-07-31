@@ -414,8 +414,8 @@ class Builder extends ContainerAware
         $menu->setCurrent($this->container->get('request')->getRequestUri());
 
         $childOptions = array(
-            'childrenAttributes' => array('class' => 'nav nav-list'),
-            'labelAttributes'    => array('class' => 'nav-header')
+            'attributes'         => array('class' => 'nav nav-list'),
+            'childrenAttributes' => array('class' => 'nav')
         );
 
         $this->addMusicGenresMenu($menu, $childOptions);
@@ -443,9 +443,9 @@ class Builder extends ContainerAware
 
         $childOptions = array(
             'attributes'         => array('class' => 'nav nav-list accordion-group'),
-//            'childrenAttributes' => array('class' => 'nav'),
-            'childrenAttributes' => array('class' => 'collapse'),
-            'labelAttributes'    => array('class' => 'accordion-toggle', 'data-toggle' => 'collapse', 'data-parent' => '#accordion1')
+            'childrenAttributes' => array('class' => 'nav'),
+//            'childrenAttributes' => array('class' => 'collapse'),
+//            'labelAttributes'    => array('class' => 'accordion-toggle', 'data-toggle' => 'collapse', 'data-parent' => '#accordion1')
         );
 
         $this->addTaxonomiesMenu($menu, $childOptions);
@@ -466,51 +466,26 @@ class Builder extends ContainerAware
      *
      * @return ItemInterface
      */
-    public function backendUserMenu(FactoryInterface $factory, array $options)
+    public function backendRestMenu(FactoryInterface $factory, array $options)
     {
         $menu = $factory->createItem('root', array(
             'childrenAttributes' => array(
-                'class' => 'nav'
+                'class' => 'nav', 'id' => 'accordionRest'
             )
         ));
 
         $menu->setCurrent($this->container->get('request')->getRequestUri());
 
         $childOptions = array(
-            'childrenAttributes' => array('class' => 'nav nav-list'),
-            'labelAttributes'    => array('class' => 'nav-header')
+            'attributes'         => array('class' => 'nav nav-list accordion-group'),
+            'childrenAttributes' => array('class' => 'collapse'),
+            'labelAttributes'    => array('class' => 'accordion-toggle', 'data-toggle' => 'collapse', 'data-parent' => '#accordionRest')
         );
 
         $this->addUsersMenu($menu, $childOptions);
         $this->addUserRegisterMenu($menu, $childOptions);
-
-        return $menu;
-    }
-
-    /**
-     * Builds backend config menu.
-     *
-     * @param FactoryInterface $factory
-     * @param array            $options
-     *
-     * @return ItemInterface
-     */
-    public function backendConfigurationMenu(FactoryInterface $factory, array $options)
-    {
-        $menu = $factory->createItem('root', array(
-            'childrenAttributes' => array(
-                'class' => 'nav'
-            )
-        ));
-
-        $menu->setCurrent($this->container->get('request')->getRequestUri());
-
-        $childOptions = array(
-            'childrenAttributes' => array('class' => 'nav nav-list'),
-            'labelAttributes'    => array('class' => 'nav-header')
-        );
-
         $this->addConfigurationMenu($menu, $childOptions);
+
         return $menu;
     }
 
@@ -867,6 +842,9 @@ class Builder extends ContainerAware
      */
     protected function addUsersMenu(ItemInterface $menu, array $childOptions)
     {
+        $childOptions['childrenAttributes']['id'] = 'users_submenu';
+        $childOptions['labelAttributes']['data-target'] = '#users_submenu';
+
         $child = $menu->addChild('Użytkownicy', $childOptions);
 
         $child->addChild('Lista użytkowników', array(
@@ -883,6 +861,9 @@ class Builder extends ContainerAware
      */
     protected function addUserRegisterMenu(ItemInterface $menu, array $childOptions)
     {
+        $childOptions['childrenAttributes']['id'] = 'register_submenu';
+        $childOptions['labelAttributes']['data-target'] = '#register_submenu';
+
         $child = $menu->addChild('Rejestracja', $childOptions);
 
         $child->addChild('Dodaj użytkownika', array(
@@ -919,6 +900,9 @@ class Builder extends ContainerAware
      */
     protected function addConfigurationMenu(ItemInterface $menu, array $childOptions)
     {
+        $childOptions['childrenAttributes']['id'] = 'configuration_submenu';
+        $childOptions['labelAttributes']['data-target'] = '#configuration_submenu';
+
         $child = $menu->addChild('Administracja', $childOptions);
 
         $child->addChild('Ustawienia ogólne', array(

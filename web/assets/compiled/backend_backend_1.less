@@ -155,6 +155,9 @@
 @fnbckFontSizeMenu: 15px;
 @fnbckFontSizeMenuSmall: 11px;
 @fnbckFontSizeSubMenu: 13px;
+@fnbckFontSizeLeftSubMenu: 12px;
+@fnbckFontSize: 14px;
+@fnbckFontSizeHeader: 20px;
 
 @fnred: #FB1D1d;
 @fnredShadow: rgba(251, 29, 29, 0.8);
@@ -169,9 +172,11 @@
 @fntxtback: #292929;
 @fnborderRed: #af0000;
 @fnblack: #292929;
+@fnblackShadow: rgba(41, 41, 41, 0.2);
 @fnborderGrey: #bbbbbb;
 
 @fnBckBorderGrey: #666666;
+@fnBckBorderGreyLight: #444444;
 
 /*
  * This file is part of the Application.
@@ -190,7 +195,19 @@ body {
 
 #container-back
 {
-  padding-top: 20px;
+  padding: 20px;
+  display: block;
+  overflow: hidden;
+}
+
+a
+{
+  color: @fnred;
+}
+
+a:hover
+{
+  color: @fnredShadow;
 }
 
 
@@ -328,6 +345,24 @@ body {
   background-color: rgba(0,0,0,0.3);
 }
 
+#userinfo_bar ul
+{
+  margin: 10px 0px 0px 0px;
+  float: right;
+}
+
+#userinfo_bar ul > li
+{
+  .rounded(4px);
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset, 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+#userinfo_bar ul > li > a
+{
+  margin-right: 10px;
+  padding: 3px 10px;
+}
 
 
 
@@ -335,6 +370,10 @@ body {
 
 #menubar
 {
+  width: 265px;
+  width: 250px !important;
+  padding-right: 15px;
+  float: left;
   span.nav-header {
     padding-top: 6px;
     padding-bottom: 6px;
@@ -350,16 +389,16 @@ body {
   margin-left: 10px;
 }
 
-.shop_well > ul > li
+.shop_well > ul > li, .music_well > ul > li, .user_well > ul > li
 {
   padding: 10px;
 }
 
 #menubar > .well
 {
-  box-shadow: 0 1px 1px #606060, 0 1px 1px #2A2A2A inset;
-  -webkit-box-shadow: 0 1px 1px #606060, 0 1px 1px #2A2A2A inset;
-  -moz-box-shadow: 0 1px 1px #606060, 0 1px 1px #2A2A2A inset;
+  box-shadow: 0 0px 1px #606060, 0 0px 2px #2A2A2A inset;
+  -webkit-box-shadow: 0 0px 1px #606060, 0 0px 2px #2A2A2A inset;
+  -moz-box-shadow: 0 0px 1px #606060, 0 0px 2px #2A2A2A inset;
   background-color: rgba(0, 0, 0, 0.2);
   border: 0px;
 }
@@ -367,7 +406,18 @@ body {
 #menubar > .well.shop_well
 {
   background-color: @fngreenShadow;
+  .fngradient2 (@fngreen, 132, 210, 93, 0.8, 0%, 132, 210, 93, 0.6, 100%, '#cc84d25d', '#9984d25d');
   border: 1px solid #2C2C2C;
+}
+
+#menubar .current_ancestor
+{
+  background: url('../img/backend/current-dark.png') repeat scroll 0 0 transparent;
+}
+
+#menubar .shop_well .current_ancestor
+{
+  background: url('../img/backend/current.png') repeat scroll 0 0 transparent;
 }
 
 .shop_well > ul.nav
@@ -392,14 +442,14 @@ li.nav-list > ul
 
 .shop_well .nav-list .divider
 {
-  background-color: #99bb99;
+  background-color: #555555;
   border: 0px;
 }
 
 .shop_well a
 {
   color: @fnblack;
-  font-size: 12px;
+  font-size: @fnbckFontSizeLeftSubMenu;
 }
 
 .shop_well a:hover, .shop_well a:active
@@ -413,7 +463,12 @@ li.nav-list > ul
   color: @fnwhite;
 }
 
-.shop_well span
+.nav>li>a:hover
+{
+  background-color: transparent;
+}
+
+.shop_well span, .music_well span, .user_well span
 {
   font-size: @fnbckFontSizeSubMenu;
   text-transform: uppercase;
@@ -421,7 +476,7 @@ li.nav-list > ul
   color: @fnwhite;
 }
 
-.current_ancestor > span
+.shop_well .current_ancestor > span
 {
   color: @fnblack !important;
 }
@@ -433,6 +488,66 @@ li.nav-list > ul
   .border-radius(0px) !important;
 }
 
+.music_well a
+{
+  color: @fngrey;
+  font-size: @fnbckFontSizeLeftSubMenu;
+}
+
+.music_well a:hover, .music_well li.active > a
+{
+  color: @fngreen;
+}
+
+.music_well .current_ancestor > span, .music_well .nav-list > span:hover
+{
+  color: @fngreen;
+  cursor: pointer;
+}
+
+.user_well a
+{
+  color: @fngrey;
+  font-size: @fnbckFontSizeLeftSubMenu;
+}
+
+.user_well a:hover, .user_well li.active > a
+{
+  color: @fnblue;
+  text-decoration: none;
+}
+
+#menubar > .well.user_well > ul > li
+{
+  border-bottom: 1px solid @fnBckBorderGreyLight !important;
+}
+
+#menubar > .well.user_well > ul > li.last
+{
+  border-bottom: 0px !important;
+}
+
+.user_well .current_ancestor > span, .user_well .nav-list > span:hover
+{
+  color: @fnblue;
+}
+
+
+
+/****************** INFOBAR ********************/
+#infobar
+{
+  width: 265px;
+  width: 250px !important;
+  padding-right: 15px;
+  float: left;
+  span.nav-header {
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+}
+
+
 
 /****************** CONTENT ********************/
 
@@ -440,13 +555,46 @@ li.nav-list > ul
 {
   background-color: #fff;
   background: url('../img/backend/white-noise.png') repeat scroll 0 0 #ffffff;
+  margin-right: 265px;
+  overflow: hidden;
   border: 1px solid #DBDBDC;
   .rounded(10px);
   .box-shadow(0 1px 3px rgba(0,0,0,.15));
 }
 #content-inner {
-  padding: 20px 20px 0 20px;
+  padding-top: 20px;
 }
+
+footer {
+  padding: 0;
+}
+
+.page-header
+{
+  margin: -10px 0 20px;
+  padding: 0 0 5px;
+  border: 0px;
+}
+
+.page-header h1
+{
+  font-size: @fnbckFontSizeHeader;
+  line-height: 30px;
+  text-transform: uppercase;
+}
+
+.page-header h1 small
+{
+  font-size: @fnbckFontSize;
+  line-height: 30px;
+  text-transform: uppercase;
+  padding-left: 5px;
+}
+
+.content_text
+{
+}
+
 
 
 
@@ -468,13 +616,7 @@ tr.deleted {
 span.label-padded {
     padding: 6px;
 }
-.page-header {
-    padding: 20px 0 20px 20px;
-    margin: -20px -20px 20px -20px;
-}
-footer {
-    padding: 0 20px;
-}
+
 hr.mini {
     margin: 4px;
 }

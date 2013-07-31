@@ -70,43 +70,45 @@
                 {{ knp_menu_render('FreeNoteBundle:Builder:backendProfileMenu', {'template': 'FreeNoteBundle:Backend/Menu:main.html.twig', 'currentClass': 'active'}) }}
             </div>
         </div>
-        <div id="container-back" class="container-fluid">
-            <div class="row-fluid">
-                <div id="menubar" class="span2">
-                    {% block sidebar %}
-                        <div class="sidebar-nav well music_well">
-                            {{ knp_menu_render('FreeNoteBundle:Builder:backendMusicMenu', {'template': 'FreeNoteBundle:Backend/Menu:sidebar.html.twig', 'currentClass': 'active'}) }}
-                        </div>
-                        <div class="sidebar-nav well shop_well">
-                            {{ knp_menu_render('FreeNoteBundle:Builder:backendShopMenu', {'template': 'FreeNoteBundle:Backend/Menu:sidebar.html.twig', 'currentClass': 'active'}) }}
-                        </div>
-                        <div class="sidebar-nav well">
-                            {{ knp_menu_render('FreeNoteBundle:Builder:backendUserMenu', {'template': 'FreeNoteBundle:Backend/Menu:sidebar.html.twig', 'currentClass': 'active'}) }}
-                        </div>
-                        <div class="sidebar-nav well">
-                            {{ knp_menu_render('FreeNoteBundle:Builder:backendConfigurationMenu', {'template': 'FreeNoteBundle:Backend/Menu:sidebar.html.twig', 'currentClass': 'active'}) }}
-                        </div>
-                    {% endblock %}
-                </div>
-                <div id="content" class="span8">
-                    <div id="content-inner">
-                        <div class="page-header">
-                            {% block header %}<h1>Wolna Nuta<small> Panel administratora</small></h1>{% endblock %}
-                        </div>
-                        {% from 'MopaBootstrapBundle::flash.html.twig' import flash %}
-                        {% for name, value in app.session.flashes if name in ['success', 'error'] %}
-                            {{ flash(name, value|trans, true) }}
-                        {% endfor %}
-                        {% block content %}
-                        {% endblock %}
+        <div id="container-back">
+            <div id="menubar">
+                {% block sidebar %}
+                    <div class="sidebar-nav well shop_well">
+                        {{ knp_menu_render('FreeNoteBundle:Builder:backendShopMenu', {'template': 'FreeNoteBundle:Backend/Menu:sidebar.html.twig', 'currentClass': 'active'}) }}
                     </div>
-                    <hr>
-                    <footer>
-                        <p>&copy; <a href="{{ path('free_note_core_frontend') }}">Wolna Nuta</a>, 2013 - {{ 'now'|date('Y') }}.</p>
-                    </footer>
+                    <div class="sidebar-nav well music_well">
+                        {{ knp_menu_render('FreeNoteBundle:Builder:backendMusicMenu', {'template': 'FreeNoteBundle:Backend/Menu:sidebar.html.twig', 'currentClass': 'active'}) }}
+                    </div>
+                    <div class="sidebar-nav well user_well">
+                        {{ knp_menu_render('FreeNoteBundle:Builder:backendRestMenu', {'template': 'FreeNoteBundle:Backend/Menu:sidebar.html.twig', 'currentClass': 'active'}) }}
+                    </div>
+                {% endblock %}
+            </div>
+            <div id="content">
+                <div class="container-fluid">
+                    <div class="row-fluid">
+                        <div id="content-inner">
+                            <div class="page-header">
+                                {% block header %}<h1>Wolna Nuta<small> Panel administratora</small></h1>{% endblock %}
+                            </div>
+                            <hr>
+                            <div class="content_text">
+                                {% from 'MopaBootstrapBundle::flash.html.twig' import flash %}
+                                {% for name, value in app.session.flashes if name in ['success', 'error'] %}
+                                    {{ flash(name, value|trans, true) }}
+                                {% endfor %}
+                                {% block content %}
+                                {% endblock %}
+                            </div>
+                        </div>
+                        <hr>
+                        <footer>
+                            <p>&copy; <a href="{{ path('free_note_core_frontend') }}">Wolna Nuta</a>, 2013 - {{ 'now'|date('Y') }}.</p>
+                        </footer>
+                    </div>
                 </div>
-                <div id="infobar" class="span2">
-                </div>
+            </div>
+            <div id="infobar">
             </div>
         </div>
     </body>
