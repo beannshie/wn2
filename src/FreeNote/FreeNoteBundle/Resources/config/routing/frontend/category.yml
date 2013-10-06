@@ -1,10 +1,13 @@
-# This file is part of the Sylius package.
-# (c) Paweł Jędrzejewski
-
-#free_note_category_list:
-#    pattern: /{alias}/kategorie/lista
-#    defaults: { _controller: sylius_categorizer.controller.frontend.category:listAction }
-
 free_note_category_show:
     pattern: /{alias}/kategorie/{slug}
-    defaults: { _controller: sylius_categorizer.controller.frontend.category:showAction }
+    defaults:
+        _controller: free_note.controller.article_entry:indexAction
+        _sylius:
+            template: FreeNoteBundle:Frontend/ArticleEntry:list.html.twig
+            paginate: 10
+            filterable: true
+            sortable: true
+            criteria:
+                published: true
+            sorting:
+                createdAt: desc

@@ -51,3 +51,19 @@ co jesli ja mam juz cartItem w carcie i zapisana jego cene i w tym momencie ktos
 ------------------------
 last check on sylius bundles 04.05.2013 17:16:30
 
+
+16 lipca 18:45 to: (ale bez upgrade do konca, bo wersja wtyczek wazna)
+sylius/cart-bundle
+sylius/sales-bundle
+sylius/inventory-bundle
+sylius/shipping-bundle
+sylius/taxonomies-bundle
+sylius/assortment-bundle
+sylius/settings-bundle
+sylius/addressing-bundle
+sylius/taxation-bundle
+sylius/flow-bundle
+sylius/blogger-bundle
+sylius/categorizer-bundle
+
+sylius/resource-bundle

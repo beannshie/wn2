@@ -21,6 +21,16 @@ class UploadableResourceController extends ResourceController
         $criteria = $config->getCriteria();
         $sorting = $config->getSorting();
 
+//        var_dump($request->getQueryString());exit;
+//
+//        if($category = $request->get('kategorie', null))
+//        {
+//            $catalog = $this->container->get('sylius_categorizer.registry')->getCatalog($alias);
+//            $category = $this->container->get('sylius_categorizer.manager.category')->findCategoryBy(array('slug' => $slug), $catalog);
+//
+//            $criteria = array_merge($criteria, $this->request->get('criteria', array()));
+//        }
+
         $pluralName = $config->getPluralResourceName();
         $repository = $this->getRepository();
 

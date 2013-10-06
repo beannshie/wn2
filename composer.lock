@@ -1,4 +1,8 @@
 {
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+    ],
     "hash": "3b78fae5c9bb587ea49aa8d19445ced2",
     "packages": [
         {
@@ -26,7 +30,6 @@
             "suggest": {
                 "symfony/twig-bundle": "2.*"
             },
-            "time": "2013-01-19 00:19:51",
             "type": "symfony-bundle",
             "autoload": {
                 "psr-0": {
@@ -49,7 +52,8 @@
             "keywords": [
                 "image manipulation",
                 "imagine"
-            ]
+            ],
+            "time": "2013-01-19 00:19:51"
         },
         {
             "name": "dflydev/markdown",
@@ -68,7 +72,6 @@
             "require": {
                 "php": ">=5.3"
             },
-            "time": "2012-07-15 16:31:27",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -108,7 +111,8 @@
             "homepage": "http://github.com/dflydev/dflydev-markdown",
             "keywords": [
                 "markdown"
-            ]
+            ],
+            "time": "2012-07-15 16:31:27"
         },
         {
             "name": "doctrine/common",
@@ -127,7 +131,6 @@
             "require": {
                 "php": ">=5.3.2"
             },
-            "time": "2012-09-20 05:55:18",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -177,7 +180,8 @@
                 "eventmanager",
                 "persistence",
                 "spl"
-            ]
+            ],
+            "time": "2012-09-20 05:55:18"
         },
         {
             "name": "doctrine/data-fixtures",
@@ -205,7 +209,6 @@
                 "doctrine/orm": "For loading ORM fixtures",
                 "doctrine/phpcr-odm": "For loading PHPCR ODM fixtures"
             },
-            "time": "2013-02-12 02:52:36",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -232,7 +235,8 @@
             "homepage": "http://www.doctrine-project.org",
             "keywords": [
                 "database"
-            ]
+            ],
+            "time": "2013-02-12 02:52:36"
         },
         {
             "name": "doctrine/dbal",
@@ -252,7 +256,6 @@
                 "doctrine/common": "2.3.*",
                 "php": ">=5.3.2"
             },
-            "time": "2013-01-20 11:50:36",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -295,7 +298,8 @@
                 "dbal",
                 "persistence",
                 "queryobject"
-            ]
+            ],
+            "time": "2013-01-20 11:50:36"
         },
         {
             "name": "doctrine/doctrine-bundle",
@@ -328,7 +332,6 @@
                 "doctrine/orm": "The Doctrine ORM integration is optional in the bundle.",
                 "symfony/web-profiler-bundle": "to use the data collector"
             },
-            "time": "2013-01-12 14:41:19",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -365,7 +368,8 @@
                 "dbal",
                 "orm",
                 "persistence"
-            ]
+            ],
+            "time": "2013-01-12 14:41:19"
         },
         {
             "name": "doctrine/doctrine-fixtures-bundle",
@@ -388,7 +392,6 @@
                 "php": ">=5.3.2",
                 "symfony/doctrine-bridge": ">=2.1.0,<2.3-dev"
             },
-            "time": "2013-02-12 11:13:27",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -423,7 +426,8 @@
             "keywords": [
                 "Fixture",
                 "persistence"
-            ]
+            ],
+            "time": "2013-02-12 11:13:27"
         },
         {
             "name": "doctrine/doctrine-migrations-bundle",
@@ -446,7 +450,6 @@
                 "php": ">=5.3.2",
                 "symfony/framework-bundle": ">=2.1.0,<2.3-dev"
             },
-            "time": "2013-01-12 20:06:22",
             "type": "symfony-bundle",
             "autoload": {
                 "psr-0": {
@@ -477,7 +480,8 @@
                 "dbal",
                 "migrations",
                 "schema"
-            ]
+            ],
+            "time": "2013-01-12 20:06:22"
         },
         {
             "name": "doctrine/migrations",
@@ -504,7 +508,6 @@
             "suggest": {
                 "symfony/console": "to run the migration from the console"
             },
-            "time": "2012-12-27 16:39:29",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -531,7 +534,8 @@
             "keywords": [
                 "database",
                 "migrations"
-            ]
+            ],
+            "time": "2012-12-27 16:39:29"
         },
         {
             "name": "doctrine/orm",
@@ -556,7 +560,6 @@
             "suggest": {
                 "symfony/yaml": "If you want to use YAML Metadata Mapping Driver"
             },
-            "time": "2013-02-21 18:03:42",
             "bin": [
                 "bin/doctrine",
                 "bin/doctrine.php"
@@ -601,7 +604,8 @@
             "keywords": [
                 "database",
                 "orm"
-            ]
+            ],
+            "time": "2013-02-21 18:03:42"
         },
         {
             "name": "friendsofsymfony/comment-bundle",
@@ -639,7 +643,6 @@
                 "friendsofsymfony/user-bundle": "Allows for user integration.",
                 "ornicar/akismet-bundle": "Integrate Akismet for spamdetection."
             },
-            "time": "2013-02-23 02:31:26",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -675,7 +678,8 @@
                 "comment",
                 "forum",
                 "threads"
-            ]
+            ],
+            "time": "2013-02-23 02:31:26"
         },
         {
             "name": "friendsofsymfony/rest",
@@ -696,7 +700,6 @@
                 "php": ">=5.3.2",
                 "symfony/http-foundation": ">=2.0,<2.3-dev"
             },
-            "time": "2013-01-18 10:39:23",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -726,7 +729,8 @@
             "homepage": "http://friendsofsymfony.github.com",
             "keywords": [
                 "rest"
-            ]
+            ],
+            "time": "2013-01-18 10:39:23"
         },
         {
             "name": "friendsofsymfony/rest-bundle",
@@ -763,7 +767,6 @@
                 "sensio/framework-extra-bundle": "Add support for route annotations and the view response listener",
                 "symfony/serializer": "Add support for basic serialization capabilities, requires >=2.0,<2.3-dev"
             },
-            "time": "2013-02-21 17:31:35",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -798,7 +801,8 @@
             "homepage": "http://friendsofsymfony.github.com",
             "keywords": [
                 "rest"
-            ]
+            ],
+            "time": "2013-02-21 17:31:35"
         },
         {
             "name": "friendsofsymfony/user-bundle",
@@ -828,7 +832,6 @@
                 "twig/twig": "*",
                 "willdurand/propel-typehintable-behavior": "dev-master"
             },
-            "time": "2012-12-22 15:09:34",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -863,7 +866,8 @@
             "homepage": "http://friendsofsymfony.github.com",
             "keywords": [
                 "User management"
-            ]
+            ],
+            "time": "2012-12-22 15:09:34"
         },
         {
             "name": "fzaninotto/faker",
@@ -882,7 +886,6 @@
             "require": {
                 "php": ">=5.3.3"
             },
-            "time": "2013-02-20 16:49:53",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -908,7 +911,8 @@
                 "data",
                 "faker",
                 "fixtures"
-            ]
+            ],
+            "time": "2013-02-20 16:49:53"
         },
         {
             "name": "gedmo/doctrine-extensions",
@@ -941,7 +945,6 @@
                 "doctrine/mongodb-odm": ">=1.0.0-BETA7",
                 "doctrine/orm": ">=2.3.2"
             },
-            "time": "2013-02-23 08:50:33",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -987,7 +990,8 @@
                 "translatable",
                 "tree",
                 "uploadable"
-            ]
+            ],
+            "time": "2013-02-23 08:50:33"
         },
         {
             "name": "imagine/Imagine",
@@ -1009,7 +1013,6 @@
             "require-dev": {
                 "sami/sami": "dev-master"
             },
-            "time": "2012-12-13 18:31:18",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -1034,7 +1037,8 @@
                 "graphics",
                 "image manipulation",
                 "image processing"
-            ]
+            ],
+            "time": "2012-12-13 18:31:18"
         },
         {
             "name": "jdorn/sql-formatter",
@@ -1053,7 +1057,6 @@
             "require": {
                 "php": ">=5.2.4"
             },
-            "time": "2013-02-22 05:16:19",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1081,7 +1084,8 @@
             "keywords": [
                 "highlight",
                 "sql"
-            ]
+            ],
+            "time": "2013-02-22 05:16:19"
         },
         {
             "name": "jms/aop-bundle",
@@ -1102,7 +1106,6 @@
                 "jms/cg": "1.*",
                 "symfony/framework-bundle": "2.*"
             },
-            "time": "2013-01-09 08:03:40",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1130,7 +1133,8 @@
             "keywords": [
                 "annotations",
                 "aop"
-            ]
+            ],
+            "time": "2013-01-09 08:03:40"
         },
         {
             "name": "jms/cg",
@@ -1149,7 +1153,6 @@
             "require": {
                 "php": ">=5.3.0"
             },
-            "time": "2013-02-17 22:10:19",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1176,7 +1179,8 @@
             "description": "Toolset for generating PHP code",
             "keywords": [
                 "code generation"
-            ]
+            ],
+            "time": "2013-02-17 22:10:19"
         },
         {
             "name": "jms/di-extra-bundle",
@@ -1214,7 +1218,6 @@
                 "symfony/validator": "*",
                 "symfony/yaml": "*"
             },
-            "time": "2013-02-22 19:24:48",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1243,7 +1246,8 @@
             "keywords": [
                 "annotations",
                 "dependency injection"
-            ]
+            ],
+            "time": "2013-02-22 19:24:48"
         },
         {
             "name": "jms/metadata",
@@ -1265,7 +1269,6 @@
             "require-dev": {
                 "doctrine/common": ">=2.0,<2.4-dev"
             },
-            "time": "2012-08-21 05:40:10",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1295,7 +1298,8 @@
                 "metadata",
                 "xml",
                 "yaml"
-            ]
+            ],
+            "time": "2012-08-21 05:40:10"
         },
         {
             "name": "jms/parser-lib",
@@ -1314,7 +1318,6 @@
             "require": {
                 "phpoption/phpoption": ">=0.9,<2.0-dev"
             },
-            "time": "2012-11-30 08:11:04",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1330,7 +1333,8 @@
             "license": [
                 "Apache2"
             ],
-            "description": "A library for easily creating recursive-descent parsers."
+            "description": "A library for easily creating recursive-descent parsers.",
+            "time": "2012-11-30 08:11:04"
         },
         {
             "name": "jms/serializer",
@@ -1365,7 +1369,6 @@
             "suggest": {
                 "symfony/yaml": "Required if you'd like to serialize data to YAML format."
             },
-            "time": "2013-01-29 10:56:07",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1397,7 +1400,8 @@
                 "json",
                 "serialization",
                 "xml"
-            ]
+            ],
+            "time": "2013-01-29 10:56:07"
         },
         {
             "name": "jms/serializer-bundle",
@@ -1433,7 +1437,6 @@
                 "symfony/validator": "*",
                 "symfony/yaml": "*"
             },
-            "time": "2013-02-12 08:32:04",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1465,7 +1468,82 @@
                 "json",
                 "serialization",
                 "xml"
-            ]
+            ],
+            "time": "2013-02-12 08:32:04"
+        },
+        {
+            "name": "jms/translation-bundle",
+            "version": "dev-master",
+            "target-dir": "JMS/TranslationBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/schmittjoh/JMSTranslationBundle.git",
+                "reference": "f58087eddcf5251784a40e01bb11c3f3f79a98ea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/schmittjoh/JMSTranslationBundle/zipball/f58087eddcf5251784a40e01bb11c3f3f79a98ea",
+                "reference": "f58087eddcf5251784a40e01bb11c3f3f79a98ea",
+                "shasum": ""
+            },
+            "require": {
+                "nikic/php-parser": "0.9.1",
+                "symfony/console": "*",
+                "symfony/framework-bundle": "~2.1"
+            },
+            "conflict": {
+                "twig/twig": "1.10.2"
+            },
+            "require-dev": {
+                "jms/di-extra-bundle": ">=1.1",
+                "sensio/framework-extra-bundle": "*",
+                "symfony/browser-kit": "*",
+                "symfony/class-loader": "*",
+                "symfony/css-selector": "*",
+                "symfony/finder": "*",
+                "symfony/form": "*",
+                "symfony/process": "*",
+                "symfony/security": "*",
+                "symfony/twig-bundle": "*",
+                "symfony/validator": "*",
+                "symfony/yaml": "*"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "JMS\\TranslationBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache2"
+            ],
+            "authors": [
+                {
+                    "name": "Johannes M. Schmitt",
+                    "email": "schmittjoh@gmail.com",
+                    "homepage": "http://jmsyst.com",
+                    "role": "Developer of wrapped JMSSerializerBundle"
+                }
+            ],
+            "description": "Puts the Symfony2 Translation Component on steroids",
+            "homepage": "http://jmsyst.com/bundles/JMSTranslationBundle",
+            "keywords": [
+                "extract",
+                "extraction",
+                "i18n",
+                "interface",
+                "multilanguage",
+                "translation",
+                "ui",
+                "webinterface"
+            ],
+            "time": "2013-07-09 10:50:36"
         },
         {
             "name": "knplabs/knp-markdown-bundle",
@@ -1491,7 +1569,6 @@
                 "ext-sundown": "to use optional support for php-sundown extension instead of php implementation",
                 "symfony/twig-bundle": "to use the Twig markdown filter"
             },
-            "time": "2012-10-17 19:09:15",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1524,7 +1601,8 @@
                 "knp",
                 "knplabs",
                 "markdown"
-            ]
+            ],
+            "time": "2012-10-17 19:09:15"
         },
         {
             "name": "knplabs/knp-menu",
@@ -1553,7 +1631,6 @@
                 "silex/silex": "for the integration with your silex application",
                 "twig/twig": "for the TwigRenderer and the integration with your templates"
             },
-            "time": "2012-12-27 13:04:16",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1588,7 +1665,8 @@
             "keywords": [
                 "menu",
                 "tree"
-            ]
+            ],
+            "time": "2012-12-27 13:04:16"
         },
         {
             "name": "knplabs/knp-menu-bundle",
@@ -1609,7 +1687,6 @@
                 "knplabs/knp-menu": "2.0.*",
                 "symfony/framework-bundle": ">=2.0,<2.3-dev"
             },
-            "time": "2012-12-29 08:47:58",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1642,7 +1719,8 @@
             "description": "This bundle provides an integration of the KnpMenu library",
             "keywords": [
                 "menu"
-            ]
+            ],
+            "time": "2012-12-29 08:47:58"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -1681,7 +1759,6 @@
                 "ptachoire/cssembed": "Assetic provides the integration with phpcssembed to embed data uris",
                 "twig/twig": "Assetic provides the integration with the Twig templating engine"
             },
-            "time": "2013-02-24 17:22:20",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1713,7 +1790,8 @@
                 "assets",
                 "compression",
                 "minification"
-            ]
+            ],
+            "time": "2013-02-24 17:22:20"
         },
         {
             "name": "liip/doctrine-cache-bundle",
@@ -1735,7 +1813,6 @@
                 "php": ">=5.3.0",
                 "symfony/symfony": ">=2.0"
             },
-            "time": "2013-02-01 07:47:54",
             "type": "symfony-bundle",
             "autoload": {
                 "psr-0": {
@@ -1756,7 +1833,8 @@
             "keywords": [
                 "Symfony2",
                 "cache"
-            ]
+            ],
+            "time": "2013-02-01 07:47:54"
         },
         {
             "name": "mathiasverraes/money",
@@ -1781,7 +1859,6 @@
             "suggest": {
                 "pink-tie/money-bundle": "For Symfony integration."
             },
-            "time": "2013-04-12 23:46:03",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1810,7 +1887,8 @@
                 "Generic Sub-domain",
                 "Value Object",
                 "money"
-            ]
+            ],
+            "time": "2013-04-12 23:46:03"
         },
         {
             "name": "monolog/monolog",
@@ -1842,7 +1920,6 @@
                 "mlehner/gelf-php": "Allow sending log messages to a GrayLog2 server",
                 "raven/raven": "Allow sending log messages to a Sentry server"
             },
-            "time": "2013-02-21 10:03:40",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1872,7 +1949,8 @@
                 "log",
                 "logging",
                 "psr-3"
-            ]
+            ],
+            "time": "2013-02-21 10:03:40"
         },
         {
             "name": "mopa/bootstrap-bundle",
@@ -1900,7 +1978,6 @@
                 "knplabs/knp-paginator-bundle": "dev-master",
                 "twitter/bootstrap": "2.0.*"
             },
-            "time": "2013-02-24 11:24:04",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1934,7 +2011,8 @@
                 "extra form",
                 "form",
                 "template"
-            ]
+            ],
+            "time": "2013-02-24 11:24:04"
         },
         {
             "name": "mopa/composer-bridge",
@@ -1953,7 +2031,6 @@
             "require": {
                 "symfony/console": "2.*"
             },
-            "time": "2012-10-11 18:29:49",
             "type": "symfony-bridge",
             "autoload": {
                 "psr-0": {
@@ -1980,7 +2057,47 @@
             "keywords": [
                 "Symfony2",
                 "composer"
-            ]
+            ],
+            "time": "2012-10-11 18:29:49"
+        },
+        {
+            "name": "nikic/php-parser",
+            "version": "v0.9.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nikic/PHP-Parser",
+                "reference": "v0.9.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/nikic/PHP-Parser/archive/v0.9.1.zip",
+                "reference": "v0.9.1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "PHPParser": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD"
+            ],
+            "authors": [
+                {
+                    "name": "Nikita Popov"
+                }
+            ],
+            "description": "A PHP parser written in PHP",
+            "keywords": [
+                "parser",
+                "php"
+            ],
+            "time": "2012-04-23 15:52:11"
         },
         {
             "name": "pagerfanta/pagerfanta",
@@ -1988,12 +2105,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/whiteoctober/Pagerfanta.git",
-                "reference": "65c24acf84410837aa873801f5a09b4039a5735b"
+                "reference": "1a3cb8addb92df6396e59a2c44c3b7f216b4218a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/whiteoctober/Pagerfanta/zipball/65c24acf84410837aa873801f5a09b4039a5735b",
-                "reference": "65c24acf84410837aa873801f5a09b4039a5735b",
+                "url": "https://api.github.com/repos/whiteoctober/Pagerfanta/zipball/1a3cb8addb92df6396e59a2c44c3b7f216b4218a",
+                "reference": "1a3cb8addb92df6396e59a2c44c3b7f216b4218a",
                 "shasum": ""
             },
             "require": {
@@ -2003,7 +2120,7 @@
                 "doctrine/mongodb-odm": "*",
                 "doctrine/orm": "2.*",
                 "mandango/mandango": "*",
-                "propel/propel1": ">=1.6,<2.0",
+                "propel/propel1": "~1.6",
                 "solarium/solarium": "dev-develop"
             },
             "suggest": {
@@ -2013,7 +2130,6 @@
                 "propel/propel1": "To use the PropelAdapter",
                 "solarium/solarium": "To use the SolariumAdapter."
             },
-            "time": "2013-04-24 11:37:27",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -2042,7 +2158,8 @@
                 "pagination",
                 "paginator",
                 "paging"
-            ]
+            ],
+            "time": "2013-06-13 22:25:28"
         },
         {
             "name": "phpcollection/phpcollection",
@@ -2061,7 +2178,6 @@
             "require": {
                 "phpoption/phpoption": "1.*"
             },
-            "time": "2013-02-20 19:38:18",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -2092,7 +2208,8 @@
                 "map",
                 "sequence",
                 "set"
-            ]
+            ],
+            "time": "2013-02-20 19:38:18"
         },
         {
             "name": "phpoption/phpoption",
@@ -2111,7 +2228,6 @@
             "require": {
                 "php": ">=5.3.0"
             },
-            "time": "2013-01-21 09:59:49",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -2141,7 +2257,8 @@
                 "option",
                 "php",
                 "type"
-            ]
+            ],
+            "time": "2013-01-21 09:59:49"
         },
         {
             "name": "psr/log",
@@ -2157,7 +2274,6 @@
                 "reference": "1.0.0",
                 "shasum": ""
             },
-            "time": "2012-12-21 11:40:51",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -2179,7 +2295,8 @@
                 "log",
                 "psr",
                 "psr-3"
-            ]
+            ],
+            "time": "2012-12-21 11:40:51"
         },
         {
             "name": "sensio/distribution-bundle",
@@ -2199,7 +2316,6 @@
             "require": {
                 "symfony/framework-bundle": "2.2.*"
             },
-            "time": "2013-02-11 14:46:49",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -2225,7 +2341,8 @@
             "keywords": [
                 "configuration",
                 "distribution"
-            ]
+            ],
+            "time": "2013-02-11 14:46:49"
         },
         {
             "name": "sensio/framework-extra-bundle",
@@ -2246,7 +2363,6 @@
                 "doctrine/common": ">=2.2,<3.0",
                 "symfony/framework-bundle": "2.2.*"
             },
-            "time": "2013-02-22 06:41:37",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -2272,7 +2388,8 @@
             "keywords": [
                 "annotations",
                 "controllers"
-            ]
+            ],
+            "time": "2013-02-22 06:41:37"
         },
         {
             "name": "sensio/generator-bundle",
@@ -2298,7 +2415,6 @@
                 "symfony/doctrine-bridge": ">=2.2,<3.0",
                 "twig/twig": ">=1.11.0,<2.0"
             },
-            "time": "2013-02-22 17:59:21",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -2320,7 +2436,8 @@
                     "email": "fabien@symfony.com"
                 }
             ],
-            "description": "This bundle generates code for you"
+            "description": "This bundle generates code for you",
+            "time": "2013-02-22 17:59:21"
         },
         {
             "name": "stfalcon/tinymce-bundle",
@@ -2341,7 +2458,6 @@
                 "php": ">=5.3.0",
                 "symfony/symfony": ">=2.1"
             },
-            "time": "2013-02-21 12:21:06",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -2378,7 +2494,8 @@
                 "editor",
                 "tinymce",
                 "wysiwyg"
-            ]
+            ],
+            "time": "2013-02-21 12:21:06"
         },
         {
             "name": "stof/doctrine-extensions-bundle",
@@ -2404,7 +2521,6 @@
                 "doctrine/doctrine-bundle": "*",
                 "doctrine/mongodb-odm-bundle": "2.1.*"
             },
-            "time": "2013-02-19 23:30:04",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -2440,7 +2556,8 @@
                 "timestampable",
                 "translatable",
                 "tree"
-            ]
+            ],
+            "time": "2013-02-19 23:30:04"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2459,7 +2576,6 @@
             "require": {
                 "php": ">=5.2.4"
             },
-            "time": "2013-02-04 10:09:01",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -2489,21 +2605,22 @@
             "keywords": [
                 "mail",
                 "mailer"
-            ]
+            ],
+            "time": "2013-02-04 10:09:01"
         },
         {
             "name": "sylius/addressing-bundle",
-            "version": "dev-master",
+            "version": "v0.1.0",
             "target-dir": "Sylius/Bundle/AddressingBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusAddressingBundle.git",
-                "reference": "dcd6e121dbc194cabb79f1fd6b7545ae226112c3"
+                "reference": "v0.1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/SyliusAddressingBundle/zipball/dcd6e121dbc194cabb79f1fd6b7545ae226112c3",
-                "reference": "dcd6e121dbc194cabb79f1fd6b7545ae226112c3",
+                "url": "https://api.github.com/repos/Sylius/SyliusAddressingBundle/zipball/v0.1.0",
+                "reference": "v0.1.0",
                 "shasum": ""
             },
             "require": {
@@ -2517,7 +2634,6 @@
                 "phpspec/phpspec2": "dev-develop",
                 "symfony/form": ">=2.2,<3.0"
             },
-            "time": "2013-05-01 08:37:53",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -2552,7 +2668,8 @@
                 "ecommerce",
                 "shop",
                 "zones"
-            ]
+            ],
+            "time": "2013-05-17 14:06:13"
         },
         {
             "name": "sylius/assortment-bundle",
@@ -2561,12 +2678,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusAssortmentBundle.git",
-                "reference": "f9462d0452a8eb4165271c950eb8e8f3c9f45dcc"
+                "reference": "6e8e4df2a227fa57e13c77e80b48038f35281e1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/SyliusAssortmentBundle/zipball/f9462d0452a8eb4165271c950eb8e8f3c9f45dcc",
-                "reference": "f9462d0452a8eb4165271c950eb8e8f3c9f45dcc",
+                "url": "https://api.github.com/repos/Sylius/SyliusAssortmentBundle/zipball/6e8e4df2a227fa57e13c77e80b48038f35281e1e",
+                "reference": "6e8e4df2a227fa57e13c77e80b48038f35281e1e",
                 "shasum": ""
             },
             "require": {
@@ -2576,12 +2693,11 @@
                 "symfony/framework-bundle": ">=2.2,<2.3-dev"
             },
             "require-dev": {
-                "doctrine/orm": ">=2.3,<3.0",
+                "doctrine/orm": "~2.3",
                 "phpspec/phpspec2": "dev-develop",
-                "symfony/form": ">=2.2,<3.0",
-                "symfony/validator": ">=2.2,<3.0"
+                "symfony/form": "~2.2",
+                "symfony/validator": "~2.2"
             },
-            "time": "2013-05-02 12:39:04",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -2615,7 +2731,8 @@
                 "product",
                 "products",
                 "shop"
-            ]
+            ],
+            "time": "2013-06-18 20:10:02"
         },
         {
             "name": "sylius/blogger-bundle",
@@ -2642,7 +2759,6 @@
                 "phpspec/phpspec2": "dev-develop",
                 "symfony/form": ">=2.1,<3.0"
             },
-            "time": "2013-03-15 23:07:47",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -2674,7 +2790,8 @@
             "keywords": [
                 "blog",
                 "blogger"
-            ]
+            ],
+            "time": "2013-03-15 23:07:47"
         },
         {
             "name": "sylius/cart-bundle",
@@ -2683,27 +2800,26 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusCartBundle.git",
-                "reference": "8ba84603f4196ad8ecd36f29e58711fb859876ff"
+                "reference": "478d1838b1adb21f166840da72d197bcdfd67fa0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/SyliusCartBundle/zipball/8ba84603f4196ad8ecd36f29e58711fb859876ff",
-                "reference": "8ba84603f4196ad8ecd36f29e58711fb859876ff",
+                "url": "https://api.github.com/repos/Sylius/SyliusCartBundle/zipball/478d1838b1adb21f166840da72d197bcdfd67fa0",
+                "reference": "478d1838b1adb21f166840da72d197bcdfd67fa0",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
-                "sylius/resource-bundle": "0.1.*",
-                "symfony/framework-bundle": ">=2.1,<3.0"
+                "sylius/resource-bundle": "~0.1",
+                "symfony/framework-bundle": "~2.1"
             },
             "require-dev": {
                 "phpspec/php-diff": "dev-master",
                 "phpspec/phpspec2": "dev-develop",
-                "symfony/form": ">=2.1,<3.0",
-                "symfony/validator": ">=2.1,<3.0",
-                "twig/twig": ">=1.11.0,<2.0"
+                "symfony/form": "~2.1",
+                "symfony/validator": "~2.1",
+                "twig/twig": "~1.11"
             },
-            "time": "2013-04-21 08:04:58",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -2738,7 +2854,8 @@
                 "ecommerce",
                 "shop",
                 "sylius"
-            ]
+            ],
+            "time": "2013-07-07 08:29:13"
         },
         {
             "name": "sylius/categorizer-bundle",
@@ -2764,7 +2881,6 @@
             "require-dev": {
                 "doctrine/orm": "*"
             },
-            "time": "2013-02-19 19:37:41",
             "type": "symfony-bundle",
             "autoload": {
                 "psr-0": {
@@ -2792,7 +2908,8 @@
                 "catalog",
                 "categories",
                 "category"
-            ]
+            ],
+            "time": "2013-02-19 19:37:41"
         },
         {
             "name": "sylius/flow-bundle",
@@ -2816,7 +2933,6 @@
             "require-dev": {
                 "symfony/yaml": ">=2.1,<3.0"
             },
-            "time": "2013-04-03 18:33:42",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -2850,7 +2966,8 @@
                 "flow",
                 "installation",
                 "steps"
-            ]
+            ],
+            "time": "2013-04-03 18:33:42"
         },
         {
             "name": "sylius/inventory-bundle",
@@ -2859,24 +2976,23 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusInventoryBundle.git",
-                "reference": "c16315228993a9b99f24c35e1c603b037a8b643e"
+                "reference": "v0.1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/SyliusInventoryBundle/zipball/c16315228993a9b99f24c35e1c603b037a8b643e",
-                "reference": "c16315228993a9b99f24c35e1c603b037a8b643e",
+                "url": "https://api.github.com/repos/Sylius/SyliusInventoryBundle/zipball/v0.1.0",
+                "reference": "v0.1.0",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2",
-                "sylius/resource-bundle": "0.1.*",
+                "sylius/resource-bundle": ">=0.1.0",
                 "symfony/framework-bundle": ">=2.1,<3.0"
             },
             "require-dev": {
                 "phpspec/phpspec2": "dev-develop",
                 "twig/twig": "*"
             },
-            "time": "2013-04-30 10:33:14",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -2911,7 +3027,8 @@
                 "shop",
                 "stock",
                 "sylius"
-            ]
+            ],
+            "time": "2013-06-18 20:18:31"
         },
         {
             "name": "sylius/money-bundle",
@@ -2920,26 +3037,26 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusMoneyBundle.git",
-                "reference": "c2370f4e08de6f1120ab276aba97250a6f2b4b44"
+                "reference": "6ded3e1298b535d81236a0022ad592cb92a5a7f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/SyliusMoneyBundle/zipball/c2370f4e08de6f1120ab276aba97250a6f2b4b44",
-                "reference": "c2370f4e08de6f1120ab276aba97250a6f2b4b44",
+                "url": "https://api.github.com/repos/Sylius/SyliusMoneyBundle/zipball/6ded3e1298b535d81236a0022ad592cb92a5a7f4",
+                "reference": "6ded3e1298b535d81236a0022ad592cb92a5a7f4",
                 "shasum": ""
             },
             "require": {
                 "mathiasverraes/money": "dev-master",
                 "php": ">=5.3.3",
-                "symfony/framework-bundle": ">=2.1,<3.0"
+                "sylius/resource-bundle": "0.1.*",
+                "symfony/framework-bundle": "~2.1"
             },
             "require-dev": {
                 "phpspec/php-diff": "*",
                 "phpspec/phpspec2": "dev-develop",
-                "symfony/form": ">=2.2,<3.0",
-                "twig/twig": ">=1.11.0,<2.0"
+                "symfony/form": "~2.2",
+                "twig/twig": "~1.11"
             },
-            "time": "2013-03-12 19:07:10",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -2972,7 +3089,8 @@
                 "cash",
                 "currency",
                 "money"
-            ]
+            ],
+            "time": "2013-06-06 13:01:10"
         },
         {
             "name": "sylius/resource-bundle",
@@ -3008,7 +3126,6 @@
                 "doctrine/orm": "~2.3",
                 "fsc/hateoas-bundle": "0.3.x-dev"
             },
-            "time": "2013-04-24 19:23:57",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -3042,7 +3159,8 @@
                 "resource",
                 "storage",
                 "sylius"
-            ]
+            ],
+            "time": "2013-04-24 19:23:57"
         },
         {
             "name": "sylius/sales-bundle",
@@ -3051,24 +3169,23 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusSalesBundle.git",
-                "reference": "a337bebd795e7059e4232d26f46f5de174c01ee1"
+                "reference": "2f7eea7e5ee51c8cb4384ddd850f75051c11f477"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/SyliusSalesBundle/zipball/a337bebd795e7059e4232d26f46f5de174c01ee1",
-                "reference": "a337bebd795e7059e4232d26f46f5de174c01ee1",
+                "url": "https://api.github.com/repos/Sylius/SyliusSalesBundle/zipball/2f7eea7e5ee51c8cb4384ddd850f75051c11f477",
+                "reference": "2f7eea7e5ee51c8cb4384ddd850f75051c11f477",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
-                "sylius/resource-bundle": "0.1.*",
-                "symfony/framework-bundle": ">=2.1,<3.0"
+                "sylius/resource-bundle": "~0.1",
+                "symfony/framework-bundle": "~2.1"
             },
             "require-dev": {
                 "phpspec/phpspec2": "dev-develop",
-                "symfony/form": ">=2.1,<3.0"
+                "symfony/form": "~2.1"
             },
-            "time": "2013-05-01 09:13:39",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -3104,7 +3221,8 @@
                 "sales",
                 "shop",
                 "sylius"
-            ]
+            ],
+            "time": "2013-07-01 20:34:32"
         },
         {
             "name": "sylius/settings-bundle",
@@ -3113,12 +3231,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusSettingsBundle.git",
-                "reference": "1f7f7846656cf825f3db36fdcce83069beac5d9c"
+                "reference": "d3c7ea214c023f83e21fabda6ab92a27c791514b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/SyliusSettingsBundle/zipball/1f7f7846656cf825f3db36fdcce83069beac5d9c",
-                "reference": "1f7f7846656cf825f3db36fdcce83069beac5d9c",
+                "url": "https://api.github.com/repos/Sylius/SyliusSettingsBundle/zipball/d3c7ea214c023f83e21fabda6ab92a27c791514b",
+                "reference": "d3c7ea214c023f83e21fabda6ab92a27c791514b",
                 "shasum": ""
             },
             "require": {
@@ -3128,11 +3246,10 @@
                 "symfony/framework-bundle": ">=2.2,<2.3-dev"
             },
             "require-dev": {
-                "doctrine/orm": ">=2.3,<3.0",
+                "doctrine/orm": "~2.3",
                 "phpspec/phpspec2": "dev-develop",
-                "symfony/form": ">=2.2,<3.0"
+                "symfony/form": "~2.2"
             },
-            "time": "2013-05-01 18:47:59",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -3168,7 +3285,8 @@
                 "ecommerce",
                 "shop",
                 "webshop"
-            ]
+            ],
+            "time": "2013-06-18 20:07:30"
         },
         {
             "name": "sylius/shipping-bundle",
@@ -3177,12 +3295,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusShippingBundle.git",
-                "reference": "7fd8da4bf51771e8f87c08e7f545eacf28d6bfd0"
+                "reference": "2a02aa77b88c83ebc8507b88daa42249507d8001"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/SyliusShippingBundle/zipball/7fd8da4bf51771e8f87c08e7f545eacf28d6bfd0",
-                "reference": "7fd8da4bf51771e8f87c08e7f545eacf28d6bfd0",
+                "url": "https://api.github.com/repos/Sylius/SyliusShippingBundle/zipball/2a02aa77b88c83ebc8507b88daa42249507d8001",
+                "reference": "2a02aa77b88c83ebc8507b88daa42249507d8001",
                 "shasum": ""
             },
             "require": {
@@ -3190,13 +3308,13 @@
                 "stof/doctrine-extensions-bundle": "1.1.*",
                 "sylius/money-bundle": "0.1.*",
                 "sylius/resource-bundle": "0.1.*",
-                "symfony/framework-bundle": ">=2.1,<3.0"
+                "symfony/framework-bundle": "~2.1"
             },
             "require-dev": {
                 "phpspec/phpspec2": "dev-develop",
-                "symfony/form": ">=2.1,<3.0"
+                "symfony/form": "~2.1",
+                "symfony/validator": "~2.1"
             },
-            "time": "2013-05-02 12:37:33",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -3233,7 +3351,8 @@
                 "shop",
                 "sylius",
                 "webshop"
-            ]
+            ],
+            "time": "2013-06-12 18:53:43"
         },
         {
             "name": "sylius/taxation-bundle",
@@ -3242,25 +3361,24 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusTaxationBundle.git",
-                "reference": "ae3435c1e3be5564827e0744aa2f5fa90f056b0b"
+                "reference": "93f37e48f6739ad3b463c16b24154c48e71c0264"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/SyliusTaxationBundle/zipball/ae3435c1e3be5564827e0744aa2f5fa90f056b0b",
-                "reference": "ae3435c1e3be5564827e0744aa2f5fa90f056b0b",
+                "url": "https://api.github.com/repos/Sylius/SyliusTaxationBundle/zipball/93f37e48f6739ad3b463c16b24154c48e71c0264",
+                "reference": "93f37e48f6739ad3b463c16b24154c48e71c0264",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
                 "stof/doctrine-extensions-bundle": "1.*",
                 "sylius/resource-bundle": "0.1.*",
-                "symfony/framework-bundle": ">=2.1,<3.0"
+                "symfony/framework-bundle": "~2.1"
             },
             "require-dev": {
                 "phpspec/phpspec2": "dev-develop",
-                "symfony/form": ">=2.1,<3.0"
+                "symfony/form": "~2.1"
             },
-            "time": "2013-04-18 16:16:06",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -3296,7 +3414,8 @@
                 "taxation",
                 "taxes",
                 "webshop"
-            ]
+            ],
+            "time": "2013-06-12 18:50:49"
         },
         {
             "name": "sylius/taxonomies-bundle",
@@ -3305,26 +3424,27 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusTaxonomiesBundle.git",
-                "reference": "1f0c6b12555c97023b8a2ea679246e49a88f3dc1"
+                "reference": "e45c7963d7c7d67ecda9dca900e6e2b55a80d679"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/SyliusTaxonomiesBundle/zipball/1f0c6b12555c97023b8a2ea679246e49a88f3dc1",
-                "reference": "1f0c6b12555c97023b8a2ea679246e49a88f3dc1",
+                "url": "https://api.github.com/repos/Sylius/SyliusTaxonomiesBundle/zipball/e45c7963d7c7d67ecda9dca900e6e2b55a80d679",
+                "reference": "e45c7963d7c7d67ecda9dca900e6e2b55a80d679",
                 "shasum": ""
             },
             "require": {
-                "doctrine/common": ">=2.3,<3.0",
+                "doctrine/common": "~2.3",
+                "jms/translation-bundle": "1.1.*",
                 "php": ">=5.3.3",
+                "stof/doctrine-extensions-bundle": "1.1.*",
                 "sylius/resource-bundle": "0.1.*",
                 "symfony/framework-bundle": ">=2.2,<2.3-dev"
             },
             "require-dev": {
                 "phpspec/phpspec2": "dev-develop",
-                "symfony/form": ">=2.2,<3.0",
+                "symfony/form": "~2.2",
                 "twig/twig": "*"
             },
-            "time": "2013-05-01 15:37:19",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -3361,7 +3481,8 @@
                 "sylius",
                 "taxonomies",
                 "taxonomy"
-            ]
+            ],
+            "time": "2013-06-20 06:58:28"
         },
         {
             "name": "symfony/assetic-bundle",
@@ -3395,7 +3516,6 @@
             "suggest": {
                 "symfony/twig-bundle": ">=2.1.0,<2.3-dev"
             },
-            "time": "2013-02-23 22:29:21",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -3424,7 +3544,8 @@
                 "assets",
                 "compression",
                 "minification"
-            ]
+            ],
+            "time": "2013-02-23 22:29:21"
         },
         {
             "name": "symfony/monolog-bundle",
@@ -3451,7 +3572,6 @@
             "require-dev": {
                 "symfony/yaml": ">=2.2-beta2,<3.0"
             },
-            "time": "2013-02-23 17:18:24",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -3482,7 +3602,8 @@
             "keywords": [
                 "log",
                 "logging"
-            ]
+            ],
+            "time": "2013-02-23 17:18:24"
         },
         {
             "name": "symfony/swiftmailer-bundle",
@@ -3510,7 +3631,6 @@
                 "symfony/http-kernel": ">=2.1.0,<2.3-dev",
                 "symfony/yaml": ">=2.1.0,<2.3-dev"
             },
-            "time": "2013-01-08 20:24:29",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -3537,7 +3657,8 @@
                 }
             ],
             "description": "Symfony SwiftmailerBundle",
-            "homepage": "http://symfony.com"
+            "homepage": "http://symfony.com",
+            "time": "2013-01-08 20:24:29"
         },
         {
             "name": "symfony/symfony",
@@ -3602,7 +3723,6 @@
                 "monolog/monolog": ">=1.3,<2.0",
                 "propel/propel1": "1.6.*"
             },
-            "time": "2013-02-24 13:09:41",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -3636,7 +3756,8 @@
             "homepage": "http://symfony.com",
             "keywords": [
                 "framework"
-            ]
+            ],
+            "time": "2013-02-24 13:09:41"
         },
         {
             "name": "twig/extensions",
@@ -3655,7 +3776,6 @@
             "require": {
                 "twig/twig": "1.*"
             },
-            "time": "2013-01-04 16:55:05",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -3683,7 +3803,8 @@
                 "debug",
                 "i18n",
                 "text"
-            ]
+            ],
+            "time": "2013-01-04 16:55:05"
         },
         {
             "name": "twig/twig",
@@ -3691,22 +3812,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "15336c154c960f7e55e8b9fc1043ce7764ed7edc"
+                "reference": "89007e5cc13011dbc063bd35aa6eb4d62754f727"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/15336c154c960f7e55e8b9fc1043ce7764ed7edc",
-                "reference": "15336c154c960f7e55e8b9fc1043ce7764ed7edc",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/89007e5cc13011dbc063bd35aa6eb4d62754f727",
+                "reference": "89007e5cc13011dbc063bd35aa6eb4d62754f727",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4"
             },
-            "time": "2013-02-21 06:47:52",
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.12-dev"
+                    "dev-master": "1.13-dev"
                 }
             },
             "autoload": {
@@ -3716,7 +3836,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD-3"
+                "BSD-3-Clause"
             ],
             "authors": [
                 {
@@ -3732,7 +3852,8 @@
             "homepage": "http://twig.sensiolabs.org",
             "keywords": [
                 "templating"
-            ]
+            ],
+            "time": "2013-07-05 17:16:02"
         },
         {
             "name": "white-october/pagerfanta-bundle",
@@ -3741,19 +3862,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/whiteoctober/WhiteOctoberPagerfantaBundle.git",
-                "reference": "5d1b9eb262055019a280a0ec48bc0b11fba5bb23"
+                "reference": "v1.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/whiteoctober/WhiteOctoberPagerfantaBundle/zipball/5d1b9eb262055019a280a0ec48bc0b11fba5bb23",
-                "reference": "5d1b9eb262055019a280a0ec48bc0b11fba5bb23",
+                "url": "https://api.github.com/repos/whiteoctober/WhiteOctoberPagerfantaBundle/zipball/v1.0.0",
+                "reference": "v1.0.0",
                 "shasum": ""
             },
             "require": {
                 "pagerfanta/pagerfanta": "1.0.*",
-                "symfony/framework-bundle": ">=2.1,<3.0"
+                "symfony/framework-bundle": "~2.1",
+                "symfony/property-access": "~2.2"
             },
-            "time": "2013-03-30 22:08:55",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -3780,10 +3901,816 @@
             "keywords": [
                 "page",
                 "paging"
-            ]
+            ],
+            "time": "2013-06-06 08:08:38"
         }
     ],
-    "packages-dev": null,
+    "packages-dev": [
+        {
+            "name": "behat/behat",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Behat/Behat.git",
+                "reference": "64052d951cfb21d75b0d34f5ccf79d5ac0adfc92"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Behat/Behat/zipball/64052d951cfb21d75b0d34f5ccf79d5ac0adfc92",
+                "reference": "64052d951cfb21d75b0d34f5ccf79d5ac0adfc92",
+                "shasum": ""
+            },
+            "require": {
+                "behat/gherkin": "~2.2.9",
+                "php": ">=5.3.1",
+                "symfony/config": "~2.0",
+                "symfony/console": "~2.0",
+                "symfony/dependency-injection": "~2.0",
+                "symfony/event-dispatcher": "~2.0",
+                "symfony/finder": "~2.0",
+                "symfony/translation": "~2.0",
+                "symfony/yaml": "~2.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~3.7.19"
+            },
+            "suggest": {
+                "behat/mink-extension": "for integration with Mink testing framework",
+                "behat/symfony2-extension": "for integration with Symfony2 web framework",
+                "behat/yii-extension": "for integration with Yii web framework"
+            },
+            "bin": [
+                "bin/behat"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-develop": "2.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Behat\\Behat": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Konstantin Kudryashov",
+                    "email": "ever.zet@gmail.com",
+                    "homepage": "http://everzet.com"
+                }
+            ],
+            "description": "Scenario-oriented BDD framework for PHP 5.3",
+            "homepage": "http://behat.org/",
+            "keywords": [
+                "BDD",
+                "Behat",
+                "Symfony2"
+            ],
+            "time": "2013-07-01 09:38:54"
+        },
+        {
+            "name": "behat/gherkin",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Behat/Gherkin.git",
+                "reference": "c1f7d89e7e609e45fe40a8a8774f3e43cbe4ffcb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Behat/Gherkin/zipball/c1f7d89e7e609e45fe40a8a8774f3e43cbe4ffcb",
+                "reference": "c1f7d89e7e609e45fe40a8a8774f3e43cbe4ffcb",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.1",
+                "symfony/finder": "~2.0"
+            },
+            "require-dev": {
+                "symfony/config": "~2.0",
+                "symfony/translation": "~2.0",
+                "symfony/yaml": "~2.0"
+            },
+            "suggest": {
+                "symfony/config": "If you want to use Config component to manage resources",
+                "symfony/translation": "If you want to use Symfony2 translations adapter",
+                "symfony/yaml": "If you want to parse features, represented in YAML files"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-develop": "2.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Behat\\Gherkin": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Konstantin Kudryashov",
+                    "email": "ever.zet@gmail.com",
+                    "homepage": "http://everzet.com"
+                }
+            ],
+            "description": "Gherkin DSL parser for PHP 5.3",
+            "homepage": "http://behat.org/",
+            "keywords": [
+                "BDD",
+                "Behat",
+                "DSL",
+                "Symfony2",
+                "parser"
+            ],
+            "time": "2013-05-09 15:20:54"
+        },
+        {
+            "name": "behat/mink",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Behat/Mink.git",
+                "reference": "4a1c50cac4fee084f5cce7d922a73720b99a36db"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Behat/Mink/zipball/4a1c50cac4fee084f5cce7d922a73720b99a36db",
+                "reference": "4a1c50cac4fee084f5cce7d922a73720b99a36db",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.1",
+                "symfony/css-selector": "~2.0"
+            },
+            "suggest": {
+                "behat/mink-browserkit-driver": "extremely fast headless driver for Symfony\\Kernel-based apps (Sf2, Silex)",
+                "behat/mink-goutte-driver": "fast headless driver for any app without JS emulation",
+                "behat/mink-selenium2-driver": "slow, but JS-enabled driver for any app (requires Selenium2)",
+                "behat/mink-zombie-driver": "fast and JS-enabled headless driver for any app (requires node.js)"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-develop": "1.5.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Behat\\Mink": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Konstantin Kudryashov",
+                    "email": "ever.zet@gmail.com",
+                    "homepage": "http://everzet.com"
+                }
+            ],
+            "description": "Web acceptance testing framework for PHP 5.3",
+            "homepage": "http://mink.behat.org/",
+            "keywords": [
+                "browser",
+                "testing",
+                "web"
+            ],
+            "time": "2013-06-27 20:25:17"
+        },
+        {
+            "name": "behat/mink-browserkit-driver",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Behat/MinkBrowserKitDriver.git",
+                "reference": "v1.1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Behat/MinkBrowserKitDriver/zipball/v1.1.0",
+                "reference": "v1.1.0",
+                "shasum": ""
+            },
+            "require": {
+                "behat/mink": "~1.5.0",
+                "php": ">=5.3.1",
+                "symfony/browser-kit": "~2.0",
+                "symfony/dom-crawler": "~2.0"
+            },
+            "require-dev": {
+                "silex/silex": "@dev"
+            },
+            "type": "mink-driver",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Behat\\Mink\\Driver": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Konstantin Kudryashov",
+                    "email": "ever.zet@gmail.com",
+                    "homepage": "http://everzet.com"
+                }
+            ],
+            "description": "Symfony2 BrowserKit driver for Mink framework",
+            "homepage": "http://mink.behat.org/",
+            "keywords": [
+                "Mink",
+                "Symfony2",
+                "browser",
+                "testing"
+            ],
+            "time": "2013-04-13 23:46:30"
+        },
+        {
+            "name": "behat/mink-extension",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Behat/MinkExtension.git",
+                "reference": "6ed67ce283cd5ee882fefefd9358a670a13d404c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Behat/MinkExtension/zipball/6ed67ce283cd5ee882fefefd9358a670a13d404c",
+                "reference": "6ed67ce283cd5ee882fefefd9358a670a13d404c",
+                "shasum": ""
+            },
+            "require": {
+                "behat/behat": "~2.4.5",
+                "behat/mink": ">=1.4.3,<1.6-dev",
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "behat/mink-goutte-driver": "~1.0"
+            },
+            "type": "behat-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Behat\\MinkExtension": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Konstantin Kudryashov",
+                    "email": "ever.zet@gmail.com",
+                    "homepage": "http://everzet.com"
+                }
+            ],
+            "description": "Mink extension for Behat",
+            "homepage": "http://mink.behat.org",
+            "keywords": [
+                "browser",
+                "gui",
+                "test",
+                "web"
+            ],
+            "time": "2013-06-04 17:35:37"
+        },
+        {
+            "name": "behat/mink-goutte-driver",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Behat/MinkGoutteDriver.git",
+                "reference": "fa1b073b48761464feb0b05e6825da44b20118d8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Behat/MinkGoutteDriver/zipball/fa1b073b48761464feb0b05e6825da44b20118d8",
+                "reference": "fa1b073b48761464feb0b05e6825da44b20118d8",
+                "shasum": ""
+            },
+            "require": {
+                "behat/mink-browserkit-driver": ">=1.0.5,<1.2.0",
+                "fabpot/goutte": "~1.0.1",
+                "php": ">=5.3.1"
+            },
+            "type": "mink-driver",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Behat\\Mink\\Driver": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Konstantin Kudryashov",
+                    "email": "ever.zet@gmail.com",
+                    "homepage": "http://everzet.com"
+                }
+            ],
+            "description": "Goutte driver for Mink framework",
+            "homepage": "http://mink.behat.org/",
+            "keywords": [
+                "browser",
+                "goutte",
+                "headless",
+                "testing"
+            ],
+            "time": "2013-07-03 18:43:54"
+        },
+        {
+            "name": "behat/symfony2-extension",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Behat/Symfony2Extension.git",
+                "reference": "17b306a2f3904dc478aef006d3412dfbae542fea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Behat/Symfony2Extension/zipball/17b306a2f3904dc478aef006d3412dfbae542fea",
+                "reference": "17b306a2f3904dc478aef006d3412dfbae542fea",
+                "shasum": ""
+            },
+            "require": {
+                "behat/behat": "~2.4.5",
+                "php": ">=5.3.2",
+                "symfony/framework-bundle": "~2.0"
+            },
+            "require-dev": {
+                "behat/mink": "~1.4.3",
+                "behat/mink-browserkit-driver": "~1.0.4",
+                "behat/mink-extension": "~1.0.1",
+                "symfony/symfony": "~2.1"
+            },
+            "type": "behat-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Behat\\Symfony2Extension": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Konstantin Kudryashov",
+                    "email": "ever.zet@gmail.com",
+                    "homepage": "http://everzet.com"
+                }
+            ],
+            "description": "Symfony2 framework extension for Behat",
+            "homepage": "http://behat.org",
+            "keywords": [
+                "BDD",
+                "framework",
+                "symfony"
+            ],
+            "time": "2013-07-09 08:46:53"
+        },
+        {
+            "name": "fabpot/goutte",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fabpot/Goutte.git",
+                "reference": "2f5104765152d51b501de452a83153ac0b1492df"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fabpot/Goutte/zipball/2f5104765152d51b501de452a83153ac0b1492df",
+                "reference": "2f5104765152d51b501de452a83153ac0b1492df",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "guzzle/http": ">=3.0.5,<3.7-dev",
+                "php": ">=5.3.0",
+                "symfony/browser-kit": "~2.1",
+                "symfony/css-selector": "~2.1",
+                "symfony/dom-crawler": "~2.1",
+                "symfony/finder": "~2.1",
+                "symfony/process": "~2.1"
+            },
+            "require-dev": {
+                "guzzle/plugin-history": ">=3.0.5,<3.7-dev",
+                "guzzle/plugin-mock": ">=3.0.5,<3.7-dev"
+            },
+            "type": "application",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Goutte": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "A simple PHP Web Scraper",
+            "homepage": "https://github.com/fabpot/Goutte",
+            "keywords": [
+                "scraper"
+            ],
+            "time": "2013-07-02 07:48:02"
+        },
+        {
+            "name": "guzzle/common",
+            "version": "v3.6.0",
+            "target-dir": "Guzzle/Common",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/common.git",
+                "reference": "v3.6.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/common/zipball/v3.6.0",
+                "reference": "v3.6.0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "symfony/event-dispatcher": ">=2.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Guzzle\\Common": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Common libraries used by Guzzle",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "collection",
+                "common",
+                "event",
+                "exception"
+            ],
+            "time": "2013-05-30 07:01:25"
+        },
+        {
+            "name": "guzzle/http",
+            "version": "v3.6.0",
+            "target-dir": "Guzzle/Http",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/http.git",
+                "reference": "v3.6.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/http/zipball/v3.6.0",
+                "reference": "v3.6.0",
+                "shasum": ""
+            },
+            "require": {
+                "guzzle/common": "self.version",
+                "guzzle/parser": "self.version",
+                "guzzle/stream": "self.version",
+                "php": ">=5.3.2"
+            },
+            "suggest": {
+                "ext-curl": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Guzzle\\Http": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "HTTP libraries used by Guzzle",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "Guzzle",
+                "client",
+                "curl",
+                "http",
+                "http client"
+            ],
+            "time": "2013-05-30 07:01:25"
+        },
+        {
+            "name": "guzzle/parser",
+            "version": "v3.6.0",
+            "target-dir": "Guzzle/Parser",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/parser.git",
+                "reference": "v3.6.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/parser/zipball/v3.6.0",
+                "reference": "v3.6.0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Guzzle\\Parser": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Interchangeable parsers used by Guzzle",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "URI Template",
+                "cookie",
+                "http",
+                "message",
+                "url"
+            ],
+            "time": "2013-05-30 07:01:25"
+        },
+        {
+            "name": "guzzle/stream",
+            "version": "v3.6.0",
+            "target-dir": "Guzzle/Stream",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/stream.git",
+                "reference": "v3.6.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/stream/zipball/v3.6.0",
+                "reference": "v3.6.0",
+                "shasum": ""
+            },
+            "require": {
+                "guzzle/common": "self.version",
+                "php": ">=5.3.2"
+            },
+            "suggest": {
+                "guzzle/http": "To convert Guzzle request objects to PHP streams"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Guzzle\\Stream": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Guzzle stream wrapper component",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "Guzzle",
+                "component",
+                "stream"
+            ],
+            "time": "2013-05-30 07:01:25"
+        },
+        {
+            "name": "mockery/mockery",
+            "version": "0.7.2",
+            "source": {
+                "type": "git",
+                "url": "git://github.com/padraic/mockery.git",
+                "reference": "0.7.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/padraic/mockery/zipball/0.7.2",
+                "reference": "0.7.2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "suggest": {
+                "Hamcrest": "1.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Mockery": "library/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "New BSD"
+            ],
+            "authors": [
+                {
+                    "name": "Pádraic Brady",
+                    "email": "padraic.brady@gmail.com",
+                    "homepage": "http://blog.astrumfutura.com"
+                }
+            ],
+            "description": "Mockery is a simple yet flexible PHP mock object framework for use in unit testing with PHPUnit, PHPSpec or any other testing framework. Its core goal is to offer a test double framework with a succint API capable of clearly defining all possible object operations and interactions using a human readable Domain Specific Language (DSL). Designed as a drop in alternative to PHPUnit's phpunit-mock-objects library, Mockery is easy to integrate with PHPUnit and can operate alongside phpunit-mock-objects without the World ending.",
+            "homepage": "http://github.com/padraic/mockery",
+            "keywords": [
+                "BDD",
+                "TDD",
+                "library",
+                "mock",
+                "mock objects",
+                "mockery",
+                "stub",
+                "test",
+                "test double",
+                "testing"
+            ],
+            "time": "2012-01-24 12:22:39"
+        },
+        {
+            "name": "phpspec/php-diff",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpspec/php-diff.git",
+                "reference": "v1.0.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpspec/php-diff/zipball/v1.0.1",
+                "reference": "v1.0.1",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Diff": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Chris Boulton",
+                    "homepage": "http://github.com/chrisboulton"
+                }
+            ],
+            "description": "A comprehensive library for generating differences between two hashable objects (strings or arrays).",
+            "time": "2012-11-08 08:55:45"
+        },
+        {
+            "name": "phpspec/phpspec2",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpspec/phpspec2.git",
+                "reference": "249e32840cc97ae03caa73840abeb8f4e5fef0e1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpspec/phpspec2/zipball/249e32840cc97ae03caa73840abeb8f4e5fef0e1",
+                "reference": "249e32840cc97ae03caa73840abeb8f4e5fef0e1",
+                "shasum": ""
+            },
+            "require": {
+                "mockery/mockery": "0.7.*",
+                "php": ">=5.3.3",
+                "phpspec/php-diff": "*@dev",
+                "symfony/console": ">=2.1, <2.3-dev",
+                "symfony/event-dispatcher": ">=2.1, <2.3-dev",
+                "symfony/finder": ">=2.1, <2.3-dev",
+                "symfony/yaml": ">=2.1, <2.3-dev"
+            },
+            "bin": [
+                "bin/phpspec"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-develop": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "PHPSpec2": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Konstantin Kudryashov",
+                    "email": "ever.zet@gmail.com",
+                    "homepage": "http://everzet.com"
+                },
+                {
+                    "name": "Marcello Duarte",
+                    "homepage": "http://marcelloduarte.net/"
+                }
+            ],
+            "description": "Specification-oriented BDD framework for PHP 5.3+",
+            "homepage": "http://phpspec.net/",
+            "keywords": [
+                "BDD",
+                "SpecBDD",
+                "TDD",
+                "spec",
+                "specification",
+                "testing",
+                "tests"
+            ],
+            "time": "2013-04-29 16:10:27"
+        }
+    ],
     "aliases": [
 
     ],
@@ -3799,5 +4726,11 @@
         "behat/mink-goutte-driver": 20,
         "behat/symfony2-extension": 20,
         "phpspec/phpspec2": 20
-    }
+    },
+    "platform": {
+        "php": ">=5.3.3"
+    },
+    "platform-dev": [
+
+    ]
 }

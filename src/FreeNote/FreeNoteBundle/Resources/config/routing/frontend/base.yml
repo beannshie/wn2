@@ -2,6 +2,28 @@ free_note_core_frontend:
     pattern: /
     defaults: { _controller: free_note_core.controller.frontend.homepage:indexAction }
 
+free_note_frontend_category:
+    resource: @FreeNoteBundle/Resources/config/routing/frontend/category.yml
+
+free_note_frontend_article_entry:
+    resource: @FreeNoteBundle/Resources/config/routing/frontend/article_entry.yml
+    prefix: /artykuly
+
+free_note_frontend_news_entry:
+    resource: @FreeNoteBundle/Resources/config/routing/frontend/news_entry.yml
+    prefix: /aktualnosci
+
+free_note_frontend_event_entry:
+    resource: @FreeNoteBundle/Resources/config/routing/frontend/event_entry.yml
+    prefix: /wydarzenia
+
+free_note_frontend_advertisement_entry:
+    resource: @FreeNoteBundle/Resources/config/routing/frontend/advertisement_entry.yml
+    prefix: /ogloszenia
+
+
+
+#TODO - check and change/remove
 #free_note_about:
 #    pattern: /about
 #    defaults: { _controller: free_note_core.controller.frontend.main:aboutAction }
@@ -9,14 +31,6 @@ free_note_core_frontend:
 free_note_frontend_product:
     resource: @FreeNoteBundle/Resources/config/routing/frontend/product.yml
     prefix: /products
-
-free_note_frontend_article_entry:
-    resource: @FreeNoteBundle/Resources/config/routing/frontend/article_entry.yml
-    prefix: /artykuly
-
-#TODO - check and remove
-free_note_frontend_category:
-    resource: @FreeNoteBundle/Resources/config/routing/frontend/category.yml
 
 free_note_checkout_start:
     pattern: /checkout
@@ -35,16 +49,4 @@ free_note_ajax_render_province_choice_form:
     defaults:
         _controller: sylius.controller.province:choiceFormAction
         template: FreeNoteBundle:Backend/Province:_provinceChoiceForm.html.twig
-
-free_note_frontend_news_entry:
-    resource: @FreeNoteBundle/Resources/config/routing/frontend/news_entry.yml
-    prefix: /aktualnosci
-
-free_note_frontend_event_entry:
-    resource: @FreeNoteBundle/Resources/config/routing/frontend/event_entry.yml
-    prefix: /wydarzenia
-
-free_note_frontend_advertisement_entry:
-    resource: @FreeNoteBundle/Resources/config/routing/frontend/advertisement_entry.yml
-    prefix: /ogloszenia
 

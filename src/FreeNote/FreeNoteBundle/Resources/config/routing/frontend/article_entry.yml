@@ -5,6 +5,8 @@ free_note_article_entry_list:
         _sylius:
             template: FreeNoteBundle:Frontend/ArticleEntry:list.html.twig
             paginate: 10
+            filterable: true
+            sortable: true
             criteria:
                 published: true
             sorting:
