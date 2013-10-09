@@ -67,3 +67,30 @@ sylius/blogger-bundle
 sylius/categorizer-bundle
 
 sylius/resource-bundle
+
+
+
+07.10.2013 21:30 to:
+?-sylius/cart-bundle
+?-sylius/sales-bundle
+?-sylius/inventory-bundle
+?-sylius/shipping-bundle
+?-sylius/taxonomies-bundle - MOZE COS NIE DZIALAC
+-sylius/assortment-bundle
++sylius/settings-bundle
+?-sylius/addressing-bundle
+?-sylius/taxation-bundle
+?-sylius/flow-bundle
+-sylius/blogger-bundle
+-sylius/categorizer-bundle
+
+?-sylius/resource-bundle - UWZGLEDNIC (https://github.com/Sylius/SyliusResourceBundle/commit/14a1b2bb0ba87b3eafb99a245371523472b47408)
+
+
+DODAC bo fajne :)
+knplabs/knp-gaufrette-bundle
+
+
+        "sylius/assortment-bundle":            "0.1.*",
+        "sylius/blogger-bundle":               "dev-master",
+        "sylius/categorizer-bundle":           "dev-master",
